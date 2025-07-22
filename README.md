@@ -35,8 +35,8 @@
 
 1. *Clone the repo*
    ```bash
-   git clone https://github.com/your-username/DMS.git
-   cd DMS
+   git clone https://github.com/Shreeram2k3/DataManagementSystem.git
+   cd DataManagementSystem
 
 2. Install dependencies
 
