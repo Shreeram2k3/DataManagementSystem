@@ -46,7 +46,7 @@ npm install && npm run dev
 
 3. Configure environment
 
-cp .env.example .env
+copy .env.example .env
 
 Update database credentials
 
