@@ -91,6 +91,10 @@ All sensitive files (like .env) are listed in .gitignore.
 Shreeram G
 Pre-final year CSE student,
 GitHub: github.com/Shreeram2k3
+ 
+ Sathish K.U
+ Pre-final year CSE student,
+ GitHub: github.com/Sathish21-cse
 
 
 ---

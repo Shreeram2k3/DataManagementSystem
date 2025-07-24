@@ -31,6 +31,10 @@
                 <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
             </label>
         </div>
+        <div class="flex items-center justify-end mt-4">
+            <a href="{{ route('google.login') }}">
+                <img src="https://img.icons8.com/?size=100&id=17949&format=png&color=000000" alt="">
+            </a>
 
         <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
