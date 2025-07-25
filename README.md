@@ -48,7 +48,16 @@ npm install && npm run dev
 
 copy .env.example .env
 
-Update database credentials
+Update .env file 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=dmsdb
+DB_USERNAME=root
+DB_PASSWORD=
+
+SESSION_DOMAIN=null
 
 Update mail configuration
 
