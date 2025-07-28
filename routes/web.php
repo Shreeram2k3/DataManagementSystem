@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\StudentsActivityController\SA_IController;
+use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,4 +24,11 @@ Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback']
 
 require __DIR__.'/auth.php';
 
-// Route::get('/Students Activity/SA_I',[StudentsActivityController::class,])
+// Ensure the controller exists at app/Http/Controllers/StudentsActivityController/SA_IController.php
+Route::post('/Students-Activity/SA_I/create', [SA_IController::class, 'store'])->name('SAI_Store');
+Route::get('/Students-Activity/SA_I',function () {
+    return view('StudentActivityViews.SA_I');
+});
+Route::get('/test',function () {
+    return 'hi';
+})->name('test');
