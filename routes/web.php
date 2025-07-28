@@ -21,3 +21,5 @@ Route::get('/google', [GoogleController::class, 'redirectToGoogle'])->name('goog
 Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
 require __DIR__.'/auth.php';
+
+// Route::get('/Students Activity/SA_I',[StudentsActivityController::class,])
