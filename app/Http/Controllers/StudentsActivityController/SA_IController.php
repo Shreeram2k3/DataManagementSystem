@@ -55,7 +55,7 @@ class SA_IController extends Controller
                 'document_link' => $validated['document_link']
             ]);
            
-            return redirect()->route('dashboard')->with('success', 'Student activity created successfully!');
+            return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');
            }
               catch (\Exception $e) {
                    dd($e->getMessage());
