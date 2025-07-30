@@ -6,16 +6,22 @@ use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
-
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//user route for dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//user routes
+Route::middleware(['auth','verified'])->group(function(){
+    Route::get('/dashboard',[UserController::class,'getdashboard'])->name('dashboard');
+    Route::get('/studentactivity',[UserController::class,'showstudentactivity'])->name('studentactivity');
+    Route::get('/facultyactivity',[UserController::class,'showfacultyactivity'])->name('facultyactivity');
+    Route::get('/departmentactivity',[UserController::class,'showdepartmentactivity'])->name('departmentactivity');
+
+
+
+});
 
 //admin routes
 Route::middleware(['auth',AdminMiddleware::class])->group(function(){
