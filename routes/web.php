@@ -14,7 +14,7 @@ use App\Models\StudentsActivityModels\SA_I;
 use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 //user routes
