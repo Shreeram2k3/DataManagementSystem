@@ -14,7 +14,7 @@
         <textarea name="Name_of_student(s)" id="name_of_student(s)"></textarea>
          <br><br>
         <label for="roll_no">Roll No</label>
-        <input type="text" id="roll_no" name="Roll_No" required maxlength="50">
+        <textarea type="text" id="roll_no" name="Roll_No" required maxlength="50"></textarea>
          <br><br>
         <label for="class">Class</label>
         <input type="text" id="class" name="class" required maxlength="50">

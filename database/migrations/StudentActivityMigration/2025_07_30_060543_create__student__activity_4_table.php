@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('Nmae_of_the_Guide');
             $table->string('Title_of_Project');
             $table->string('Submitted/Sanctioned');
-            $table->string('Sponsoring Agency (Date of Submission / Sanctioned');
-            $table->string('Amount Sanctioned in (Rs.)');
+            $table->string('Sponsoring_Agency_(Date of Submission/Sanctioned');
+            $table->string('Amount_Sanctioned_in_(Rs)');
             $table->string('Dept');
             $table->string('Document_Link');
 

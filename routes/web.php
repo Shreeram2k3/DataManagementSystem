@@ -19,10 +19,21 @@ Route::get('/', function () {
 
 //user routes
 Route::middleware(['auth','verified'])->group(function(){
+    // user/dashboard route 
     Route::get('/dashboard',[UserController::class,'getdashboard'])->name('dashboard');
+    // user/studentactivity route
     Route::get('/studentactivity',[UserController::class,'showstudentactivity'])->name('studentactivity');
+    // user/facultyactivity route
     Route::get('/facultyactivity',[UserController::class,'showfacultyactivity'])->name('facultyactivity');
+    // user/departmentactivity route
     Route::get('/departmentactivity',[UserController::class,'showdepartmentactivity'])->name('departmentactivity');
+
+    // post SAI route 
+    Route::post('/Students-Activity/SA_I/create', [SA_IController::class, 'store'])->name('SAI_Store');
+    // post SAII route 
+    Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
+    // post SAIII route 
+    Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
 
 
 
@@ -50,4 +61,14 @@ Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback']
 
 require __DIR__.'/auth.php';
 
-// Route::get('/Students Activity/SA_I',[StudentsActivityController::class,])
+
+// dummy routes for testing tables 
+Route::get('/Students-Activity/SA_I',function () {
+    return view('StudentActivityViews.SA_I');
+});
+Route::get('/Students-Activity/SA_II', function () {
+          return view('StudentActivityViews.SA_II');});
+
+Route::get('/Students-Activity/SA_III', function () {
+    return view('StudentActivityViews.SA_III');
+});
