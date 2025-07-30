@@ -11,16 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('SAI',function(Blueprint $table)
-        {
-            $table->id('S NO');
+        Schema::create('StudentActivity_3', function (Blueprint $table) {
+            $table->id("S_NO");
             $table->date('Date');
-            $table->string('Name of the Programme');
-            $table->string('Name of the Speaker  & Details');
-            $table->string('Topic');
+            $table->string('Name_of_programme');
+            $table->string('Speaker_details/Convener&details');
+            $table->string('Coordinator');
+            $table->string('Duration');
+            $table->string('Dept');
             $table->string('Outcome');
-            $table->integer('Number of Students Participated');
-            $table->string('Document Link');
+            $table->string('CAMPUS_Document_ID');
         });
     }
 
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('SAI');
+        Schema::dropIfExists('StudentActivity_3');
     }
 };

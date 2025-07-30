@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\StudentsActivityController\SA_IController;
+use App\Http\Controllers\StudentsActivityController\SA_IIController;
+use App\Http\Controllers\StudentsActivityController\SA_IIIController;
+use App\Models\StudentsActivityModels\SA_I;
+use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
     return view('welcome');
@@ -45,6 +50,4 @@ Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback']
 
 require __DIR__.'/auth.php';
 
-
-
-
+// Route::get('/Students Activity/SA_I',[StudentsActivityController::class,])
