@@ -21,11 +21,11 @@ class UserController extends Controller
 
     public function showfacultyactivity()
     {
-        return view('user.studentactivity');
+        return view('user.facultyactivity');
     }
 
     public function showdepartmentactivity()
     {
-        return view('user.studentactivity');
+        return view('user.departmentactivity');
     }
 }
