@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\StudentsActivityController;
 
-
 use App\Models\StudentsActivityModels\SA_I;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -41,7 +40,10 @@ class SA_IController extends Controller
                 'outcome' => 'required|string|max:255',
                 'students_participated' => 'required|integer|min:0',
                 'document_link' => 'nullable|url'
+                
             ]);
+            // Automatically set the user_id to the authenticated user's ID
+            $validated['user_id'] = auth()->id();
            
           //dd($validated); // For debugging purposes, remove in production
            try{
@@ -52,7 +54,8 @@ class SA_IController extends Controller
                 'topic' => $validated['topic'],
                 'outcome' => $validated['outcome'],
                 'students_participated' => $validated['students_participated'],
-                'document_link' => $validated['document_link']
+                'document_link' => $validated['document_link'],
+                'user_id' => $validated['user_id']
             ]);
            
             return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');

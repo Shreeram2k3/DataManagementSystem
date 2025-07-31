@@ -15,7 +15,8 @@ class SA_II extends Model
         'Venue',
         'Prize/place',
         'Date',
-        'Document_Link'
+        'Document_Link',
+        'user_id' 
     ];
     public $timestamps = false;
 }

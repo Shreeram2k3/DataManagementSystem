@@ -17,7 +17,7 @@
     <input type="text" name="Name_of_programme" maxlength="255" required><br><br>
 
     <label for="Speaker_details">Speaker Details / Convener & Details:</label>
-    <input type="text" name="Speaker_details/Convener&details" maxlength="255" required><br><br>
+    <input type="text" name="Speaker_details" maxlength="255" required><br><br>
 
     <label for="Coordinator">Coordinator:</label>
     <input type="text" name="Coordinator" maxlength="255" required><br><br>

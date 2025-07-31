@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('Prize/place');
             $table->date('Date');
             $table->string('Document_Link');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
 
             
         });

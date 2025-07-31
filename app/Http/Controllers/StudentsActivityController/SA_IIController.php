@@ -25,10 +25,28 @@ class SA_IIController extends Controller
                 'Date' => 'required|date',
                 'Document_Link' => 'nullable|url'
             ]);
+            // Automatically set the user_id to the authenticated user's ID
+            $validated['user_id'] = auth()->id();
 
             //dd($validated);
-            SA_II::create($request->all());
-            return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');
+            try{
+                SA_II::create([
+                    'Name_of_student(s)' => $validated['Name_of_student(s)'],
+                    'Roll_No' => $validated['Roll_No'],
+                    'class' => $validated['class'],
+                    'Title_of_Event/Presentation' => $validated['Title_of_Event/Presentation'],
+                    'Venue' => $validated['Venue'],
+                    'Prize/place' => $validated['Prize/place'],
+                    'Date' => $validated['Date'],
+                    'Document_Link' => $validated['Document_Link'],
+                    'user_id' => $validated['user_id']
+                ]);
+                return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');
+            } 
+            catch (\Exception $e) {
+                // Handle the exception
+                return redirect()->route('dashboard')->with('error', 'Failed to store activity: '.$e->getMessage());
+            }
 
            
           

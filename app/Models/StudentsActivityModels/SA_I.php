@@ -15,7 +15,8 @@ class SA_I extends Model
         'topic',
         'outcome',
         'students_participated',
-        'document_link'
+        'document_link',
+        'user_id' // Assuming you want to store the user ID who created this record
     ];
     public $timestamps = false;
 }

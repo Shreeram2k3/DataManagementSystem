@@ -15,7 +15,8 @@ class SA_III extends Model
         'Duration',
         'Dept',
         'Outcome',
-        'CAMPUS_Document_ID'
+        'CAMPUS_Document_ID',
+        'user_id'
     ];
     public $timestamps=false; // Assuming timestamps are not used
 }
