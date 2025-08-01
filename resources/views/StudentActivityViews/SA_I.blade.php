@@ -1,12 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<form method="POST" action="{{ url('/Students-Activity/SA_I/create') }}">
+<Style>
+    input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="url"] {
+  border: 2px solid black;
+  padding: 6px;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus {
+  border-color: green;
+}
+
+</Style>
+<form class="m-10" method="POST" action="{{ url('/Students-Activity/SA_I/create') }} >
     @csrf
     
     <label>Date:</label>
@@ -30,7 +42,5 @@
     <label>Document Link:</label>
     <input type="url" name="document_link">
     <br><br>
-    <button type="submit">Submit</button>
+    <button class="bg-green-500 rounded-md p-2 " >Submit</button>
 </form>
-</body>
-</html>

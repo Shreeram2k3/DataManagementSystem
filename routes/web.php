@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentsActivityController\SA_IController;
 use App\Http\Controllers\StudentsActivityController\SA_IIController;
 use App\Http\Controllers\StudentsActivityController\SA_IIIController;
+use App\Http\Controllers\StudentsActivityController\SAdatapageController;
 use App\Models\StudentsActivityModels\SA_I;
 use Illuminate\Contracts\Cache\Store;
 
@@ -35,7 +36,8 @@ Route::middleware(['auth','verified'])->group(function(){
     // post SAIII route 
     Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
 
-
+//table view test route
+    Route::get('/Student_Activity_1/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA_1.view');
 
 });
 
