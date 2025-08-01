@@ -18,7 +18,7 @@ input[type="url"]:focus {
 }
 
 </Style>
-<form class="m-10" method="POST" action="{{ url('/Students-Activity/SA_I/create') }} >
+<form class="m-10" method="POST" action="{{ url('/Students-Activity/SA_I/create') }}" >
     @csrf
     
     <label>Date:</label>
