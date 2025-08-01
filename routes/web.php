@@ -37,7 +37,7 @@ Route::middleware(['auth','verified'])->group(function(){
     Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
 
 //table view test route
-    Route::get('/Student_Activity_1/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA_1.view');
+    Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 
 });
 

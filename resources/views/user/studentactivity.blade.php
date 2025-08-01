@@ -23,7 +23,7 @@
             <td class="py-3 px-4 border">1</td>
             <td class="py-3 px-4 border">S.A.I. Department Association Activities-CEO/ Leader of the Week / Conference  / Symposium  / Workshop / Seminar/GL  </td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{route('SA_1.view',['type'=>'SA_I'])}}"
+                <a href="{{route('SA.view',['type'=>'SA_I'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -37,7 +37,7 @@
             <td class="py-3 px-4 border">2</td>
             <td class="py-3 px-4 border">S. A. II. Details of Students who Participated /Presented (National Level Event)</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{route('SA_1.view',['type'=>'SA_II'])}}"
+                <a href="{{route('SA.view',['type'=>'SA_II'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -51,7 +51,7 @@
             <td class="py-3 px-4 border">3</td>
             <td class="py-3 px-4 border">S. A. III. Conference  / Symposium  / Workshop / Seminar Attended by Students</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{route('SA_1.view',['type'=>'SA_III'])}}"
+                <a href="{{route('SA.view',['type'=>'SA_III'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -65,7 +65,7 @@
             <td class="py-3 px-4 border">4</td>
             <td class="py-3 px-4 border">S. A. IV.  Students Projects  Submitted / Sanctioned </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_IV'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -79,7 +79,7 @@
             <td class="py-3 px-4 border">5</td>
             <td class="py-3 px-4 border">S. A. V. Open House Exhibition Models Displayed by Students </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_V'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
