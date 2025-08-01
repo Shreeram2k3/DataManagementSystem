@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/loginpg',function(){
+    return view('auth.loginpg');
+});
+
 //user routes
 Route::middleware(['auth','verified'])->group(function(){
     // user/dashboard route 
