@@ -65,12 +65,12 @@ require __DIR__.'/auth.php';
 
 
 // dummy routes for testing tables 
-Route::get('/Students-Activity/SA_I',function () {
-    return view('StudentActivityViews.SA_I');
-});
-Route::get('/Students-Activity/SA_II', function () {
-          return view('StudentActivityViews.SA_II');});
+// Route::get('/Students-Activity/SA_I',function () {
+//     return view('StudentActivityViews.SA_I');
+// });
+// Route::get('/Students-Activity/SA_II', function () {
+//           return view('StudentActivityViews.SA_II');});
 
-Route::get('/Students-Activity/SA_III', function () {
-    return view('StudentActivityViews.SA_III');
-});
+// Route::get('/Students-Activity/SA_III', function () {
+//     return view('StudentActivityViews.SA_III');
+// });
