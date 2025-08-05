@@ -69,25 +69,29 @@
 
                    <br><hr>
 <!------------------------------------------------ Display the data in a table format -------------------------------------------------------------------------------------------------------->
-           @if(empty($data[$type]))
-            <p class="text-gray-500">No data available for this form.</p>
-           @else
-             <div class="max-w-4xl mx-auto mt-10">
-                <div class="bg-white shadow-md rounded-lg overflow-hidden">
-                    <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
-                        <thead class="bg-gray-100 text-gray-900 uppercase">
-                            <tr>
-                                <th class="px-4 py-3 border">S.No</th>
-                                <th class="px-4 py-3 border">Name of Programme</th>
-                                <th class="px-4 py-3 border">Topic</th>
-                                <th class="px-4 py-3 border">Date</th>
-                                <th class="px-4 py-3 border">Speaker Details</th>
-                                <th class="px-4 py-3 border">Outcome</th>
-                                <th class="px-4 py-3 border">Students Participated</th>
-                                <th class="px-4 py-3 border">Document Link</th>
-                            </tr>
-                        </thead>
-                       
+<div class="max-w-4xl mx-auto mt-10">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+        <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
+            <thead class="bg-gray-100 text-gray-900 uppercase">
+                <tr>
+                    <th class="px-4 py-3 border">S.No</th>
+                    <th class="px-4 py-3 border">Name of Programme</th>
+                    <th class="px-4 py-3 border">Topic</th>
+                    <th class="px-4 py-3 border">Date</th>
+                    <th class="px-4 py-3 border">Speaker Details</th>
+                    <th class="px-4 py-3 border">Outcome</th>
+                    <th class="px-4 py-3 border">Students Participated</th>
+                    <th class="px-4 py-3 border">Document Link</th>
+                </tr>
+            </thead>
+            
+            <!-- Check if the data for the selected type is available -->
+            @if($data[$type]->count() === 0 || empty($data[$type]))
+            <td  class="text-gray-500 text-center px-4 py-2 border" colspan="8">
+                <strong class="text-red-500">No Data Available</strong><br>
+          
+            </td>
+            @else
                         @foreach ($data[$type] as $item)
                      <tbody class="bg-white">
                 

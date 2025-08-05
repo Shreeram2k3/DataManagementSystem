@@ -16,6 +16,7 @@ class SAdatapageController extends Controller
             'SA_I',
             'SA_II',
             'SA_III',
+             
        ];
        // Get the user ID from the authenticated user
        $userId = auth()->id();
@@ -31,7 +32,7 @@ class SAdatapageController extends Controller
          {
         $data['SA_III'] = SA_III::where('user_id', $userId)->get();
          }
-// ---------------------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------
          // Check if the type is valid and return the corresponding view
        if (in_array($type, $validTypes)) {
            return view('user.Studentdatapage',compact('type','data'));
