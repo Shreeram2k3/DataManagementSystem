@@ -62,7 +62,12 @@ Route::get('/google', [GoogleController::class, 'redirectToGoogle'])->name('goog
 Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
 require __DIR__.'/auth.php';
-
+ 
+//401-page
+Route::get('/unauthorized',function()
+{
+    return view('unauthorized');
+})->name('unauthorized');
 
 // dummy routes for testing tables 
 // Route::get('/Students-Activity/SA_I',function () {

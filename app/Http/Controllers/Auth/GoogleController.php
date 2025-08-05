@@ -19,28 +19,20 @@ public function handleGoogleCallback()
 {
     
 
-    try {
+   
     $googleUser = Socialite::driver('google')->stateless()->user();
     $user = User::where('email', $googleUser->getEmail())->first();
     if ($user) {
     auth()->login($user);
     return redirect()->route('dashboard');
-}
-// else {
-//             // User not found — redirect with an error message
-//             return redirect()->route('login.error')->with([
-//                 'message' => 'Your email is not registered. Please contact the admin or HOD.',
-//             ]);
-
-//         }
+               }
+        else {
+            // User not found — redirect with an error message
+            return redirect(route('unauthorized'));
+             }
 
 }
- catch (\Exception $e) {
-    dd([
-        'Error Message' => $e->getMessage(),
-        'Exception Class' => get_class($e),
-    ]);
+
 }
-}
-}
+
 
