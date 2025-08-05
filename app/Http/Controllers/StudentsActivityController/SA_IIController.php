@@ -41,7 +41,7 @@ class SA_IIController extends Controller
                     'Document_Link' => $validated['Document_Link'],
                     'user_id' => $validated['user_id']
                 ]);
-                return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');
+                return redirect(route('SA.view', ['type' => 'SA_II']))->with('success', 'Student activity created successfully.');
             } 
             catch (\Exception $e) {
                 // Handle the exception

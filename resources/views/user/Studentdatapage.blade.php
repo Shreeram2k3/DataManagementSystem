@@ -11,6 +11,37 @@
     elseif($type=='SA_III')
            $title='S. A. III. Conference  / Symposium  / Workshop / Seminar Attended by Students';
 @endphp
+<!------------------------------------------- Flash Messages----------------------------------------------------->
+
+            <div x-data="{ show: true, seconds: 5 }" 
+            x-init="let timer = setInterval(() => {
+                if (seconds > 0) seconds--;
+                else show = false;
+            }, 1000)" 
+            x-show="show"
+            class="flex justify-center mt-10">
+
+            @if (session('success'))
+            <div class="flex items-center space-x-4 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded shadow-lg">
+                <!-- Success Message -->
+                <div class="text-base font-medium">
+                    {{ session('success') }}
+                </div>
+
+                <!-- Timer Circle -->
+                <div class="w-8 h-8 rounded-full bg-red-300 text-white flex items-center justify-center text-sm font-light animate-pulse shadow-md">
+                    <span x-text="seconds"></span>s
+                </div>
+            </div>
+            @endif
+
+        </div>
+<!------------------------------------------- Flash Messages ends here ----------------------------------------------------->
+
+
+
+
+              
      <div class="bg-white shadow p-6 rounded-xl mt-10 ml-12 mr-12">
         <h1 class="text-3xl font-bold text-gray-900 mb-10 mt-5">
             Manage, {{$title}} <span class="inline-block"></span>

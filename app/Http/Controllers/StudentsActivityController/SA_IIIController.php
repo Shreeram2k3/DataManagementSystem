@@ -37,7 +37,7 @@ class SA_IIIController extends Controller
                 'CAMPUS_Document_ID' => $request->CAMPUS_Document_ID,
                 'user_id' => $request['user_id']
             ]);     
-        return redirect()->route('dashboard')->with('success', 'Student activity has been entered successfully');
+        return redirect(route('SA.view', ['type' => 'SA_III']))->with('success', 'Student activity created successfully.');
        
          } catch (\Exception $e) 
          {

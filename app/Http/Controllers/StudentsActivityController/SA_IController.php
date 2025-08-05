@@ -30,7 +30,7 @@ class SA_IController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $type = 'SA_I';
         try {
             $validated = $request->validate([
                 'date' => 'required|date',
@@ -58,7 +58,7 @@ class SA_IController extends Controller
                 'user_id' => $validated['user_id']
             ]);
            
-            return redirect()->route('dashboard')->with('success', 'Student activity has entered successfully!');
+            return redirect( route('SA.view', ['type' => $type]))->with('success', 'Student activity created successfully.');
            }
               catch (\Exception $e) {
                    dd($e->getMessage());
