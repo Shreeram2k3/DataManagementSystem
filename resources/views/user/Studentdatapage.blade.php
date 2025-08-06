@@ -47,25 +47,43 @@
             Manage, {{$title}} <span class="inline-block"></span>
         </h1>
             <hr>
+            
+           <section class="flex flex-col lg:flex-row min-h-screen">
+              <!-- Lottie Animation -->
+                    <div class="w-full lg:w-1/2 flex items-center justify-center p-4 ">
+                        <div id="lottie-animation" class="w-full max-w-[500px] h-[400px] sm:h-[500px] lg:h-[600px]"></div>
+                    </div>
+
+             <!-- Lottie Script -->
+                    <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
+                     <script>
+                             lottie.loadAnimation({
+                             container: document.getElementById('lottie-animation'),
+                             path: '{{ asset("Technology.json") }}',
+                             renderer: 'svg',
+                             loop: true,
+                             autoplay: true,
+                });
+                </script>
                     @switch($type)
                         @case('SA_I')
-                            
                             @include('StudentActivityViews.SA_I')
                             @break
-
-                        @case('SA_II')
+                            
+                            @case('SA_II')
                             @include('StudentActivityViews.SA_II')
                             @break
-
-                        @case('SA_III')
+                            
+                            @case('SA_III')
                             @include('StudentActivityViews.SA_III')
                             @break
-
-                        {{-- Add cases for all 15 --}}
-                        
-                        @default
+                            
+                            {{-- Add cases for all 15 --}}
+                            
+                            @default
                             <p class="text-red-500">Form not found.</p>
-                    @endswitch
+                            @endswitch
+                         </section> 
 
                    <br><hr>
 <!------------------------------------------------ Display the data in a table format -------------------------------------------------------------------------------------------------------->

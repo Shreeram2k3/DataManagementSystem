@@ -76,6 +76,6 @@ Route::get('/unauthorized',function()
 // Route::get('/Students-Activity/SA_II', function () {
 //           return view('StudentActivityViews.SA_II');});
 
-// Route::get('/Students-Activity/SA_III', function () {
-//     return view('StudentActivityViews.SA_III');
-// });
+Route::post('/Students-Activity/SA_III', function () {
+    return ('hi');
+})->name('test');
