@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('topic');
             $table->string('outcome');
             $table->integer('students_participated');
-            $table->string('document_link');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('document_link',2083);
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

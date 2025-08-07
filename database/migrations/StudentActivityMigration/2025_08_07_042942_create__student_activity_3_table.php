@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Dept');
             $table->string('Outcome');
             $table->string('CAMPUS_Document_ID');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('StudentActivity_4', function (Blueprint $table) {
             $table->id('S_NO');
             $table->string('Name_of_student(s)');
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('Roll_No');
             $table->string('Nmae_of_the_Guide');
             $table->string('Title_of_Project');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('Sponsoring_Agency_(Date of Submission/Sanctioned');
             $table->string('Amount_Sanctioned_in_(Rs)');
             $table->string('Dept');
-            $table->string('Document_Link');
+            $table->string('Document_Link',2083);
 
 
 
