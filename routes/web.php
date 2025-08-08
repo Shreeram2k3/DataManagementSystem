@@ -46,6 +46,9 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
      Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
+Route::delete('/student-activity/delete/{type}/{id}', [SAdatapageController::class, 'destroy'])->name('student_activity_delete');
+
+
 
 
 
@@ -76,6 +79,9 @@ Route::get('/unauthorized',function()
 // Route::get('/Students-Activity/SA_II', function () {
 //           return view('StudentActivityViews.SA_II');});
 
-// Route::get('/Students-Activity/SA_III', function () {
-//     return view('StudentActivityViews.SA_III');
-// });
+Route::post('/Students-Activity/SA_III', function () {
+    return ('hi');
+})->name('test');
+Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
+Route::put('/student-activity/{type}/{id}', [SAdatapageController::class, 'update'])->name('student_activity_update');
+
