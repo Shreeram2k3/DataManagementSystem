@@ -60,16 +60,11 @@ class SA_IIController extends Controller
            
           
         } catch (\Exception $e) {
-            //dd($e->getMessage());
-            return redirect()->route('dashboard')->with('error', 'Failed to store activity: ');
+            dd($e->getMessage());
+            // return redirect()->route('dashboard')->with('error', 'Failed to store activity: ');
         }
     }
 
-    public function destroy(string $id)
-    {
-        $activity = SA_I::findOrFail($id);
-        $activity->delete(); // This triggers the boot model event
-        return redirect()->back()->with('success', 'Student activity deleted successfully.');
-    }
+    
 
 }
