@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SA_II extends Model
 {
-    protected $primarykey='S_NO';
+    protected $primaryKey='S_NO';
     protected $table="StudentActivity_2";
     protected $fillable = [
         'Name_of_student(s)',

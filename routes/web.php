@@ -79,9 +79,7 @@ Route::get('/unauthorized',function()
 // Route::get('/Students-Activity/SA_II', function () {
 //           return view('StudentActivityViews.SA_II');});
 
-Route::post('/Students-Activity/SA_III', function () {
-    return ('hi');
-})->name('test');
+
 Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
 Route::put('/student-activity/{type}/{id}', [SAdatapageController::class, 'update'])->name('student_activity_update');
 

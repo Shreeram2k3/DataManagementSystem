@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class SA_I extends Model
 {
     use HasFactory;
-    protected $primarykey='S_NO';
+    protected $primaryKey='S_NO';
     protected $table = 'StudentActivity_1';
     protected $fillable = [
         'date',

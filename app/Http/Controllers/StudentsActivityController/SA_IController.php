@@ -71,8 +71,9 @@ class SA_IController extends Controller
                 
                 'user_id' => $validated['user_id']
             ]);
-           
-            return redirect( route('SA.view', ['type' => $type]))->with('success', 'Student activity created successfully.');
+           return back()->with('success', 'Student activity created successfully.');
+
+            // return redirect( route('SA.view', ['type' => $type]))->with('success', 'Student activity created successfully.');
            }
               catch (\Exception $e) {
                    dd($e->getMessage());
@@ -110,11 +111,11 @@ class SA_IController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        $activity = SA_I::findOrFail($id);
-        $activity->delete(); // This triggers the boot model event
-        return redirect()->back()->with('success', 'Student activity deleted successfully.');
-    }
+    // public function destroy(string $id)
+    // {
+    //     $activity = SA_I::findOrFail($id);
+    //     $activity->delete(); // This triggers the boot model event
+    //     return redirect()->back()->with('success', 'Student activity deleted successfully.');
+    // }
 
 }
