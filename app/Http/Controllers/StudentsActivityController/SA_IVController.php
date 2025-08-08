@@ -35,7 +35,7 @@ class SA_IVController extends Controller
             if ($request->hasFile('document')) {
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
-                $validated['document'] = $file->storeAs('SA_Documents/SA_II', $filename, 'public');
+                $validated['document'] = $file->storeAs('SA_Documents/SA_IV', $filename, 'public');
             }
 
             try{
