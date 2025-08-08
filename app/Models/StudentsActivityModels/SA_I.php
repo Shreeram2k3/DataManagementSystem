@@ -3,10 +3,12 @@ namespace App\Models\StudentsActivityModels;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class SA_I extends Model
 {
     use HasFactory;
+    protected $primarykey='S_NO';
     protected $table = 'StudentActivity_1';
     protected $fillable = [
         'date',
@@ -16,7 +18,23 @@ class SA_I extends Model
         'outcome',
         'students_participated',
         'document_link',
-        'user_id' // Assuming you want to store the user ID who created this record
+        'Document',
+        'user_id' // to store the user ID who created this record
     ];
     public $timestamps = false;
+
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($activity) {
+            if ($activity->Document && Storage::disk('public')->exists($activity->Document)) {
+                Storage::disk('public')->delete($activity->Document);
+            }
+        });
+    }
+
+
+
 }

@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('StudentActivity_1',function(Blueprint $table)
         {
-            $table->id();
+            $table->id('S_NO');
             $table->date('date');
             $table->string('name_of_programme');
             $table->string('speaker_details');
             $table->string('topic');
             $table->string('outcome');
             $table->integer('students_participated');
-            $table->string('document_link',2083);
+            $table->string('document_link',2083)->nullable();
+            $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });
     }

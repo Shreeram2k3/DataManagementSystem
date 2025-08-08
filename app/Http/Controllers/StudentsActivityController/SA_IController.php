@@ -28,8 +28,11 @@ class SA_IController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+
+
     public function store(Request $request)
     {
+        // these are the name attribute in form 
         $type = 'SA_I';
         try {
             $validated = $request->validate([
@@ -39,14 +42,22 @@ class SA_IController extends Controller
                 'topic' => 'required|string|max:255',
                 'outcome' => 'required|string|max:255',
                 'students_participated' => 'required|integer|min:0',
-                'document_link' => 'nullable|url'
+                'document_link' => 'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
                 
             ]);
             // Automatically set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
-           
-          //dd($validated); // For debugging purposes, remove in production
+           if ($request->hasFile('document')) {
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
+                $validated['document'] = $file->storeAs('SA_Documents/SA_I', $filename, 'public');
+            }
+
+        //   dd($validated); // For debugging purposes, remove in production
            try{
+
+            // left side column name in table, right side name attribute in form 
             SA_I::create([
                 'date' => $validated['date'],
                 'name_of_programme' => $validated['name_of_programme'],
@@ -55,6 +66,9 @@ class SA_IController extends Controller
                 'outcome' => $validated['outcome'],
                 'students_participated' => $validated['students_participated'],
                 'document_link' => $validated['document_link'],
+                'Document'=>$validated['document'],
+                
+                
                 'user_id' => $validated['user_id']
             ]);
            
@@ -64,6 +78,7 @@ class SA_IController extends Controller
                    dd($e->getMessage());
                 }
         } catch (\Exception $e) {
+            dd($e->getMessage());
             return redirect()->back()->withErrors(['error' => 'Failed to create student activity: ' . $e->getMessage()]);
         }
     }
@@ -97,6 +112,9 @@ class SA_IController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $activity = SA_I::findOrFail($id);
+        $activity->delete(); // This triggers the boot model event
+        return redirect()->back()->with('success', 'Student activity deleted successfully.');
     }
+
 }

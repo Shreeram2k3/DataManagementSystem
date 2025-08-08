@@ -23,10 +23,18 @@ class SA_IIController extends Controller
                 'Venue' => 'required|string|max:255',
                 'Prize/place' => 'required|string|max:255',
                 'Date' => 'required|date',
-                'Document_Link' => 'nullable|url'
+                'Document_Link' => 'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
             ]);
             // Automatically set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
+
+            // to store the file in public 
+            if ($request->hasFile('document')) {
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
+                $validated['document'] = $file->storeAs('SA_Documents/SA_II', $filename, 'public');
+            }
 
             //dd($validated);
             try{
@@ -39,6 +47,7 @@ class SA_IIController extends Controller
                     'Prize/place' => $validated['Prize/place'],
                     'Date' => $validated['Date'],
                     'Document_Link' => $validated['Document_Link'],
+                    'Document'=>$validated['document'],
                     'user_id' => $validated['user_id']
                 ]);
                 return redirect(route('SA.view', ['type' => 'SA_II']))->with('success', 'Student activity created successfully.');
@@ -55,4 +64,12 @@ class SA_IIController extends Controller
             return redirect()->route('dashboard')->with('error', 'Failed to store activity: ');
         }
     }
+
+    public function destroy(string $id)
+    {
+        $activity = SA_I::findOrFail($id);
+        $activity->delete(); // This triggers the boot model event
+        return redirect()->back()->with('success', 'Student activity deleted successfully.');
+    }
+
 }

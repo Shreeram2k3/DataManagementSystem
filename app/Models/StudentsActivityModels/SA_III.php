@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SA_III extends Model
 {
+    protected $primarykey='S_NO';
     protected $table = "StudentActivity_3";
     protected $fillable = [
         'Date',

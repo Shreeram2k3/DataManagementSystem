@@ -3,9 +3,11 @@
 namespace App\Models\StudentsActivityModels;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class SA_II extends Model
 {
+    protected $primarykey='S_NO';
     protected $table="StudentActivity_2";
     protected $fillable = [
         'Name_of_student(s)',
@@ -16,7 +18,21 @@ class SA_II extends Model
         'Prize/place',
         'Date',
         'Document_Link',
-        'user_id' 
+        'Document',
+        'user_id'  // to store the user ID who created this record
     ];
     public $timestamps = false;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function ($activity) {
+            if ($activity->Document && Storage::disk('public')->exists($activity->Document)) {
+                Storage::disk('public')->delete($activity->Document);
+            }
+        });
+    }
+
+
 }

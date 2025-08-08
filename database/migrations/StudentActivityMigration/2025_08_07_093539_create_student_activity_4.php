@@ -22,10 +22,8 @@ return new class extends Migration
             $table->string('Sponsoring_Agency_(Date of Submission/Sanctioned');
             $table->string('Amount_Sanctioned_in_(Rs)');
             $table->string('Dept');
-            $table->string('Document_Link',2083);
-
-
-
+            $table->string('Document_Link',2083)->nullable();
+            $table->string('Document');
         });
     }
 
