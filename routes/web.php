@@ -29,13 +29,21 @@ Route::middleware(['auth','verified'])->group(function(){
     // user/departmentactivity route
     Route::get('/departmentactivity',[UserController::class,'showdepartmentactivity'])->name('departmentactivity');
 
-    // post SAI route 
-    Route::post('/Students-Activity/SA_I/create', [SA_IController::class, 'store'])->name('SAI_Store');
-    // post SAII route 
-    Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
-    // post SAIII route 
-    Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
-
+    // Routes for Storing data in SA 
+            // post SAI route 
+            Route::post('/Students-Activity/SA_I/create', [SA_IController::class, 'store'])->name('SAI_Store');
+            // post SAII route 
+            Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
+            // post SAIII route 
+            Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
+    
+    // Routes for update table in SA
+            // update SA_I
+            Route::put('/Students-activity/update/{id}',[SA_IController::class, 'update'])->name('SAI_update');
+            // update SA_II    
+            Route::put('/student-activity/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');
+             // update SA_III    
+            Route::put('/student-activity/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
 //table view test route
     Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 

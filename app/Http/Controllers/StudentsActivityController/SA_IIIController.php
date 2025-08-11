@@ -51,4 +51,45 @@ class SA_IIIController extends Controller
         }
     
     }
+//--------------------------------------------------------------------------------------------
+    public function update(Request $request, $id)
+    {    try{
+            $record = SA_III::findOrFail($id);
+
+            // Validate input
+             $request->validate([
+            'Date' => 'required|date',
+            'Name_of_programme' => 'required|string|max:255',
+            'Speaker_details' => 'required|string|max:255',
+            'Coordinator' => 'required|string|max:255',
+            'Duration' => 'required|string|max:50',
+            'Dept' => 'required|string|max:100',
+            'Outcome' => 'required|string|max:255',
+            'CAMPUS_Document_ID' => 'nullable|string|max:255'
+        ]);
+
+            // Update fields
+            $record->Date = $request->input('Date');
+            $record->Name_of_programme = $request->input('Name_of_programme');
+            $record['Speaker_details/Convener&details']= $request->input('Speaker_details');
+            $record->Coordinator = $request->input('Coordinator');
+            $record->Duration = $request->input('Duration');
+            $record->Dept = $request->input('Dept');
+            $record->Outcome = $request->input('Outcome');
+            $record->CAMPUS_Document_ID = $request->input('CAMPUS_Document_ID');
+            
+
+
+
+            $record->save();
+
+            return redirect()
+                ->route('SA.view', ['type' => 'SA_III'])
+                ->with('success', 'Student activity updated successfully.');
+         }catch (\Exception $e) {
+            dd($e->getMessage());
+            
+        }
+
+            }
 }

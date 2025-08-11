@@ -5,31 +5,12 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Models\StudentsActivityModels\SA_I;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use PhpParser\Node\Stmt\Return_;
 
 class SA_IController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-
-
+   
     public function store(Request $request)
     {
         // these are the name attribute in form 
@@ -83,39 +64,52 @@ class SA_IController extends Controller
             return redirect()->back()->withErrors(['error' => 'Failed to create student activity: ' . $e->getMessage()]);
         }
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function update(Request $request, $id)
     {
-        //
+            $record = SA_I::findOrFail($id);
+
+            // Validate input
+            $request->validate([
+                'date' => 'required|date',
+                'name_of_programme' => 'required|string|max:255',
+                'speaker_details' => 'required|string|max:255',
+                'topic' => 'required|string|max:255',
+                'outcome' => 'required|string|max:255',
+                'students_participated' => 'required|integer|min:0',
+                'document_link' => 'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+            ]);
+
+            // Update fields
+            $record->date = $request->input('date');
+            $record->name_of_programme = $request->input('name_of_programme');
+            $record->speaker_details = $request->input('speaker_details');
+            $record->topic = $request->input('topic');
+            $record->outcome = $request->input('outcome');
+            $record->students_participated = $request->input('students_participated');
+            $record->document_link = $request->input('document_link');
+            
+
+           // Handle file upload only if new file is uploaded
+            if ($request->hasFile('document')) {
+                // Delete old file if exists
+                if ($record->Document && Storage::disk('public')->exists($record->Document)) {
+                    Storage::disk('public')->delete($record->Document);
+                }
+
+                // Store new file
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $record->Document = $file->storeAs('SA_Documents/SA_I', $filename, 'public');
+            } else {
+                // Keep the old file path (nothing changes)
+                $record->Document = $record->Document;
+            }
+
+            $record->save();
+
+            return redirect()->route('SA.view', ['type' => 'SA_I'])->with('success', 'Student activity updated successfull');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    // public function destroy(string $id)
-    // {
-    //     $activity = SA_I::findOrFail($id);
-    //     $activity->delete(); // This triggers the boot model event
-    //     return redirect()->back()->with('success', 'Student activity deleted successfully.');
-    // }
-
+    
 }
