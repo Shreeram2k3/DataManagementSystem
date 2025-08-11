@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Nmae_of_the_Guide');
             $table->string('Title_of_Project');
             $table->string('Submitted/Sanctioned');
-            $table->string('Sponsoring_Agency_(Date of Submission/Sanctioned');
+            $table->string('Sponsoring_Agency_Date_of_Submission/Sanctioned');
             $table->string('Amount_Sanctioned_in_(Rs)');
             $table->string('Dept');
             $table->string('Document_Link',2083)->nullable();
