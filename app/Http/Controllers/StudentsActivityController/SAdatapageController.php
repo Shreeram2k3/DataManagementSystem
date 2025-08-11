@@ -4,6 +4,7 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Models\StudentsActivityModels\SA_I;
 use App\Models\StudentsActivityModels\SA_II;
 use App\Models\StudentsActivityModels\SA_III;
+use App\Models\StudentsActivityModels\SA_IV;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class SAdatapageController extends Controller
             'SA_I',
             'SA_II',
             'SA_III',
+            'SA_IV',
              
        ];
        // Get the user ID from the authenticated user
@@ -31,6 +33,10 @@ class SAdatapageController extends Controller
          else if ($type === 'SA_III')  
                 {
                     $data['SA_III'] = SA_III::where('user_id', $userId)->get();
+                }
+         else if ($type === 'SA_IV')  
+                {
+                    $data['SA_IV'] = SA_IV::where('user_id', $userId)->get();
                 }
 // -----------------------------------------------------------------------------------------------------------------
          // Check if the type is valid and return the corresponding view

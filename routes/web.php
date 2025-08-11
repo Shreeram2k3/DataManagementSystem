@@ -10,6 +10,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentsActivityController\SA_IController;
 use App\Http\Controllers\StudentsActivityController\SA_IIController;
 use App\Http\Controllers\StudentsActivityController\SA_IIIController;
+use App\Http\Controllers\StudentsActivityController\SA_IVController;
+use App\Http\Controllers\StudentsActivityController\SA_VController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
 use App\Models\StudentsActivityModels\SA_I;
 use Illuminate\Contracts\Cache\Store;
@@ -36,6 +38,8 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
             // post SAIII route 
             Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
+            // post SAIII route 
+            Route::post('/Students-Activity/SA_III/crete',[SA_IVController::class, 'store'])->name('SAIV_Store');
     
     // Routes for update table in SA
             // update SA_I
@@ -44,6 +48,8 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::put('/student-activity/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');
              // update SA_III    
             Route::put('/student-activity/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
+            // update SA_IV   
+            Route::put('/student-activity/update/{id}',[SA_IVController::class,'update'])->name('SAIV_update');
 //table view test route
     Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 

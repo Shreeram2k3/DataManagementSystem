@@ -46,7 +46,7 @@ class SA_IVController extends Controller
                     'Name_of_the_Guide'=>$validated['name_of_the_guide'],
                     'Title_of_Project'=>$validated['title_of_the_project'],
                     'Submitted/Sanctioned'=>$validated['submitted_or_sanctioned'],
-                    'Sponsoring_Agency_(Date of Submission/Sanctioned'=>$validated['sponsoring_agency'],
+                    'Sponsoring_Agency_Date_of_Submission/Sanctioned'=>$validated['Submitted/Sanctioned'],
                     'Amount_Sanctioned_in_(Rs)'=>$validated['amount_sanctioned'],
                     'Dept'=>$validated['dept'],
                     'Document_Link'=>$validated['document_link'],

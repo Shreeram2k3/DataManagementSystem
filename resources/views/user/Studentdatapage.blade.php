@@ -10,6 +10,8 @@
            $title='S. A. II. Details of Students who Participated /Presented (National Level Event)'; 
     elseif($type=='SA_III')
            $title='S. A. III. Conference  / Symposium  / Workshop / Seminar Attended by Students';
+    elseif($type=='SA_IV')
+           $title='S. A. IV.  Students Projects  Submitted / Sanctioned';
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
 
@@ -86,7 +88,10 @@
                             @case('SA_III')
                             @include('StudentActivityViews.SA_III')
                             @break
-                            
+
+                            @case('SA_IV')
+                            @include('StudentActivityViews.SA_IV')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -131,7 +136,18 @@
                                               <th class="px-4 py-3 border">Dept</th>
                                               <th class="px-4 py-3 border">Outcome</th>
                                               <th class="px-4 py-3 border">Campus Document ID</th>
+                                     @elseif ($type=='SA_IV')
+                                            <th class="px-4 py-3 border">S.No</th>
+                                            <th class="px-4 py-3 border">Name of Programme</th>
+                                            <th class="px-4 py-3 border">Speaker Details / Convener & Details</th>
+                                            <th class="px-4 py-3 border">Coordinator</th>
+                                            <th class="px-4 py-3 border">Title of Event/Presentation</th>
+                                            <th class="px-4 py-3 border">Duration</th>
+                                            <th class="px-4 py-3 border">Department</th>
+                                            <th class="px-4 py-3 border">Outcome'</th>
+                                            <th class="px-4 py-3 border">CAMPUS_Document_ID</th>
                                         @endif
+
                                             <th class="px-4 py-3 border">Action</th>
                                         </tr>
                                     </thead>
@@ -175,6 +191,17 @@
                                                 <td class="px-4 py-2 border">{{ $item->Dept}}</td>
                                                 <td class="px-4 py-2 border">{{ $item->Outcome}}</td>
                                                 <td class="px-4 py-2 border">{{ $item->CAMPUS_Document_ID}}</td>
+                                            @elseif ($type=='SA_IV')
+                                               <td class="px-4 py-2 border">{{ $item->S_NO}}</td>
+                                               <td class="px-4 py-2 border">{{ $item['Name_of_student(s)']}}</td>
+                                               <td class="px-4 py-2 border">{{ $item->Roll_No}}</td>
+                                               <td class="px-4 py-2 border">{{ $item->Name_of_the_Guide}}</td>
+                                               <td class="px-4 py-2 border">{{ $item->Title_of_Project}}</td>
+                                               <td class="px-4 py-2 border">{{ $item['Submitted/Sanctioned']}}</td>
+                                               <td class="px-4 py-2 border">{{ $item['Sponsoring_Agency_(Date_of_Submission/Sanctioned)']}}</td>
+                                               <td class="px-4 py-2 border">{{ $item['Amount_Sanctioned_in_(Rs)']}}</td>
+                                               <td class="px-4 py-2 border">{{ $item->Dept}}</td>
+                                              <td class="px-4 py-2 border"><a href="{{ $item->Document_link }}">{{ $item->Document_link }}</a></td>
                                             @endif
 
                                                 <td class="py-3 px-4 border text-center">
