@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('Title_of_the_Paper');
             $table->string('Name_of_the_Journal');
             $table->string('Volume_No');
-            $table->string('Page Nos');
-            $table->string('Conference Details');
+            $table->string('Page_Nos');
+            $table->string('Conference_Details');
             $table->string('National/International');
             $table->string('Dept');
             $table->string('Document_Link',2083)->nullable();
