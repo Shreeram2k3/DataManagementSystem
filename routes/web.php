@@ -42,6 +42,8 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::put('/Students-activity/update/{id}',[SA_IController::class, 'update'])->name('SAI_update');
             // update SA_II    
             Route::put('/student-activity/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');
+             // update SA_III    
+            Route::put('/student-activity/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
 //table view test route
     Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 
