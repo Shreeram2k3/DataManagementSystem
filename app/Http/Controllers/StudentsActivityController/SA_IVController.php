@@ -119,7 +119,7 @@ class SA_IVController extends Controller
             $record->save();
 
             return redirect()
-                ->route('SA.view', ['type' => 'SA_II'])
+                ->route('SA.view', ['type' => 'SA_IV'])
                 ->with('success', 'Student activity updated successfully.');
             
         }
