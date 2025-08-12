@@ -1,6 +1,7 @@
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
-   <form action="{{ isset($record) ? route('SAIII_update', ['type' => $type,'id' => $record->S_NO]) : route('SAIII_Store') }}"
+   <form action="{{ isset($record) ? route('SAIII_update', $record->S_NO) : route('SAIII_Store') }}"
     method="POST" class="space-y-4 w-full max-w-md"enctype="multipart/form-data"> 
+    
     @csrf
     @if(isset($record))
         @method('PUT')

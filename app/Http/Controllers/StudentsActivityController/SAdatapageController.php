@@ -90,7 +90,6 @@ class SAdatapageController extends Controller
     // Fetch the list again for table display
                             $userId = auth()->id();
                             $data[$type] = $model::where('user_id', $userId)->get();
-
                             return view('user.StudentActivityViews.Studentdatapage', compact('type', 'data', 'record'));
         }
         catch (\Exception $e) {
