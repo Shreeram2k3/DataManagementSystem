@@ -70,4 +70,69 @@ class SA_IXController extends Controller
             dd($e->getMessage());
         }
     }
+
+    //--------------------------update method------------------------------------------------------------------
+
+        public function update(Request $request, $id)
+        {
+            try
+            {
+                $record=SA_IX::findOrFail($id);
+                // validate input 
+                $request->validate([
+                    
+                'semester'=>'required|string',
+                'name_of_course'=>'required|string',
+                'name_of_faculty_resource_person'=>'required|string',
+                'from_date'=>'required|date',
+                'to_date'=>'required|date',
+                'value_added_one_credit'=>'required|string',
+                'coordinator'=>'required|string',
+                'dept'=>'required|string',
+                'document_link'=>'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+
+                ]);
+
+                // update details 
+                $record['Semester']=$request->input('semester');
+                $record['Name_of_Course']=$request->input('name_of_course');
+                $record['Name_of_Faculty/Resource_Person']=$request->input('name_of_faculty_resource_person');
+                $record['From_Date']=$request->input('from_date');
+                $record['To_Date']=$request->input('to_date');
+                $record['Value_Added/One_Credit']=$request->input('value_added_one_credit');
+                $record['Coordinator']=$request->input('coordinator');
+                $record['Dept']=$request->input('dept');
+                $record['Document_Link']=$request->input('document_link');
+
+
+                // Handle file upload only if new file is uploaded
+            if ($request->hasFile('document')) {
+                // Delete old file if exists
+                if ($record->Document && Storage::disk('public')->exists($record->Document)) {
+                    Storage::disk('public')->delete($record->Document);
+                }
+
+                // Store new file
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $record->Document = $file->storeAs('SA_Documents/SA_IX', $filename, 'public');
+            } else {
+                // Keep the old file path (nothing changes)
+                $record->Document = $record->Document;
+            }
+
+            $record->save();
+
+            return redirect()
+                ->route('SA.view', ['type' => 'SA_IX'])
+                ->with('success', 'Student activity updated successfully.');
+
+            }
+            catch (\Exception $e) {
+                dd($e->getMessage());
+                
+            }
+        }
+
 }
