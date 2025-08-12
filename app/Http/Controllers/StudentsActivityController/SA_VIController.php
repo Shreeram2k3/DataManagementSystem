@@ -66,4 +66,68 @@ class SA_VIController extends Controller
             dd($e->getMessage());
         }
     }
+
+
+     // -------------------------------------------------------------update method------------------------------------------------------------------------------
+
+             public function update(Request $request, $id)
+        {
+            try
+            {
+                $record=SA_VI::findOrFail($id);
+                // validate input 
+                $request->validate([
+                    
+                'name_of_student'=>'required|string',
+                'roll_no'=>'required|string',
+                'date'=>'required|date',
+                'event'=>'required|string',
+                'place'=>'required|string',
+                'participation_prize'=>'required|string',
+                'remark'=>'required|string',
+                'document_link'=>'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+
+                ]);
+
+                // update details 
+                $record['Name_of_Student(s)']=$request->input('name_of_student');
+                $record['Roll_No']=$request->input('roll_no');
+                $record['Date']=$request->input('date');
+                $record['Event']=$request->input('event');
+                $record['Place']=$request->input('place');
+                $record['Participation/Prize']=$request->input('participation_prize');
+                $record['Remark']=$request->input('remark');
+                $record['Document_Link']=$request->input('document_link');
+
+
+                // Handle file upload only if new file is uploaded
+            if ($request->hasFile('document')) {
+                // Delete old file if exists
+                if ($record->Document && Storage::disk('public')->exists($record->Document)) {
+                    Storage::disk('public')->delete($record->Document);
+                }
+
+                // Store new file
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $record->Document = $file->storeAs('SA_Documents/SA_VI', $filename, 'public');
+            } else {
+                // Keep the old file path (nothing changes)
+                $record->Document = $record->Document;
+            }
+
+            $record->save();
+
+            return redirect()
+                ->route('SA.view', ['type' => 'SA_VI'])
+                ->with('success', 'Student activity updated successfully.');
+
+            }
+            catch (\Exception $e) {
+                dd($e->getMessage());
+                
+            }
+        }
+
 }
