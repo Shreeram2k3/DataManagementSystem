@@ -38,8 +38,8 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
             // post SAIII route 
             Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
-            // post SAIII route 
-            Route::post('/Students-Activity/SA_III/crete',[SA_IVController::class, 'store'])->name('SAIV_Store');
+            // post SAIV route 
+            Route::post('/Students-Activity/SA_IV/crete',[SA_IVController::class, 'store'])->name('SAIV_Store');
     
     // Routes for update table in SA
             // update SA_I

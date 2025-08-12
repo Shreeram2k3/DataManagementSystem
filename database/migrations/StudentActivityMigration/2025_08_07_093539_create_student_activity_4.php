@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Name_of_student(s)');
             $table->foreignId('user_id')->constrained('users');
             $table->string('Roll_No');
-            $table->string('Nmae_of_the_Guide');
+            $table->string('Name_of_the_Guide');
             $table->string('Title_of_Project');
             $table->string('Submitted/Sanctioned');
             $table->string('Sponsoring_Agency_Date_of_Submission/Sanctioned');

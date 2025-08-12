@@ -54,6 +54,7 @@ class SAdatapageController extends Controller
                     'SA_I' => SA_I::class,
                     'SA_II' => SA_II::class,
                     'SA_III' => SA_III::class,
+                    'SA_IV' => SA_IV::class,
                 ];
 
         
@@ -78,6 +79,7 @@ class SAdatapageController extends Controller
                                 'SA_I' => SA_I::class,
                                 'SA_II' => SA_II::class,
                                 'SA_III' => SA_III::class,
+                                'SA_IV'  =>SA_IV::class,
                             ];
 
                             

@@ -5,11 +5,13 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StudentsActivityModels\SA_IV;
+use Illuminate\Support\Facades\Storage;
 
 class SA_IVController extends Controller
 {
     public function store(Request $request)
     {
+        
         $type = 'SA_IV';
 
         try {
@@ -29,7 +31,7 @@ class SA_IVController extends Controller
             ]);
             // set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
-            // dd($validated);
+
 
              // to store the file in public 
             if ($request->hasFile('document')) {
@@ -46,7 +48,7 @@ class SA_IVController extends Controller
                     'Name_of_the_Guide'=>$validated['name_of_the_guide'],
                     'Title_of_Project'=>$validated['title_of_the_project'],
                     'Submitted/Sanctioned'=>$validated['submitted_or_sanctioned'],
-                    'Sponsoring_Agency_Date_of_Submission/Sanctioned'=>$validated['Submitted/Sanctioned'],
+                    'Sponsoring_Agency_Date_of_Submission/Sanctioned'=>$validated['sponsoring_agency'],
                     'Amount_Sanctioned_in_(Rs)'=>$validated['amount_sanctioned'],
                     'Dept'=>$validated['dept'],
                     'Document_Link'=>$validated['document_link'],
@@ -61,7 +63,7 @@ class SA_IVController extends Controller
                 }
         }
         catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => 'Failed to create student activity: ' . $e->getMessage()]);
+            //return redirect()->back()->withErrors(['error' => 'Failed to create student activity: ' . $e->getMessage()]);
             dd($e->getMessage());
         }
     }
@@ -95,8 +97,8 @@ class SA_IVController extends Controller
             $record['Name_of_the_Guide']=$request->input('name_of_the_guide');
             $record['Title_of_Project']=$request->input('title_of_the_project');
             $record['Submitted/Sanctioned']=$request->input('submitted_or_sanctioned');
-            $record['Sponsoring_Agency_(Date of Submission/Sanctioned']=$request->input('sponsoring_agency');
-            $record['Amount_Sanctioned_in_(Rs)']=request->input('amount_sanctioned');
+            $record['Sponsoring_Agency_Date_of_Submission/Sanctioned']=$request->input('sponsoring_agency');
+            $record['Amount_Sanctioned_in_(Rs)']=$request->input('amount_sanctioned');
             $record['Dept']=$request->input('dept');
             $record['Document_Link']=$request->input('document_link');
 
@@ -119,7 +121,7 @@ class SA_IVController extends Controller
             $record->save();
 
             return redirect()
-                ->route('SA.view', ['type' => 'SA_II'])
+                ->route('SA.view', ['type' => 'SA_IV'])
                 ->with('success', 'Student activity updated successfully.');
             
         }

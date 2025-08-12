@@ -16,7 +16,7 @@ class SA_IV extends Model
         'Name_of_the_Guide',
         'Title_of_Project',
         'Submitted/Sanctioned',
-        'Sponsoring_Agency_(Date_of_Submission/Sanctioned)',
+        'Sponsoring_Agency_Date_of_Submission/Sanctioned',
         'Amount_Sanctioned_in_(Rs)',
         'Dept',
         'Document_Link',

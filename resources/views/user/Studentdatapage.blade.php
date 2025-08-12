@@ -138,14 +138,15 @@
                                               <th class="px-4 py-3 border">Campus Document ID</th>
                                      @elseif ($type=='SA_IV')
                                             <th class="px-4 py-3 border">S.No</th>
-                                            <th class="px-4 py-3 border">Name of Programme</th>
-                                            <th class="px-4 py-3 border">Speaker Details / Convener & Details</th>
-                                            <th class="px-4 py-3 border">Coordinator</th>
-                                            <th class="px-4 py-3 border">Title of Event/Presentation</th>
-                                            <th class="px-4 py-3 border">Duration</th>
+                                            <th class="px-4 py-3 border">Name of Students</th>
+                                            <th class="px-4 py-3 border">Roll No</th>
+                                            <th class="px-4 py-3 border">Name Of Guide</th>
+                                            <th class="px-4 py-3 border">Title of Project</th>
+                                            <th class="px-4 py-3 border">Submitted/Sanctioned</th>
+                                            <th class="px-4 py-3 border">Sponsoring Agency Date of Submission/Sanctioned'</th>
+                                            <th class="px-4 py-3 border">Amount Sanctioned in (RS)</th>
                                             <th class="px-4 py-3 border">Department</th>
-                                            <th class="px-4 py-3 border">Outcome'</th>
-                                            <th class="px-4 py-3 border">CAMPUS_Document_ID</th>
+                                            <th class="px-4 py-3 border">Document Link</th>
                                         @endif
 
                                             <th class="px-4 py-3 border">Action</th>
@@ -198,7 +199,7 @@
                                                <td class="px-4 py-2 border">{{ $item->Name_of_the_Guide}}</td>
                                                <td class="px-4 py-2 border">{{ $item->Title_of_Project}}</td>
                                                <td class="px-4 py-2 border">{{ $item['Submitted/Sanctioned']}}</td>
-                                               <td class="px-4 py-2 border">{{ $item['Sponsoring_Agency_(Date_of_Submission/Sanctioned)']}}</td>
+                                               <td class="px-4 py-2 border">{{ $item['Sponsoring_Agency_Date_of_Submission/Sanctioned']}}</td>
                                                <td class="px-4 py-2 border">{{ $item['Amount_Sanctioned_in_(Rs)']}}</td>
                                                <td class="px-4 py-2 border">{{ $item->Dept}}</td>
                                               <td class="px-4 py-2 border"><a href="{{ $item->Document_link }}">{{ $item->Document_link }}</a></td>
