@@ -11,23 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('StudentActivity_7', function (Blueprint $table) {
+        Schema::create('StudentActivity_8', function (Blueprint $table) {
             $table->id('S_NO');
-            $table->string('Month');
             $table->string('Name_of_Student(s)');
             $table->string('Roll_No');
-            $table->string('Staff(if_guided)');
-            $table->string('Title_of_the_Paper');
-            $table->string('Name_of_the_Journal');
-            $table->string('Volume_No');
-            $table->string('Page_Nos');
-            $table->string('Conference_Details');
-            $table->string('National/International');
-            $table->string('Dept');
+            $table->string('Name_of_the_Organization');
+            $table->string('Location');
+            $table->string('Salary(Rs/Annum)');
+            $table->date('Date_of_Interview');
+            $table->string('Remarks')->nullable();
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
-            
+
+
         });
     }
 
@@ -36,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('StudentActivity_7');
+        Schema::dropIfExists('StudentActivity_8');
     }
 };
