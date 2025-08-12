@@ -41,7 +41,7 @@ class SAdatapageController extends Controller
 // -----------------------------------------------------------------------------------------------------------------
          // Check if the type is valid and return the corresponding view
                 if (in_array($type, $validTypes)) {
-                    return view('user.Studentdatapage',compact('type','data'));
+                    return view('user.StudentActivityViews.Studentdatapage',compact('type','data'));
                 } else {
                     return "The form not exists";
                 }
@@ -91,7 +91,7 @@ class SAdatapageController extends Controller
                             $userId = auth()->id();
                             $data[$type] = $model::where('user_id', $userId)->get();
 
-                            return view('user.Studentdatapage', compact('type', 'data', 'record'));
+                            return view('user.StudentActivityViews.Studentdatapage', compact('type', 'data', 'record'));
         }
         catch (\Exception $e) {
                    dd($e->getMessage());

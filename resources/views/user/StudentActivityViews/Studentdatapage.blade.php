@@ -78,7 +78,7 @@
                 </script>
                     @switch($type)
                         @case('SA_I')
-                            @include('StudentActivityViews.SA_I')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_I')
                             @break
                             
                             @case('SA_II')
