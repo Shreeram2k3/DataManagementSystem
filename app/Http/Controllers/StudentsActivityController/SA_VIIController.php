@@ -76,4 +76,76 @@ class SA_VIIController extends Controller
             dd($e->getMessage());
         }
     }
+
+
+         //--------------------------update method------------------------------------------------------------------
+
+        public function update(Request $request, $id)
+        {
+            try
+            {
+                $record=SA_VII::findOrFail($id);
+                // validate input 
+                $request->validate([
+                    
+                'month'=>'required|string',
+                'name_of_students'=>'required|string',
+                'roll_no'=>'required|string',
+                'staff_ifguided'=>'required|string',
+                'title_of_the_paper'=>'required|string',
+                'name_of_the_journal'=>'required|string',
+                'volumne_no'=>'required|string',
+                'page_no'=>'required|string',
+                'conference_details' => 'required|string',
+                'national_international'=>'required|string',
+                'dept'=>'required|string',
+                'document_link'=>'nullable|url',
+                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+
+                ]);
+
+                // update details 
+                $record['Month']=$request->input('month');
+                $record['Name_of_Student(s)']=$request->input('name_of_students');
+                $record['Roll_No']=$request->input('roll_no');
+                $record['Staff(if_guided)']=$request->input('staff_ifguided');
+                $record['Title_of_the_Paper']=$request->input('title_of_the_paper');
+                $record['Name_of_the_Journal']=$request->input('name_of_the_journal');
+                $record['Volume_No']=$request->input('volumne_no');
+                $record['Page_Nos']=$request->input('page_no');
+                $record['Conference_Details']=$request->input('conference_details');
+                $record['National/International']=$request->input('national_international');
+                $record['Dept']=$request->input('dept');
+                $record['Document_Link']=$request->input('document_link');
+
+
+                // Handle file upload only if new file is uploaded
+            if ($request->hasFile('document')) {
+                // Delete old file if exists
+                if ($record->Document && Storage::disk('public')->exists($record->Document)) {
+                    Storage::disk('public')->delete($record->Document);
+                }
+
+                // Store new file
+                $file = $request->file('document');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $record->Document = $file->storeAs('SA_Documents/SA_VII', $filename, 'public');
+            } else {
+                // Keep the old file path (nothing changes)
+                $record->Document = $record->Document;
+            }
+
+            $record->save();
+
+            return redirect()
+                ->route('SA.view', ['type' => 'SA_VII'])
+                ->with('success', 'Student activity updated successfully.');
+
+            }
+            catch (\Exception $e) {
+                dd($e->getMessage());
+                
+            }
+        }
+
 }
