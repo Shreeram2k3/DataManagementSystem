@@ -86,7 +86,7 @@ class SA_IVController extends Controller
                 'amount_sanctioned'=>'required|string|max:255',
                 'dept'=>'required|string|max:255',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
 
             ]);
 

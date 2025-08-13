@@ -101,7 +101,8 @@
 
                    <br><hr>
 <!------------------------------------------------ Display the data in a table format -------------------------------------------------------------------------------------------------------->   
-                        <div class="  mt-10">
+                       <h1 class="font-semibold text-2xl  mt-10 ml-2" >View Data</h1>
+                        <div class="  mt-8">
                             <div class="bg-white shadow-md overflow-x-auto  rounded-lg overflow-hidden ">
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                       @switch($type)
@@ -109,8 +110,20 @@
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_ITable')
                                             @break
 
+                                        @case('SA_II')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IITable')
+                                            @break
+
+                                        @case('SA_III')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IIITable')
+                                            @break
+
+                                        @case('SA_IV')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable')
+                                            @break
+
                                       @default
-                                            <p class="text-red-500">Form not found.</p>
+                                            <p class="text-red-500">table not found.</p>
                                       @endswitch
                                     
                                 </table>

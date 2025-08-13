@@ -77,7 +77,7 @@ class SA_IController extends Controller
                 'outcome' => 'required|string|max:255',
                 'students_participated' => 'required|integer|min:0',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
@@ -90,21 +90,19 @@ class SA_IController extends Controller
             $record->document_link = $request->input('document_link');
             
 
-           // Handle file upload only if new file is uploaded
-            if ($request->hasFile('document')) {
-                // Delete old file if exists
-                if ($record->Document && Storage::disk('public')->exists($record->Document)) {
-                    Storage::disk('public')->delete($record->Document);
-                }
+            // If a new document is uploaded
+    if ($request->hasFile('document')) {
+        // Delete old file if exists
+        if ($record->Document && Storage::disk('public')->exists($record->Document)) {
+            Storage::disk('public')->delete($record->Document);
+        }
 
-                // Store new file
-                $file = $request->file('document');
-                $filename = time() . '_' . $file->getClientOriginalName();
-                $record->Document = $file->storeAs('SA_Documents/SA_I', $filename, 'public');
-            } else {
-                // Keep the old file path (nothing changes)
-                $record->Document = $record->Document;
-            }
+        // Save new file
+        $file = $request->file('document');
+        $filename = time() . '_' . $file->getClientOriginalName();
+        $record->Document = $file->storeAs('SA_Documents/SA_I', $filename, 'public');
+    }
+    // else → keep old file
 
             $record->save();
 
