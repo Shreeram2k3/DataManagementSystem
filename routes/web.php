@@ -35,29 +35,33 @@ Route::middleware(['auth','verified'])->group(function(){
             // post SAI route 
             Route::post('/Students-Activity/SA_I/create', [SA_IController::class, 'store'])->name('SAI_Store');
             // post SAII route 
-            Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
+             Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
             // post SAIII route 
             Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
             // post SAIV route 
             Route::post('/Students-Activity/SA_IV/crete',[SA_IVController::class, 'store'])->name('SAIV_Store');
-    
-    // Routes for update table in SA
+            
+        // Routes for update table in SA
             // update SA_I
-            Route::put('/Students-activity/update/{id}',[SA_IController::class, 'update'])->name('SAI_update');
-            // update SA_II    
-            Route::put('/student-activity/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');
-             // update SA_III    
-            Route::put('/student-activity/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
-            // update SA_IV   
+            Route::put('/Students-activity/SA_I/update/{id}',[SA_IController::class, 'update'])->name('SAI_update');
+            
+            // update SA_II
+            Route::put('/student-activity/SA_II/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');  
+
+            // update SA_III
+            Route::put('/student-activity/SA_III/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
+
+            //update SA_IV  
             Route::put('/student-activity/update/{id}',[SA_IVController::class,'update'])->name('SAIV_update');
+
 //table view test route
-    Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
+Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 
 });
 
 //admin routes
 Route::middleware(['auth',AdminMiddleware::class])->group(function(){
-     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
 Route::delete('/student-activity/delete/{type}/{id}', [SAdatapageController::class, 'destroy'])->name('student_activity_delete');
@@ -79,7 +83,7 @@ Route::get('/google', [GoogleController::class, 'redirectToGoogle'])->name('goog
 Route::get('/google/callback', [GoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
 require __DIR__.'/auth.php';
- 
+
 //401-page
 Route::get('/unauthorized',function()
 {
@@ -88,12 +92,13 @@ Route::get('/unauthorized',function()
 
 // dummy routes for testing tables 
 // Route::get('/Students-Activity/SA_I',function () {
-//     return view('StudentActivityViews.SA_I');
-// });
-// Route::get('/Students-Activity/SA_II', function () {
-//           return view('StudentActivityViews.SA_II');});
-
-
-Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
-Route::put('/student-activity/{type}/{id}', [SAdatapageController::class, 'update'])->name('student_activity_update');
-
+    //     return view('StudentActivityViews.SA_I');
+    // });
+    // Route::get('/Students-Activity/SA_II', function () {
+        //           return view('StudentActivityViews.SA_II');});
+        
+        
+        Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
+        
+        
+       

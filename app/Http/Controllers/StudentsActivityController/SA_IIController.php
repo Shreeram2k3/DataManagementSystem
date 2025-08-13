@@ -128,6 +128,11 @@ class SA_IIController extends Controller
 
             }
 
+            public function u(Request $request, $id)
+            {
+                return "hi";
+            }
+
    
 
 
