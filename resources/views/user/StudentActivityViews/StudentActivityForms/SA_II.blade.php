@@ -13,26 +13,26 @@
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Name of Students</span>
-                    <textarea name="Name_of_student(s)" id="name_of_student(s)" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                    <textarea name="Name_of_student(s)" id="name_of_student(s)" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2" required
                     >{{ $record['Name_of_student(s)'] ?? old('Name_of_student(s)') }}</textarea>
                 </label>
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Roll No</span>
-                    <textarea id="roll_no" name="Roll_No" required maxlength="50" 
+                    <textarea id="roll_no" name="Roll_No" required  
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
                     >{{ $record->Roll_No ?? old('Roll_No') }}</textarea>
                 </label>
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Class</span>
-                    <input  type="text" id="class" name="class" required maxlength="50" value="{{ $record->class ?? old('class') }}" 
+                    <input  type="text" id="class" name="class" required  value="{{ $record->class ?? old('class') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Title of Event</span>
-                    <input type="text" id="title_of_event" name="Title_of_Event/Presentation" required maxlength="255" 
+                    <input type="text" id="title_of_event" name="Title_of_Event/Presentation" required 
                         value="{{ $record['Title_of_Event/Presentation'] ?? old('Title_of_Event/Presentation') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
                     >
@@ -40,14 +40,14 @@
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Venue</span>
-                    <input type="text" id="venue" name="Venue" required maxlength="255" value="{{ $record->Venue ?? old('Venue') }}" 
+                    <input type="text" id="venue" name="Venue" required  value="{{ $record->Venue ?? old('Venue') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
                     >
                 </label>
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Prize/Place</span>
-                    <input type="text" id="Prize/place" name="Prize/place" required maxlength="255" value="{{ $record['Prize/place'] ?? old('Prize/place') }}" 
+                    <input type="text" id="Prize/place" name="Prize/place" required  value="{{ $record['Prize/place'] ?? old('Prize/place') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
                     >
                 </label>
@@ -67,21 +67,21 @@
 
                 <label class="block">
                     <span class="text-sm text-gray-600">Document</span>
-                    
-                    @if(isset($record) && $record->document)
-                        <p class="text-sm text-blue-600 mt-1">
-                            Current File: 
-                            <a href="{{ asset('SA_Document/SA_II/' . $record->Document) }}" target="_blank" class="underline text-blue-500">
-                                View / Download
+
+                    {{-- Show existing document name or link if record exists --}}
+                    @if(isset($record) && $record->Document)
+                        <p class="text-sm text-gray-500">
+                            Current file: 
+                            <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
+                                {{ basename($record->Document) }}
                             </a>
                         </p>
                     @endif
 
-                    <input 
-                        type="file" 
-                        name="document"
-                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2 mt-1"
-                    >
+                    {{-- File upload field --}}
+                    <input type="file" name="document"
+                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                        {{ isset($record) ? '' : 'required' }}>
                 </label>
 
 

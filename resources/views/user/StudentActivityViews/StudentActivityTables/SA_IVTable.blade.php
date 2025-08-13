@@ -1,14 +1,14 @@
-
 <thead class="bg-gray-100 text-gray-900 uppercase">
             <tr>
-                                       
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Name of Programme</th>
-                <th class="px-4 py-3 border">Topic</th>
-                <th class="px-4 py-3 border">Date</th>
-                <th class="px-4 py-3 border">Speaker Details</th>
-                <th class="px-4 py-3 border">Outcome</th>
-                <th class="px-4 py-3 border">Students Participated</th>
+                <th class="px-4 py-3 border">Name of Students</th>
+                <th class="px-4 py-3 border">Roll No</th>
+                <th class="px-4 py-3 border">Name Of Guide</th>
+                <th class="px-4 py-3 border">Title of Project</th>
+                <th class="px-4 py-3 border">Submitted/Sanctioned</th>
+                <th class="px-4 py-3 border">Sponsoring Agency Date of Submission/Sanctioned'</th>
+                <th class="px-4 py-3 border">Amount Sanctioned in (RS)</th>
+                <th class="px-4 py-3 border">Department</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Action</th>
               </tr>
@@ -23,15 +23,16 @@
             @foreach ($data[$type] as $item)
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
-                   
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->name_of_programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->topic }}</td>
-                    <td class="px-4 py-2 border">{{ $item->date }}</td>
-                    <td class="px-4 py-2 border">{{ $item->speaker_details }}</td>
-                    <td class="px-4 py-2 border">{{ $item->outcome }}</td>
-                    <td class="px-4 py-2 border">{{ $item->students_participated }}</td>
-                    <td class="px-4 py-2 border">
+                  <td class="px-4 py-2 border">{{ $item->S_NO}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Name_of_student(s)']}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Roll_No}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Name_of_the_Guide}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Title_of_Project}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Submitted/Sanctioned']}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Sponsoring_Agency_Date_of_Submission/Sanctioned']}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Amount_Sanctioned_in_(Rs)']}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Dept}}</td>
+                  <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
                               {{ $item->Document_Link }}
@@ -41,7 +42,8 @@
                       @endif
                   </td>
 
-                    <td class="py-3 px-4 border text-center">
+
+                  <td class="py-3 px-4 border text-center">
                     <div class="flex justify-center rounded-lg overflow-hidden">
                         <!-- Edit Icon -->
                           <button class="p-2 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
@@ -68,4 +70,3 @@
               @endforeach
           </tbody>
           @endif
-                 

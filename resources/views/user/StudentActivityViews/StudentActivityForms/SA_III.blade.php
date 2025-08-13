@@ -13,46 +13,46 @@
      
             <label class="block">
                             <span class="text-sm text-gray-600">Date</span>
-                            <input  type="date" id="Date" name="Date" required maxlength="50" value="{{ $record->Date ?? old('Date') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+                            <input  type="date" id="Date" name="Date" required  value="{{ $record->Date ?? old('Date') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
             </label>
             <label class="block">
                             <span class="text-sm text-gray-600">Name Of Programme</span>
-                            <input  type="text" id="Name_of_programme" name="Name_of_programme" required maxlength="50" value="{{ $record->Name_of_programme ?? old('Name_of_programme') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+                            <input  type="text" id="Name_of_programme" name="Name_of_programme" required  value="{{ $record->Name_of_programme ?? old('Name_of_programme') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                         </label>
      
     
      <label class="block">
                     <span class="text-sm text-gray-600">Speaker Details / Convener & Details:</span>
-                    <input  type="text" id="Speaker_details" name="Speaker_details" required maxlength="50" value="{{ $record['Speaker_details/Convener&details'] ?? old('Speaker_details/Convener&details') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+                    <input  type="text" id="Speaker_details" name="Speaker_details" required value="{{ $record['Speaker_details/Convener&details'] ?? old('Speaker_details/Convener&details') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
     </label>
     
      <label class="block">
                     <span class="text-sm text-gray-600">Coordinator :</span>
-                    <input  type="text" id="Coordinator" name="Coordinator" required maxlength="50" value="{{ $record->Coordinator ?? old('Coordinator') }}" 
+                    <input  type="text" id="Coordinator" name="Coordinator" required  value="{{ $record->Coordinator ?? old('Coordinator') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
      <label class="block">
                     <span class="text-sm text-gray-600">Duration :</span>
-                    <input  type="text" id="Duration" name="Duration" required maxlength="50" value="{{ $record->Duration ?? old('Duration') }}" 
+                    <input  type="text" id="Duration" name="Duration" required  value="{{ $record->Duration ?? old('Duration') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
      <label class="block">
                     <span class="text-sm text-gray-600">Department :</span>
-                    <input  type="text" id="Dept" name="Dept" required maxlength="50" value="{{ $record->Dept ?? old('Dept') }}" 
+                    <input  type="text" id="Dept" name="Dept" required  value="{{ $record->Dept ?? old('Dept') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
      <label class="block">
                     <span class="text-sm text-gray-600">Outcome :</span>
-                    <input  type="text" id="Outcome" name="Outcome" required maxlength="50" value="{{ $record->Outcome ?? old('Outcome') }}" 
+                    <input  type="text" id="Outcome" name="Outcome" required  value="{{ $record->Outcome ?? old('Outcome') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
        <label class="block">
                     <span class="text-sm text-gray-600">CAMPUS_Document_ID :</span>
-                    <input  type="text" id="CAMPUS_Document_ID" name="CAMPUS_Document_ID" required maxlength="50" value="{{ $record->CAMPUS_Document_ID ?? old('CAMPUS_Document_ID') }}" 
+                    <input  type="text" id="CAMPUS_Document_ID" name="CAMPUS_Document_ID" required  value="{{ $record->CAMPUS_Document_ID ?? old('CAMPUS_Document_ID') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
 
