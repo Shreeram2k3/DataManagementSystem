@@ -101,7 +101,7 @@
 
                    <br><hr>
 <!------------------------------------------------ Display the data in a table format -------------------------------------------------------------------------------------------------------->   
-                       <h1 class="font-semibold text-2xl  pt-1" >View Data</h1>
+                       <h1 class="font-semibold text-2xl  mt-10 ml-2" >View Data</h1>
                         <div class="  mt-8">
                             <div class="bg-white shadow-md overflow-x-auto  rounded-lg overflow-hidden ">
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">

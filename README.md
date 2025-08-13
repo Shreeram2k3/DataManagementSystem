@@ -79,6 +79,13 @@ php artisan migrate
 
 php artisan serve
 
+7. Grant read access to everyone(for view the document)
+
+icacls storage /grant Everyone:(R)
+
+8. Laravel storage link command
+
+php artisan storage:link
 
 
 
