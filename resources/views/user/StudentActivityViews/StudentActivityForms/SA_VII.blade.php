@@ -143,15 +143,24 @@
             </label>
 
             <label class="block">
-                <span class="text-sm text-gray-600">Document</span>
-                
+                    <span class="text-sm text-gray-600">Document</span>
 
-                <input 
-                    type="file" 
-                    name="document"
-                    class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2 mt-1"
-                >
+                    {{-- Show existing document name or link if record exists --}}
+                    @if(isset($record) && $record->Document)
+                        <p class="text-sm text-gray-500">
+                            Current file: 
+                            <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
+                                {{ basename($record->Document) }}
+                            </a>
+                        </p>
+                    @endif
+
+                    {{-- File upload field --}}
+                    <input type="file" name="document"
+                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                        {{ isset($record) ? '' : 'required' }}>
             </label>
+
 
             <button 
                 type="submit" 
