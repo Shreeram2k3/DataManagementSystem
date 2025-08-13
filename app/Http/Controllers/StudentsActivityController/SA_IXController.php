@@ -4,29 +4,32 @@ namespace App\Http\Controllers\StudentsActivityController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\StudentsActivityModels\SA_VI;
+use App\Models\StudentsActivityModels\SA_IX;
 
 
-class SA_VIController extends Controller
+class SA_IXController extends Controller
 {
     public function store(Request $request)
     {
-        $type= 'SA_VI';
+        $type= 'SA_VIII';
         // return "hi";
 
         try{
             // these are the name attributes in the form 
             $validated = $request->validate([
 
-                'name_of_student'=>'required|string',
-                'roll_no'=>'required|string',
-                'date'=>'required|date',
-                'event'=>'required|string',
-                'place'=>'required|string',
-                'participation_prize'=>'required|string',
-                'remark'=>'required|string',
+                'semester'=>'required|string',
+                'name_of_course'=>'required|string',
+                'name_of_faculty_resource_person'=>'required|string',
+                'from_date'=>'required|date',
+                'to_date'=>'required|date',
+                'value_added_one_credit'=>'required|string',
+                'coordinator'=>'required|string',
+                'dept'=>'required|string',
                 'document_link'=>'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+
+
             ]);
 
             // set the user_id to the authenticated user's ID
@@ -37,20 +40,21 @@ class SA_VIController extends Controller
             if ($request->hasFile('document')) {
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
-                $validated['document'] = $file->storeAs('SA_Documents/SA_VI', $filename, 'public');
+                $validated['document'] = $file->storeAs('SA_Documents/SA_IX', $filename, 'public');
             }
 
             try{
-                SA_VI::create([
-                    'Name_of_Student(s)'=>$validated['name_of_student'],
-                    'Roll_No'=>$validated['roll_no'],                    
-                    'Date'=>$validated['date'],
-                    'Event'=>$validated['event'],
-                    'Place'=>$validated['place'],
-                    'Participation/Prize'=>$validated['participation_prize'],
-                    'Remark'=>$validated['remark'],
+                SA_IX::create([
+                    'Semester'=>$validated['semester'],                    
+                    'Name_of_Course'=>$validated['name_of_course'],
+                    'Name_of_Faculty/Resource_Person'=>$validated['name_of_faculty_resource_person'],
+                    'From_Date'=>$validated['from_date'],
+                    'To_Date'=>$validated['to_date'],
+                    'Value_Added/One_Credit'=>$validated['value_added_one_credit'],
+                    'Coordinator'=>$validated['coordinator'],
+                    'Dept'=>$validated['dept'],
                     'Document_Link'=>$validated['document_link'],
-                     'Document'=>$validated['document'],
+                    'Document'=>$validated['document'],
                     'user_id'=>$validated['user_id']
                 ]);
                 return redirect( route('SA.view', ['type' => $type]))->with('success', 'Student activity Added successfully.');
@@ -67,37 +71,38 @@ class SA_VIController extends Controller
         }
     }
 
+    //--------------------------update method------------------------------------------------------------------
 
-     // -------------------------------------------------------------update method------------------------------------------------------------------------------
-
-             public function update(Request $request, $id)
+        public function update(Request $request, $id)
         {
             try
             {
-                $record=SA_VI::findOrFail($id);
+                $record=SA_IX::findOrFail($id);
                 // validate input 
                 $request->validate([
                     
-                'name_of_student'=>'required|string',
-                'roll_no'=>'required|string',
-                'date'=>'required|date',
-                'event'=>'required|string',
-                'place'=>'required|string',
-                'participation_prize'=>'required|string',
-                'remark'=>'required|string',
+                'semester'=>'required|string',
+                'name_of_course'=>'required|string',
+                'name_of_faculty_resource_person'=>'required|string',
+                'from_date'=>'required|date',
+                'to_date'=>'required|date',
+                'value_added_one_credit'=>'required|string',
+                'coordinator'=>'required|string',
+                'dept'=>'required|string',
                 'document_link'=>'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
 
                 ]);
 
                 // update details 
-                $record['Name_of_Student(s)']=$request->input('name_of_student');
-                $record['Roll_No']=$request->input('roll_no');
-                $record['Date']=$request->input('date');
-                $record['Event']=$request->input('event');
-                $record['Place']=$request->input('place');
-                $record['Participation/Prize']=$request->input('participation_prize');
-                $record['Remark']=$request->input('remark');
+                $record['Semester']=$request->input('semester');
+                $record['Name_of_Course']=$request->input('name_of_course');
+                $record['Name_of_Faculty/Resource_Person']=$request->input('name_of_faculty_resource_person');
+                $record['From_Date']=$request->input('from_date');
+                $record['To_Date']=$request->input('to_date');
+                $record['Value_Added/One_Credit']=$request->input('value_added_one_credit');
+                $record['Coordinator']=$request->input('coordinator');
+                $record['Dept']=$request->input('dept');
                 $record['Document_Link']=$request->input('document_link');
 
 
@@ -111,7 +116,7 @@ class SA_VIController extends Controller
                 // Store new file
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName();
-                $record->Document = $file->storeAs('SA_Documents/SA_VI', $filename, 'public');
+                $record->Document = $file->storeAs('SA_Documents/SA_IX', $filename, 'public');
             } else {
                 // Keep the old file path (nothing changes)
                 $record->Document = $record->Document;
@@ -120,7 +125,7 @@ class SA_VIController extends Controller
             $record->save();
 
             return redirect()
-                ->route('SA.view', ['type' => 'SA_VI'])
+                ->route('SA.view', ['type' => 'SA_IX'])
                 ->with('success', 'Student activity updated successfully.');
 
             }
