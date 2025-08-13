@@ -9,6 +9,7 @@
       <th class="px-4 py-3 border">Prize/Place</th>
       <th class="px-4 py-3 border">Date</th>
       <th class="px-4 py-3 border">Document Link</th>
+      <th class="px-4 py-3 border">Document</th>
       <th class="px-4 py-3 border">Action</th>
     </tr>
 </thead>
@@ -38,6 +39,10 @@
                           <span class="text-gray-400 italic">No Link</span>
                       @endif
                   </td>
+                  <td class="px-4 py-2 border">
+                     <a href="{{ asset('storage/' . $item->Document) }}" class="text-blue-500 underline"target="blank">
+                    {{  basename($item->Document) }}
+                </a></td>
 
                    <td class="py-3 px-4 border text-center">   
                       <div class="flex justify-center rounded-lg overflow-hidden">
