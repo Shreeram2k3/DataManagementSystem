@@ -45,12 +45,13 @@ Route::middleware(['auth','verified'])->group(function(){
             // update SA_I
             Route::put('/Students-activity/SA_I/update/{id}',[SA_IController::class, 'update'])->name('SAI_update');
             
-            // Make SA_II update route always available
-            Route::put('/student-activity/SA_II/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');            
+            // update SA_II
+            Route::put('/student-activity/SA_II/update/{id}',[SA_IIController::class,'update'])->name('SAII_update');  
 
-// Make SA_III update route always available
-Route::put('/student-activity/SA_III/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
-            // update SA_IV   
+            // update SA_III
+            Route::put('/student-activity/SA_III/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
+
+            //update SA_IV  
             Route::put('/student-activity/update/{id}',[SA_IVController::class,'update'])->name('SAIV_update');
 
 //table view test route
