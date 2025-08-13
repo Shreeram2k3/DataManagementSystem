@@ -77,7 +77,7 @@ class SA_VController extends Controller
                 'date'=>'required|date',
                 'status'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'    
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'    
 
             ]);
 

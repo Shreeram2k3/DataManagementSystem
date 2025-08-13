@@ -56,7 +56,7 @@ class SA_VIIController extends Controller
                     'Name_of_the_Journal'=>$validated['name_of_the_journal'],
                     'Volume_No'=>$validated['volumne_no'],
                     'Page_Nos'=>$validated['page_no'],
-                    'Conference_Details'=>$validated['Conference_Details'],
+                    'Conference_Details'=>$validated['conference_details'],
                     'National/International'=>$validated['national_international'],
                     'Dept'=>$validated['dept'],
                     'Document_Link'=>$validated['document_link'],
@@ -100,7 +100,7 @@ class SA_VIIController extends Controller
                 'national_international'=>'required|string',
                 'dept'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
 
                 ]);
 
