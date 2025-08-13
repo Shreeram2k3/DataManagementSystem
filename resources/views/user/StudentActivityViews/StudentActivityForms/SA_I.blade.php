@@ -22,28 +22,28 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Programme</span>
-            <input type="text" name="name_of_programme" maxlength="255" required
+            <input type="text" name="name_of_programme"  required
                 value="{{ $record->name_of_programme ?? old('name_of_programme') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Speaker & Details</span>
-            <input type="text" name="speaker_details" maxlength="255" required
+            <input type="text" name="speaker_details"  required
                 value="{{ $record->speaker_details ?? old('speaker_details') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Topic</span>
-            <input type="text" name="topic" maxlength="255" required
+            <input type="text" name="topic"  required
                 value="{{ $record->topic ?? old('topic') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Outcome</span>
-            <input type="text" name="outcome" maxlength="255" required
+            <input type="text" name="outcome"  required
                 value="{{ $record->outcome ?? old('outcome') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
@@ -62,23 +62,28 @@
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-        <label class="block">
-            <span class="text-sm text-gray-600">Document</span>
+       
 
-            @if(isset($record) && $record->document)
-                <p class="text-sm text-blue-600 mt-1">
-                    Current File:
-                    <a href="{{ asset('SA_Document/SA_I/' . $record->document) }}" 
-                        target="_blank" 
-                        class="underline text-blue-500">
-                        View / Download
-                    </a>
-                </p>
-            @endif
 
-            <input type="file" name="document"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
+            <label class="block">
+                    <span class="text-sm text-gray-600">Document</span>
+
+                    {{-- Show existing document name or link if record exists --}}
+                    @if(isset($record) && $record->Document)
+                        <p class="text-sm text-gray-500">
+                            Current file: 
+                            <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
+                                {{ basename($record->Document) }}
+                            </a>
+                        </p>
+                    @endif
+
+                    {{-- File upload field --}}
+                    <input type="file" name="document"
+                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                        {{ isset($record) ? '' : 'required' }}>
+                </label>
+
 
         <div class="flex justify-center">
             <button type="submit"
