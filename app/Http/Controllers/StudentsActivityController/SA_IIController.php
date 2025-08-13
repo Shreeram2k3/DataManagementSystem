@@ -84,7 +84,7 @@ class SA_IIController extends Controller
                 'Prize/place' => 'required|string|max:255',
                 'Date' => 'required|date',
                 'Document_Link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
