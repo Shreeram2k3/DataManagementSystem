@@ -13,7 +13,7 @@
             <label class="block">
                     <span class="text-sm text-gray-600">Name of Students</span>
                     <textarea name="name_of_student" id="name_of_student" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2" required 
-                    >{{ $record['Name_of_student(s)'] ?? old('Name_of_student(s)') }}</textarea>
+                    >{{ $record['Name_of_Student(s)'] ?? old('Name_of_Student(s)') }}</textarea>
             </label>
 
             <label class="block">
@@ -65,6 +65,8 @@
                     <input type="url" id="document_link" name="document_link" value="{{ $record->Document_Link ?? old('Document_Link') }}" 
                     class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
             </label>
+
+
 
             <label class="block">
                     <span class="text-sm text-gray-600">Document</span>

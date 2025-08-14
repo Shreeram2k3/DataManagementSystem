@@ -1,38 +1,37 @@
-
 <thead class="bg-gray-100 text-gray-900 uppercase">
             <tr>
-                                       
-                <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Name of Programme</th>
-                <th class="px-4 py-3 border">Topic</th>
-                <th class="px-4 py-3 border">Date</th>
-                <th class="px-4 py-3 border">Speaker Details</th>
-                <th class="px-4 py-3 border">Outcome</th>
-                <th class="px-4 py-3 border">Students Participated</th>
-                <th class="px-4 py-3 border">Document Link</th>
+              <th class="px-4 py-3 border">S.No</th>
+              <th class="px-4 py-3 border">Name of Students</th>
+              <th class="px-4 py-3 border">Roll No</th>
+              <th class="px-4 py-3 border">Date</th>
+              <th class="px-4 py-3 border">Event</th>
+              <th class="px-4 py-3 border">Place</th>
+              <th class="px-4 py-3 border">Participation/Prize</th>
+              <th class="px-4 py-3 border">Remark</th>
+              <th class="px-4 py-3 border">Document Link </th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
-              </tr>
+    </tr>
 </thead>
-            <!-- Check if the data for the selected type is available -->
+
+        <!-- Check if the data for the selected type is available -->
             @if($data[$type]->count() === 0 || empty($data[$type]))
             <td  class="text-gray-500 text-center px-4 py-2 border" colspan="8">
                 <strong class="text-red-500">No Data Available</strong><br>
-        
             </td>
             @else
             @foreach ($data[$type] as $item)
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
-                   
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->name_of_programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->topic }}</td>
-                    <td class="px-4 py-2 border">{{ $item->date }}</td>
-                    <td class="px-4 py-2 border">{{ $item->speaker_details }}</td>
-                    <td class="px-4 py-2 border">{{ $item->outcome }}</td>
-                    <td class="px-4 py-2 border">{{ $item->students_participated }}</td>
-                    <td class="px-4 py-2 border">
+                      <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                      <td class="px-4 py-2 border">{{ $item['Name_of_Student(s)'] }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Roll_No }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Date }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Event }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Place}}</td>
+                      <td class="px-4 py-2 border">{{ $item['Participation/Prize'] }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Remark }}</td>
+                      <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
                               {{ $item->Document_Link }}
@@ -73,4 +72,4 @@
               @endforeach
           </tbody>
           @endif
-                 
+                    
