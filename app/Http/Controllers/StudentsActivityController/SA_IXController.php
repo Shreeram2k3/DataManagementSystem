@@ -11,7 +11,7 @@ class SA_IXController extends Controller
 {
     public function store(Request $request)
     {
-        $type= 'SA_VIII';
+        $type= 'SA_IX';
         // return "hi";
 
         try{
