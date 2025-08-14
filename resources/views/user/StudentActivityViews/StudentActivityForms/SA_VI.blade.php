@@ -13,7 +13,7 @@
             <label class="block">
                     <span class="text-sm text-gray-600">Name of Students</span>
                     <textarea name="name_of_student" id="name_of_student" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2" required 
-                    >{{ $record['Name_of_student(s)'] ?? old('Name_of_student(s)') }}</textarea>
+                    >{{ $record['Name_of_Student(s)'] ?? old('Name_of_Student(s)') }}</textarea>
             </label>
 
             <label class="block">
@@ -66,16 +66,24 @@
                     class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
             </label>
 
-            <label class="block">
-                <span class="text-sm text-gray-600">Document</span>
-                
+             <label class="block">
+                    <span class="text-sm text-gray-600">Document</span>
 
-                <input 
-                    type="file" 
-                    name="document"
-                    class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2 mt-1"
-                >
-            </label>
+                    {{-- Show existing document name or link if record exists --}}
+                    @if(isset($record) && $record->Document)
+                        <p class="text-sm text-gray-500">
+                            Current file: 
+                            <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
+                                {{ basename($record->Document) }}
+                            </a>
+                        </p>
+                    @endif
+
+                    {{-- File upload field --}}
+                    <input type="file" name="document"
+                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                        {{ isset($record) ? '' : 'required' }}>
+                </label>
 
             <button 
                 type="submit" 

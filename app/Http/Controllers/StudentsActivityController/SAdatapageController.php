@@ -5,6 +5,8 @@ use App\Models\StudentsActivityModels\SA_I;
 use App\Models\StudentsActivityModels\SA_II;
 use App\Models\StudentsActivityModels\SA_III;
 use App\Models\StudentsActivityModels\SA_IV;
+use App\Models\StudentsActivityModels\SA_V;
+use App\Models\StudentsActivityModels\SA_VI;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -18,6 +20,8 @@ class SAdatapageController extends Controller
             'SA_II',
             'SA_III',
             'SA_IV',
+            'SA_V',
+            'SA_VI',
              
        ];
        // Get the user ID from the authenticated user
@@ -38,6 +42,14 @@ class SAdatapageController extends Controller
                 {
                     $data['SA_IV'] = SA_IV::where('user_id', $userId)->get();
                 }
+         else if($type === 'SA_V')
+               {
+                   $data['SA_V'] =SA_V::where('user_id',$userId)->get();
+               }
+         else if($type === 'SA_VI')
+               {
+                   $data['SA_VI'] =SA_VI::where('user_id',$userId)->get();
+               }
 // -----------------------------------------------------------------------------------------------------------------
          // Check if the type is valid and return the corresponding view
                 if (in_array($type, $validTypes)) {
@@ -55,6 +67,8 @@ class SAdatapageController extends Controller
                     'SA_II' => SA_II::class,
                     'SA_III' => SA_III::class,
                     'SA_IV' => SA_IV::class,
+                    'SA_V' => SA_V::class,
+                    'SA_VI' => SA_VI::class,
                 ];
 
         
@@ -80,6 +94,8 @@ class SAdatapageController extends Controller
                                 'SA_II' => SA_II::class,
                                 'SA_III' => SA_III::class,
                                 'SA_IV'  =>SA_IV::class,
+                                'SA_V' =>SA_V::class,
+                                'SA_VI' =>SA_VI::class,
                             ];
 
                             

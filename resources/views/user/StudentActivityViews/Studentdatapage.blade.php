@@ -12,6 +12,10 @@
            $title='S. A. III. Conference  / Symposium  / Workshop / Seminar Attended by Students';
     elseif($type=='SA_IV')
            $title='S. A. IV.  Students Projects  Submitted / Sanctioned';
+    elseif($type=='SA_V')
+            $title='S. A. V. Open House Exhibition Models Displayed by Students';
+    elseif($type=='SA_VI')
+            $title='S. A. VI. Details of Students Who Participated  /  Won Sports / Games / NCC / NSS  / NPTEL';
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
 
@@ -92,6 +96,14 @@
                             @case('SA_IV')
                             @include('user.StudentActivityViews.StudentActivityForms.SA_IV')
                             @break
+
+                            @case('SA_V')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_V')
+                            @break
+
+                            @case('SA_VI')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_VI')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -120,6 +132,12 @@
 
                                         @case('SA_IV')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable')
+                                            @break
+                                        @case('SA_V')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VTable')
+                                            @break
+                                        @case('SA_VI')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VITable')
                                             @break
 
                                       @default

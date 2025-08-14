@@ -12,6 +12,7 @@ use App\Http\Controllers\StudentsActivityController\SA_IIController;
 use App\Http\Controllers\StudentsActivityController\SA_IIIController;
 use App\Http\Controllers\StudentsActivityController\SA_IVController;
 use App\Http\Controllers\StudentsActivityController\SA_VController;
+use App\Http\Controllers\StudentsActivityController\SA_VIController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
 use App\Models\StudentsActivityModels\SA_I;
 use Illuminate\Contracts\Cache\Store;
@@ -37,9 +38,13 @@ Route::middleware(['auth','verified'])->group(function(){
             // post SAII route 
              Route::post('/Students-Activity/SA_II/create', [SA_IIController::class, 'store'])->name('SAII_Store');
             // post SAIII route 
-            Route::post('/Students-Activity/SA_III/crete',[SA_IIIController::class, 'store'])->name('SAIII_Store');
+            Route::post('/Students-Activity/SA_III/create',[SA_IIIController::class, 'store'])->name('SAIII_Store');
             // post SAIV route 
-            Route::post('/Students-Activity/SA_IV/crete',[SA_IVController::class, 'store'])->name('SAIV_Store');
+            Route::post('/Students-Activity/SA_IV/create',[SA_IVController::class, 'store'])->name('SAIV_Store');
+            // post SAV route 
+            Route::post('/Students-Activity/SA_V/create',[SA_VController::class, 'store'])->name('SAV_Store');
+            // post SAVI route 
+            Route::post('/Students-Activity/SA_VI/create',[SA_VIController::class, 'store'])->name('SAVI_Store');
             
         // Routes for update table in SA
             // update SA_I
@@ -52,7 +57,13 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::put('/student-activity/SA_III/update/{id}',[SA_IIIController::class,'update'])->name('SAIII_update');
 
             //update SA_IV  
-            Route::put('/student-activity/update/{id}',[SA_IVController::class,'update'])->name('SAIV_update');
+            Route::put('/student-activity/SA_IVupdate/{id}',[SA_IVController::class,'update'])->name('SAIV_update');
+
+            //update SA_V  
+            Route::put('/student-activity/SA_V/update/{id}',[SA_VController::class,'update'])->name('SAV_update');
+
+            //update SA_IV  
+            Route::put('/student-activity/SA_VI/update/{id}',[SA_VIController::class,'update'])->name('SAVI_update');
 
 //table view test route
 Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
