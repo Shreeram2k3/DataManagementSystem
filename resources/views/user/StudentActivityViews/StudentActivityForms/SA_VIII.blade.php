@@ -36,11 +36,7 @@
             </label>
      
     
-            <label class="block">
-                    <span class="text-sm text-gray-600">Name of the Journal</span>
-                    
-                    <input  type="text" id="name_of_the_journal" name="name_of_the_journal" required value="{{ $record->Name_of_the_Journal ?? old('Name_of_the_Journal') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-            </label>
+           
 
             <label class="block">
                     <span class="text-sm text-gray-600">Salary(Rs/Annum)</span>

@@ -13,6 +13,8 @@ use App\Http\Controllers\StudentsActivityController\SA_IIIController;
 use App\Http\Controllers\StudentsActivityController\SA_IVController;
 use App\Http\Controllers\StudentsActivityController\SA_VController;
 use App\Http\Controllers\StudentsActivityController\SA_VIController;
+use App\Http\Controllers\StudentsActivityController\SA_VIIController;
+use App\Http\Controllers\StudentsActivityController\SA_VIIIController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
 use App\Models\StudentsActivityModels\SA_I;
 use Illuminate\Contracts\Cache\Store;
@@ -45,6 +47,10 @@ Route::middleware(['auth','verified'])->group(function(){
             Route::post('/Students-Activity/SA_V/create',[SA_VController::class, 'store'])->name('SAV_Store');
             // post SAVI route 
             Route::post('/Students-Activity/SA_VI/create',[SA_VIController::class, 'store'])->name('SAVI_Store');
+            // post SAVII route 
+            Route::post('/Students-Activity/SA_VII/create',[SA_VIIController::class, 'store'])->name('SAVII_Store');
+            // post SAVIII route 
+            Route::post('/Students-Activity/SA_VIII/create',[SA_VIIIController::class, 'store'])->name('SAVIII_Store');
             
         // Routes for update table in SA
             // update SA_I
@@ -62,8 +68,14 @@ Route::middleware(['auth','verified'])->group(function(){
             //update SA_V  
             Route::put('/student-activity/SA_V/update/{id}',[SA_VController::class,'update'])->name('SAV_update');
 
-            //update SA_IV  
+            //update SA_VI 
             Route::put('/student-activity/SA_VI/update/{id}',[SA_VIController::class,'update'])->name('SAVI_update');
+
+            //update SA_VII  
+            Route::put('/student-activity/SA_VII/update/{id}',[SA_VIIController::class,'update'])->name('SAVII_update');
+
+            //update SA_VIII  
+            Route::put('/student-activity/SA_VIII/update/{id}',[SA_VIIIController::class,'update'])->name('SAVIII_update');
 
 //table view test route
 Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');

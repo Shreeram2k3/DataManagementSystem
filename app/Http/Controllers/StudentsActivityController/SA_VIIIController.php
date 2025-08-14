@@ -5,6 +5,7 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StudentsActivityModels\SA_VIII;
+use Illuminate\Support\Facades\Storage;
 
 
 class SA_VIIIController extends Controller
@@ -48,7 +49,6 @@ class SA_VIIIController extends Controller
                     'Roll_No'=>$validated['roll_no'],
                     'Name_of_the_Organization'=>$validated['name_of_the_organization'],
                     'Location'=>$validated['location'],
-                    'Name_of_the_Journal'=>$validated['name_of_the_journal'],
                     'Salary(Rs/Annum)'=>$validated['salary'],
                     'Date_of_Interview'=>$validated['date_of_interview'],
                     'Remarks'=>$validated['remarks'],
@@ -89,7 +89,7 @@ class SA_VIIIController extends Controller
                 'date_of_interview'=>'required|date',
                 'remarks'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
 
                 ]);
 
