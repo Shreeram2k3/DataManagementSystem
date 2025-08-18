@@ -24,6 +24,8 @@
             $title='S.A.IX. Value Added Courses  / One Credit Courses Conducted ';
     elseif($type=='SA_X')
             $title='S.A.X Internship / In-plant Training / Industrial Training';
+    elseif($type=='SA_XI')
+            $title='S.A.XI. Placement Activities';
 
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
@@ -129,6 +131,10 @@
                             @case('SA_X')
                             @include('user.StudentActivityViews.StudentActivityForms.SA_X')
                             @break
+
+                            @case("SA_XI")
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_XI')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -181,6 +187,10 @@
 
                                         @case('SA_X')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_XTable')
+                                            @break
+
+                                        @case("SA_XI")
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XITable')
                                             @break
                                         
 
