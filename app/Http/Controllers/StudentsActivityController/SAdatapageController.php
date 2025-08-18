@@ -11,6 +11,7 @@ use App\Models\StudentsActivityModels\SA_VII;
 use App\Models\StudentsActivityModels\SA_VIII;
 use App\Models\StudentsActivityModels\SA_IX;
 use App\Models\StudentsActivityModels\SA_X;
+use App\Models\StudentsActivityModels\SA_XI;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,7 @@ class SAdatapageController extends Controller
             'SA_VIII',
             'SA_IX',
             'SA_X',
+            'SA_XI',
              
        ];
        // Get the user ID from the authenticated user
@@ -74,6 +76,10 @@ class SAdatapageController extends Controller
                 {
                     $data['SA_X']=SA_X::where('user_id',$userId)->get();
                 }
+         else if($type === 'SA_XI')
+                {
+                    $data['SA_XI']=SA_XI::where('user_id',$userId)->get();
+                }
                             
 // -----------------------------------------------------------------------------------------------------------------
          // Check if the type is valid and return the corresponding view
@@ -98,6 +104,7 @@ class SAdatapageController extends Controller
                     'SA_VIII' =>SA_VIII::class,
                     'SA_IX' =>SA_IX::class,
                     'SA_X' =>SA_X::class,
+                    'SA_XI' =>SA_XI::class,
                 ];
 
         
@@ -129,6 +136,7 @@ class SAdatapageController extends Controller
                                 'SA_VIII'=>SA_VIII::class,
                                 'SA_IX' =>SA_IX::class,
                                 'SA_X' =>SA_X::class,
+                                'SA_XI' =>SA_XI::class,
                             ];
 
                             

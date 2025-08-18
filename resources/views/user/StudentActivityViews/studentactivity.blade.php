@@ -163,7 +163,7 @@
             <td class="py-3 px-4 border">11</td>
             <td class="py-3 px-4 border">S.A.XI. Placement Activities </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_XI'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

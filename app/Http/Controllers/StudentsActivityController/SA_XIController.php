@@ -96,7 +96,7 @@ class SA_XIController extends Controller
                 // update details 
                 $record['Date']=$request->input('date');
                 $record['Semester']=$request->input('semester');
-                $record['Programme']=$request->input('roll_no');
+                $record['Programme']=$request->input('programme');
                 $record['Resource_Person']=$request->input('resource_person');
                 $record['Details']=$request->input('details');
                 $record['Coordinator']=$request->input('coordinator');
