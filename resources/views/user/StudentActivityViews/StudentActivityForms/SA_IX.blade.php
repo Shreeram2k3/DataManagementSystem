@@ -25,15 +25,9 @@
             <label class="block">
                     <span class="text-sm text-gray-600">Name of Faculty/Resource Person</span>
                     <textarea name="name_of_faculty_resource_person" id="name_of_faculty_resource_person" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
-                     required>{{ $record->Roll_No ?? old('Roll_No') }}</textarea>
+                     required>{{ $record['Name_of_Faculty/Resource_Person'] ?? old('Name_of_Faculty/Resource_Person') }}</textarea>
             </label>  
                     
-            <label class="block">
-                    <span class="text-sm text-gray-600">Name of the Organization</span>
-                    
-                    <input  type="text" id="name_of_the_organization" name="name_of_the_organization" required  value="{{ $record['Name_of_the_Organization']?? old('Name_of_the_Organization') }}" 
-                    class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-            </label>
             
             <label class="block">
                     <span class="text-sm text-gray-600">From Date</span>
@@ -51,7 +45,7 @@
             <label class="block">
                     <span class="text-sm text-gray-600">Value Added/One Credit</span>
                     
-                    <input  type="text" id="name_of_the_journal" name="name_of_the_journal" required value="{{ $record['Value_Added/One_Credit'] ?? old('Value_Added/One_Credit') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+                    <input  type="text" id="value_added_one_credit" name="value_added_one_credit" required value="{{ $record['Value_Added/One_Credit'] ?? old('Value_Added/One_Credit') }}" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
             </label>
 
             <label class="block">
@@ -90,6 +84,7 @@
                             Current file: 
                             <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
                                 {{ basename($record->Document) }}
+                            </a>
                         </p>
                     @endif
 

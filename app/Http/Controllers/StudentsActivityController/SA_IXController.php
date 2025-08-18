@@ -5,13 +5,13 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StudentsActivityModels\SA_IX;
-
+use Illuminate\Support\Facades\Storage;
 
 class SA_IXController extends Controller
 {
     public function store(Request $request)
     {
-        $type= 'SA_VIII';
+        $type= 'SA_IX';
         // return "hi";
 
         try{
@@ -90,7 +90,7 @@ class SA_IXController extends Controller
                 'coordinator'=>'required|string',
                 'dept'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
 
                 ]);
 

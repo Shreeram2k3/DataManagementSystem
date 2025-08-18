@@ -20,6 +20,8 @@
             $title='S. A. VII. Publication of Papers in the Journal  / Conference Proceedings by Students';
     elseif($type=='SA_VIII')
             $title='S.A.VIII. Placed Students Details';
+    elseif($type=='SA_IX')
+            $title='S.A.IX. Value Added Courses  / One Credit Courses Conducted ';
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
 
@@ -116,6 +118,10 @@
                             @case('SA_VIII')
                             @include('user.StudentActivityViews.StudentActivityForms.SA_VIII')
                             @break
+
+                            @case('SA_IX')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_IX')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -160,6 +166,10 @@
                                         
                                         @case('SA_VIII')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_VIIITable')
+                                            @break
+
+                                        @case('SA_IX')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IXTable')
                                             @break
                                         
 
