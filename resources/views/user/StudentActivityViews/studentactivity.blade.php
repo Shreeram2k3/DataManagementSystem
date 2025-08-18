@@ -135,7 +135,7 @@
             <td class="py-3 px-4 border">9</td>
             <td class="py-3 px-4 border">S.A.IX. Value Added Courses  / One Credit Courses Conducted </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_IX'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -149,7 +149,7 @@
             <td class="py-3 px-4 border">10</td>
             <td class="py-3 px-4 border">S.A.X Internship / In-plant Training / Industrial Training </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_X'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

@@ -1,37 +1,39 @@
 <thead class="bg-gray-100 text-gray-900 uppercase">
             <tr>
-              <th class="px-4 py-3 border">S.No</th>
-              <th class="px-4 py-3 border">Name of Students</th>
-              <th class="px-4 py-3 border">Roll No</th>
-              <th class="px-4 py-3 border">Date</th>
-              <th class="px-4 py-3 border">Event</th>
-              <th class="px-4 py-3 border">Place</th>
-              <th class="px-4 py-3 border">Participation/Prize</th>
-              <th class="px-4 py-3 border">Remark</th>
-              <th class="px-4 py-3 border">Document Link </th>
+                <th class="px-4 py-3 border">S.No</th>
+                <th class="px-4 py-3 border">Semester</th>
+                <th class="px-4 py-3 border">Name of Course</th>
+                <th class="px-4 py-3 border">Name of Faculty / Resource Person</th>
+                <th class="px-4 py-3 border">From Date</th>
+                <th class="px-4 py-3 border">To Date</th>
+                <th class="px-4 py-3 border">Value Added / One Credit</th>
+                <th class="px-4 py-3 border">Coordinator</th>
+                <th class="px-4 py-3 border">Dept</th>
+                <th class="px-4 py-3 border">Document_Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
-    </tr>
+              </tr>
 </thead>
-
-        <!-- Check if the data for the selected type is available -->
+            <!-- Check if the data for the selected type is available -->
             @if($data[$type]->count() === 0 || empty($data[$type]))
             <td  class="text-gray-500 text-center px-4 py-2 border" colspan="15">
                 <strong class="text-red-500">No Data Available</strong><br>
+        
             </td>
             @else
             @foreach ($data[$type] as $item)
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
-                      <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                      <td class="px-4 py-2 border">{{ $item['Name_of_Student(s)'] }}</td>
-                      <td class="px-4 py-2 border">{{ $item->Roll_No }}</td>
-                      <td class="px-4 py-2 border">{{ $item->Date }}</td>
-                      <td class="px-4 py-2 border">{{ $item->Event }}</td>
-                      <td class="px-4 py-2 border">{{ $item->Place}}</td>
-                      <td class="px-4 py-2 border">{{ $item['Participation/Prize'] }}</td>
-                      <td class="px-4 py-2 border">{{ $item->Remark }}</td>
-                      <td class="px-4 py-2 border">
+                  <td class="px-4 py-2 border">{{ $item->S_NO}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Semester}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Name_of_Course}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Name_of_Faculty/Resource_Person']}}</td>
+                  <td class="px-4 py-2 border">{{ $item->From_Date}}</td>
+                  <td class="px-4 py-2 border">{{ $item->To_Date}}</td>
+                  <td class="px-4 py-2 border">{{ $item['Value_Added/One_Credit']}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Coordinator}}</td>
+                  <td class="px-4 py-2 border">{{ $item->Dept}}</td>
+               <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
                               {{ $item->Document_Link }}
@@ -43,16 +45,19 @@
                   <td class="px-4 py-2 border">
                      <a href="{{ asset('storage/' . $item->Document) }}" class="text-blue-500 underline"target="blank">
                     {{  basename($item->Document) }}
-                </a></td>
+                  </a>
+                  </td>
 
-                    <td class="py-3 px-4 border text-center">
+
+                  <td class="py-3 px-4 border text-center">
                     <div class="flex justify-center rounded-lg overflow-hidden">
                         <!-- Edit Icon -->
-                          <button class="p-2 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
-                        <a href="{{ route('student_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}">
-                                <i class="fa-solid fa-pen"></i>
-                                </a>
-                           </button>
+                          <form action="{{ route('student_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" method="GET">
+                          <button type="submit" class="p-2 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
+                              <i class="fa-solid fa-pen"></i>
+                          </button>
+                        </form>
+
                                             
                           
                       <!-- Delete Icon -->
@@ -72,4 +77,3 @@
               @endforeach
           </tbody>
           @endif
-                    
