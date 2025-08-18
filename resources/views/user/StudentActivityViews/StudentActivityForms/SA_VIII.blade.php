@@ -79,6 +79,7 @@
                             Current file: 
                             <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline"target="blank">
                                 {{ basename($record->Document) }}
+                            </a>
                         </p>
                     @endif
 

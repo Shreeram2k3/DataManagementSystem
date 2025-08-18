@@ -22,6 +22,9 @@
             $title='S.A.VIII. Placed Students Details';
     elseif($type=='SA_IX')
             $title='S.A.IX. Value Added Courses  / One Credit Courses Conducted ';
+    elseif($type=='SA_X')
+            $title='S.A.X Internship / In-plant Training / Industrial Training';
+
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
 
@@ -72,9 +75,9 @@
            <section class="flex flex-col lg:flex-row min-h-screen">
               <!-- Lottie Animation -->
                     <div class="w-full lg:w-1/2 flex items-center justify-center p-4 ">
-                        <div id="lottie-animation" class="w-full max-w-[500px] h-[400px] sm:h-[500px] lg:h-[600px]"></div>
+                        <div id="lottie-animation" class="w-full h-full sm:h-[500px] lg:h-[600px]"></div>
                     </div>
-
+                  
              <!-- Lottie Script -->
                     <script src="https://unpkg.com/lottie-web@5.10.2/build/player/lottie.min.js"></script>
                      <script>
@@ -121,6 +124,10 @@
 
                             @case('SA_IX')
                             @include('user.StudentActivityViews.StudentActivityForms.SA_IX')
+                            @break
+
+                            @case('SA_X')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_X')
                             @break
                             {{-- Add cases for all 15 --}}
                             
@@ -170,6 +177,10 @@
 
                                         @case('SA_IX')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_IXTable')
+                                            @break
+
+                                        @case('SA_X')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XTable')
                                             @break
                                         
 

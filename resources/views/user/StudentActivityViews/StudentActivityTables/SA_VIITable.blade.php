@@ -19,7 +19,7 @@
 </thead>
             <!-- Check if the data for the selected type is available -->
             @if($data[$type]->count() === 0 || empty($data[$type]))
-            <td  class="text-gray-500 text-center px-4 py-2 border" colspan="8">
+            <td  class="text-gray-500 text-center px-4 py-2 border" colspan="15">
                 <strong class="text-red-500">No Data Available</strong><br>
         
             </td>

@@ -1,39 +1,43 @@
 <thead class="bg-gray-100 text-gray-900 uppercase">
             <tr>
-                <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Semester</th>
-                <th class="px-4 py-3 border">Name of Course</th>
-                <th class="px-4 py-3 border">Name of Faculty / Resource Person</th>
-                <th class="px-4 py-3 border">From Date</th>
-                <th class="px-4 py-3 border">To Date</th>
-                <th class="px-4 py-3 border">Value Added / One Credit</th>
-                <th class="px-4 py-3 border">Coordinator</th>
-                <th class="px-4 py-3 border">Dept</th>
-                <th class="px-4 py-3 border">Document_Link</th>
+              <th class="px-4 py-3 border">S.No</th>
+              <th class="px-4 py-3 border">Semester</th>
+              <th class="px-4 py-3 border">Name of the student</th>
+              <th class="px-4 py-3 border">Roll No</th>
+              <th class="px-4 py-3 border">From Date</th>
+              <th class="px-4 py-3 border">To Date</th>
+              <th class="px-4 py-3 border">Industry Details</th>
+              <th class="px-4 py-3 border">Stipend(Rs/Month)</th>
+              <th class="px-4 py-3 border">Nature_of_Training</th>
+              <th class="px-4 py-3 border">Duration</th>
+              <th class="px-4 py-3 border">Assessment</th>
+              <th class="px-4 py-3 border">Document Link </th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
-              </tr>
+    </tr>
 </thead>
-            <!-- Check if the data for the selected type is available -->
+
+        <!-- Check if the data for the selected type is available -->
             @if($data[$type]->count() === 0 || empty($data[$type]))
             <td  class="text-gray-500 text-center px-4 py-2 border" colspan="15">
                 <strong class="text-red-500">No Data Available</strong><br>
-        
             </td>
             @else
-            @foreach ($data[$type] as $item)
             <tbody class="bg-white">
+            @foreach ($data[$type] as $item)
                 <tr class="border-t hover:bg-gray-50">
-                  <td class="px-4 py-2 border">{{ $item->S_NO}}</td>
-                  <td class="px-4 py-2 border">{{ $item->Semester}}</td>
-                  <td class="px-4 py-2 border">{{ $item->Name_of_Course}}</td>
-                  <td class="px-4 py-2 border">{{ $item['Name_of_Faculty/Resource_Person']}}</td>
-                  <td class="px-4 py-2 border">{{ $item->From_Date}}</td>
-                  <td class="px-4 py-2 border">{{ $item->To_Date}}</td>
-                  <td class="px-4 py-2 border">{{ $item['Value_Added/One_Credit']}}</td>
-                  <td class="px-4 py-2 border">{{ $item->Coordinator}}</td>
-                  <td class="px-4 py-2 border">{{ $item->Dept}}</td>
-               <td class="px-4 py-2 border">
+                      <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Semester }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Name_of_the_student }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Roll_No }}</td>
+                      <td class="px-4 py-2 border">{{ $item->From_Date }}</td>
+                      <td class="px-4 py-2 border">{{ $item->To_Date }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Industry_Details }}</td>
+                      <td class="px-4 py-2 border">{{ $item['Stipend(Rs/Month)'] }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Nature_of_Training }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Duration }}</td>
+                      <td class="px-4 py-2 border">{{ $item->Assessment }}</td>
+                                <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
                               {{ $item->Document_Link }}
@@ -45,7 +49,7 @@
                   <td class="px-4 py-2 border">
                      <a href="{{ asset('storage/' . $item->Document) }}" class="text-blue-500 underline"target="blank">
                     {{  basename($item->Document) }}
-                  </a>
+                      </a>
                   </td>
 
 
@@ -76,4 +80,4 @@
                   </tr>
               @endforeach
           </tbody>
-          @endif
+          @endif             
