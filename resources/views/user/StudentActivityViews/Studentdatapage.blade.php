@@ -16,10 +16,14 @@
             $title='S. A. V. Open House Exhibition Models Displayed by Students';
     elseif($type=='SA_VI')
             $title='S. A. VI. Details of Students Who Participated  /  Won Sports / Games / NCC / NSS  / NPTEL';
+    elseif($type=='SA_VII')
+            $title='S. A. VII. Publication of Papers in the Journal  / Conference Proceedings by Students';
+    elseif($type=='SA_VIII')
+            $title='S.A.VIII. Placed Students Details';
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
 
-            <div x-data="{ show: true, seconds: 5 }" 
+            <div x-data="{ show: true, seconds: 3 }" 
             x-init="let timer = setInterval(() => {
                 if (seconds > 0) seconds--;
                 else show = false;
@@ -103,6 +107,14 @@
 
                             @case('SA_VI')
                             @include('user.StudentActivityViews.StudentActivityForms.SA_VI')
+                            @break 
+
+                            @case('SA_VII')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_VII')
+                            @break
+                            
+                            @case('SA_VIII')
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_VIII')
                             @break
                             {{-- Add cases for all 15 --}}
                             
@@ -133,12 +145,23 @@
                                         @case('SA_IV')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable')
                                             @break
+
                                         @case('SA_V')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_VTable')
                                             @break
+
                                         @case('SA_VI')
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_VITable')
                                             @break
+
+                                        @case('SA_VII')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIITable')
+                                            @break
+                                        
+                                        @case('SA_VIII')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIIITable')
+                                            @break
+                                        
 
                                       @default
                                             <p class="text-red-500">table not found.</p>

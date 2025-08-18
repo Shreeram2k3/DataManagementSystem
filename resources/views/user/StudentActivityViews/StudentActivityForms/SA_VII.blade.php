@@ -42,7 +42,7 @@
             <label class="block">
                     <span class="text-sm text-gray-600">Name of Students</span>
                     <textarea name="name_of_students" id="name_of_students" class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2" required 
-                    >{{ $record['Name_of_student(s)'] ?? old('Name_of_student(s)') }}</textarea>
+                    >{{ $record['Name_of_Student(s)'] ?? old('Name_of_Student(s)') }}</textarea>
             </label>
 
 
@@ -58,7 +58,7 @@
                     <span class="text-sm text-gray-600">Staff(if_guided)</span>
                     
                     <input  type="text" id="date" name="staff_ifguided" required  value="{{ $record['Staff(if_guided)']?? old('Staff(if_guided)') }}" 
-                    class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+                    class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2" placeholder="Enter NULL if No Guide">
             </label>
             
             <!-- Title of the Paper -->

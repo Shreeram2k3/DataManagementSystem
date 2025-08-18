@@ -5,6 +5,7 @@ namespace App\Http\Controllers\StudentsActivityController;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\StudentsActivityModels\SA_VII;
+use Illuminate\Support\Facades\Storage;
 
 
 class SA_VIIController extends Controller
@@ -119,8 +120,7 @@ class SA_VIIController extends Controller
                 $record['Document_Link']=$request->input('document_link');
 
 
-                // Handle file upload only if new file is uploaded
-            if ($request->hasFile('document')) {
+                if ($request->hasFile('document')) {
                 // Delete old file if exists
                 if ($record->Document && Storage::disk('public')->exists($record->Document)) {
                     Storage::disk('public')->delete($record->Document);
