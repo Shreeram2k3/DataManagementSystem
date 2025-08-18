@@ -4,14 +4,16 @@ namespace App\Http\Controllers\StudentsActivityController;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\StudentsActivityModels\SA_IX;
+use App\Models\StudentsActivityModels\SA_X;
+use Illuminate\Support\Facades\Storage;
 
 
-class SA_IXController extends Controller
+
+class SA_XController extends Controller
 {
     public function store(Request $request)
     {
-        $type= 'SA_IX';
+        $type= 'SA_X';
         // return "hi";
 
         try{
@@ -19,13 +21,15 @@ class SA_IXController extends Controller
             $validated = $request->validate([
 
                 'semester'=>'required|string',
-                'name_of_course'=>'required|string',
-                'name_of_faculty_resource_person'=>'required|string',
+                'name_of_the_student'=>'required|string',
+                'roll_no'=>'required|string',
                 'from_date'=>'required|date',
                 'to_date'=>'required|date',
-                'value_added_one_credit'=>'required|string',
-                'coordinator'=>'required|string',
-                'dept'=>'required|string',
+                'industry_details'=>'required|string',
+                'stipend'=>'required|string',
+                'nature_of_training'=>'required|string',
+                'duration'=>'required|string',
+                'assessment'=>'required|string',
                 'document_link'=>'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
 
@@ -40,19 +44,21 @@ class SA_IXController extends Controller
             if ($request->hasFile('document')) {
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
-                $validated['document'] = $file->storeAs('SA_Documents/SA_IX', $filename, 'public');
+                $validated['document'] = $file->storeAs('SA_Documents/SA_X', $filename, 'public');
             }
 
             try{
-                SA_IX::create([
+                SA_X::create([
                     'Semester'=>$validated['semester'],                    
-                    'Name_of_Course'=>$validated['name_of_course'],
-                    'Name_of_Faculty/Resource_Person'=>$validated['name_of_faculty_resource_person'],
+                    'Name_of_the_student'=>$validated['name_of_the_student'],
+                    'Roll_No'=>$validated['roll_no'],
                     'From_Date'=>$validated['from_date'],
                     'To_Date'=>$validated['to_date'],
-                    'Value_Added/One_Credit'=>$validated['value_added_one_credit'],
-                    'Coordinator'=>$validated['coordinator'],
-                    'Dept'=>$validated['dept'],
+                    'Industry_Details'=>$validated['industry_details'],
+                    'Stipend(Rs/Month)'=>$validated['stipend'],
+                    'Nature_of_Training'=>$validated['nature_of_training'],
+                    'Duration'=>$validated['duration'],
+                    'Assessment'=>$validated['assessment'],
                     'Document_Link'=>$validated['document_link'],
                     'Document'=>$validated['document'],
                     'user_id'=>$validated['user_id']
@@ -77,32 +83,36 @@ class SA_IXController extends Controller
         {
             try
             {
-                $record=SA_IX::findOrFail($id);
+                $record=SA_X::findOrFail($id);
                 // validate input 
                 $request->validate([
                     
                 'semester'=>'required|string',
-                'name_of_course'=>'required|string',
-                'name_of_faculty_resource_person'=>'required|string',
+                'name_of_the_student'=>'required|string',
+                'roll_no'=>'required|string',
                 'from_date'=>'required|date',
                 'to_date'=>'required|date',
-                'value_added_one_credit'=>'required|string',
-                'coordinator'=>'required|string',
-                'dept'=>'required|string',
+                'industry_details'=>'required|string',
+                'stipend'=>'required|string',
+                'nature_of_training'=>'required|string',
+                'duration'=>'required|string',
+                'assessment'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
 
                 ]);
 
                 // update details 
                 $record['Semester']=$request->input('semester');
-                $record['Name_of_Course']=$request->input('name_of_course');
-                $record['Name_of_Faculty/Resource_Person']=$request->input('name_of_faculty_resource_person');
+                $record['Name_of_the_student']=$request->input('name_of_the_student');
+                $record['Roll_No']=$request->input('roll_no');
                 $record['From_Date']=$request->input('from_date');
                 $record['To_Date']=$request->input('to_date');
-                $record['Value_Added/One_Credit']=$request->input('value_added_one_credit');
-                $record['Coordinator']=$request->input('coordinator');
-                $record['Dept']=$request->input('dept');
+                $record['Industry_Details']=$request->input('industry_details');
+                $record['Stipend(Rs/Month)']=$request->input('stipend');
+                $record['Nature_of_Training']=$request->input('nature_of_training');
+                $record['Duration']=$request->input(             'duration');
+                $record['Assessment']=$request->input('assessment');
                 $record['Document_Link']=$request->input('document_link');
 
 
@@ -116,7 +126,7 @@ class SA_IXController extends Controller
                 // Store new file
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName();
-                $record->Document = $file->storeAs('SA_Documents/SA_IX', $filename, 'public');
+                $record->Document = $file->storeAs('SA_Documents/SA_X', $filename, 'public');
             } else {
                 // Keep the old file path (nothing changes)
                 $record->Document = $record->Document;
@@ -125,7 +135,7 @@ class SA_IXController extends Controller
             $record->save();
 
             return redirect()
-                ->route('SA.view', ['type' => 'SA_IX'])
+                ->route('SA.view', ['type' => 'SA_X'])
                 ->with('success', 'Student activity updated successfully.');
 
             }
