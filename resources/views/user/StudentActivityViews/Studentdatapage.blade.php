@@ -30,6 +30,8 @@
             $title='S. A. XII Student Activities Others';
     elseif($type=='SA_XIII')
             $title='S. A. XIII Industry Visit by students';
+    elseif($type=='SA_XIV')
+            $title='S.B.I. Students Alumni Meet. / News ';
 
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
@@ -147,6 +149,10 @@
                             @case("SA_XIII")
                             @include('user.StudentActivityViews.StudentActivityForms.SA_XIII')
                             @break
+
+                            @case("SA_XIV")
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_XIV')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -211,6 +217,10 @@
                                         
                                         @case("SA_XIII")
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_XIIITable')
+                                            @break
+
+                                         @case("SA_XIV")
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIVTable')
                                             @break
                                         
 

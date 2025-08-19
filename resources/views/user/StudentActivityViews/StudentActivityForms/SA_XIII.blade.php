@@ -19,7 +19,7 @@
               <label class="block" for="from_date">
                     <span class="text-sm text-gray-600">Date(from)</span>
                     
-                    <input  type="date" id="from_date" name="from_date" required  value="{{ $record['Date']?? old('Date') }}" 
+                    <input  type="date" id="from_date" name="from_date" required  value="{{ $record['From_Date']?? old('From_Date') }}" 
                     class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
             </label>
 

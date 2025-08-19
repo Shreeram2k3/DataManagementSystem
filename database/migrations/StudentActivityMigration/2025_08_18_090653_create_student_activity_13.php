@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Semester');
             $table->date('From_Date');
             $table->date('To_Date');
-            $table->string('Factory_Visted');
+            $table->string('Factory_Visited');
             $table->string('Name_of_the_staff/Students');
             $table->string('Department');
             $table->string('Assessment_Details');
