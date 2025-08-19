@@ -26,6 +26,10 @@
             $title='S.A.X Internship / In-plant Training / Industrial Training';
     elseif($type=='SA_XI')
             $title='S.A.XI. Placement Activities';
+    elseif($type=='SA_XII')
+            $title='S. A. XII Student Activities Others';
+    elseif($type=='SA_XIII')
+            $title='S. A. XIII Industry Visit by students';
 
 @endphp
 <!------------------------------------------- Flash Messages----------------------------------------------------->
@@ -135,6 +139,14 @@
                             @case("SA_XI")
                             @include('user.StudentActivityViews.StudentActivityForms.SA_XI')
                             @break
+
+                            @case("SA_XII")
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_XII')
+                            @break
+
+                            @case("SA_XIII")
+                            @include('user.StudentActivityViews.StudentActivityForms.SA_XIII')
+                            @break
                             {{-- Add cases for all 15 --}}
                             
                             @default
@@ -191,6 +203,14 @@
 
                                         @case("SA_XI")
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_XITable')
+                                            @break
+
+                                        @case("SA_XII")
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIITable')
+                                            @break
+                                        
+                                        @case("SA_XIII")
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIIITable')
                                             @break
                                         
 
