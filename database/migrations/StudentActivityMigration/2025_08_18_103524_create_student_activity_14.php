@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('StudentActivity_13', function (Blueprint $table) {
+        Schema::create('StudentActivity_14', function (Blueprint $table) {
             $table->id('S_NO');
-            $table->string('Semester');
-            $table->date('From_Date');
-            $table->date('To_Date');
-            $table->string('Factory_Visted');
-            $table->string('Name_of_the_staff/Students');
-            $table->string('Department');
-            $table->string('Assessment_Details');
+            $table->date('Date');
+            $table->string('Batch');
+            $table->string('Place');
+            $table->string('Strength');
+            $table->string('Remarks/Feedback_Received');
+            $table->string('Dept');
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('StudentActivity_13');
+        Schema::dropIfExists('StudentActivity_14');
     }
 };
