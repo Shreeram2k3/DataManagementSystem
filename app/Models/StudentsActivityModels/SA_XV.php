@@ -5,7 +5,7 @@ namespace App\Models\StudentsActivityModels;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class SA_XIV extends Model
+class SA_XV extends Model
 {
     protected $primaryKey='S_NO';
     protected $table ="StudentActivity_15";

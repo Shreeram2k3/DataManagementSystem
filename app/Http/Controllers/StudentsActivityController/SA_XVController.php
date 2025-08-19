@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 
 
-class SA_XIVController extends Controller
+class SA_XVController extends Controller
 {
     public function store(Request $request)
     {
@@ -43,7 +43,7 @@ class SA_XIVController extends Controller
             }
 
             try{
-                SA_XI::create([
+                SA_XV::create([
                     'Semester'=>$validated['semester'],
                     'Date'=>$validated['date'],                    
                     'Number_of_Parents'=>$validated['number_of_parents'],
