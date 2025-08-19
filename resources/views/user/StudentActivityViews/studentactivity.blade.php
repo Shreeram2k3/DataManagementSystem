@@ -177,7 +177,7 @@
             <td class="py-3 px-4 border">12</td>
             <td class="py-3 px-4 border">S. A. XII Student Activities Others</td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_XII'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -191,7 +191,7 @@
             <td class="py-3 px-4 border">13</td>
             <td class="py-3 px-4 border">S. A. XIII Industry Visit by students </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_XIII'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -205,7 +205,7 @@
             <td class="py-3 px-4 border">14</td>
             <td class="py-3 px-4 border">S.B.I. Students Alumni Meet. / News  </td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_XIV'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -219,7 +219,7 @@
             <td class="py-3 px-4 border">15</td>
             <td class="py-3 px-4 border">S. B.II. Parents Teachers Meeting</td>
               <td class="py-3 px-4 border text-center">
-                <a href="#"
+                <a href="{{route('SA.view',['type'=>'SA_XV'])}}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />

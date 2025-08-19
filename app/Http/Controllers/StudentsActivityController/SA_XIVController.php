@@ -44,7 +44,7 @@ class SA_XIVController extends Controller
             }
 
             try{
-                SA_XI::create([
+                SA_XIV::create([
                     'Date'=>$validated['date'],                    
                     'Batch'=>$validated['batch'],
                     'Place'=>$validated['place'],

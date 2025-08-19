@@ -23,7 +23,6 @@ class SA_XIIIController extends Controller
                 'semester'=>'required|string',
                 'from_date'=>'required|date',
                 'to_date'=>'required|date',
-                'programme'=>'required|string',
                 'factory_visited'=>'required|string',
                 'name_student_staff'=>'required|string',
                 'department'=>'required|string',
@@ -36,7 +35,7 @@ class SA_XIIIController extends Controller
 
             // set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
-            // dd($validated);
+             //dd($validated);
 
              // to store the file in public 
             if ($request->hasFile('document')) {
@@ -46,7 +45,7 @@ class SA_XIIIController extends Controller
             }
 
             try{
-                SA_XI::create([
+                SA_XIII::create([
                     'Semester'=>$validated['semester'],                    
                     'From_Date'=>$validated['from_date'],
                     'To_Date'=>$validated['to_date'],
@@ -85,7 +84,6 @@ class SA_XIIIController extends Controller
                  'semester'=>'required|string',
                 'from_date'=>'required|date',
                 'to_date'=>'required|date',
-                'programme'=>'required|string',
                 'factory_visited'=>'required|string',
                 'name_student_staff'=>'required|string',
                 'department'=>'required|string',
