@@ -35,7 +35,7 @@ class SA_XIIIController extends Controller
 
             // set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
-            // dd($validated);
+             //dd($validated);
 
              // to store the file in public 
             if ($request->hasFile('document')) {
