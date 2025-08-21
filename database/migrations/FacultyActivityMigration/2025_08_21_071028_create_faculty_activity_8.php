@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('From_date');
             $table->date('To_date');
             $table->string('Dept');
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('Amount(Rs)');
             $table->string('Dept');
             $table->string('Outcome(IfSanctioned)')->nullable();
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });

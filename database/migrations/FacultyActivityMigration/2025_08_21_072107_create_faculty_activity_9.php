@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('Duration');
             $table->string('Dept');
             $table->string('Outcome');
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });

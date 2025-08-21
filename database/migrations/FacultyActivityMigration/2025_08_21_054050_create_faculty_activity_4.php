@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('Programme');
             $table->string('Conference_Symposium_Training_Programme_Details');
             $table->string('Dept');
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });
