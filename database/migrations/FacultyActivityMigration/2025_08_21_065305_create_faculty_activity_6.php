@@ -22,8 +22,7 @@ return new class extends Migration
             $table->date('To_Date');
             $table->string('Purpose_of_Attending(Teaching/Research');
             $table->string('Dept');
-            $table->string('Outcome');
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });

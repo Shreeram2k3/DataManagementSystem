@@ -5,19 +5,19 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class FA_I extends Model
+class FA_VIII extends Model
 {
     use HasFactory;
     protected $primaryKey='S_NO';
-    protected $table = 'FAcultyActivity_1';
+    protected $table = 'FacultyActivity_8';
     protected $fillable = [
-        'Name_of_the_Faculty',
-        'ID',
-        'Title_of_the_Paper',
-        'Name_of_the_Journal_Volume',
-        'Page_Nos_Impact_Factor_value',
-        'National/International',
-        'Scopus/SCI/others',
+        'Name_of_winter/SummerSchool/FDPTitle_of_the_programme',
+        'Name_of_the_coordinator(s)',
+        'Total_No_of_Participants(TN)',
+        'Total_No_of_Participants(Others)',
+        'Total_No_of_Participants(BIT)',
+        'From_date',
+        'To_date',
         'Dept',
         'Document_Link',
         'Document',

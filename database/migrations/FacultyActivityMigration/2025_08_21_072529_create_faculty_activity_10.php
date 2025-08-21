@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('Topic');
             $table->string('Venue(where_delivered)');
             $table->string('Dept');
-            $table->string('document_link',2083)->nullable();
+            $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
         });

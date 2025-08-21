@@ -5,20 +5,20 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
-class FA_I extends Model
+class FA_VII extends Model
 {
     use HasFactory;
     protected $primaryKey='S_NO';
-    protected $table = 'FAcultyActivity_1';
+    protected $table = 'FacultyActivity_7';
     protected $fillable = [
-        'Name_of_the_Faculty',
-        'ID',
-        'Title_of_the_Paper',
-        'Name_of_the_Journal_Volume',
-        'Page_Nos_Impact_Factor_value',
-        'National/International',
-        'Scopus/SCI/others',
+        'Winter/SummerSchool',
+        'Sponsoring_Agency',
+        'Title_of_the_Programme',
+        'Coordinator',
+        'Period',
+        'Amount(Rs)',
         'Dept',
+        'Outcome(IfSanctioned)',
         'Document_Link',
         'Document',
         'user_id' // to store the user ID who created this record
