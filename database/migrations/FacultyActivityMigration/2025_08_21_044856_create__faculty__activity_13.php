@@ -13,7 +13,6 @@ return new class extends Migration
         Schema::create('FacultyActivity_13', function (Blueprint $table) {
             $table->id('S_NO');
             $table->string('Name_of_the_Faculty_Member');
-            $table->foreignId('user_id')->constrained('users');
             $table->string('Part_time/Full_Time');
             $table->string('Internal/External');
             $table->string('Name_of_the_Scholar');
@@ -23,6 +22,7 @@ return new class extends Migration
             $table->string('Status');
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 

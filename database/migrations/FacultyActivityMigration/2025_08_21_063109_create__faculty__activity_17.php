@@ -13,13 +13,13 @@ return new class extends Migration
         Schema::create('FacultyActivity_17', function (Blueprint $table) {
             $table->id('S_NO');
             $table->string('Faculty_name');
-            $table->foreignId('user_id')->constrained('users');
             $table->string('Industry_visited');
             $table->string('Period/Date');
             $table->string('Outcome');
             $table->string('Dept');
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
+            $table->foreignId('user_id')->constrained('users');
         });
     }
 
