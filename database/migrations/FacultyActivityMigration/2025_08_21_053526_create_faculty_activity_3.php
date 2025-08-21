@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('FacultyActivity_3',function(Blueprint $table)
+        {
+            $table->id('S_NO');
+            $table->string('Faculty_Member');
+            $table->string('Title_of_the_Invention');
+            $table->string('Sponsoring_Agency');
+            $table->string('Registration_Details');
+            $table->string('National/International');
+            $table->date('Date');
+            $table->string('Dept');
+            $table->string('document_link',2083)->nullable();
+            $table->string('Document');
+            $table->foreignId('user_id')->constrained('users');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('FacultyActivity_3');
+    }
+};
