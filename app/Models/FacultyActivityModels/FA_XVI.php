@@ -15,7 +15,6 @@ class FA_XVI extends Model
         'Name_of_the_Company',
         'Address',
         'Benefits/Opportunities_Utilized',
-        'Address_of_the_Company',
         'MoU_Duration',
         'Dept',
         'Document_Link',

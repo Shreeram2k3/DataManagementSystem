@@ -21,7 +21,7 @@ class UserController extends Controller
 
     public function showfacultyactivity()
     {
-        return view('user.StudentActivityViews.facultyactivity');
+        return view('user.facultyactivity');
     }
 
     public function showdepartmentactivity()
