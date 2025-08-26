@@ -97,7 +97,7 @@ class FA_IController extends Controller
             $record['conference_symposium_training_programme_details'] = $request->input('conference_symposium_training_programme_details');
             $record['Dept'] = $request->input('dept');
 
-            $record->document_link = $request->input('document_link');
+            $record->Document_Link = $request->input('document_link');
             
 
             // If a new document is uploaded

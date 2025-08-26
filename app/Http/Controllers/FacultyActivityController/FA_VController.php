@@ -93,7 +93,7 @@ class FA_VController extends Controller
             $record['Dept'] = $request->input('dept');
             $record->Outcome=$request->input('outcome');
 
-            $record->document_link = $request->input('document_link');
+            $record->Document_Link = $request->input('document_link');
             
 
             // If a new document is uploaded

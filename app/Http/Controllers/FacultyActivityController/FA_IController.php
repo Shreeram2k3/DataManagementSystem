@@ -97,7 +97,7 @@ class FA_IController extends Controller
             $record['Scopus/SCI/others'] = $request->input('scopus_sci_others');
             $record['Dept'] = $request->input('dept');
 
-            $record->document_link = $request->input('document_link');
+            $record->Document_Link = $request->input('document_link');
             
 
             // If a new document is uploaded

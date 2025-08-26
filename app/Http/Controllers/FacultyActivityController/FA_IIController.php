@@ -84,7 +84,7 @@ class FA_IIController extends Controller
             $record->Title = $request->input('title');
             $record->Details_of_publication = $request->input('details_of_publication');
             $record->Date = $request->input('Date');
-            $record->document_link = $request->input('document_link');
+            $record->Document_Link = $request->input('document_link');
             
 
             // If a new document is uploaded

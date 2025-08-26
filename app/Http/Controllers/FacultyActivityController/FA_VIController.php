@@ -97,7 +97,7 @@ class FA_VIController extends Controller
             $record->From_Date = $request->input('from_date'); 
             $record['Purpose_of_Attending(Teaching/Research'] = $request->input('purpose_of_attending');
             $record['Dept'] = $request->input('dept');  
-            $record->document_link = $request->input('document_link');
+            $record->Document_Link = $request->input('document_link');
             
 
             // If a new document is uploaded

@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers\FacultyActivityController;
 
-use App\Models\FacultyActivityModels\FA_I;
+use App\Models\FacultyActivityModels\FA_XX;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
-class FA_IIIController extends Controller
+class FA_XXController extends Controller
 {
    
     public function store(Request $request)
     {
         // these are the name attribute in form 
-        $type = 'FA_III';
+        $type = 'FA_XX';
         try {
             $validated = $request->validate([
             
-                'faculty_member' => 'required|string|max:255',
-                'title_of_the_invention' => 'required|string|max:255',
-                'sponsoring_agency' => 'required|string|max:255',
-                'registration_details' => 'required|string|max:255',
-                'national_international' => 'required|string|max:255',
-                'date' => 'required|date|max:255',
+                'name_of_the_faculty_member' => 'required|string|max:255',
+                'date'=>'required|date',
+                'purpose' => 'required|string|max:255',
+                'institute-university-industry_member' => 'required|string|max:255',
+                'outcome'=>'required|string|max:255',
                 'dept'=>'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
@@ -34,26 +33,19 @@ class FA_IIIController extends Controller
            if ($request->hasFile('document')) {
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
-                $validated['document'] = $file->storeAs('FA_Documents/FA_III', $filename, 'public');
+                $validated['document'] = $file->storeAs('FA_Documents/FA_XX', $filename, 'public');
             }
 
         //   dd($validated); // For debugging purposes, remove in production
            try{
 
             // left side column name in table, right side name attribute in form 
-            FA_III::create([
-                'Faculty_Member' => $validated['faculty_member'],
-
-                'Title_of_the_Invention' => $validated['title_of_the_invention'],
-
-                'Sponsoring_Agency' => $validated['sponsoring_agency'],
-
-                'Registration_Details' => $validated['registration_details'],
-                
-                'National_International' => $validated['national_international'],
-
+            FA_XX::create([
+                'Name_of_the_Faculty_Member' => $validated['name_of_the_faculty_member'],
                 'Date' => $validated['date'],
-                
+                'Purpose' => $validated['purpose'],
+                'Institute/University/Industry_Member'=>$validated['institute-university-industry_member'],
+                'Outcome'=>$validated['outcome'],
                 'Dept'=>$validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
@@ -75,30 +67,29 @@ class FA_IIIController extends Controller
     }
     public function update(Request $request, $id)
     {
-            $record = FA_III::findOrFail($id);
+            $record = FA_XX::findOrFail($id);
 
             // Validate input
             $request->validate([
-                'faculty_member' => 'required|string|max:255',
-                'title_of_the_invention' => 'required|string|max:255',
-                'sponsoring_agency' => 'required|string|max:255',
-                'registration_details' => 'required|string|max:255',
-                'national_international' => 'required|string|max:255',
-                'date' => 'required|date|max:255',
+                
+                'name_of_the_faculty_member' => 'required|string|max:255',
+                'date'=>'required|date',
+                'purpose' => 'required|string|max:255',
+                'institute-university-industry_member' => 'required|string|max:255',
+                'outcome'=>'required|string|max:255',
                 'dept'=>'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
-            $record->Faculty_Member = $request->input('faculty_member');
-            $record->Title_of_the_Invention = $request->input('title_of_the_invention');
-            $record->Sponsoring_Agency = $request->input('sponsoring_agency');
-            $record->Registration_Details = $request->input('registration_details');
-            $record->National_International = $request->input('national_international');
+            $record['Name_of_the_Faculty_Member'] = $request->input('name_of_the_faculty_member');
             $record['Date'] = $request->input('date');
-            $record['Dept'] = $request->input('dept');
-
+            $record['Purpose'] = $request->input('purpose');
+            $record['Institute/University/Industry_Member'] = $request->input('institute-university-industry_member');
+             $record['Outcome'] = $request->input('outcome');
+            $record['Dept'] = $request->input('dept');  
+           
             $record->Document_Link = $request->input('document_link');
             
 
@@ -112,13 +103,13 @@ class FA_IIIController extends Controller
         // Save new file
         $file = $request->file('document');
         $filename = time() . '_' . $file->getClientOriginalName();
-        $record->Document = $file->storeAs('FA_Documents/FA_III', $filename, 'public');
+        $record->Document = $file->storeAs('FA_Documents/FA_XX', $filename, 'public');
     }
     // else → keep old file
 
             $record->save();
 
-            return redirect()->route('FA.view', ['type' => 'FA_III'])->with('success', 'Faculty activity updated successfull');
+            return redirect()->route('FA.view', ['type' => 'FA_XX'])->with('success', 'Faculty activity updated successfull');
     }
 
     
