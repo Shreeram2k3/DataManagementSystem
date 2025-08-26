@@ -182,4 +182,7 @@ Route::get('/unauthorized',function()
 Route::get('/FA',function(){
     return view('user.facultyactivity');
 });
+Route::get('/facdp',function(){
+    return view('user.FacultyActivityViews.Facultydatapage');
+})->name('facultydatapage');
        
