@@ -179,7 +179,7 @@ Route::get('/unauthorized',function()
         
         Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
         
-Route::get('/FA',function(){
-    return view('user.facultyactivity');
+Route::get('/FV',function(){
+    return view('user.FacultyActivityViews.FacultyActivityForms.FA_I');
 });
        
