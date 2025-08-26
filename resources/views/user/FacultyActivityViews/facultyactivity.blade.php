@@ -173,6 +173,7 @@
           </tr>
 
           <tr>
+            <td class="py-3 px-4 border">12</td>
             <td class="py-3 px-4 border">F.A.X. Faculty Members Deputed for Higher Studies Undergoing / Completed:  (Specify only for the period under Report)</td>
               <td class="py-3 px-4 border text-center">
                 <a href="#"
