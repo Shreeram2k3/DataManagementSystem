@@ -1,11 +1,17 @@
 # 📊 DMS - Data Management System
 ---
+![Clones](https://img.shields.io/badge/dynamic/json?label=Clones&query=count&url=https://your-proxy-api/clones.json&color=blue)
 
 ![GitHub stars](https://img.shields.io/github/stars/Shreeram2k3/DataManagementSystem?style=social)
+
 ![GitHub forks](https://img.shields.io/github/forks/Shreeram2k3/DataManagementSystem?style=social)
+
 ![GitHub contributors](https://img.shields.io/github/contributors/Shreeram2k3/DataManagementSystem)
+
 ![GitHub issues](https://img.shields.io/github/issues/Shreeram2k3/DataManagementSystem)
+
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/Shreeram2k3/DataManagementSystem)
+
 ![License](https://img.shields.io/github/license/Shreeram2k3/DataManagementSystem)
 
 ---
