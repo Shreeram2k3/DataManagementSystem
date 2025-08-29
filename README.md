@@ -1,6 +1,6 @@
 # 📊 DMS - Data Management System
 
-*DMS* (Data Management System) is a Laravel-based application built to streamline and automate the data collection and management process in our college. Designed with familiarity and usability in mind, it mimics the existing ERP interface to ensure ease of adoption by faculty and administrators.
+*DMS* (Data Management System) is a Laravel-based application built to streamline and automate the data collection and management process in our college. Designed with familiarity and usability in mind, it mimics the existing ERP interface to ensure ease of adoption by faculty and administrators. While the code is open under MIT license for learning purposes, unauthorized commercial use is not permitted without prior consent.
 
 ---
 
