@@ -1,4 +1,4 @@
-# 📊 DMS - Data Management System
+⁸# 📊 DMS - Data Management System
 ---
 
 
@@ -121,7 +121,7 @@ Pre-final year CSE student,
   GitHub: github.com/Shreeram2k3
 
   Linkedin:
-[shreeram2k3](https://www.linkedin.com/in/shreeram2k3)
+[<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="18" height="18"/> shreeram2k3](https://www.linkedin.com/in/shreeram2k3)
 
  Sathish K.U
  Pre-final year CSE student,
