@@ -28,7 +28,7 @@
 -  *Data Management Module*
   - HOD can add, view, and manage user data
   - Faculty can view and submit relevant data
-- 🧭 *Clean and familiar UI* based on college ERP design
+-  *Clean and familiar UI* based on college ERP design
 -  *Logging, validation, and error handling* included
 
 ---
