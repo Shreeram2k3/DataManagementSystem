@@ -1,4 +1,4 @@
-⁸# 📊 DMS - Data Management System
+# 📊 DMS - Data Management System
 ---
 
 
@@ -115,7 +115,7 @@ All sensitive files (like .env) are listed in .gitignore.
 ---
 
 
-##👨‍💻 Authors
+# 👨‍💻 Authors
 
 Shreeram G
 Pre-final year CSE student,
