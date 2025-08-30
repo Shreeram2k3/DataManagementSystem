@@ -16,24 +16,24 @@
 ---
 
 
-## 🚀 Features
+##  Features
 
 - 🔐 *Secure Authentication*
   - Google Login via Laravel Socialite
   - Email & Password Login
   - Password reset and change support
-- 🧑‍🏫 *Role-Based Access*
+-  *Role-Based Access*
   - *HOD* has full access to all features
   - *Faculty* has limited view and actions
-- 📁 *Data Management Module*
+-  *Data Management Module*
   - HOD can add, view, and manage user data
   - Faculty can view and submit relevant data
 - 🧭 *Clean and familiar UI* based on college ERP design
-- 🧾 *Logging, validation, and error handling* included
+-  *Logging, validation, and error handling* included
 
 ---
 
-## 🏗 Tech Stack
+##  Tech Stack
 
 - *Backend*: Laravel 12.x (PHP 8.2)
 - *Frontend*: Blade + Tailwind CSS
@@ -114,7 +114,7 @@ All sensitive files (like .env) are listed in .gitignore.
 
 
 
-👨‍💻 Author
+👨‍💻 Authors
 
 Shreeram G
 Pre-final year CSE student,
