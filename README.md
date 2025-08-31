@@ -3,7 +3,7 @@
 
 
 ![GitHub stars](https://img.shields.io/github/stars/Shreeram2k3/DataManagementSystem?style=social)
-![Unique Clones](https://img.shields.io/badge/Unique%20Clones-68-green)
+![Unique Clones](https://img.shields.io/badge/Unique%20Clones-68-blue)
 ![GitHub forks](https://img.shields.io/github/forks/Shreeram2k3/DataManagementSystem?style=social)
 ![GitHub contributors](https://img.shields.io/github/contributors/Shreeram2k3/DataManagementSystem)
 ![GitHub issues](https://img.shields.io/github/issues/Shreeram2k3/DataManagementSystem)
