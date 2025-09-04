@@ -1,27 +1,40 @@
 # 📊 DMS - Data Management System
+---
 
-*DMS* (Data Management System) is a Laravel-based application built to streamline and automate the data collection and management process in our college. Designed with familiarity and usability in mind, it mimics the existing ERP interface to ensure ease of adoption by faculty and administrators.
+
+![GitHub stars](https://img.shields.io/github/stars/Shreeram2k3/DataManagementSystem?style=social)
+![Unique Clones](https://img.shields.io/badge/Unique%20Clones-68-blue)
+![GitHub forks](https://img.shields.io/github/forks/Shreeram2k3/DataManagementSystem?style=social)
+![GitHub contributors](https://img.shields.io/github/contributors/Shreeram2k3/DataManagementSystem)
+![GitHub issues](https://img.shields.io/github/issues/Shreeram2k3/DataManagementSystem)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Shreeram2k3/DataManagementSystem)
+![License](https://img.shields.io/github/license/Shreeram2k3/DataManagementSystem)
 
 ---
 
-## 🚀 Features
+*DMS* (Data Management System) is a Laravel-based application built to streamline and automate the data collection and management process in our college. Designed with familiarity and usability in mind, it mimics the existing ERP interface to ensure ease of adoption by faculty and administrators. While the code is open under MIT license for learning purposes, unauthorized commercial use is not permitted without prior consent.
+
+---
+
+
+##  Features
 
 - 🔐 *Secure Authentication*
   - Google Login via Laravel Socialite
   - Email & Password Login
   - Password reset and change support
-- 🧑‍🏫 *Role-Based Access*
+-  *Role-Based Access*
   - *HOD* has full access to all features
   - *Faculty* has limited view and actions
-- 📁 *Data Management Module*
+-  *Data Management Module*
   - HOD can add, view, and manage user data
   - Faculty can view and submit relevant data
-- 🧭 *Clean and familiar UI* based on college ERP design
-- 🧾 *Logging, validation, and error handling* included
+-  *Clean and familiar UI* based on college ERP design
+-  *Logging, validation, and error handling* included
 
 ---
 
-## 🏗 Tech Stack
+##  Tech Stack
 
 - *Backend*: Laravel 12.x (PHP 8.2)
 - *Frontend*: Blade + Tailwind CSS
@@ -100,14 +113,21 @@ Role-based middleware protects sensitive routes.
 All sensitive files (like .env) are listed in .gitignore.
 
 
+---
 
 
-👨‍💻 Author
+# 👨‍💻 Authors
 
 Shreeram G
 Pre-final year CSE student,
-GitHub: github.com/Shreeram2k3
- 
+
+Connect with me: 
+
+ [<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="18" height="18"/> Shreeram2k3](https://github.com/Shreeram2k3)
+
+[<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="18" height="18"/> shreeram2k3](https://www.linkedin.com/in/shreeram2k3)
+
+---
  Sathish K.U
  Pre-final year CSE student,
  GitHub: github.com/Sathish21-cse
