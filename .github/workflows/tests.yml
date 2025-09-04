@@ -78,7 +78,7 @@ jobs:
         run: php artisan test
 
       - name: Install Node dependencies
-          run: npm install
+        run: npm install
 
-        - name: Build assets
-          run: npm run build
+      - name: Build assets
+        run: npm run build
