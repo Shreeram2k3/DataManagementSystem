@@ -76,3 +76,9 @@ jobs:
           DB_PASSWORD: password
           DB_HOST: 127.0.0.1
         run: php artisan test
+
+      - name: Install Node dependencies
+          run: npm install
+
+        - name: Build assets
+          run: npm run build
