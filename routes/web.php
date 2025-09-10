@@ -23,7 +23,8 @@ use App\Http\Controllers\StudentsActivityController\SA_XIIIController;
 use App\Http\Controllers\StudentsActivityController\SA_XIVController;
 use App\Http\Controllers\StudentsActivityController\SA_XVController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
-use App\Models\StudentsActivityModels\SA_I;
+use App\Http\Controllers\FacultyActivityController\FAdatapageController;
+use App\Http\Controllers\FacultyActivityController\FA_IController;
 use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
@@ -133,8 +134,20 @@ Route::middleware(['auth','verified'])->group(function(){
             //update SA_XV
             Route::put('/student-activity/SA_XIV/update/{id}',[SA_XVController::class,'update'])->name('SAXV_update');
 
-//table view test route
-Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
+            //table view test route
+            Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
+
+            //table view test route
+            Route::get('/Faculty_Activity/view/{type}',[FAdatapageController::class, 'Select_form'])->name('FA.view');
+
+    // Routes for Storing data in FA 
+            // post FAI route 
+            Route::post('/Faculty_Activity/FA_I/create', [FA_IController::class, 'store'])->name('FAI_Store');
+
+// ---------------------------------------------------------------------------------------------------------------
+    // Routes for update table in FA
+            // update FA_I
+            Route::put('/Faculty_activity/SA_I/update/{id}',[FA_IController::class, 'update'])->name('FAI_update');
 
 });
 
@@ -179,8 +192,8 @@ Route::get('/unauthorized',function()
         
         Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
         
-Route::get('/FA',function(){
-    return view('user.facultyactivity');
+Route::get('/FV',function(){
+    return view('user.FacultyActivityViews.FacultyActivityForms.FA_I');
 });
 Route::get('/facdp',function(){
     return view('user.FacultyActivityViews.Facultydatapage');
