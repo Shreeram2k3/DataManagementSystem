@@ -33,9 +33,9 @@
                     <td class="px-4 py-2 border">{{ $item->outcome }}</td>
                     <td class="px-4 py-2 border">{{ $item->students_participated }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->Document_Link))
+                      @if(!empty($item->document_link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->Document_Link }}
+                              {{ $item->document_link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>
