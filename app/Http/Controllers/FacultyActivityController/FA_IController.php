@@ -38,7 +38,7 @@ class FA_IController extends Controller
                 $validated['document'] = $file->storeAs('FA_Documents/FA_I', $filename, 'public');
             }
 
-        //   dd($validated); // For debugging purposes, remove in production
+        // dd($validated); // For debugging purposes, remove in production
            try{
 
             // left side column name in table, right side name attribute in form 
@@ -48,8 +48,8 @@ class FA_IController extends Controller
                 'Title_of_the_Paper' => $validated['title_of_the_paper'],
                 'Name_of_the_Journal_Volume' => $validated['name_of_the_journal_volume'],
                 'Page_Nos_Impact_Factor_value' => $validated['page_nos_impact_factor_value'],
-                'National_International' => $validated['national_international'],
-                'Scopus_SCI_others' => $validated['scopus_sci_others'],
+                'National/International' => $validated['national_international'],
+                'Scopus/SCI/others' => $validated['scopus_sci_others'],
                 'Dept'=>$validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],

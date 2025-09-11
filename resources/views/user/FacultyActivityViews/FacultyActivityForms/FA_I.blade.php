@@ -1,8 +1,8 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
-    <form method="POST" action="{{ isset($record) ? route('FAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAI_Store') }}" 
-    class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
-
+    <form id="facultyForm" method="POST" 
+        action="{{ isset($record) ? route('FAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAI_Store') }}" 
+        class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
         @if(isset($record))
@@ -15,107 +15,121 @@
          
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Faculty</span>
-            <input type="text" name="name_of_the_faculty"  required
-                value="{{ $record->name_of_the_faculty ?? old('name_of_the_faculty') }}"
+            <input type="text" name="name_of_the_faculty" required
+                value="{{ $record->Name_of_the_Faculty ?? old('Name_of_the_Faculty') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">ID</span>
-            <input type="text" name="id"  required
-                value="{{ $record->id ?? old('id') }}"
+            <input type="text" name="id" required
+                value="{{ $record->ID ?? old('ID') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-
         <label class="block">
             <span class="text-sm text-gray-600">Tittle of the Papper</span>
-            <input type="text" name="title_of_the_paper"  required
-                value="{{ $record->title_of_the_paper ?? old('title_of_the_paper') }}"
+            <input type="text" name="title_of_the_paper" required
+                value="{{ $record->Title_of_the_Paper ?? old('Title_of_the_Paper') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Journal Volume</span>
-            <input type="text" name="name_of_the_journal_volume"  required
-                value="{{ $record->name_of_the_journal_volume ?? old('name_of_the_journal_volume') }}"
+            <input type="text" name="name_of_the_journal_volume" required
+                value="{{ $record->Name_of_the_Journal_Volume ?? old('Name_of_the_Journal_Volume') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Page Nos Impact Factor Value</span>
-            <input type="text" name="page_nos_impact_factor_value"  required
-                value="{{ $record->page_nos_impact_factor_value ?? old('page_nos_impact_factor_value') }}"
+            <input type="text" name="page_nos_impact_factor_value" required
+                value="{{ $record->Page_Nos_Impact_Factor_value ?? old('Page_Nos_Impact_Factor_value') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block mb-2">
-    <span class="text-sm text-gray-600">National / International</span>
-</label>
-  <div class="flex gap-6">
-    <label class="inline-flex items-center">
-        <input type="radio" name="national_international" value="National"
-            {{ ($record->national_international ?? old('national_international')) === 'National' ? 'checked' : '' }}
-            class="form-radio text-pink-600 focus:ring-pink-500">
-        <span class="ml-2 text-gray-700 text-sm">National</span>
-    </label>
-    <label class="inline-flex items-center">
-        <input type="radio" name="national_international" value="International"
-            {{ ($record->national_international ?? old('national_international')) === 'International' ? 'checked' : '' }}
-            class="form-radio text-pink-600 focus:ring-pink-500">
-        <span class="ml-2 text-gray-700 text-sm">International</span>
-    </label>
-  </div>
+            <span class="text-sm text-gray-600">National / International</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="national_international" value="National"
+                {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
+                class="form-radio text-pink-600 focus:ring-pink-500">
+            <span class="ml-2 text-gray-700 text-sm">National</span>
+        </label>
+
+        <label class="inline-flex items-center">
+            <input type="radio" name="national_international" value="International"
+                {{ (($record['National/International'] ?? old('National/International')) === 'International') ? 'checked' : '' }}
+                class="form-radio text-pink-600 focus:ring-pink-500">
+            <span class="ml-2 text-gray-700 text-sm">International</span>
+        </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Scopus Sci Others</span>
-            <input type="text" name="scopus_sci_others"  required
-                value="{{ $record->scopus_sci_others ?? old('scopus_sci_others') }}"
+            <input type="text" name="scopus_sci_others" required
+                value="{{ $record['Scopus/SCI/others'] ?? old('Scopus/SCI/others') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Department</span>
-            <input type="text" name="dept"  required
-                value="{{ $record->dept ?? old('dept') }}"
+            <input type="text" name="dept" required
+                value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Document Link</span>
+            <span class="text-sm text-gray-600">Document Link (Optional)</span>
             <input type="url" name="document_link"
-                value="{{ $record->document_link ?? old('document_link') }}"
+                value="{{ $record->Document_Link ?? old('Document_Link') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-       
-
-
-            <label class="block">
-                    <span class="text-sm text-gray-600">Document</span>
-
-                    {{-- Show existing document name or link if record exists --}}
-                    @if(isset($record) && $record->document)
-                        <p class="text-sm text-gray-500">
-                            Current file: 
-                            <a href="{{ asset('storage/' . $record->document) }}" class="text-blue-500 underline"target="blank">
-                                {{ basename($record->Document) }}
-                            </a>
-                        </p>
-                    @endif
-
-                    {{-- File upload field --}}
-                    <input type="file" name="document"
-                        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
-                        {{ isset($record) ? '' : 'required' }}>
-                </label>
-
+        <label class="block">
+            <span class="text-sm text-gray-600">Document</span>
+            @if(isset($record) && $record->Document)
+                <p class="text-sm text-gray-500">
+                    Current file:
+                    <a href="{{ asset('storage/' . $record->Document) }}" class="text-blue-500 underline" target="blank">
+                        {{ basename($record->Document) }}
+                    </a>
+                </p>
+            @endif
+            <input type="file" name="document"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2"
+                {{ isset($record) ? '' : 'required' }}>
+        </label>
 
         <div class="flex justify-center">
-            <button type="submit"
+            <button type="submit" id="submitBtn"
                 class="bg-green-500 text-white rounded-md px-12 py-2 mt-4 hover:bg-green-400 transition-all duration-200">
                 {{ isset($record) ? 'Update' : 'Submit' }}
             </button>
         </div>
     </form>
 </main>
+
+<!-- JS to disable button after submit -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("facultyForm");
+        const submitBtn = document.getElementById("submitBtn");
+
+        // When submitting
+        form.addEventListener("submit", function () {
+            localStorage.setItem("form_submitted", "true");
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Processing...";
+            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+        });
+
+        // If user comes back with back button, check localStorage
+        if (localStorage.getItem("form_submitted") === "true") {
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Already Submitted";
+            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
+        }
+    });
+</script>
+

@@ -74,7 +74,28 @@
                       @include('user.FacultyActivityViews.FacultyActivityForms.FA_I')
                       @break
 
-    </section>
-    @endswitch
+                      @endswitch
+             </section>
+
+             <br><hr>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------- -->
+        <h1 class="font-semibold text-2xl  mt-10 ml-2" >View Data</h1>
+                        <div class="  mt-8">
+                            <div class="bg-white shadow-md overflow-x-auto  rounded-lg overflow-hidden ">
+                                <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
+                                    @switch($type)
+                                        @case('FA_I')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_ITable') 
+                                            @break
+                                    
+                                    @endswitch
+
+                                </table>
+                        </div>
+                  </div>
 </div>
+
+                               
+
 @endsection
