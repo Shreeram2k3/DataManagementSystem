@@ -137,17 +137,33 @@ Route::middleware(['auth','verified'])->group(function(){
             //table view test route
             Route::get('/Student_Activity/view/{type}',[SAdatapageController::class, 'Select_form'])->name('SA.view');
 
+            //Edit
+            Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
+
+            //delete
+            Route::delete('/student-activity/delete/{type}/{id}', [SAdatapageController::class, 'destroy'])->name('student_activity_delete');
+
+
+//---------->------>------>-------->FACULTY ROUTES -----<------------------<------------------<-------------------
+
+
             //table view test route
             Route::get('/Faculty_Activity/view/{type}',[FAdatapageController::class, 'Select_form'])->name('FA.view');
 
-    // Routes for Storing data in FA 
-            // post FAI route 
-            Route::post('/Faculty_Activity/FA_I/create', [FA_IController::class, 'store'])->name('FAI_Store');
+            //Edit
+            Route::get('/Faculty_activity/{type}/{id}/edit', [FAdatapageController::class, 'edit'])->name('Faculty_activity_edit');
 
-// ---------------------------------------------------------------------------------------------------------------
-    // Routes for update table in FA
-            // update FA_I
-            Route::put('/Faculty_activity/SA_I/update/{id}',[FA_IController::class, 'update'])->name('FAI_update');
+            //delete
+            Route::delete('/Faculty_activity/delete/{type}/{id}', [FAdatapageController::class, 'destroy'])->name('Faculty_activity_delete');
+
+            // Routes for Storing data in FA 
+                    // post FAI route 
+                    Route::post('/Faculty_Activity/FA_I/create', [FA_IController::class, 'store'])->name('FAI_Store');
+
+
+            // Routes for update table in FA
+                    // update FA_I
+                    Route::put('/Faculty_activity/FA_I/update/{id}',[FA_IController::class, 'update'])->name('FAI_update');
 
 });
 
@@ -156,7 +172,7 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::delete('/student-activity/delete/{type}/{id}', [SAdatapageController::class, 'destroy'])->name('student_activity_delete');
+
 
 
 
@@ -190,7 +206,7 @@ Route::get('/unauthorized',function()
         //           return view('StudentActivityViews.SA_II');});
         
         
-        Route::get('/student-activity/{type}/{id}/edit', [SAdatapageController::class, 'edit'])->name('student_activity_edit');
+        
         
 Route::get('/FV',function(){
     return view('user.FacultyActivityViews.FacultyActivityForms.FA_I');
