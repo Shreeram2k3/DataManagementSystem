@@ -1,5 +1,10 @@
 @extends('layouts.navbar')
-
+<head>
+    <title>
+        {{$type}}
+    </title>
+    <link rel="shortcut icon" href="colorlogo.png" type="image.jpg">
+</head>
 @section('content')
 @php
    $title = '';
