@@ -69,7 +69,7 @@
         <span class="text-sm text-gray-700">entries</span>
     </form>
 
-    Pagination Links
+    <!-- Pagination Links -->
     <div class="flex space-x-2">
         @if($data[$type]->previousPageUrl())
             <a href="{{ $data[$type]->previousPageUrl() }}" class="px-3 py-1 bg-gray-200 text-gray-700 rounded hover:bg-gray-300">Previous</a>
