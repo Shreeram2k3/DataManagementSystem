@@ -1,4 +1,5 @@
 <?php
+namespace App\Models\FacultyActivityModels;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
