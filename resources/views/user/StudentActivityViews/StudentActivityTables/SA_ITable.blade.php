@@ -35,18 +35,26 @@
                     <a href="{{ asset('storage/' . $item->Document) }}" class="text-blue-500 underline" target="_blank">{{ basename($item->Document) }}</a>
                 </td>
                 <td class="px-4 py-2 border text-center">
-                    <div class="flex justify-center">
-                        <a href="{{ route('student_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" class="px-2 py-1 bg-stone-700 text-white rounded-l hover:bg-stone-900">
-                            <i class="fa-solid fa-pen"></i>
-                        </a>
-                        <form action="{{ route('student_activity_delete', ['type' => $type, 'id' => $item->S_NO]) }}" method="POST" onsubmit="return confirm('Are you sure?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="px-2 py-1 bg-red-500 text-white rounded-r hover:bg-red-600">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-                    </div>
+                    <div class="flex justify-center rounded-lg overflow-hidden">
+        
+        <!-- Edit Button -->
+        <a href="{{ route('Faculty_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" 
+           class="inline-flex items-center justify-center w-10 h-10 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
+            <i class="fa-solid fa-pen"></i>
+        </a>
+
+        <!-- Delete Button -->
+        <form action="{{ route('Faculty_activity_delete', ['type' => $type, 'id' => $item->S_NO]) }}" 
+              method="POST" 
+              onsubmit="return confirm('Are you sure you want to delete this item?');">
+            @csrf
+            @method('DELETE')
+            <button type="submit" 
+                    class="inline-flex items-center justify-center w-10 h-10 bg-red-500 text-white hover:bg-red-600 transition rounded-r-lg">
+                <i class="fas fa-trash"></i>
+            </button>
+        </form>
+    </div>
                 </td>
             </tr>
             @endforeach
