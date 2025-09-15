@@ -110,26 +110,4 @@
     </form>
 </main>
 
-<!-- JS to disable button after submit -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("facultyForm");
-        const submitBtn = document.getElementById("submitBtn");
-
-        // When submitting
-        form.addEventListener("submit", function () {
-            localStorage.setItem("form_submitted", "true");
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Processing...";
-            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
-        });
-
-        // If user comes back with back button, check localStorage
-        if (localStorage.getItem("form_submitted") === "true") {
-            submitBtn.disabled = true;
-            submitBtn.innerText = "Already Submitted";
-            submitBtn.classList.add("opacity-50", "cursor-not-allowed");
-        }
-    });
-</script>
 
