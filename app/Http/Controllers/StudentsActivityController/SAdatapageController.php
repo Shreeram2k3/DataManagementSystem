@@ -21,98 +21,51 @@ use Illuminate\Http\Request;
 
 class SAdatapageController extends Controller
 {
-     public function Select_form($type)
-    {
-       // to ckeck that the given type is consist of that type
-       $validTypes = [
-            'SA_I',
-            'SA_II',
-            'SA_III',
-            'SA_IV',
-            'SA_V',
-            'SA_VI',
-            'SA_VII',
-            'SA_VIII',
-            'SA_IX',
-            'SA_X',
-            'SA_XI',
-            'SA_XII',
-            'SA_XIII',
-            'SA_XIV',
-            'SA_XV',
-             
-       ];
-       // Get the user ID from the authenticated user
-       $userId = auth()->id();
-       if ($type === 'SA_I')  
-                { 
-                    $data['SA_I'] = SA_I::where('user_id', $userId)->get();
-                }
-         else if ($type === 'SA_II')  
-                {
-                    $data['SA_II'] = SA_II::where('user_id', $userId)->get();
-                }
-         else if ($type === 'SA_III')  
-                {
-                    $data['SA_III'] = SA_III::where('user_id', $userId)->get();
-                }
-         else if ($type === 'SA_IV')  
-                {
-                    $data['SA_IV'] = SA_IV::where('user_id', $userId)->get();
-                }
-         else if($type === 'SA_V')
-               {
-                   $data['SA_V'] =SA_V::where('user_id',$userId)->get();
-               }
-         else if($type === 'SA_VI')
-               {
-                   $data['SA_VI'] =SA_VI::where('user_id',$userId)->get();
-               }
-         else if($type === 'SA_VII')
-               {
-                   $data['SA_VII'] =SA_VII::where('user_id',$userId)->get();
-               }
-         else if($type === 'SA_VIII')
-                {
-                    $data['SA_VIII']=SA_VIII::where('user_id',$userId)->get();
-                }
-         else if($type === 'SA_IX')
-                {
-                    $data['SA_IX']=SA_IX::where('user_id',$userId)->get();
-                }
-         else if($type === 'SA_X')
-                {
-                    $data['SA_X']=SA_X::where('user_id',$userId)->get();
-                }
-         else if($type === 'SA_XI')
-                {
-                    $data['SA_XI']=SA_XI::where('user_id',$userId)->get();
-                }
-         else if($type === 'SA_XII')
-                {
-                    $data['SA_XII']=SA_XII::where('user_id',$userId)->get();
-                }
-        else if($type === 'SA_XIII')
-                {
-                    $data['SA_XIII']=SA_XIII::where('user_id',$userId)->get();
-                }
-        else if($type === 'SA_XIV')
-                {
-                    $data['SA_XIV']=SA_XIV::where('user_id',$userId)->get();
-                }
-        else if($type === 'SA_XV')
-                {
-                    $data['SA_XV']=SA_XV::where('user_id',$userId)->get();
-                }
-                            
-// -----------------------------------------------------------------------------------------------------------------
-         // Check if the type is valid and return the corresponding view
-                if (in_array($type, $validTypes)) {
-                    return view('user.StudentActivityViews.Studentdatapage',compact('type','data'));
-                } else {
-                    return "The form not exists...";
-                }
+     public function Select_form(Request $request, $type)
+{
+    $perPage = $request->input('per_page', 25);
+
+    $validTypes = [
+        'SA_I', 'SA_II', 'SA_III', 'SA_IV', 'SA_V',
+        'SA_VI', 'SA_VII', 'SA_VIII', 'SA_IX', 'SA_X',
+        'SA_XI', 'SA_XII', 'SA_XIII', 'SA_XIV', 'SA_XV',
+    ];
+
+    $modelMap = [
+        'SA_I'   => SA_I::class,
+        'SA_II'  => SA_II::class,
+        'SA_III' => SA_III::class,
+        'SA_IV'  => SA_IV::class,
+        'SA_V'   => SA_V::class,
+        'SA_VI'  => SA_VI::class,
+        'SA_VII' => SA_VII::class,
+        'SA_VIII'=> SA_VIII::class,
+        'SA_IX'  => SA_IX::class,
+        'SA_X'   => SA_X::class,
+        'SA_XI'  => SA_XI::class,
+        'SA_XII' => SA_XII::class,
+        'SA_XIII'=> SA_XIII::class,
+        'SA_XIV' => SA_XIV::class,
+        'SA_XV'  => SA_XV::class,
+    ];
+
+    if (!in_array($type, $validTypes)) {
+        return "The form does not exist...";
     }
+
+    $userId = auth()->id();
+    $model = $modelMap[$type];
+
+    $data[$type] = $model::where('user_id', $userId)
+                        ->paginate($perPage)
+                        ->appends(['per_page' => $perPage]);
+
+    
+
+    // First load → full page
+    return view('user.StudentActivityViews.Studentdatapage', compact('type', 'data', 'perPage'));
+}
+
     //---------------destroy function-----------------------------------------------------------------------
     public function destroy($type, $id)
     {
@@ -150,8 +103,9 @@ class SAdatapageController extends Controller
     }
 
     //---------------edit and update function-----------------------------------------------------------------------
-        public function edit($type, $id)
+        public function edit(Request $request, $type, $id)
         {               
+             $perPage = $request->input('per_page', 25);
             try {
                             $modelMap = [
                                 'SA_I' => SA_I::class,
@@ -178,8 +132,11 @@ class SAdatapageController extends Controller
                           
     // Fetch the list again for table display
                             $userId = auth()->id();
-                            $data[$type] = $model::where('user_id', $userId)->get();
-                            return view('user.StudentActivityViews.Studentdatapage', compact('type', 'data', 'record'));
+                            // $data[$type] = $model::where('user_id', $userId)->get();
+                             $data[$type] = $model::where('user_id', $userId)
+                        ->paginate($perPage)
+                        ->appends(['per_page' => $perPage]);
+                            return view('user.StudentActivityViews.Studentdatapage', compact('type', 'data', 'record','perPage'));
         }
         catch (\Exception $e) {
                    dd($e->getMessage());
