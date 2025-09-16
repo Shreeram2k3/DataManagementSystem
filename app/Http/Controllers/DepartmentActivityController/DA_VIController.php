@@ -72,7 +72,7 @@ class DA_VIController extends Controller
                 'activity' => 'required|string|max:255',
                 'speaker/organization' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
