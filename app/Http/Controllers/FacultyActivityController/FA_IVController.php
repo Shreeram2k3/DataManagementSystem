@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
-class FA_IController extends Controller
+class FA_IVController extends Controller
 {
    
     public function store(Request $request)

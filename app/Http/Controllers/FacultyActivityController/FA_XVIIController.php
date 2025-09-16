@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class FA_XVIController extends Controller
+class FA_XVIIController extends Controller
 {
     public function store(Request $request)
     {
