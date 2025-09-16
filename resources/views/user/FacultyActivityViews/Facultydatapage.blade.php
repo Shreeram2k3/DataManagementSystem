@@ -9,6 +9,51 @@
 
     if ($type == 'FA_I')
         $title = 'F. A. I (a). Publication of Papers in the Journals';
+    elseif($type=='FA_II')
+        $title='F. A. I (b) Book / Chapter contribution in Publications';
+    elseif($type=='FA_III')
+        $title='F. A. I (c) Patents Generated / Filed:';
+    elseif($type=='FA_IV')
+        $title='F.A.II  Seminar / Symposium/ Conferences / Training Programmes (Less than one week) (Paper Presented / Participated)';
+    elseif($type=='FA_V')
+        $title='F. A. III. International /  National / Conferences / Seminar – Organized';
+    elseif($type=='FA_VI')
+        $title='F. A. IV. Summer School / Winter School / FDP or SDP (at least one week) attended by Staff Members';
+    elseif($type=='FA_VII')
+        $title='F. A. V.  Event / Winter / Summer School Proposals Submitted / Sanctioned';
+    elseif($type=='FA_VIII')
+        $title='F. A. VI. AICTE / ISTE Sponsored  / Faculty Development Programmes - Events Organized ';
+    elseif($type=='FA_IX')
+        $title='F.A.VII. Details of Industrial Training Undergone by the Faculty Members';
+    elseif($type=='FA_X')
+        $title='F.A.VIII. Special Lectures Delivered By Faculty Members';
+    elseif($type=='FA_XI')
+        $title='F. A. IX.  Non-Teaching Staff Training Programmes';
+    elseif($type=='FA_XII')
+        $title='F.A.X. Faculty Members Deputed for Higher Studies Undergoing / Completed:  (Specify only for the period under Report)';
+    elseif($type=='FA_XIII')
+        $title='F.A.XI. Faculty Members Guiding Ph D Scholars ';
+    elseif($type=='FA_XIV')
+        $title='F.A.XII.  Projects Proposals Submitted / Sanctioned';
+    elseif($type=='FA_XV')
+        $title='F.A.XIII Details of Consultancy Services of the Department:';
+    elseif($type=='FA_XVI')
+        $title='F.A.XIV Details of MoUs signed';
+    elseif($type=='FA_XVII')
+        $title='F.A.XV Industry visits by Faculty Member';
+    elseif($type=='FA_XVIII')
+        $title='F.A.XVI Faculty Members Received Award / Applied for Any Awards';
+    elseif($type=='FA_XIX')
+        $title='F. A. XVII Supervisor Recognition';
+    elseif($type=='FA_XX')
+        $title='F.A.XVIII – IRP Visit ';
+    elseif($type=='FA_XXI')
+        $title='F. A. XIX. Faculty Recruited. Relieved					';
+    elseif($type=='FA_XXII')
+        $title='F.A.XX Staff Activities - Others - AUR / Valuvation / I.E / E.E
+';
+
+    
 @endphp
 
 <!-- Flash Messages -->

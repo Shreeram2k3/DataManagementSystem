@@ -25,6 +25,27 @@ use App\Http\Controllers\StudentsActivityController\SA_XVController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
 use App\Http\Controllers\FacultyActivityController\FAdatapageController;
 use App\Http\Controllers\FacultyActivityController\FA_IController;
+use App\Http\Controllers\FacultyActivityController\FA_IIController;
+use App\Http\Controllers\FacultyActivityController\FA_IIIController;
+use App\Http\Controllers\FacultyActivityController\FA_IVController;
+use App\Http\Controllers\FacultyActivityController\FA_VController;
+use App\Http\Controllers\FacultyActivityController\FA_VIController;
+use App\Http\Controllers\FacultyActivityController\FA_VIIController;
+use App\Http\Controllers\FacultyActivityController\FA_VIIIController;
+use App\Http\Controllers\FacultyActivityController\FA_IXController;
+use App\Http\Controllers\FacultyActivityController\FA_XController;
+use App\Http\Controllers\FacultyActivityController\FA_XIController;
+use App\Http\Controllers\FacultyActivityController\FA_XIIController;
+use App\Http\Controllers\FacultyActivityController\FA_XIIIController;
+use App\Http\Controllers\FacultyActivityController\FA_XIVController;
+use App\Http\Controllers\FacultyActivityController\FA_XVController;
+use App\Http\Controllers\FacultyActivityController\FA_XVIController;
+use App\Http\Controllers\FacultyActivityController\FA_XVIIController;
+use App\Http\Controllers\FacultyActivityController\FA_XVIIIController;
+use App\Http\Controllers\FacultyActivityController\FA_XIXController;
+use App\Http\Controllers\FacultyActivityController\FA_XXController;
+use App\Http\Controllers\FacultyActivityController\FA_XXIController;
+use App\Http\Controllers\FacultyActivityController\FA_XXIIController;
 use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
@@ -159,6 +180,49 @@ Route::middleware(['auth','verified'])->group(function(){
             // Routes for Storing data in FA 
                     // post FAI route 
                     Route::post('/Faculty_Activity/FA_I/create', [FA_IController::class, 'store'])->name('FAI_Store');
+
+                    // post FAII route 
+                    Route::post('/Faculty_Activity/FA_II/create', [FA_IIController::class, 'store'])->name('FAII_Store');
+                    // post FAIII route 
+                    Route::post('/Faculty_Activity/FA_III/create', [FA_IIIController::class, 'store'])->name('FAIII_Store');
+                    // post FAIV route 
+                    Route::post('/Faculty_Activity/FA_IV/create', [FA_IVController::class, 'store'])->name('FAIV_Store');
+                    // post FAV route 
+                    Route::post('/Faculty_Activity/FA_V/create', [FA_VController::class, 'store'])->name('FAV_Store');
+                    // post FAVI route 
+                    Route::post('/Faculty_Activity/FA_VI/create', [FA_VIController::class, 'store'])->name('FAVI_Store');
+                    // post FAVII route 
+                    Route::post('/Faculty_Activity/FA_VII/create', [FA_VIIController::class, 'store'])->name('FAVII_Store');
+                    // post FAVIII route 
+                    Route::post('/Faculty_Activity/FA_VIII/create', [FA_VIIIController::class, 'store'])->name('FAVIII_Store');
+                    // post FAIX route 
+                    Route::post('/Faculty_Activity/FA_IX/create', [FA_IXController::class, 'store'])->name('FAIX_Store');
+                    // post FAX route 
+                    Route::post('/Faculty_Activity/FA_X/create', [FA_XController::class, 'store'])->name('FAX_Store');
+                    // post FAXI route 
+                    Route::post('/Faculty_Activity/FA_XI/create', [FA_XIController::class, 'store'])->name('FAXI_Store');
+                    // post FAXII route 
+                    Route::post('/Faculty_Activity/FA_XII/create', [FA_XIIController::class, 'store'])->name('FAXII_Store');
+                    // post FAXIII route 
+                    Route::post('/Faculty_Activity/FA_XIII/create', [FA_XIIIController::class, 'store'])->name('FAXIII_Store');
+                    // post FAXIV route 
+                    Route::post('/Faculty_Activity/FA_XIV/create', [FA_XIVController::class, 'store'])->name('FAXIV_Store');
+                    // post FAXIX route 
+                    Route::post('/Faculty_Activity/FA_XIX/create', [FA_XIXController::class, 'store'])->name('FAXIX_Store');
+                    // post FAXV route 
+                    Route::post('/Faculty_Activity/FA_XV/create', [FA_XVController::class, 'store'])->name('FAXV_Store');
+                    // post FAXVI route 
+                    Route::post('/Faculty_Activity/FA_XVI/create', [FA_XVIController::class, 'store'])->name('FAXVI_Store');
+                    // post FAXVII route 
+                    Route::post('/Faculty_Activity/FA_XVII/create', [FA_XVIIController::class, 'store'])->name('FAXVII_Store');
+                    // post FAXVIII route 
+                    Route::post('/Faculty_Activity/FA_XVIII/create', [FA_XVIIIController::class, 'store'])->name('FAXVIII_Store');
+                    // post FAXX route 
+                    Route::post('/Faculty_Activity/FA_XX/create', [FA_XXController::class, 'store'])->name('FAXX_Store');
+                    // post FAXXI route 
+                    Route::post('/Faculty_Activity/FA_XXI/create', [FA_XXIController::class, 'store'])->name('FAXXI_Store');
+                    // post FAXXII route 
+                    Route::post('/Faculty_Activity/FA_XXII/create', [FA_XXIIController::class, 'store'])->name('FAXXII_Store');
 
 
             // Routes for update table in FA
