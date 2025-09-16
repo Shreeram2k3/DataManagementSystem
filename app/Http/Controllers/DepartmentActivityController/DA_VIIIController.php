@@ -58,7 +58,7 @@ class DA_VIIIController extends Controller
                 }
         } catch (\Exception $e) {
             dd($e->getMessage());
-            return redirect()->back()->withErrors(['error' => 'Failed to add Faculty activity: ' . $e->getMessage()]);
+            return redirect()->back()->withErrors(['error' => 'Failed to add Department activity: ' . $e->getMessage()]);
         }
     }
     public function update(Request $request, $id)

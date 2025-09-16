@@ -2,26 +2,23 @@
 
 namespace App\Http\Controllers\DepartmentActivityController;
 
-use App\Models\DepartmentActivityModels\DA_VII; 
+use App\Models\DepartmentActivityModels\DA_IX; 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
-class DA_VIIController extends Controller
+class DA_IXController extends Controller
 {
    
     public function store(Request $request)
     {
         // these are the name attribute in form 
-        $type = 'DA_VII';
+        $type = 'DA_IX';
         try {
             $validated = $request->validate([
             
-                'name' => 'required|string|max:255',
-                'organizer/event' => 'required|string|max:255',
-                'prize' => 'required|string|max:255',
-                'month' => 'required|string|max:255',
+                'others' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
@@ -32,18 +29,15 @@ class DA_VIIController extends Controller
            if ($request->hasFile('document')) {
                 $file = $request->file('document');
                 $filename = time() . '_' . $file->getClientOriginalName(); //adding timestamp to avoid collisions
-                $validated['document'] = $file->storeAs('DA_Documents/DA_VII', $filename, 'public');
+                $validated['document'] = $file->storeAs('DA_Documents/DA_IX', $filename, 'public');
             }
 
         // dd($validated); // For debugging purposes, remove in production
            try{
 
             // left side column name in table, right side name attribute in form 
-            DA_VII::create([
-                'Name' => $validated['name'],
-                'Organizer/Event' => $validated['organizer/event'],
-                'Prize' => $validated['prize'],
-                'Month' => $validated['month'],
+            DA_IX::create([
+                'Others' => $validated['others'],
                 'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
@@ -65,24 +59,18 @@ class DA_VIIController extends Controller
     }
     public function update(Request $request, $id)
     {
-            $record = DA_VII::findOrFail($id);
+            $record = DA_IX::findOrFail($id);
 
             // Validate input
             $request->validate([
-                 'name' => 'required|string|max:255',
-                'organizer/event' => 'required|string|max:255',
-                'prize' => 'required|string|max:255',
-                'month' => 'required|string|max:255',
+               'others' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
-            $record->Name = $request->input('name');
-            $record['Organizer/Event'] = $request->input('organizer/event');
-            $record->Prize = $request->input('prize');
-            $record['Month'] = $request->input('month');
+            $record->Others = $request->input('others');
              $record['Dept'] = $request->input('dept');
 
             $record->Document_Link = $request->input('document_link');
@@ -98,13 +86,13 @@ class DA_VIIController extends Controller
         // Save new file
         $file = $request->file('document');
         $filename = time() . '_' . $file->getClientOriginalName();
-        $record->Document = $file->storeAs('DA_Documents/DA_VII', $filename, 'public');
+        $record->Document = $file->storeAs('DA_Documents/DA_IX', $filename, 'public');
     }
     // else → keep old file
 
             $record->save();
 
-            return redirect()->route('DA.view', ['type' => 'DA_VII'])->with('success', 'Department activity updated successfully');
+            return redirect()->route('DA.view', ['type' => 'DA_IX'])->with('success', 'Department activity updated successfully');
     }
 
     
