@@ -51,7 +51,7 @@
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
                     <!-- Edit Button -->
-                    <a href="{{ route('Faculty_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" 
+                    <a href="{{ route('student_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" 
                     class="inline-flex items-center justify-center w-10 h-10 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
                         <i class="fa-solid fa-pen"></i>
                     </a>
