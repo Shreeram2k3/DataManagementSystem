@@ -171,7 +171,8 @@ class FAdatapageController extends Controller
                           
     // Fetch the list again for table display
                             $userId = auth()->id();
-                            $data[$type] = $model::where('user_id', $userId)->get();
+                            $data[$type] = $model::where('user_id', $userId)->paginate($perPage)
+                        ->appends(['per_page' => $perPage]);
                             return view('user.FacultyActivityViews.Facultydatapage', compact('type', 'data', 'record','perPage'));
         }
         catch (\Exception $e) {
