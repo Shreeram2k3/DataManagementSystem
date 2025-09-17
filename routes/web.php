@@ -267,6 +267,8 @@ Route::middleware(['auth','verified'])->group(function(){
 
 //---------->------>------>-------->DEPARTMENT ACTIVITY ROUTES -----<------------------<------------------<-------------------
 
+                    //table view route
+                     Route::get('/Faculty_Activity/view/{type}',[DAdatapageController::class, 'Select_form'])->name('DA.view');
                     // POST DA_I
                      Route::post('/Faculty_Activity/DA_I/create', [DA_IController::class, 'store'])->name('DAI_Store');
 

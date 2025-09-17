@@ -22,7 +22,7 @@
     elseif($type=='DA_VI')
             $title='D. A. VI. Activities for Competitive Examination / Higher Education / EDC';
     elseif($type=='DA_VII')
-            $title=D. A. VII. Awards/ Prizes won by Students';
+            $title='D. A. VII. Awards/ Prizes won by Students';
     elseif($type=='DA_VIII')
             $title='D. A. IX. Department Activities Others';
     elseif($type=='DA_IX')
@@ -157,66 +157,49 @@
                             <div class="bg-white shadow-md overflow-x-auto  rounded-lg overflow-hidden ">
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                       @switch($type)
-                                        @case('SA_I')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_ITable')
+                                        @case('DA_I')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_ITable')
                                             @break
 
-                                        @case('SA_II')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IITable')
+                                        @case('DA_II')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IITable')
                                             @break
 
-                                        @case('SA_III')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IIITable')
+                                        @case('DA_III')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable')
                                             @break
 
-                                        @case('SA_IV')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable')
+                                        @case('DA_IV')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable')
                                             @break
 
-                                        @case('SA_V')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VTable')
+                                        @case('DA_V')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable')
                                             @break
 
-                                        @case('SA_VI')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VITable')
+                                        @case('DA_VI')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable')
                                             @break
 
-                                        @case('SA_VII')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIITable')
+                                        @case('DA_VII')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable')
                                             @break
                                         
-                                        @case('SA_VIII')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIIITable')
+                                        @case('DA_VIII')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable')
                                             @break
 
-                                        @case('SA_IX')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IXTable')
+                                        @case('DA_IX')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable')
                                             @break
 
-                                        @case('SA_X')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XTable')
+                                        @case('DA_X')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable')
                                             @break
 
-                                        @case("SA_XI")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XITable')
+                                        @case("DA_XI")
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable')
                                             @break
-
-                                        @case("SA_XII")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIITable')
-                                            @break
-                                        
-                                        @case("SA_XIII")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIIITable')
-                                            @break
-
-                                         @case("SA_XIV")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIVTable')
-                                            @break
-
-                                        @case("SA_XV")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XVTable')
-                                            @break
-                                        
 
                                       @default
                                             <p class="text-red-500">table not found.</p>
