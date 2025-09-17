@@ -275,7 +275,7 @@ Route::get('/unauthorized',function()
 Route::get('/FV',function(){
     return view('user.FacultyActivityViews.FacultyActivityForms.FA_I');
 });
-Route::get('/facdp',function(){
-    return view('user.FacultyActivityViews.Facultydatapage');
+Route::get('/DA',function(){
+    return view('user.DepartmentActivityViews.departmentactivity');
 })->name('facultydatapage');
        
