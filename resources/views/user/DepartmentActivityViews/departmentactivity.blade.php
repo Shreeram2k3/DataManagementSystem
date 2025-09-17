@@ -22,7 +22,7 @@
             <td class="py-3 px-4 border">1</td>
             <td class="py-3 px-4 border">D. A. I. Details of New Equipment Purchased in the Department</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_I']) }}" target="_blank" rel="noopener noreferrer"
+                <a href="{{ route('DA.view', ['type' => 'DA_I']) }}" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -36,7 +36,7 @@
             <td class="py-3 px-4 border">2</td>
             <td class="py-3 px-4 border">D. A. II. Equipment Failure/ Service Status in the Department</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_II']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_II']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -50,7 +50,7 @@
             <td class="py-3 px-4 border">3</td>
             <td class="py-3 px-4 border">D. A. III.  Departmental Library</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_III']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_III']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -64,7 +64,7 @@
             <td class="py-3 px-4 border">4</td>
             <td class="py-3 px-4 border">D. A. IV. VIPs  Visit / Inspection to the Department / Audit </td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_IV']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_IV']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -78,7 +78,7 @@
             <td class="py-3 px-4 border">5</td>
             <td class="py-3 px-4 border">D. A. V. Newsletters Released (All) </td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_V']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_V']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -92,7 +92,7 @@
             <td class="py-3 px-4 border">6</td>
             <td class="py-3 px-4 border">D. A. VI. Activities for Competitive Examination / Higher Education / EDC</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_VI']) }}#"
+                <a href="{{ route('DA.view', ['type' => 'DA_VI']) }}#"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -106,7 +106,7 @@
             <td class="py-3 px-4 border">7</td>
             <td class="py-3 px-4 border">D. A. VII. Awards/ Prizes won by Students </td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_VII']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_VII']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -120,7 +120,7 @@
             <td class="py-3 px-4 border">8</td>
             <td class="py-3 px-4 border">D. A. VIII. Board of Studies Meeting / PAC / DAAC / GCM / AGM</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_VIII']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_VIII']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -134,7 +134,7 @@
             <td class="py-3 px-4 border">9</td>
             <td class="py-3 px-4 border">D. A. IX. Department Activities Others </td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_IX']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_IX']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -148,7 +148,7 @@
             <td class="py-3 px-4 border">10</td>
             <td class="py-3 px-4 border">D. A. X. Department Time Table / subject allocation / faculty work load</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_X']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_X']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -162,7 +162,7 @@
             <td class="py-3 px-4 border">11</td>
             <td class="py-3 px-4 border">D. A. XI. Result Analysis / Sample QP / Answer Sheet / Answer key / Remedial Class</td>
               <td class="py-3 px-4 border text-center">
-                <a href="{{ route('FA.view', ['type' => 'FA_XI']) }}"
+                <a href="{{ route('DA.view', ['type' => 'DA_XI']) }}"
                     class="inline-flex items-center gap-2 px-4 py-1 text-sm font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-700 hover:from-cyan-700 hover:to-cyan-800 rounded-md shadow transition duration-200">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
