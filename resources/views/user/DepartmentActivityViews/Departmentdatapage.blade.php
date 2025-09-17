@@ -90,7 +90,7 @@
                      <script>
                              lottie.loadAnimation({
                              container: document.getElementById('lottie-animation'),
-                             path: '{{ asset("Technology.json") }}',
+                             path: '{{ asset("Company Statistic Graph.json") }}',
                              renderer: 'svg',
                              loop: true,
                              autoplay: true,
