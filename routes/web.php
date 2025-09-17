@@ -263,6 +263,27 @@ Route::middleware(['auth','verified'])->group(function(){
                     Route::put('/Faculty_activity/FA_X/update/{id}',[FA_XController::class, 'update'])->name('FAX_update');
                     // update FA_XI
                     Route::put('/Faculty_activity/FA_XI/update/{id}',[FA_XIController::class, 'update'])->name('FAXI_update');
+                    // update FA_XII
+                    Route::put('/Faculty_activity/FA_XII/update/{id}',[FA_XIIController::class, 'update'])->name('FAXII_update');
+                    // update FA_XIII
+                    Route::put('/Faculty_activity/FA_XIII/update/{id}',[FA_XIIIController::class, 'update'])->name('FAXIII_update');
+                    // update FA_XIV
+                    Route::put('/Faculty_activity/FA_XIV/update/{id}',[FA_XIVController::class, 'update'])->name('FAXIV_update');
+                    // update FA_XV
+                    Route::put('/Faculty_activity/FA_XV/update/{id}',[FA_XVController::class, 'update'])->name('FAXV_update');
+                    // update FA_XVI
+                    Route::put('/Faculty_activity/FA_XVI/update/{id}',[FA_XVIController::class, 'update'])->name('FAXVI_update');
+                    // update FA_XVII
+                    Route::put('/Faculty_activity/FA_XVII/update/{id}',[FA_XVIIController::class, 'update'])->name('FAXVII_update');
+                    // update FA_XVIII
+                    Route::put('/Faculty_activity/FA_XVIII/update/{id}',[FA_XVIIIController::class, 'update'])->name('FAXVIII_update');
+                    // update FA_XIX
+                    Route::put('/Faculty_activity/FA_XIX/update/{id}',[FA_XIXController::class, 'update'])->name('FAXIX_update');
+                     // update FA_XX
+                    Route::put('/Faculty_activity/FA_XX/update/{id}',[FA_XXController::class, 'update'])->name('FAXX_update');
+                    // update FA_XXI
+                    Route::put('/Faculty_activity/FA_XXI/update/{id}',[FA_XXIController::class, 'update'])->name('FAXXI_update');
+                    
 
 
 //---------->------>------>-------->DEPARTMENT ACTIVITY ROUTES -----<------------------<------------------<-------------------
