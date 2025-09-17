@@ -50,7 +50,9 @@
    ```bash
    git clone https://github.com/Shreeram2k3/DataManagementSystem.git
    cd DataManagementSystem
----
+   
+<hr style="border:0.1px solid #f0f0f0;" />
+
 2. Install dependencies
 
 composer install
