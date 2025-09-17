@@ -50,25 +50,44 @@
    ```bash
    git clone https://github.com/Shreeram2k3/DataManagementSystem.git
    cd DataManagementSystem
+   
+<hr style="border:0.1px solid #f0f0f0;" />
+
 
 2. Install dependencies
 
 composer install
 npm install && npm run dev
 
+---
+
 
 3. Configure environment
 
 copy .env.example .env
 
-Update .env file 
+Update the .env file 
 
 DB_CONNECTION=mysql
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=dmsdb
+
 DB_USERNAME=root
+
 DB_PASSWORD=
+
+DB AdminUserSeeder, Update these before running migrations
+
+ADMIN_NAME=Admin
+
+ADMIN_EMAIL=your-admin@example.com
+
+ADMIN_PASSWORD=your-secure-password
+
 
 SESSION_DOMAIN=null
 
@@ -76,25 +95,42 @@ Update mail configuration
 
 Add Google OAuth credentials (Client ID & Secret)
 
-
+---
 
 4. Generate app key
 
 php artisan key:generate
 
+---
 
 5. Run migrations
 
-php artisan migrate
+php artisan migrate 
+
+php artisan migrate --path=database/migrations/StudentActivityMigrations
+
+php artisan migrate --path=database/migrations/FacultyActivityMigrations
+
+php artisan migrate --path=database/migrations/DepartmentActivityMigrations
+
+ Run migrations and seed the default admin user
+
+php artisan migrate --seed
+
+---
 
 
 6. Start the development server
 
 php artisan serve
 
+---
+
 7. Grant read access to everyone(for view the document)
 
 icacls storage /grant Everyone:(R)
+
+---
 
 8. Laravel storage link command
 

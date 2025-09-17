@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('DepartmentActivity_2', function (Blueprint $table) {
+        Schema::create('DepartmentActivity_6', function (Blueprint $table) {
             $table->id('S_NO');
-            $table->string('Name_of_the_Faculty');
-            $table->string('Name_of_the_Equipment_failed/ Serviced');
-            $table->string('Name_of_the_Lab');
-            $table->string('Servicing_details');
-            $table->string('Amount_Rs');
-            $table->string('status');
             $table->date('Date');
-            $table->string('Dept');
+            $table->string('Duration');
+            $table->string('Activity');
+            $table->string('Speaker/Organization');
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
@@ -32,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('DepartmentActivity_2');
+        Schema::dropIfExists('DepartmentActivity_6');
     }
 };
