@@ -28,49 +28,19 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Tittle of the Papper</span>
-            <input type="text" name="title_of_the_paper" required
-                value="{{ $record->Title_of_the_Paper ?? old('Title_of_the_Paper') }}"
+            <span class="text-sm text-gray-600">Name of Laboratory</span>
+            <input type="text" name="name_of_laboratory" required
+                value="{{ $record->Name_of_Laboratory ?? old('Name_of_Laboratory') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Name of the Journal Volume</span>
-            <input type="text" name="name_of_the_journal_volume" required
-                value="{{ $record->Name_of_the_Journal_Volume ?? old('Name_of_the_Journal_Volume') }}"
+            <span class="text-sm text-gray-600">Value of the Equipment Rs</span>
+            <input type="text" name="value_of_the_equipment_Rs" required
+                value="{{ $record->Value_of_the_Equipment_Rs ?? old('Value_of_the_Equipment_Rs') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-        <label class="block">
-            <span class="text-sm text-gray-600">Page Nos Impact Factor Value</span>
-            <input type="text" name="page_nos_impact_factor_value" required
-                value="{{ $record->Page_Nos_Impact_Factor_value ?? old('Page_Nos_Impact_Factor_value') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
-
-        <label class="block mb-2">
-            <span class="text-sm text-gray-600">National / International</span>
-        </label>
-        <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="National"
-                {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
-                class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">National</span>
-        </label>
-
-        <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="International"
-                {{ (($record['National/International'] ?? old('National/International')) === 'International') ? 'checked' : '' }}
-                class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">International</span>
-        </label>
-
-        <label class="block">
-            <span class="text-sm text-gray-600">Scopus Sci Others</span>
-            <input type="text" name="scopus_sci_others" required
-                value="{{ $record['Scopus/SCI/others'] ?? old('Scopus/SCI/others') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Department</span>
