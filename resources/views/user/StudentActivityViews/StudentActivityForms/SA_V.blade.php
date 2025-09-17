@@ -82,7 +82,7 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Document Link</span>
+            <span class="text-sm text-gray-600">Document Link (Optional)</span>
             <input 
                 type="url" 
                 id="document_link" 
