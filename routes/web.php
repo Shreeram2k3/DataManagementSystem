@@ -23,6 +23,7 @@ use App\Http\Controllers\StudentsActivityController\SA_XIIIController;
 use App\Http\Controllers\StudentsActivityController\SA_XIVController;
 use App\Http\Controllers\StudentsActivityController\SA_XVController;
 use App\Http\Controllers\StudentsActivityController\SAdatapageController;
+
 use App\Http\Controllers\FacultyActivityController\FAdatapageController;
 use App\Http\Controllers\FacultyActivityController\FA_IController;
 use App\Http\Controllers\FacultyActivityController\FA_IIController;
@@ -46,6 +47,20 @@ use App\Http\Controllers\FacultyActivityController\FA_XIXController;
 use App\Http\Controllers\FacultyActivityController\FA_XXController;
 use App\Http\Controllers\FacultyActivityController\FA_XXIController;
 use App\Http\Controllers\FacultyActivityController\FA_XXIIController;
+
+use App\Http\Controllers\DepartmentActivityController\DAdatapageController;
+use App\Http\Controllers\DepartmentActivityController\DA_IController;
+use App\Http\Controllers\DepartmentActivityController\DA_IIController;
+use App\Http\Controllers\DepartmentActivityController\DA_IIIController;
+use App\Http\Controllers\DepartmentActivityController\DA_IVController;
+use App\Http\Controllers\DepartmentActivityController\DA_VController;
+use App\Http\Controllers\DepartmentActivityController\DA_VIController;
+use App\Http\Controllers\DepartmentActivityController\DA_VIIController;
+use App\Http\Controllers\DepartmentActivityController\DA_VIIIController;
+use App\Http\Controllers\DepartmentActivityController\DA_IXController;
+use App\Http\Controllers\DepartmentActivityController\DA_XController;
+use App\Http\Controllers\DepartmentActivityController\DA_XIController;
+
 use Illuminate\Contracts\Cache\Store;
 
 Route::get('/', function () {
@@ -228,6 +243,27 @@ Route::middleware(['auth','verified'])->group(function(){
             // Routes for update table in FA
                     // update FA_I
                     Route::put('/Faculty_activity/FA_I/update/{id}',[FA_IController::class, 'update'])->name('FAI_update');
+                    // update FA_II
+                    Route::put('/Faculty_activity/FA_II/update/{id}',[FA_IIController::class, 'update'])->name('FAII_update');
+                    // update FA_III
+                    Route::put('/Faculty_activity/FA_III/update/{id}',[FA_IIIController::class, 'update'])->name('FAIII_update');
+                    // update FA_IV
+                    Route::put('/Faculty_activity/FA_IV/update/{id}',[FA_IVController::class, 'update'])->name('FAIV_update');
+                    // update FA_V
+                    Route::put('/Faculty_activity/FA_V/update/{id}',[FA_VController::class, 'update'])->name('FAV_update');
+                    // update FA_VI
+                    Route::put('/Faculty_activity/FA_VI/update/{id}',[FA_VIController::class, 'update'])->name('FAVI_update');
+                    // update FA_VII
+                    Route::put('/Faculty_activity/FA_VII/update/{id}',[FA_VIIController::class, 'update'])->name('FAVII_update');
+                    // update FA_VIII
+                    Route::put('/Faculty_activity/FA_VIII/update/{id}',[FA_VIIIController::class, 'update'])->name('FAVIII_update');
+                    // update FA_IX
+                    Route::put('/Faculty_activity/FA_IX/update/{id}',[FA_IXController::class, 'update'])->name('FAIX_update');
+                    // update FA_X
+                    Route::put('/Faculty_activity/FA_X/update/{id}',[FA_XController::class, 'update'])->name('FAX_update');
+                    // update FA_XI
+                    Route::put('/Faculty_activity/FA_XI/update/{id}',[FA_XIController::class, 'update'])->name('FAXI_update');
+                    
 
 });
 
