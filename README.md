@@ -75,8 +75,8 @@ DB_USERNAME=root
 
 DB_PASSWORD=
 
-# DB AdminUserSeeder
-# Important: Update these before running migrations
+###DB AdminUserSeeder
+ Important: Update these before running migrations
 
 ADMIN_NAME=Admin
 
