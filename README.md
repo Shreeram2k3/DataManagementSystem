@@ -53,12 +53,14 @@
    
 <hr style="border:0.1px solid #f0f0f0;" />
 
+
 2. Install dependencies
 
 composer install
 npm install && npm run dev
 
 ---
+
 
 3. Configure environment
 
