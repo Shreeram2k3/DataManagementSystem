@@ -183,7 +183,7 @@ Route::middleware(['auth','verified'])->group(function(){
 //---------->------>------>-------->FACULTY ROUTES -----<------------------<------------------<-------------------
 
 
-            //table view test route
+            //table view route
             Route::get('/Faculty_Activity/view/{type}',[FAdatapageController::class, 'Select_form'])->name('FA.view');
 
             //Edit
@@ -263,7 +263,17 @@ Route::middleware(['auth','verified'])->group(function(){
                     Route::put('/Faculty_activity/FA_X/update/{id}',[FA_XController::class, 'update'])->name('FAX_update');
                     // update FA_XI
                     Route::put('/Faculty_activity/FA_XI/update/{id}',[FA_XIController::class, 'update'])->name('FAXI_update');
-                    
+
+
+//---------->------>------>-------->DEPARTMENT ACTIVITY ROUTES -----<------------------<------------------<-------------------
+
+                    // POST DA_I
+                     Route::post('/Faculty_Activity/DA_I/create', [DA_IController::class, 'store'])->name('DAI_Store');
+
+
+                    // update DA_I
+                    Route::put('/Faculty_activity/DA_I/update/{id}',[DA_IController::class, 'update'])->name('DAI_update');
+
 
 });
 
