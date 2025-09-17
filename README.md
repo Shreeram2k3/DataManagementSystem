@@ -64,16 +64,24 @@ copy .env.example .env
 Update the .env file 
 
 DB_CONNECTION=mysql
+
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=dmsdb
+
 DB_USERNAME=root
+
 DB_PASSWORD=
 
 # DB AdminUserSeeder
 # Important: Update these before running migrations
+
 ADMIN_NAME=Admin
+
 ADMIN_EMAIL=your-admin@example.com
+
 ADMIN_PASSWORD=your-secure-password
 
 
@@ -93,11 +101,15 @@ php artisan key:generate
 5. Run migrations
 
 php artisan migrate 
+
 php artisan migrate --path=database/migrations/StudentActivityMigrations
+
 php artisan migrate --path=database/migrations/FacultyActivityMigrations
+
 php artisan migrate --path=database/migrations/DepartmentActivityMigrations
 
 # Run migrations and seed the default admin user
+
 php artisan migrate --seed
 
 
