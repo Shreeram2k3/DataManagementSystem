@@ -50,12 +50,13 @@
    ```bash
    git clone https://github.com/Shreeram2k3/DataManagementSystem.git
    cd DataManagementSystem
-
+---
 2. Install dependencies
 
 composer install
 npm install && npm run dev
 
+---
 
 3. Configure environment
 
@@ -90,12 +91,13 @@ Update mail configuration
 
 Add Google OAuth credentials (Client ID & Secret)
 
-
+---
 
 4. Generate app key
 
 php artisan key:generate
 
+---
 
 5. Run migrations
 
@@ -107,20 +109,24 @@ php artisan migrate --path=database/migrations/FacultyActivityMigrations
 
 php artisan migrate --path=database/migrations/DepartmentActivityMigrations
 
-# Run migrations and seed the default admin user
+ Run migrations and seed the default admin user
 
 php artisan migrate --seed
 
-
+---
 
 
 6. Start the development server
 
 php artisan serve
 
+---
+
 7. Grant read access to everyone(for view the document)
 
 icacls storage /grant Everyone:(R)
+
+---
 
 8. Laravel storage link command
 
