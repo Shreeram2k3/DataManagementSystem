@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAI_Store') }}" 
+        action="{{ isset($record) ? route('FAIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIX_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -14,30 +14,30 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">Name of the Faculty</span>
-            <input type="text" name="name_of_the_faculty" required
-                value="{{ $record->Name_of_the_Faculty ?? old('Name_of_the_Faculty') }}"
+            <span class="text-sm text-gray-600">Name of the Faculty Member</span>
+            <input type="text" name="name_of_the_faculty_member" required
+                value="{{ $record->Name_of_the_Faculty_Member ?? old('Name_of_the_Faculty_Member') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">ID</span>
-            <input type="text" name="id" required
-                value="{{ $record->ID ?? old('ID') }}"
+            <span class="text-sm text-gray-600">Name of Programme</span>
+            <input type="text" name="name_of_programme" required
+                value="{{ $record->Name_of_Programme ?? old('Name_of_Programme') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Tittle of the Papper</span>
-            <input type="text" name="title_of_the_paper" required
-                value="{{ $record->Title_of_the_Paper ?? old('Title_of_the_Paper') }}"
+            <span class="text-sm text-gray-600">Industry_Details</span>
+            <input type="text" name="industry_details" required
+                value="{{ $record->Industry_Details ?? old('Industry_Details') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Journal Volume</span>
             <input type="text" name="name_of_the_journal_volume" required
-                value="{{ $record->Name_of_the_Journal_Volume ?? old('Name_of_the_Journal_Volume') }}"
+                value="{{ $record->NamIndustry_Detailse_of_the_Journal_Volume ?? old('Name_of_the_Journal_Volume') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
