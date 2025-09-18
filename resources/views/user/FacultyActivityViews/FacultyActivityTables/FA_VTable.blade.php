@@ -23,16 +23,16 @@
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
                     <td class="px-4 py-2 border">{{ $item->Organizer_Name_Details }}</td>
-                    <td class="px-4 py-2 border">{{ $item->['Nature_of_Seminar/Conference'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Nature_of_Seminar/Conference'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Title }}</td>
-                    <td class="px-4 py-2 border">{{ $item->['Total_Number_of_Participants/Papers'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Total_Number_of_Participants/Papers'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Date }}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->document_link))
+                      @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->document_link }}
+                              {{ $item->Document_Link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>

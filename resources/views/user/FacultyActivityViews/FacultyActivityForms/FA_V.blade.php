@@ -22,7 +22,7 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Nature of Seminar/Conference</span>
-            <input type="text" name="idnature_of_seminar_conference" required
+            <input type="text" name="nature_of_seminar_conference" required
                 value="{{ $record['Nature_of_Seminar/Conference'] ?? old('IDNature_of_Seminar/Conference') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
