@@ -22,7 +22,7 @@ class FA_IIController extends Controller
                 'id' => 'required|string|max:255',
                 'title' => 'required|string|max:255',
                 'details_of_publication' => 'required|string|max:255',
-                'Date' => 'required|date',
+                'date' => 'required|date',
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
                 
@@ -39,7 +39,7 @@ class FA_IIController extends Controller
            try{
 
             // left side column name in table, right side name attribute in form 
-            FA_I::create([
+            FA_II::create([
                 'Name_of_the_Faculty' => $validated['name_of_the_faculty'],
                 'ID' => $validated['id'],
                 'Title' => $validated['title'],
@@ -73,7 +73,7 @@ class FA_IIController extends Controller
                 'id' => 'required|string|max:255',
                 'title' => 'required|string|max:255',
                 'details_of_publication' => 'required|string|max:255',
-                'Date' => 'required|date',
+                'date' => 'required|date',
                 'document_link' => 'nullable|url',
                 'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
@@ -83,7 +83,7 @@ class FA_IIController extends Controller
             $record->ID = $request->input('id');
             $record->Title = $request->input('title');
             $record->Details_of_publication = $request->input('details_of_publication');
-            $record->Date = $request->input('Date');
+            $record->Date = $request->input('date');
             $record->Document_Link = $request->input('document_link');
             
 

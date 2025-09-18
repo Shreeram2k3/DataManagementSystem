@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIX_Store') }}" 
+        action="{{ isset($record) ? route('FAXV_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAXV_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -14,30 +14,44 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">Name of the Faculty Member</span>
-            <input type="text" name="name_of_the_faculty_member" required
-                value="{{ $record->Name_of_the_Faculty_Member ?? old('Name_of_the_Faculty_Member') }}"
+            <span class="text-sm text-gray-600">period (from)</span>
+            <input type="text" name="period_(from)" required
+                value="{{ $record['period_(from)'] ?? old('period_(from)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Name of Programme</span>
-            <input type="text" name="name_of_programme" required
-                value="{{ $record->Name_of_Programme ?? old('Name_of_Programme') }}"
+            <span class="text-sm text-gray-600">Period_(To)</span>
+            <input type="text" name="period_(to)" required
+                value="{{ $record->['Period_(To)'] ?? old('Period_(To)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Industry Details</span>
-            <input type="text" name="industry_details" required
-                value="{{ $record->Industry_Details ?? old('Industry_Details') }}"
+            <span class="text-sm text-gray-600">Name of the Company</span>
+            <input type="text" name="name_of_the_company" required
+                value="{{ $record->Name_of_the_Company ?? old('Name_of_the_Company') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Duration</span>
-            <input type="text" name="duration" required
-                value="{{ $record->Duration ?? old('Duration') }}"
+            <span class="text-sm text-gray-600">Work Description</span>
+            <input type="text" name="work_description" required
+                value="{{ $record->Work_Description ?? old('Work_Description') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Faculty/Faculty Team</span>
+            <input type="text" name="faculty_faculty_team" required
+                value="{{ $record ['Faculty/Faculty_Team'] ?? old('Faculty/Faculty_Team') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Amount Generated(in_Rs)</span>
+            <input type="text" name="Amount" required
+                value="{{ $record['Amount_Generated(in_Rs)'] ?? old('Amount_Generated(in_Rs)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -45,13 +59,6 @@
             <span class="text-sm text-gray-600">Dept</span>
             <input type="text" name="dept" required
                 value="{{ $record->Dept ?? old('Dept') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
-
-        <label class="block">
-            <span class="text-sm text-gray-600">Outcome</span>
-            <input type="text" name="outcome" required
-                value="{{ $record->Outcome ?? old('Outcome') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

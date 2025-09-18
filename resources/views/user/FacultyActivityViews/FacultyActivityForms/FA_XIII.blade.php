@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIX_Store') }}" 
+        action="{{ isset($record) ? route('FAXIII_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAXIII_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -21,37 +21,61 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Name of Programme</span>
-            <input type="text" name="name_of_programme" required
-                value="{{ $record->Name_of_Programme ?? old('Name_of_Programme') }}"
+            <span class="text-sm text-gray-600">Part time/Full Time</span>
+            <input type="text" name="part_time_full_time" required
+                value="{{ $record['Part_time/Full_Time'] ?? old('Part_time/Full_Time') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block mb-2">
+            <span class="text-sm text-gray-600">National / International</span>
+        </label>
+        <label class="inline-flex items-center">
+            <input type="radio" name="national_international" value="National"
+                {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
+                class="form-radio text-pink-600 focus:ring-pink-500">
+            <span class="ml-2 text-gray-700 text-sm">National</span>
+        </label>
+
+        <label class="inline-flex items-center">
+            <input type="radio" name="national_international" value="International"
+                {{ (($record['National/International'] ?? old('National/International')) === 'International') ? 'checked' : '' }}
+                class="form-radio text-pink-600 focus:ring-pink-500">
+            <span class="ml-2 text-gray-700 text-sm">International</span>
+        </label>
+
+                <label class="block">
+            <span class="text-sm text-gray-600">Name of the Scholar</span>
+            <input type="text" name="name_of_the_scholar" required
+                value="{{ $record->Name_of_the_Scholar ?? old('Name_of_the_Scholar') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Industry Details</span>
-            <input type="text" name="industry_details" required
-                value="{{ $record->Industry_Details ?? old('Industry_Details') }}"
+            <span class="text-sm text-gray-600">Address of external</span>
+            <input type="text" name="address_of_external" required
+                value="{{ $record->Address_of_external ?? old('Address_of_external') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Duration</span>
-            <input type="text" name="duration" required
-                value="{{ $record->Duration ?? old('Duration') }}"
+            <span class="text-sm text-gray-600">Date_of_Registration</span>
+            <input type="date" name="date_of_registration" required
+                value="{{ $record->Date_of_Registration ?? old('Date_of_Registration') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Dept</span>
-            <input type="text" name="dept" required
-                value="{{ $record->Dept ?? old('Dept') }}"
+            <span class="text-sm text-gray-600">Research Area</span>
+            <input type="text" name="research_area" required
+                value="{{ $record->'Research_Area' ?? old('Research_Area') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Outcome</span>
-            <input type="text" name="outcome" required
-                value="{{ $record->Outcome ?? old('Outcome') }}"
+            <span class="text-sm text-gray-600">Status</span>
+            <input type="text" name="status" required
+                value="{{ $record->Status ?? old('Status') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

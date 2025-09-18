@@ -2,14 +2,13 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Name of the Faculty</th>
-                <th class="px-4 py-3 border">ID</th>
-                <th class="px-4 py-3 border">Title of the Paper</th>
-                <th class="px-4 py-3 border">Name of the Journal Volume</th>
-                <th class="px-4 py-3 border">Page Nos Impact Factor value</th>
-                <th class="px-4 py-3 border">National / International</th>
-                <th class="px-4 py-3 border">Scopus / SCI / others</th>
+                <th class="px-4 py-3 border">Organizer Name Details</th>
+                <th class="px-4 py-3 border">Nature of Seminar/Conference</th>
+                <th class="px-4 py-3 border">Title</th>
+                <th class="px-4 py-3 border">Total Number of Participants/Papers</th>
+                <th class="px-4 py-3 border">Date</th>
                 <th class="px-4 py-3 border">Dept</th>
+                <th class="px-4 py-3 border">Outcome</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -23,14 +22,13 @@
                 <tr class="border-t hover:bg-gray-50">
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty }}</td>
-                    <td class="px-4 py-2 border">{{ $item->ID }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Title_of_the_Paper }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Journal_Volume }}</td>                     
-                    <td class="px-4 py-2 border">{{ $item->Page_Nos_Impact_Factor_value }}</td>
-                    <td class="px-4 py-2 border">{{ $item['National/International'] }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Scopus/SCI/others'] }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Dept'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Organizer_Name_Details }}</td>
+                    <td class="px-4 py-2 border">{{ $item->['Nature_of_Seminar/Conference'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Title }}</td>
+                    <td class="px-4 py-2 border">{{ $item->['Total_Number_of_Participants/Papers'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Date }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->document_link))
                           <a href="{{ $item->Document_Link }}">

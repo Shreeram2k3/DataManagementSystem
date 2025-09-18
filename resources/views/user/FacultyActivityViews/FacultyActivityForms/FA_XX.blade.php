@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIX_Store') }}" 
+        action="{{ isset($record) ? route('FAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAI_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -14,37 +14,30 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">Name of the Faculty Member</span>
+            <span class="text-sm text-gray-600">Name_of_the_Faculty_Member</span>
             <input type="text" name="name_of_the_faculty_member" required
                 value="{{ $record->Name_of_the_Faculty_Member ?? old('Name_of_the_Faculty_Member') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Name of Programme</span>
-            <input type="text" name="name_of_programme" required
-                value="{{ $record->Name_of_Programme ?? old('Name_of_Programme') }}"
+            <span class="text-sm text-gray-600">Date</span>
+            <input type="date" name="date" required
+                value="{{ $record->Date ?? old('Date') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Industry Details</span>
-            <input type="text" name="industry_details" required
-                value="{{ $record->Industry_Details ?? old('Industry_Details') }}"
+            <span class="text-sm text-gray-600">Purpose</span>
+            <input type="text" name="purpose" required
+                value="{{ $record->Purpose ?? old('Purpose') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Duration</span>
-            <input type="text" name="duration" required
-                value="{{ $record->Duration ?? old('Duration') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
-
-        <label class="block">
-            <span class="text-sm text-gray-600">Dept</span>
-            <input type="text" name="dept" required
-                value="{{ $record->Dept ?? old('Dept') }}"
+            <span class="text-sm text-gray-600">'Institute/University/Industry Member'</span>
+            <input type="text" name="institute-university-industry_member" required
+                value="{{ $record['Institute/University/Industry_Member'] ?? old('Institute/University/Industry_Member') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -52,6 +45,13 @@
             <span class="text-sm text-gray-600">Outcome</span>
             <input type="text" name="outcome" required
                 value="{{ $record->Outcome ?? old('Outcome') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Dept</span>
+            <input type="text" name="dept" required
+                value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

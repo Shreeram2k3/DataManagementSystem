@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIX_Store') }}" 
+        action="{{ isset($record) ? route('FAIV_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAIV_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -21,16 +21,16 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Name of Programme</span>
-            <input type="text" name="name_of_programme" required
-                value="{{ $record->Name_of_Programme ?? old('Name_of_Programme') }}"
+            <span class="text-sm text-gray-600">Title of the Project</span>
+            <input type="text" name="title_of_the_project" required
+                value="{{ $record->Title_of_the_Project ?? old('Title_of_the_Project') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Industry Details</span>
-            <input type="text" name="industry_details" required
-                value="{{ $record->Industry_Details ?? old('Industry_Details') }}"
+            <span class="text-sm text-gray-600">Funding Agency</span>
+            <input type="text" name="funding_agency" required
+                value="{{ $record->Funding_Agency ?? old('Funding_Agency') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -42,16 +42,30 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Dept</span>
-            <input type="text" name="dept" required
-                value="{{ $record->Dept ?? old('Dept') }}"
+            <span class="text-sm text-gray-600">Amount (Rs In Lakhs)</span>
+            <input type="text" name="amount" required
+                value="{{ $record['Amount_(Rs_In_Lakhs)'] ?? old('Amount_(Rs_In_Lakhs)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Outcome</span>
-            <input type="text" name="outcome" required
-                value="{{ $record->Outcome ?? old('Outcome') }}"
+            <span class="text-sm text-gray-600">Date of submission or sanction</span>
+            <input type="date" name="date" required
+                value="{{ $record->Date_of_submission_or_sanction ?? old(Date_of_submission_or_sanction') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Sanctioned/Submitted</span>
+            <input type="text" name="sanctioned_submitted" required
+                value="{{ $record['Sanctioned/Submitted'] ?? old('Sanctioned/Submitted') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Dept</span>
+            <input type="text" name="dept" required
+                value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
