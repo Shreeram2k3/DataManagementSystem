@@ -16,7 +16,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Winter/SummerSchool</span>
             <input type="text" name="winter_summerschool" required
-                value="{{ $record->Winter/SummerSchool ?? old('Winter/SummerSchool') }}"
+                value="{{ $record['Winter/SummerSchool'] ?? old('Winter/SummerSchool') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
