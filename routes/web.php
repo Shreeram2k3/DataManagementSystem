@@ -184,7 +184,7 @@ Route::middleware(['auth','verified'])->group(function(){
 
 
             //table view route
-            Route::get('/Faculty_Activity/view/{type}',[FAdatapageController::class, 'Select_form'])->name('FA.view');
+            Route::get('/Facultyy_Activity/view/{type}',[FAdatapageController::class, 'Select_form'])->name('FA.view');
 
             //Edit
             Route::get('/Faculty_activity/{type}/{id}/edit', [FAdatapageController::class, 'edit'])->name('Faculty_activity_edit');
@@ -289,13 +289,13 @@ Route::middleware(['auth','verified'])->group(function(){
 //---------->------>------>-------->DEPARTMENT ACTIVITY ROUTES -----<------------------<------------------<-------------------
 
                     //table view route
-                     Route::get('/Faculty_Activity/view/{type}',[DAdatapageController::class, 'Select_form'])->name('DA.view');
+                     Route::get('/Department_Activity/view/{type}',[DAdatapageController::class, 'Select_form'])->name('DA.view');
                     // POST DA_I
-                     Route::post('/Faculty_Activity/DA_I/create', [DA_IController::class, 'store'])->name('DAI_Store');
+                     Route::post('/Department_Activity/DA_I/create', [DA_IController::class, 'store'])->name('DAI_Store');
 
 
                     // update DA_I
-                    Route::put('/Faculty_activity/DA_I/update/{id}',[DA_IController::class, 'update'])->name('DAI_update');
+                    Route::put('/Department_activity/DA_I/update/{id}',[DA_IController::class, 'update'])->name('DAI_update');
 
 
 });
@@ -347,4 +347,9 @@ Route::get('/FV',function(){
 Route::get('/DA',function(){
     return view('user.DepartmentActivityViews.departmentactivity');
 })->name('facultydatapage');
+
+     Route::get('/simple/Fa',function(){
+        return view('user.dashboard');
+     })->name('viewsFA');
+
        
