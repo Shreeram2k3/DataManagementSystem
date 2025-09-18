@@ -60,7 +60,7 @@
                 </label>
 
                <label class="block">
-                    <span class="text-sm text-gray-600">Document Link</span>
+                    <span class="text-sm text-gray-600">Document Link (Optional)</span>
                     <input type="url" id="document_link" name="Document_Link" value="{{ $record->Document_Link ?? old('Document_Link') }}" 
                         class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
                 </label>
