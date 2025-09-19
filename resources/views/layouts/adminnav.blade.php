@@ -116,6 +116,7 @@
       <!-- Page content goes here -->
       <div class="h-full w-full flex items-center justify-center text-gray-400 italic">
         <!-- Select a section from the sidebar to get started. -->
+         @yield('content')
       </div>
     </main>
   </div>
