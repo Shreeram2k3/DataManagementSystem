@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\manageUserController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentsActivityController\SA_IController;
@@ -305,6 +306,13 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/manageUsers',[AdminController::class,'getUsers'])->name('admin.manageUsers');
     Route::get('/admin/manageData',[AdminController::class,'getData'])->name('admin.manageData');
+
+    // manageUsers page routes 
+
+        // adduser route 
+        Route::post('/admin/manageUsers',[manageUserController::class,'store'])->name('addUser');
+
+
 });
 
 
