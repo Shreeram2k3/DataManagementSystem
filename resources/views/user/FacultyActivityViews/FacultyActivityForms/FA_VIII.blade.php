@@ -48,32 +48,23 @@
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-        <label class="block mb-2">
-            <span class="text-sm text-gray-600">National / International</span>
-        </label>
-        <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="National"
-                {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
-                class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">National</span>
-        </label>
-
-        <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="International"
-                {{ (($record['National/International'] ?? old('National/International')) === 'International') ? 'checked' : '' }}
-                class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">International</span>
-        </label>
-
         <label class="block">
-            <span class="text-sm text-gray-600">Scopus Sci Others</span>
-            <input type="text" name="scopus_sci_others" required
-                value="{{ $record['Scopus/SCI/others'] ?? old('Scopus/SCI/others') }}"
+            <span class="text-sm text-gray-600">From date</span>
+            <input type="date" name="from_date" required
+                value="{{ $record->From_date ?? old('From_date') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
+
         <label class="block">
-            <span class="text-sm text-gray-600">Department</span>
+        <span class="text-sm text-gray-600">To date</span>
+        <input type="date" name="to_date" required
+        value="{{ $record->To_date ?? old('To_date') }}"
+        class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Dept</span>
             <input type="text" name="dept" required
                 value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">

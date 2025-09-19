@@ -3,11 +3,13 @@
                                        
                 <th class="px-4 py-3 border">S.No</th>
                 <th class="px-4 py-3 border">Name of the Faculty Member</th>
-                <th class="px-4 py-3 border">Name of Programme</th>
-                <th class="px-4 py-3 border">Industry Details</th>
+                <th class="px-4 py-3 border">Title of the Project</th>
+                <th class="px-4 py-3 border">Funding Agency</th>
                 <th class="px-4 py-3 border">Duration</th>
-                <th class="px-4 py-3 border">Dept</th>
-                <th class="px-4 py-3 border">Outcome</th>
+                <th class="px-4 py-3 border">Amount (Rs In Lakhs)</th>
+                <td class="px-4 py-2 border">Date of submission or sanction </td>
+                <td class="px-4 py-2 border">Sanctioned/Submitted </td>
+                <td class="px-4 py-2 border">Dept</td>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -22,11 +24,13 @@
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty_Member }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_Programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Industry_Details }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Title_of_the_Project }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Funding_Agency }}</td>
                     <td class="px-4 py-2 border">{{ $item->Duration }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Amount_(Rs_In_Lakhs)'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Date_of_submission_or_sanction}}</td>
+                    <td class="px-4 py-2 border">{{ $item['Sanctioned/Submitted'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item-> Dept}}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">

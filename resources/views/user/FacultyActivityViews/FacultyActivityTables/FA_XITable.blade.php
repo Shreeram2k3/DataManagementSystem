@@ -2,12 +2,12 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Name of the Faculty Member</th>
-                <th class="px-4 py-3 border">Name of Programme</th>
-                <th class="px-4 py-3 border">Industry Details</th>
+                <th class="px-4 py-3 border">Name of Staff</th>
+                <th class="px-4 py-3 border">Name of the Programme</th>
+                <th class="px-4 py-3 border">BIT/Outside</th>
                 <th class="px-4 py-3 border">Duration</th>
-                <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Outcome</th>
+                <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -21,12 +21,12 @@
                 <tr class="border-t hover:bg-gray-50">
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty_Member }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_Programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Industry_Details }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Name_of_Staff }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Programme }}</td>
+                    <td class="px-4 py-2 border">{{ $item->['BIT/Outside'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Duration }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">

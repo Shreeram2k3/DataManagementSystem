@@ -2,12 +2,12 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Name of the Faculty Member</th>
-                <th class="px-4 py-3 border">Name of Programme</th>
-                <th class="px-4 py-3 border">Industry Details</th>
-                <th class="px-4 py-3 border">Duration</th>
-                <th class="px-4 py-3 border">Dept</th>
+                <th class="px-4 py-3 border">Name of Staff</th>
+                <th class="px-4 py-3 border">Programme_of_study</th>
+                <th class="px-4 py-3 border">Name_of_Institute_&_University</th>
+                <th class="px-4 py-3 border">Date_of_Admission_Completed</th>
                 <th class="px-4 py-3 border">Outcome</th>
+                <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -21,12 +21,12 @@
                 <tr class="border-t hover:bg-gray-50">
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty_Member }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_Programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Industry_Details }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Duration }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Name_of_Staff }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Programme_of_study }}</td>
+                    <td class="px-4 py-2 border">{{ $item->IndustryName_of_Institute_&_University_Details }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Date_of_Admission_Completed }}</td>
                     <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
