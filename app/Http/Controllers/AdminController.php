@@ -14,5 +14,15 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
+    public function getUsers()
+    {
+        return view('admin.manageUsers');
+    }
+
+    public function getData()
+    {
+        return view('admin.manageData');
+    }
+
 
 }

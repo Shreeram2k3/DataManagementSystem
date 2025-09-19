@@ -303,6 +303,8 @@ Route::middleware(['auth','verified'])->group(function(){
 //admin routes
 Route::middleware(['auth',AdminMiddleware::class])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin/manageUsers',[AdminController::class,'getUsers'])->name('admin.manageUsers');
+    Route::get('/admin/manageData',[AdminController::class,'getData'])->name('admin.manageData');
 });
 
 

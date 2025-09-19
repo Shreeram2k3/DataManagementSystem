@@ -83,12 +83,12 @@
         </li>
 
         <li>
-          <a href="#" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('#') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
+          <a href="{{route('admin.manageUsers')}}" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('admin/manageUsers') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
             <i class="fas fa-user-alt mr-4"></i> Manage Users
           </a>
         </li>
         <li>
-          <a href="#" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('#') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
+          <a href="{{route('admin.manageData')}}" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('admin/manageData') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
             <i class="fa-solid fa-database mr-4"></i> Manage Data
           </a>
         </li>
@@ -96,9 +96,7 @@
 
       <!-- Mobile bottom links -->
       <div class="md:hidden mt-6 border-t border-gray-200 dark:border-gray-700 pt-4">
-        <a href="/dashboard" class="flex items-center px-5 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition">
-          <i class="fas fa-home text-indigo-500 mr-3"></i> Home
-        </a>
+        
         <a href="{{ route('profile.edit') }}" class="flex items-center px-5 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition mt-2">
           <i class="fas fa-user text-indigo-500 mr-3"></i> Profile
         </a>
@@ -114,7 +112,7 @@
     <!-- Main content area -->
     <main class="flex-1 ml-0 md:ml-72 p-8 bg-gray-50 dark:bg-gray-900 rounded-tl-3xl shadow-inner">
       <!-- Page content goes here -->
-      <div class="h-full w-full flex items-center justify-center text-gray-400 italic">
+      <div class="h-full w-full flex">
         <!-- Select a section from the sidebar to get started. -->
          @yield('content')
       </div>
