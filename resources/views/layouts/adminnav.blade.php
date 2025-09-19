@@ -77,7 +77,7 @@
         </li>
 
         <li>
-          <a href="/dashboard" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('dashboard') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
+          <a href="{{route('admin.dashboard')}}" class="flex items-center px-5 py-3 rounded-xl transition-all duration-300 {{ Request::is('admin/dashboard') ? 'bg-gradient-to-r from-indigo-500 to-purple-600 text-white shadow-lg scale-105' : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200' }}">
             <i class="fas fa-home mr-4"></i> Home
           </a>
         </li>
