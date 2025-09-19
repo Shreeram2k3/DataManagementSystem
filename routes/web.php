@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentsActivityController\SA_IController;
