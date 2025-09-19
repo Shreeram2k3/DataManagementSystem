@@ -32,9 +32,9 @@
                     <td class="px-4 py-2 border">{{ $item['Purpose_of_Attending(Teaching/Research)'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->document_link))
+                      @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->document_link }}
+                              {{ $item->Document_Link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>

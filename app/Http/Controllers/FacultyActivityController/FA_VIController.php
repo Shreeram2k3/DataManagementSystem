@@ -49,7 +49,7 @@ class FA_VIController extends Controller
                 'Organiser_Details'=>$validated['organiser_details'],
                 'From_Date' => $validated['from_date'],
                 'To_Date'=>$validated['to_date'],
-                'Purpose_of_Attending(Teaching/Research'=>$validated['purpose_of_attending'],
+                'Purpose_of_Attending(Teaching/Research)'=>$validated['purpose_of_attending'],
                 'Dept'=>$validated['dept'],
                 
                 'Document_Link' => $validated['document_link'],
@@ -95,7 +95,7 @@ class FA_VIController extends Controller
             $record['Organiser_Details'] = $request->input('organiser_details');
             $record->From_Date = $request->input('from_date');
             $record->From_Date = $request->input('from_date'); 
-            $record['Purpose_of_Attending(Teaching/Research'] = $request->input('purpose_of_attending');
+            $record['Purpose_of_Attending(Teaching/Research)'] = $request->input('purpose_of_attending');
             $record['Dept'] = $request->input('dept');  
             $record->Document_Link = $request->input('document_link');
             
