@@ -24,7 +24,7 @@ class manageUserController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
                 'role' =>'required|string',
-                'pass' => 'required',
+                'pass' => ['required',Rules\Password::defaults()]
             ]);
         }
         catch(\Exception $e)

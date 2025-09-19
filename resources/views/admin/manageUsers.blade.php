@@ -85,12 +85,12 @@
 
                    <!-- category  -->
                    <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700">Role</label>
-                    <select name="role" required class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
-                    </select>
-                </div>
+                        <label class="block text-sm font-medium text-gray-700">Role</label>
+                        <select name="role" required class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
 
                     
 
