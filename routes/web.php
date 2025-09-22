@@ -292,10 +292,48 @@ Route::middleware(['auth','verified'])->group(function(){
                      Route::get('/Department_Activity/view/{type}',[DAdatapageController::class, 'Select_form'])->name('DA.view');
                     // POST DA_I
                      Route::post('/Department_Activity/DA_I/create', [DA_IController::class, 'store'])->name('DAI_Store');
+                     // POST DA_II
+                     Route::post('/Department_Activity/DA_II/create', [DA_IIController::class, 'store'])->name('DAII_Store');
+                     // POST DA_III
+                     Route::post('/Department_Activity/DA_III/create', [DA_IIIController::class, 'store'])->name('DAIII_Store');
+                     // POST DA_IV
+                     Route::post('/Department_Activity/DA_IV/create', [DA_IVController::class, 'store'])->name('DAIV_Store');
+                     // POST DA_V
+                     Route::post('/Department_Activity/DA_V/create', [DA_VController::class, 'store'])->name('DAV_Store');
+                     // POST DA_VI
+                     Route::post('/Department_Activity/DA_VI/create', [DA_VIController::class, 'store'])->name('DAVI_Store');
+                     // POST DA_VII
+                     Route::post('/Department_Activity/DA_VII/create', [DA_VIIController::class, 'store'])->name('DAVII_Store');
+                     // POST DA_VIII
+                     Route::post('/Department_Activity/DA_VIII/create', [DA_VIIIController::class, 'store'])->name('DAVIII_Store');
+                     // POST DA_IX
+                     Route::post('/Department_Activity/DA_IX/create', [DA_IXController::class, 'store'])->name('DAIX_Store');
+                     // POST DA_X
+                     Route::post('/Department_Activity/DA_X/create', [DA_XController::class, 'store'])->name('DAX_Store');
+                     // POST DA_XI
+                     Route::post('/Department_Activity/DA_XI/create', [DA_XIController::class, 'store'])->name('DAXI_Store');
 
 
                     // update DA_I
                     Route::put('/Department_activity/DA_I/update/{id}',[DA_IController::class, 'update'])->name('DAI_update');
+                    Route::put('/Department_activity/DA_II/update/{id}',[DA_IIController::class, 'update'])->name('DAII_update');
+                    Route::put('/Department_activity/DA_III/update/{id}',[DA_IIIController::class, 'update'])->name('DAIII_update');
+                    Route::put('/Department_activity/DA_IV/update/{id}',[DA_IVController::class, 'update'])->name('DAIV_update');
+                    Route::put('/Department_activity/DA_V/update/{id}',[DA_VController::class, 'update'])->name('DAV_update');
+                    Route::put('/Department_activity/DA_VI/update/{id}',[DA_VIController::class, 'update'])->name('DAVI_update');
+                    Route::put('/Department_activity/DA_VII/update/{id}',[DA_VIIController::class, 'update'])->name('DAVII_update');
+                    Route::put('/Department_activity/DA_VIII/update/{id}',[DA_VIIIController::class, 'update'])->name('DAVIII_update');
+                    Route::put('/Department_activity/DA_IX/update/{id}',[DA_IXController::class, 'update'])->name('DAIX_update');
+                    Route::put('/Department_activity/DA_X/update/{id}',[DA_XController::class, 'update'])->name('DAX_update');
+                    Route::put('/Department_activity/DA_XI/update/{id}',[DA_XIController::class, 'update'])->name('DAXI_update');
+
+                    //Edit
+            Route::get('/Department_activity/{type}/{id}/edit', [DAdatapageController::class, 'edit'])->name('Department_activity_edit');
+
+            //delete
+            Route::delete('//Department_activity/delete/{type}/{id}', [DAdatapageController::class, 'destroy'])->name('Department_activity_delete');
+                    
+
 
 
 });
