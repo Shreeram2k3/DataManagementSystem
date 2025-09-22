@@ -112,7 +112,7 @@
     <!-- Main content area -->
     <main class="flex-1 ml-0 md:ml-72 p-8 bg-gray-50 dark:bg-gray-900 rounded-tl-3xl shadow-inner">
       <!-- Page content goes here -->
-      <div class="h-full w-full flex">
+      <div>
         <!-- Select a section from the sidebar to get started. -->
          @yield('content')
       </div>

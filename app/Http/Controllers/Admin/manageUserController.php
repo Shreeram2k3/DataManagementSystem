@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 use App\Models\User;
 
 
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Validation\ValidationException;
 
 
 class manageUserController extends Controller
@@ -27,9 +29,25 @@ class manageUserController extends Controller
                 'pass' => ['required',Rules\Password::defaults()]
             ]);
         }
-        catch(\Exception $e)
+        catch(ValidationException $e)
         { 
-          dd($e);  
+
+             $errors = $e->validator->errors()->messages();
+
+     foreach ($errors as $field => $messages) 
+        {
+           if ($field === 'email') {
+            return back()->with('failed', 'Error: This email is already registered!,Try again');
+        }
+
+        if ($field === 'name') {
+            return back()->with('failed', 'Error: Name field is required!');
+        }
+
+        if ($field === 'pass') {
+            return back()->with('failed', 'Error: Password is too weak!,Use min 8 Characters');
+        }
+     }
     
         }
 
@@ -50,4 +68,6 @@ class manageUserController extends Controller
         }
 
     }
+
+    
 }
