@@ -80,7 +80,7 @@
                     <!-- Floating Create Form Modal -->
                     <div x-show="showForm" x-transition class="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
                         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-                            <h2 class="text-xl font-semibold mb-4">Add User</h2>
+                            <h2 class="text-xl font-semibold mb-4">{{ isset($record) ? 'Update User' : 'Add User' }}</h2>
                             
                             <form method="POST" 
                                 action="{{ isset($record) ? route('update_user', $record->id) : route('addUser') }}" 
