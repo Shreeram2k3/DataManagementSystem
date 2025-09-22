@@ -18,8 +18,8 @@ class GoogleController extends Controller
 public function handleGoogleCallback()
 {
     
-
-   
+     
+    try{
     $googleUser = Socialite::driver('google')->stateless()->user();
     $user = User::where('email', $googleUser->getEmail())->first();
     if ($user) {
@@ -30,6 +30,10 @@ public function handleGoogleCallback()
             // User not found — redirect with an error message
             return redirect(route('unauthorized'));
              }
+            }
+            catch (\Exception $e) {
+                   return view('unauthorized');
+                }
 
 }
 
