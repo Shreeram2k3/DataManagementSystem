@@ -312,6 +312,9 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
         // adduser route 
         Route::post('/admin/manageUsers',[manageUserController::class,'store'])->name('addUser');
 
+        // delete user route 
+        Route::delete('/delete/{id}', [manageUserController::class,'delete'])->name('user_delete');
+
 
 });
 

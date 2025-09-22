@@ -69,5 +69,14 @@ class manageUserController extends Controller
 
     }
 
+    function delete($id)
+    {
+        $record = user::findOrFail($id);
+                $record->delete();
+
+    
+                return redirect()->back()->with('delete', 'Record deleted successfully.');
+    }
+
     
 }
