@@ -15,10 +15,11 @@ class AdminController extends Controller
         return view('admin.dashboard');
     }
 
-    public function getUsers()
+    public function getUsers(Request $request)
     {
-        $users =user::all();
-        return view('admin.manageUsers',compact('users'));
+         $perPage = $request->input('per_page', 2);
+        $users =user::paginate($perPage)->appends(['per_page' => $perPage]);
+        return view('admin.manageUsers',compact('users','perPage'));
     }
 
     public function getData()
