@@ -315,6 +315,11 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
         // delete user route 
         Route::delete('/delete/{id}', [manageUserController::class,'delete'])->name('user_delete');
 
+        // Edit user route 
+        Route::get('/edit/{id}', [manageUserController::class,'edit'])->name('edit_user');
+
+        Route::put('/users/update/{id}', [manageUserController::class, 'update'])->name('update_user');
+
 
 });
 

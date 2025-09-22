@@ -78,5 +78,41 @@ class manageUserController extends Controller
                 return redirect()->back()->with('delete', 'Record deleted successfully.');
     }
 
+
+   // Show edit form
+public function edit($id)
+{
+    $record = User::findOrFail($id); // user to edit
+    $users = User::paginate(25);     // still show table data
+     $perPage = request()->get('per_page', 25);
+  
+
+    return view('admin.manageUsers', compact('record', 'users','perPage'));
+}
+
+// Update record
+public function update(Request $request, $id)
+{
+    $request->validate([
+        'name'  => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $id,
+        'role'  => 'required',
+    ]);
+
+    $user = User::findOrFail($id);
+    $user->name  = $request->name;
+    $user->email = $request->email;
+    $user->role  = $request->role;
+
+    if ($request->filled('pass')) {
+        $user->password = bcrypt($request->pass);
+    }
+
+    $user->save();
+
+    return redirect()->route('admin.manageUsers')->with('success', 'User updated successfully!');
+}
+
+
     
 }

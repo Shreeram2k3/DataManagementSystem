@@ -58,7 +58,9 @@
 
 
 
-            <div class="mt-10" x-data="{ showForm: {{ $errors->any() ? 'true' : 'false' }}, showEditForm: false, editData: {} }">
+            <div class="mt-10" 
+     x-data="{ showForm: {{ $errors->any() ? 'true' : (isset($record) ? 'true' : 'false') }}, showEditForm: false, editData: {} }">
+
                 <!-- Create addUsers Card -->
                 <section class="relative mt-10 w-full  p-10 ">
                     
@@ -80,52 +82,61 @@
                         <div class="bg-white p-6 rounded-lg shadow-lg w-96">
                             <h2 class="text-xl font-semibold mb-4">Add User</h2>
                             
-                            <form method="POST" action="{{route('addUser')}}"enctype="multipart/form-data">
+                            <form method="POST" 
+                                action="{{ isset($record) ? route('update_user', $record->id) : route('addUser') }}" 
+                                enctype="multipart/form-data">
+
                                 @csrf
-                                <!-- user_name  -->
+                                @if(isset($record))
+                                    @method('PUT')
+                                @endif
+
+                                <!-- Name -->
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Name</label>
-                                    <input type="text" name="name" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                    <input type="text" name="name" 
+                                        value="{{ $record->name ?? '' }}" 
+                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
                                 </div>
 
-                                <!-- user_email  -->
+                                <!-- Email -->
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Email</label>
-                                    <input name="email" type="email"  class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
-
+                                    <input type="email" name="email" 
+                                        value="{{ $record->email ?? '' }}" 
+                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
                                     @error('email')
-                    <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
-                @enderror
+                                        <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
+                                    @enderror
+                                </div>
 
-                    
-                     
-                </div>
+                                <!-- Role -->
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700">Role</label>
+                                    <select name="role" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                        <option value="user"  {{ (isset($record) && $record->role == 'user') ? 'selected' : '' }}>User</option>
+                                        <option value="admin" {{ (isset($record) && $record->role == 'admin') ? 'selected' : '' }}>Admin</option>
+                                    </select>
+                                </div>
 
-                   <!-- role  -->
-                   <div class="mb-4">
-                        <label class="block text-sm font-medium text-gray-700">Role</label>
-                        <select name="role" required class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
-                            <option value="user">User</option>
-                            <option value="admin">Admin</option>
-                        </select>
-                    </div>
+                                <!-- Password -->
+                                <div class="mb-8">
+                                    <label class="block text-sm font-medium text-gray-700">Password</label>
+                                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
+                                    @if(isset($record))
+                                        <p class="text-xs text-red-600 mt-1">Leave blank to keep current password.</p>
+                                    @endif
+                                </div>
 
-                    
+                                <!-- Buttons -->
+                                <div class="flex justify-between">
+                                    <button type="button" @click="showForm = false" class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
+                                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">
+                                        {{ isset($record) ? 'Update' : 'Save' }}
+                                    </button>
+                                </div>
+                            </form>
 
-                <!-- password  -->
-                <div class="mb-8">
-                    <label class="block text-sm font-medium text-gray-700">Password</label>
-                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
-                </div>
-
-                
-
-                <!-- cancel save btns  -->
-                <div class="flex justify-between bg-red-">
-                    <button type="button" @click="showForm = false" class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
-                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">Save</button>
-                </div>
-            </form>
         </div>
     </div>
 
@@ -157,7 +168,7 @@
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
                     <!-- Edit Button -->
-                    <a  
+                     <a href="{{ route('edit_user', [ 'id' => $item->id]) }}"
                     class="inline-flex items-center justify-center w-10 h-10 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
                         <i class="fa-solid fa-pen"></i>
                     </a>
