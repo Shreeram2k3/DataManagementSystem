@@ -143,5 +143,29 @@
     </main>
   </div>
 
+  <!-- Footer -->
+<footer class="fixed bottom-0 left-0 w-full 
+    bg-white 
+    border-t border-gray-200 
+    py-2 px-4 text-[10px] text-gray-600 
+    flex flex-col sm:flex-row justify-between items-center gap-1">
+  
+  <div class="flex items-center space-x-1">
+    <span></span>
+  </div>
+  
+  <div class="text-center sm:text-right">
+    By 
+    <a href="https://www.linkedin.com/in/shreeram2k3/" target="_blank" class="text-indigo-600 font-extralight hover:underline">
+      Shreeram G
+    </a>
+    &amp;
+    <a href="https://www.linkedin.com/in/sathish-k-u-419593336/" target="_blank" class="text-indigo-600 font-extralight hover:underline">
+      Sathish KU
+    </a>
+  </div>
+</footer>
+
+
 </body>
 </html>

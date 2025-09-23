@@ -17,7 +17,7 @@ class AdminController extends Controller
 
     public function getUsers(Request $request)
     {
-         $perPage = $request->input('per_page', 25);
+         $perPage = $request->input('per_page', 10);
         $users =user::paginate($perPage)->appends(['per_page' => $perPage]);
 
         return view('admin.manageUsers',compact('users','perPage'));
