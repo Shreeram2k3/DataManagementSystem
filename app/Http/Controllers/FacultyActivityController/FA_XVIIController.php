@@ -12,7 +12,7 @@ class FA_XVIIController extends Controller
     {
         $type='FA_XVII';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'faculty_name'=>'required|string|max:255',
                 'industry_visited' => 'required|string|max:255',
                 'period_date' => 'required|string|max:255',
@@ -32,11 +32,11 @@ class FA_XVIIController extends Controller
 
             // left side column name in table, right side name attribute in form 
             FA_XVII::create([
-                'Faculty_name' => $validated['faculty_namey'],
+                'Faculty_name' => $validated['faculty_name'],
                 'Industry_visited' => $validated['industry_visited'],
                 'Period/Date' => $validated['period_date'],
                 'Outcome' => $validated['outcome'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 

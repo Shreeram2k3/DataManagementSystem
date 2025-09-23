@@ -15,7 +15,7 @@
          
         <label class="block">
             <span class="text-sm text-gray-600">Faculty_name</span>
-            <input type="text" name="faculty_namey" required
+            <input type="text" name="faculty_name" required
                 value="{{ $record->Faculty_name ?? old('Faculty_name') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>

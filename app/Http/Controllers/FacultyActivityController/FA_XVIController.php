@@ -12,7 +12,7 @@ class FA_XVIController extends Controller
     {
         $type='FA_XVI';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'name_of_the_company'=>'required|string|max:255',
                 'address' => 'required|string|max:255',
                 'benefits_opportunities_utilized' => 'required|string|max:255',
@@ -36,7 +36,7 @@ class FA_XVIController extends Controller
                 'Address' => $validated['address'],
                 'Benefits/Opportunities_Utilized' => $validated['benefits_opportunities_utilized'],
                 'MoU_Duration' => $validated['MoU_duration'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 
@@ -65,22 +65,26 @@ class FA_XVIController extends Controller
             $record = FA_XVI::findOrFail($id);
 
             // Validate input
+            try{
             $request->validate([
                  'name_of_the_company'=>'required|string|max:255',
                 'address' => 'required|string|max:255',
-                'benefits/opportunities_utilized' => 'required|string|max:255',
+                'benefits_opportunities_utilized' => 'required|string|max:255',
                 'MoU_duration' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
-
+        }catch (\Exception $e) {
+                   dd($e->getMessage());
+                }
+            
             // Update fields
-            $record->Name_of_the_Company = $request->input('name_of_the_faculty_member');
-            $record->Address = $request->input('title_of_the_project');
-            $record['Benefits/Opportunities_Utilized']= $request->input('funding_agency');
-            $record->MoU_Duration = $request->input('duration');
-            $record['Amount_(Rs_In_Lakhs'] = $request->input('amount');
+            try{
+            $record->Name_of_the_Company = $request->input('name_of_the_company');
+            $record->Address = $request->input('address');
+            $record['Benefits/Opportunities_Utilized'] = $request->input('benefits_opportunities_utilized');
+            $record->MoU_Duration = $request->input('MoU_duration');
             $record->Dept= $request->input('dept');
             $record->document_link = $request->input('document_link');
             
@@ -102,5 +106,9 @@ class FA_XVIController extends Controller
             $record->save();
 
             return redirect()->route('FA.view', ['type' => 'FA_XVI'])->with('success', 'Faculty activity updated successfull');
-    }
+      }
+      catch (\Exception $e) {
+                         dd($e->getMessage());
+                      }
+      }
 }

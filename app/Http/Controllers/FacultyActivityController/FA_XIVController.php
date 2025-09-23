@@ -25,6 +25,7 @@ class FA_XIVController extends Controller
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
             ]);
+           
 
 
             $validated['user_id'] = auth()->id();
@@ -91,7 +92,7 @@ class FA_XIVController extends Controller
             $record->Title_of_the_Project = $request->input('title_of_the_project');
             $record->Funding_Agency= $request->input('funding_agency');
             $record->Duration = $request->input('duration');
-            $record['Amount_(Rs_In_Lakhs'] = $request->input('amount');
+            $record['Amount_(Rs_In_Lakhs)'] = $request->input('amount');
             $record->Date_of_submission_or_sanction= $request->input('date');
             $record['Sanctioned/Submitted']= $request->input('sanctioned_submitted');
             $record->Dept= $request->input('dept');

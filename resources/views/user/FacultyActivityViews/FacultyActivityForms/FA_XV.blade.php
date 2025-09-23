@@ -16,7 +16,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Period (from)</span>
             <input type="date" name="period_(from)" required
-                value="{{ $record['Period_(from)'] ?? old('Period_(from)') }}"
+                value="{{ $record['Period_(From)'] ?? old('Period_(From)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -31,6 +31,13 @@
             <span class="text-sm text-gray-600">Name of the Company</span>
             <input type="text" name="name_of_the_company" required
                 value="{{ $record->Name_of_the_Company ?? old('Name_of_the_Company') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Address of the Company</span>
+            <input type="text" name="address_of_the_company" required
+                value="{{ $record->Address_of_the_Company ?? old('Address_of_the_Company') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

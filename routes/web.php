@@ -283,6 +283,7 @@ Route::middleware(['auth','verified'])->group(function(){
                     Route::put('/Faculty_activity/FA_XX/update/{id}',[FA_XXController::class, 'update'])->name('FAXX_update');
                     // update FA_XXI
                     Route::put('/Faculty_activity/FA_XXI/update/{id}',[FA_XXIController::class, 'update'])->name('FAXXI_update');
+                    Route::put('/Faculty_activity/FA_XXII/update/{id}',[FA_XXIIController::class, 'update'])->name('FAXXII_update');
                     
 
 

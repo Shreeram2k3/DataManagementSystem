@@ -38,6 +38,7 @@ class FA_XVController extends Controller
                 'Period_(From)' => $validated['period_(from)'],
                 'Period_(To)' => $validated['period_(to)'],
                 'Name_of_the_Company' => $validated['name_of_the_company'],
+                'Address_of_the_Company'=>$validated['address_of_the_company'],
                 'Work_Description' => $validated['work_description'],
                 'Faculty/Faculty_Team' => $validated['faculty_faculty_team'],
                 'Amount_Generated(in_Rs)'  => $validated ['Amount'],
