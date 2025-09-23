@@ -130,7 +130,13 @@
 
                                 <!-- Buttons -->
                                 <div class="flex justify-between">
-                                    <button type="button" @click="showForm = false" class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
+                                    <button type="button" @click="
+                                                    @if(isset($record))
+                                                        window.location.href='{{route('admin.manageUsers')}}'
+                                                    @else
+                                                        showForm = false
+                                                    @endif
+    "class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
                                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">
                                         {{ isset($record) ? 'Update' : 'Save' }}
                                     </button>
