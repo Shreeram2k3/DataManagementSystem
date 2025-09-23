@@ -45,7 +45,7 @@
             <span class="text-sm text-gray-600">National / International</span>
         </label>
         <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="National"
+            <input type="radio" name="national_international" value="National" required
                 {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
                 class="form-radio text-pink-600 focus:ring-pink-500">
             <span class="ml-2 text-gray-700 text-sm">National</span>

@@ -65,7 +65,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Outcome(IfSanctioned)</span>
             <input type="text" name="outcome_ifsanctioned" required
-                value="{{ $record->['Outcome(IfSanctioned)'] ?? old('Outcome(IfSanctioned)') }}"
+                value="{{ $record['Outcome(IfSanctioned)'] ?? old('Outcome(IfSanctioned)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

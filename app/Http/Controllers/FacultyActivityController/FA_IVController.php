@@ -49,7 +49,7 @@ class FA_IVController extends Controller
                 'Title_of_the_Paper' => $validated['title_of_the_paper'],
                 'Page_Numbers' => $validated['page_numbers'],
                 'Programme' => $validated['programme'],
-                'conference_symposium_training_programme_details' => $validated['conference_symposium_training_programme_details'],
+                'Conference_Symposium_Training_Programme_Details' => $validated['conference_symposium_training_programme_details'],
                 'Dept'=>$validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],

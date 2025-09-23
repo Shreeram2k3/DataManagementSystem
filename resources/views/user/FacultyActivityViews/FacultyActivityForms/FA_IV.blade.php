@@ -50,8 +50,15 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Programme</span>
-            <input type="text" name="scopus_sci_others" required
-                value="{{ $record['Scopus/SCI/others'] ?? old('Scopus/SCI/others') }}"
+            <input type="text" name="programme" required
+                value="{{ $record['Programme'] ?? old('Programme') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Programme</span>
+            <input type="text" name="conference_symposium_training_programme_details" required
+                value="{{ $record['Conference_Symposium_Training_Programme_Details'] ?? old('Conference_Symposium_Training_Programme_Details') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

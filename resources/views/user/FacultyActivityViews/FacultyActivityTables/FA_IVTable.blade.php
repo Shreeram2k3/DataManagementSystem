@@ -29,12 +29,12 @@
                     <td class="px-4 py-2 border">{{ $item->Title_of_the_Paper }}</td>
                     <td class="px-4 py-2 border">{{ $item->Page_Numbers }}</td>
                     <td class="px-4 py-2 border">{{ $item->Programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->conference_symposium_training_programme_details }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Conference_Symposium_Training_Programme_Details }}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->document_link))
+                      @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->document_link }}
+                              {{ $item->Document_Link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>

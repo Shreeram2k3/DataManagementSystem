@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\FacultyActivityController;
 
-use App\Models\FacultyActivityModels\FA_I;
+use App\Models\FacultyActivityModels\FA_III;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -50,7 +50,7 @@ class FA_IIIController extends Controller
 
                 'Registration_Details' => $validated['registration_details'],
                 
-                'National_International' => $validated['national_international'],
+                'National/International' => $validated['national_international'],
 
                 'Date' => $validated['date'],
                 
@@ -95,7 +95,7 @@ class FA_IIIController extends Controller
             $record->Title_of_the_Invention = $request->input('title_of_the_invention');
             $record->Sponsoring_Agency = $request->input('sponsoring_agency');
             $record->Registration_Details = $request->input('registration_details');
-            $record->National_International = $request->input('national_international');
+            $record['National/International'] = $request->input('national_international');
             $record['Date'] = $request->input('date');
             $record['Dept'] = $request->input('dept');
 

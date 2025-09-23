@@ -17,7 +17,7 @@ class FA_VI extends Model
         'Organiser_Details',
         'From_Date',
         'To_Date',
-        'Purpose_of_Attending(Teaching/Research',
+        'Purpose_of_Attending(Teaching/Research)',
         'Dept',
         'Document_Link',
         'Document',

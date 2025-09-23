@@ -58,7 +58,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Purpose of Attending (Teaching/Research)</span>
             <input type="text" name="purpose_of_attending" required
-                value="{{ $record['Purpose_of_Attending(Teaching/Research'] ?? old('Purpose_of_Attending(Teaching/Research') }}"
+                value="{{ $record['Purpose_of_Attending(Teaching/Research)'] ?? old('Purpose_of_Attending(Teaching/Research)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

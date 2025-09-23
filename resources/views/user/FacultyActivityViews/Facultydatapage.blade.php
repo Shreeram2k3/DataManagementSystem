@@ -125,8 +125,8 @@
                 @case('FA_III')
                       @include('user.FacultyActivityViews.FacultyActivityForms.FA_III')
                       @break
-                @case('FA_VI')
-                      @include('user.FacultyActivityViews.FacultyActivityForms.FA_VI')
+                @case('FA_IV')
+                      @include('user.FacultyActivityViews.FacultyActivityForms.FA_IV')
                       @break
                 @case('FA_V')
                       @include('user.FacultyActivityViews.FacultyActivityForms.FA_V')
@@ -209,8 +209,8 @@
                                         @case('FA_III')
                                             @include('user.FacultyActivityViews.FacultyActivityTables.FA_IIITable') 
                                             @break
-                                        @case('FA_VI')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VITable') 
+                                        @case('FA_IV')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IVTable') 
                                             @break
                                         @case('FA_V')
                                             @include('user.FacultyActivityViews.FacultyActivityTables.FA_VTable') 
