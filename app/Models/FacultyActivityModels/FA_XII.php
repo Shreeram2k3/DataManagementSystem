@@ -16,7 +16,6 @@ class FA_XII extends Model
         'Programme_of_study',
         'Name_of_Institute_&_University',
         'Date_of_Admission_Completed',
-        'Outcome',
         'Dept',
         'Document_Link',
         'Document',

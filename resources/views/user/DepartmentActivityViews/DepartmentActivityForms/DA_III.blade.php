@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAXIX_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAXIX_Store') }}" 
+        action="{{ isset($record) ? route('DAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('DAI_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -14,40 +14,48 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">Name of the Staff</span>
-            <input type="text" name="name_of_the_staff" required
-                value="{{ $record->Name_of_the_Staff ?? old('Name_of_the_Staff') }}"
+            <span class="text-sm text-gray-600">Total Number of Titles</span>
+            <input type="text" name="total_number_of_titles" required
+                value="{{ $record->Total_Number_of_Titles ?? old('Total_Number_of_Titles') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Faculty</span>
-            <input type="text" name="faculty" required
-                value="{{ $record->Faculty ?? old('Faculty') }}"
+            <span class="text-sm text-gray-600">Total Number of Books</span>
+            <input type="text" name="total_number_of_books" required
+                value="{{ $record->Total_Number_of_Books ?? old('Total_Number_of_Books') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">University</span>
-            <input type="text" name="university" required
-                value="{{ $record->University ?? old('University') }}"
+            <span class="text-sm text-gray-600">Total Number of Reference Books</span>
+            <input type="text" name="total_number_of_reference_books" required
+                value="{{ $record->Total_Number_of_Reference_Books ?? old('Total_Number_of_Reference_Books') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Date of Recognition</span>
-            <input type="date" name="date_of_recognition" required
-                value="{{ $record->Date_of_Recognition ?? old('Date_of_Recognition') }}"
+            <span class="text-sm text-gray-600">Total Number of Journals Subscribed National</span>
+            <input type="text" name="total_number_of_journals_subscribed_international" required
+                value="{{ $record->Total_Number_of_Journals_Subscribed_National ?? old('Total_Number_of_Journals_Subscribed_National') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Total Value of Books/Journals Investment (National)</span>
+            <input type="text" name="datotal_value_of_books/journals_nvestment(Nationalte" required
+                value="{{ $record['Total_Value_of_Books/Journals_Investment(National)'] ?? old('Total_Value_of_Books/Journals_Investment(National)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Reference No</span>
-            <input type="text" name="reference_no" required
-                value="{{ $record->Reference_No ?? old('Reference_No') }}"
+            <span class="text-sm text-gray-600">Total_Value_of_Books/Journals_Investment(international)</span>
+            <input type="text" name='total_value_of_books/journals_investment(international)' required
+                value="{{ $record['Total_Value_of_Books/Journals_Investment(International)'] ?? old('Total_Value_of_Books/Journals_Investment(International)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
-        
+
         <label class="block">
             <span class="text-sm text-gray-600">Document Link (Optional)</span>
             <input type="url" name="document_link"

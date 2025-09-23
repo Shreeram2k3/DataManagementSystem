@@ -14,16 +14,16 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">period (from)</span>
-            <input type="text" name="period_(from)" required
-                value="{{ $record['period_(from)'] ?? old('period_(from)') }}"
+            <span class="text-sm text-gray-600">Period (from)</span>
+            <input type="date" name="period_(from)" required
+                value="{{ $record['Period_(from)'] ?? old('Period_(from)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Period_(To)</span>
-            <input type="text" name="period_(to)" required
-                value="{{ $record->['Period_(To)'] ?? old('Period_(To)') }}"
+            <span class="text-sm text-gray-600">Period (To)</span>
+            <input type="date" name="period_(to)" required
+                value="{{ $record['Period_(To)'] ?? old('Period_(To)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

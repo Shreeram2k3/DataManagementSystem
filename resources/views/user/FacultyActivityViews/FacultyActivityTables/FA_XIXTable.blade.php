@@ -5,7 +5,6 @@
                 <th class="px-4 py-3 border">Name of the Staff</th>
                 <th class="px-4 py-3 border">Faculty</th>
                 <th class="px-4 py-3 border">University</th>
-                <th class="px-4 py-3 border">Duration</th>
                 <th class="px-4 py-3 border">Date of Recognition</th>
                 <th class="px-4 py-3 border">Reference No</th>
                 <th class="px-4 py-3 border">Document Link</th>
@@ -24,7 +23,6 @@
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Staff }}</td>
                     <td class="px-4 py-2 border">{{ $item->Faculty }}</td>
                     <td class="px-4 py-2 border">{{ $item->University }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Duration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Date_of_Recognition }}</td>
                     <td class="px-4 py-2 border">{{ $item->Reference_No }}</td>
                     <td class="px-4 py-2 border">

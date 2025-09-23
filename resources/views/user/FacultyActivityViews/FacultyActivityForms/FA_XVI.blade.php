@@ -28,16 +28,9 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Tittle of the Papper</span>
-            <input type="text" name="title_of_the_paper" required
-                value="{{ $record->Title_of_the_Paper ?? old('Title_of_the_Paper') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
-
-        <label class="block">
             <span class="text-sm text-gray-600">Benefits/Opportunities Utilized</span>
             <input type="text" name="benefits_opportunities_utilized" required
-                value="{{ $record['Benefits/Opportunities_Utilized'] ?? old(''Benefits/Opportunities_Utilized'') }}"
+                value="{{ $record['Benefits/Opportunities_Utilized'] ?? old('Benefits/Opportunities_Utilized') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -45,13 +38,6 @@
             <span class="text-sm text-gray-600">MoU Duration</span>
             <input type="text" name="MoU_duration" required
                 value="{{ $record->MoU_Duration ?? old('MoU_Duration') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
-
-        <label class="block">
-            <span class="text-sm text-gray-600">Scopus Sci Others</span>
-            <input type="text" name="scopus_sci_others" required
-                value="{{ $record['Scopus/SCI/others'] ?? old('Scopus/SCI/others') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

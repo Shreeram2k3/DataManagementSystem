@@ -43,7 +43,7 @@
 
 
         <label class="block">
-            <span class="text-sm text-gray-600">Department</span>
+            <span class="text-sm text-gray-600">Dept</span>
             <input type="text" name="dept" required
                 value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">

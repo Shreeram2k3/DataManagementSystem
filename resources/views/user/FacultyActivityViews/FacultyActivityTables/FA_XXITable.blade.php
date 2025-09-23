@@ -2,11 +2,11 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Faculty_name</th>
+                <th class="px-4 py-3 border">Faculty name</th>
                 <th class="px-4 py-3 border">Qualification</th>
                 <th class="px-4 py-3 border">Designation</th>
-                <th class="px-4 py-3 border">Recruited-relieved</th>
-                <th class="px-4 py-3 border">Date_of_joining-relieving</th>
+                <th class="px-4 py-3 border">Recruited/Relieved</th>
+                <th class="px-4 py-3 border">Date of Joining/Relieving</th>
                 <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
@@ -24,8 +24,8 @@
                     <td class="px-4 py-2 border">{{ $item->Faculty_name }}</td>
                     <td class="px-4 py-2 border">{{ $item->Qualification }}</td>
                     <td class="px-4 py-2 border">{{ $item->Designation }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Recruited-relieved'] }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Date_of_joining-relieving'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Recruited/Relieved'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Date_of_Joining/Relieving'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))

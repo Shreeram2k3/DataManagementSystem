@@ -14,7 +14,7 @@
         </h2>
          
         <label class="block">
-            <span class="text-sm text-gray-600">Name_of_the_Faculty_Member</span>
+            <span class="text-sm text-gray-600">Name of the Faculty Member</span>
             <input type="text" name="name_of_the_faculty_member" required
                 value="{{ $record->Name_of_the_Faculty_Member ?? old('Name_of_the_Faculty_Member') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
@@ -35,7 +35,7 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">'Institute/University/Industry Member'</span>
+            <span class="text-sm text-gray-600">Institute/University/Industry Member</span>
             <input type="text" name="institute-university-industry_member" required
                 value="{{ $record['Institute/University/Industry_Member'] ?? old('Institute/University/Industry_Member') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">

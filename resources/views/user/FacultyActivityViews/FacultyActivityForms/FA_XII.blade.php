@@ -36,17 +36,11 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Date of Admission Completed</span>
-            <input type="text" name="date_of_admission_completed" required
+            <input type="date" name="date_of_admission_completed" required
                 value="{{ $record->Date_of_Admission_Completed ?? old('Date_of_Admission_Completed') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-        <label class="block">
-            <span class="text-sm text-gray-600">Outcome</span>
-            <input type="text" name="outcome" required
-                value="{{ $record->Outcome ?? old('Outcome') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Dept</span>

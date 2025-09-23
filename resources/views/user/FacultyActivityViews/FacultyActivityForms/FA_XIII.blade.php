@@ -28,20 +28,20 @@
         </label>
 
         <label class="block mb-2">
-            <span class="text-sm text-gray-600">National / International</span>
+            <span class="text-sm text-gray-600">Internal/External</span>
         </label>
         <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="National"
-                {{ (($record['National/International'] ?? old('National/International')) === 'National') ? 'checked' : '' }}
+            <input type="radio" name="internal_external" value="Internal"
+                {{ (($record['Internal/External'] ?? old('Internal/External')) === 'Internal') ? 'checked' : '' }}
                 class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">National</span>
+            <span class="ml-2 text-gray-700 text-sm">Internal</span>
         </label>
 
         <label class="inline-flex items-center">
-            <input type="radio" name="national_international" value="International"
-                {{ (($record['National/International'] ?? old('National/International')) === 'International') ? 'checked' : '' }}
+            <input type="radio" name="internal_external" value="External"
+                {{ (($record['Internal/External'] ?? old('Internal/External')) === 'External') ? 'checked' : '' }}
                 class="form-radio text-pink-600 focus:ring-pink-500">
-            <span class="ml-2 text-gray-700 text-sm">International</span>
+            <span class="ml-2 text-gray-700 text-sm">External</span>
         </label>
 
                 <label class="block">
@@ -59,7 +59,7 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Date_of_Registration</span>
+            <span class="text-sm text-gray-600">Date of Registration</span>
             <input type="date" name="date_of_registration" required
                 value="{{ $record->Date_of_Registration ?? old('Date_of_Registration') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
@@ -68,7 +68,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Research Area</span>
             <input type="text" name="research_area" required
-                value="{{ $record->'Research_Area' ?? old('Research_Area') }}"
+                value="{{ $record->Research_Area ?? old('Research_Area') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

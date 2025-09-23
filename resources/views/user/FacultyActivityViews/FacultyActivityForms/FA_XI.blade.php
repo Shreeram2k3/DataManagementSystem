@@ -30,7 +30,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">BIT/Outside'</span>
             <input type="text" name="BIT_Outside" required
-                value="{{ $record['BIT/Outside'] ?? old('BIT/Outside'') }}"
+                value="{{ $record['BIT/Outside'] ?? old('BIT/Outside') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

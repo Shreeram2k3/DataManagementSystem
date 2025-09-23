@@ -12,7 +12,7 @@ class FA_XIIIController extends Controller
     {
         $type='SA_XIII';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'name_of_the_faculty_member' => 'required|string|max:255',
                 'part_time_full_time' => 'required|string|max:255',
                 'internal_external' => 'required|string|max:255',
@@ -90,8 +90,8 @@ class FA_XIIIController extends Controller
             $record['Internal/External'] = $request->input('internal_external');
             $record->Name_of_the_Scholar= $request->input('name_of_the_scholar');
             $record->Address_of_external = $request->input('address_of_external');
-            $record->Date_of_Registration = $request->input('Date_of_Registrationt');
-            $record->Research_Area= $request->input('research_areas');
+            $record->Date_of_Registration = $request->input('date_of_registration');
+            $record->Research_Area= $request->input('research_area');
             $record->Status= $request->input('status');
             $record->Document_Link = $request->input('document_link');
             

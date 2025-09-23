@@ -2,13 +2,12 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">Organizer Name Details</th>
-                <th class="px-4 py-3 border">Nature of Seminar/Conference</th>
-                <th class="px-4 py-3 border">Title</th>
-                <th class="px-4 py-3 border">Total Number of Participants/Papers</th>
-                <th class="px-4 py-3 border">Date</th>
-                <th class="px-4 py-3 border">Dept</th>
-                <th class="px-4 py-3 border">Outcome</th>
+                <th class="px-4 py-3 border">Total Number of Titles </th>
+                <th class="px-4 py-3 border">Total Number of Books</th>
+                <th class="px-4 py-3 border">Total Number of Reference Books</th>
+                <th class="px-4 py-3 border">Total Number of Journals Subscribed_National</th>
+                <th class="px-4 py-3 border">Total Value of Books/Journals Investment(National)</th>
+                <th class="px-4 py-3 border">DeTotal Value of Books/Journals Investment(international)</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -22,17 +21,16 @@
                 <tr class="border-t hover:bg-gray-50">
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Organizer_Name_Details }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Nature_of_Seminar/Conference'] }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Title }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Total_Number_of_Participants/Papers'] }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Date }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Total_Number_of_Titles }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Total_Number_of_Books }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Total_Number_of_Reference_Books }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Total_Number_of_Journals_Subscribed_National }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Total_Value_of_Books/Journals_Investment(National)'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Total_Value_of_Books/Journals_Investment(international)'] }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->document_link))
+                      @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->document_link }}
+                              {{ $item->Document_Link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>

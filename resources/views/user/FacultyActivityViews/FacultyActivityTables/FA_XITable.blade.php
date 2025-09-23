@@ -23,7 +23,7 @@
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_Staff }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Programme }}</td>
-                    <td class="px-4 py-2 border">{{ $item->['BIT/Outside'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['BIT/Outside'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Duration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Outcome }}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>

@@ -42,9 +42,9 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Date_of_Joining/Relieving</span>
-            <input type="text" name="date_of_joining-relieving" required
-                value="{{ $record->Date_of_Joining/Relieving ?? old('Date_of_Joining/Relieving') }}"
+            <span class="text-sm text-gray-600">Date of Joining/Relieving</span>
+            <input type="date" name="date_of_joining-relieving" required
+                value="{{ $record['Date_of_Joining/Relieving'] ?? old('Date_of_Joining/Relieving') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
@@ -54,7 +54,7 @@
                 value="{{ $record->Dept ?? old('Dept') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
-
+ 
         <label class="block">
             <span class="text-sm text-gray-600">Document Link (Optional)</span>
             <input type="url" name="document_link"

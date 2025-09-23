@@ -12,7 +12,7 @@ class FA_XVController extends Controller
     {
         $type='FA_XV';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'period_(from)'=>'required|date',
                 'period_(to)'=>'required|date',
                 'name_of_the_company' => 'required|string|max:255',
@@ -41,7 +41,7 @@ class FA_XVController extends Controller
                 'Work_Description' => $validated['work_description'],
                 'Faculty/Faculty_Team' => $validated['faculty_faculty_team'],
                 'Amount_Generated(in_Rs)'  => $validated ['Amount'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 

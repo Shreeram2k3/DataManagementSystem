@@ -15,7 +15,7 @@
          
         <label class="block">
             <span class="text-sm text-gray-600">Date</span>
-            <input type="text" name="date" required
+            <input type="date" name="date" required
                 value="{{ $record->Date ?? old('Date') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
@@ -24,6 +24,13 @@
             <span class="text-sm text-gray-600">Name of Faculty</span>
             <input type="text" name="name_of_faculty" required
                 value="{{ $record->Name_of_Faculty ?? old('Name_of_Faculty') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Topic</span>
+            <input type="text" name="topic" required
+                value="{{ $record->Topic ?? old('Topic') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

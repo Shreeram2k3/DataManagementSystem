@@ -44,21 +44,21 @@
         <label class="block">
             <span class="text-sm text-gray-600">Amount (Rs In Lakhs)</span>
             <input type="text" name="amount" required
-                value="{{ $record['Amount_(Rs_In_Lakhs)'] ?? old('Amount_(Rs_In_Lakhs)') }}"
+                value="{{ $record->{'Amount_(Rs_In_Lakhs)'} ?? old('Amount_(Rs_In_Lakhs)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Date of submission or sanction</span>
             <input type="date" name="date" required
-                value="{{ $record->Date_of_submission_or_sanction ?? old(Date_of_submission_or_sanction') }}"
+                value="{{ $record->Date_of_submission_or_sanction ?? old('Date_of_submission_or_sanction') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Sanctioned/Submitted</span>
             <input type="text" name="sanctioned_submitted" required
-                value="{{ $record['Sanctioned/Submitted'] ?? old('Sanctioned/Submitted') }}"
+                value="{{ $record->{'Sanctioned/Submitted'} ?? old('Sanctioned/Submitted') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
