@@ -22,7 +22,7 @@
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
                    
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                    <td class="px-4 py-2 border">{{ $loop->iteration }}</td>
                     <td class="px-4 py-2 border">{{ $item['Name_of_winter/SummerSchool/FDPTitle_of_the_programme'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Name_of_the_coordinator(s)'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Total_No_of_Participants(TN)'] }}</td>
