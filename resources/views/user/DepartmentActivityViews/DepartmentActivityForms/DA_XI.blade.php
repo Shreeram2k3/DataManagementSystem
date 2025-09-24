@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('DAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('DAI_Store') }}" 
+        action="{{ isset($record) ? route('DAXI_update', ['type' => $type, 'id' => $record->S_NO]) : route('DAXI_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -15,14 +15,14 @@
          
         <label class="block">
             <span class="text-sm text-gray-600">AY-SEM</span>
-            <input type="text" name="ay_sem" required
+            <input type="text" name="ay-sem" required
                 value="{{ $record['AY-SEM'] ?? old('AY-SEM') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">YEAR</span>
-            <input type="text" name="year" required
+            <input type="number" name="year" required
                 value="{{ $record->YEAR ?? old('YEAR') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>

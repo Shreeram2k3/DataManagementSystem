@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('DAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('DAI_Store') }}" 
+        action="{{ isset($record) ? route('DAIII_update', ['type' => $type, 'id' => $record->S_NO]) : route('DAIII_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf
@@ -50,7 +50,7 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Total_Value_of_Books/Journals_Investment(international)</span>
+            <span class="text-sm text-gray-600">Total Value of Books/Journals Investment(international)</span>
             <input type="text" name='total_value_of_books/journals_investment(international)' required
                 value="{{ $record['Total_Value_of_Books/Journals_Investment(International)'] ?? old('Total_Value_of_Books/Journals_Investment(International)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">

@@ -22,8 +22,8 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Number of Equipment</span>
-            <input type="text" name="id" required
-                value="{{ $record->number_of_equipment ?? old('number_of_equipment') }}"
+            <input type="text" name="number_of_equipment" required
+                value="{{ $record->Number_of_Equipment ?? old('Number_of_Equipment') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 

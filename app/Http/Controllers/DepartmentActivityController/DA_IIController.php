@@ -38,7 +38,7 @@ class DA_IIController extends Controller
                 $validated['document'] = $file->storeAs('DA_Documents/DA_II', $filename, 'public');
             }
 
-        // dd($validated); // For debugging purposes, remove in production
+        dd($validated); // For debugging purposes, remove in production
            try{
 
             // left side column name in table, right side name attribute in form 
@@ -46,7 +46,7 @@ class DA_IIController extends Controller
                 'Name_of_the_Faculty' => $validated['name_of_the_faculty'],
                 'Name_of_the_Equipment_failed/Serviced' => $validated['name_of_the_equipment_failed'],
                 'Name_of_the_Lab' => $validated['name_of_the_lab'],
-                'Servicing_details' => $validated['Servicing_details'],
+                'Servicing_details' => $validated['servicing_details'],
                 'Amount_Rs' => $validated['amount_Rs'],
                 'status' => $validated['status'],
                 'Date' => $validated['date'],
