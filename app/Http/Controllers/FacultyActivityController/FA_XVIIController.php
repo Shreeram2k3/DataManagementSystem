@@ -62,6 +62,7 @@ class FA_XVIIController extends Controller
 
     public function update(Request $request, $id)
     {
+        try{
             $record = FA_XVII::findOrFail($id);
 
             // Validate input
@@ -72,7 +73,7 @@ class FA_XVIIController extends Controller
                 'outcome' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
             ]);
 
             // Update fields
@@ -102,4 +103,9 @@ class FA_XVIIController extends Controller
 
             return redirect()->route('FA.view', ['type' => 'FA_XVII'])->with('success', 'Faculty activity updated successfull');
     }
+
+catch (\Exception $e) {
+                   dd($e->getMessage());
+                }
+            }
 }

@@ -18,7 +18,7 @@
             @forelse ($data[$type] as $item)
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
-                   
+                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
                     <td class="px-4 py-2 border">{{ $item->Faculty_name }}</td>
                     <td class="px-4 py-2 border">{{ $item['Industry_visited'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Period/Date'] }}</td>

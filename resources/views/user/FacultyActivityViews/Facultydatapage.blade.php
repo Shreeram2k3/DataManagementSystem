@@ -248,7 +248,7 @@
                                         @case('FA_XVI')
                                             @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVITable') 
                                             @break
-                                        @case('FAXVII')
+                                        @case('FA_XVII')
                                             @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIITable') 
                                             @break
                                         @case('FA_XVIII')

@@ -23,7 +23,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">industry visited</span>
             <input type="text" name="industry_visited" required
-                value="{{ $record->industry_visited ?? old('industry_visited') }}"
+                value="{{ $record->Industry_visited ?? old('Industry_visited') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
