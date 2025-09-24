@@ -36,7 +36,7 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Speaker/Organization</span>
-            <input type="text" name="speaker/Organization" required
+            <input type="text" name="speaker/organization" required
                 value="{{ $record['Speaker/Organization'] ?? old('Speaker/Organization') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>

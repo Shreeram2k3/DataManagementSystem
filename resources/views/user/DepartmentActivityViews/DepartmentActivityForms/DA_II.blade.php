@@ -36,7 +36,7 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Servicing details</span>
-            <input type="text" name="Servicing_details" required
+            <input type="text" name="servicing_details" required
                 value="{{ $record->Servicing_details ?? old('Servicing_details') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
