@@ -64,11 +64,11 @@
                 </div>
             </div>
             @endif
-            @if(session('delete'))
+            @if(session('failed'))
                 <div class="flex items-center space-x-4 bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded shadow-lg">
                 <!-- deleted Message -->
                 <div class="text-base font-medium">
-                    {{ session('delete') }}
+                    {{ session('failed') }}
                 </div>
                 </div>
             @endif
