@@ -16,12 +16,23 @@ class AdminController extends Controller
     }
 
     public function getUsers(Request $request)
-    {
-         $perPage = $request->input('per_page', 10);
-        $users =user::paginate($perPage)->appends(['per_page' => $perPage]);
+{
+    $perPage = $request->input('per_page', 10);
+    $search  = $request->input('search');
 
-        return view('admin.manageUsers',compact('users','perPage'));
-    }
+    $users = User::when($search, function ($query, $search) {
+                    $query->where('name', 'like', "%{$search}%")
+                          ->orWhere('email', 'like', "%{$search}%");
+                })
+                ->paginate($perPage)
+                ->appends([
+                    'per_page' => $perPage,
+                    'search'   => $search
+                ]);
+
+    return view('admin.manageUsers', compact('users', 'perPage', 'search'));
+}
+
 
     public function getData()
     {

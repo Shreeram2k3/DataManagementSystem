@@ -187,8 +187,9 @@
 
                 <tbody class="bg-white">
                     @forelse ($users as $item)
+                        
                         <tr class="border-t hover:bg-gray-50">
-                            <td class="px-4 py-2 border">{{ $item->id}}</td>
+                            <td class="px-4 py-2 border">{{ $loop->iteration}}</td>
                             <td class="px-4 py-2 border">{{ $item->name}}</td>
                             <td class="px-4 py-2 border">{{ $item->email}}</td>
                             <td class="px-4 py-2 border">{{ $item->role}}</td>
