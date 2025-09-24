@@ -1,7 +1,7 @@
 <!-- Form Section -->
 <main class="w-full lg:w-1/2 bg-white px-6 py-8 sm:px-10 lg:px-20 flex items-center justify-center">
     <form id="facultyForm" method="POST" 
-        action="{{ isset($record) ? route('FAI_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAI_Store') }}" 
+        action="{{ isset($record) ? route('FAXXII_update', ['type' => $type, 'id' => $record->S_NO]) : route('FAXXII_Store') }}" 
         class="space-y-4 w-full max-w-md" enctype="multipart/form-data">
 
         @csrf

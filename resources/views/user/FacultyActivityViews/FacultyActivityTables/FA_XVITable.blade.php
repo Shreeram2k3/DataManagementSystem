@@ -6,7 +6,7 @@
                 <th class="px-4 py-3 border">Address</th>
                 <th class="px-4 py-3 border">Benefits/Opportunities Utilized</th>
                 <th class="px-4 py-3 border">MoU Duration</th>
-                <td class="px-4 py-2 border">Dept</td>
+                <th class="px-4 py-2 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -24,7 +24,6 @@
                     <td class="px-4 py-2 border">{{ $item->Address }}</td>
                     <td class="px-4 py-2 border">{{ $item['Benefits/Opportunities_Utilized'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->MoU_Duration }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Amount_Generated(in_Rs)']}}</td>
                     <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
