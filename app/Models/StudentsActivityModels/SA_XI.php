@@ -22,7 +22,7 @@ class SA_XI extends Model
         'Document',
         'user_id'
     ];
-    public $timestamps=false;
+    // public $timestamps=false;
 
      protected static function boot()
     {

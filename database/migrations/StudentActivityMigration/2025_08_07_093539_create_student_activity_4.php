@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('Dept');
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
+            $table->timestamps();
         });
     }
 

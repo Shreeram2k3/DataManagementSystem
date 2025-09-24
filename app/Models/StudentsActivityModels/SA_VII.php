@@ -25,7 +25,7 @@ class SA_VII extends Model
         'Document',
         'user_id'
     ];
-    public $timestamps=false;
+    // public $timestamps=false;
 
      protected static function boot()
     {
