@@ -24,7 +24,7 @@
                     <td class="px-4 py-2 border">{{ $item['Organizer/Event'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Prize }}</td>
                     <td class="px-4 py-2 border">{{ $item->Month }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Dept'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">

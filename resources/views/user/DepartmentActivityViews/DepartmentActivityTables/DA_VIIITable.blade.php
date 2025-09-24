@@ -2,8 +2,10 @@
             <tr>
                                        
                 <th class="px-4 py-3 border">S.No</th>
-                <th class="px-4 py-3 border">AY-SEM</th>
-                <th class="px-4 py-3 border">YEAR</th>
+                <th class="px-4 py-3 border">AY Name of the Board</th>
+                <th class="px-4 py-3 border">BOS Members attended</th>
+                <th class="px-4 py-3 border">Date</th>
+                <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
                 <th class="px-4 py-3 border">Action</th>
@@ -17,8 +19,10 @@
                 <tr class="border-t hover:bg-gray-50">
                    
                     <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
-                    <td class="px-4 py-2 border">{{ $item->AY-SEM }}</td>
-                    <td class="px-4 py-2 border">{{ $item->YEAR }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Board }}</td>
+                    <td class="px-4 py-2 border">{{ $item->BOS_Members_attended }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Date }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Dept }}</td>
                     <td class="px-4 py-2 border">
                       @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
