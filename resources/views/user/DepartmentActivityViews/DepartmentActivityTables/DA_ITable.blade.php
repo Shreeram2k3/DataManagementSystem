@@ -19,7 +19,7 @@
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
                    
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                    <td class="px-4 py-2 border">{{ $loop->iteration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Details_of_Equipment }}</td>
                     <td class="px-4 py-2 border">{{ $item->Number_of_Equipment }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_Laboratory }}</td>

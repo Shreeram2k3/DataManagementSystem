@@ -20,7 +20,7 @@
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
                    
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                    <td class="px-4 py-2 border">{{ $loop->iteration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Titles }}</td>
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Books }}</td>
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Reference_Books }}</td>
