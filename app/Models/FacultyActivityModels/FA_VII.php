@@ -23,7 +23,7 @@ class FA_VII extends Model
         'Document',
         'user_id' // to store the user ID who created this record
     ];
-    public $timestamps = false;
+    // public $timestamps = false;
 
 
     protected static function boot()
