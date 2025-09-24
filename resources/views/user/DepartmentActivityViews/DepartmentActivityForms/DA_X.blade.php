@@ -15,7 +15,7 @@
          
         <label class="block">
             <span class="text-sm text-gray-600">AY-SEM</span>
-            <input type="text" name="ay_sem" required
+            <input type="text" name="ay-sem" required
                 value="{{ $record['AY-SEM'] ?? old('AY-SEM') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
