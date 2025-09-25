@@ -22,29 +22,36 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Total Number of Books</span>
-            <input type="text" name="total_number_of_books" required
+            <input type="number" name="total_number_of_books" required
                 value="{{ $record->Total_Number_of_Books ?? old('Total_Number_of_Books') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
             <span class="text-sm text-gray-600">Total Number of Reference Books</span>
-            <input type="text" name="total_number_of_reference_books" required
+            <input type="number" name="total_number_of_reference_books" required
                 value="{{ $record->Total_Number_of_Reference_Books ?? old('Total_Number_of_Reference_Books') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Total Number of Journals Subscribed National</span>
-            <input type="text" name="total_number_of_journals_subscribed_international" required
+            <span class="text-sm text-gray-600">Total Number of Journals Subscribed (National)</span>
+            <input type="number" name="total_number_of_journals_subscribed_national" required
                 value="{{ $record->Total_Number_of_Journals_Subscribed_National ?? old('Total_Number_of_Journals_Subscribed_National') }}"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
+        </label>
+
+        <label class="block">
+            <span class="text-sm text-gray-600">Total Number of Journals Subscribed (International)</span>
+            <input type="number" name="total_number_of_journals_subscribed_international" required
+                value="{{ $record->Total_Number_of_Journals_Subscribed_International ?? old('Total_Number_of_Journals_Subscribed_International') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
 
         <label class="block">
             <span class="text-sm text-gray-600">Total Value of Books/Journals Investment (National)</span>
-            <input type="text" name="datotal_value_of_books/journals_nvestment(Nationalte" required
+            <input type="number" name="total_value_of_books/journals_investment(National)" required
                 value="{{ $record['Total_Value_of_Books/Journals_Investment(National)'] ?? old('Total_Value_of_Books/Journals_Investment(National)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
@@ -52,7 +59,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Total Value of Books/Journals Investment(international)</span>
             <input type="text" name='total_value_of_books/journals_investment(international)' required
-                value="{{ $record['Total_Value_of_Books/Journals_Investment(International)'] ?? old('Total_Value_of_Books/Journals_Investment(International)') }}"
+                value="{{ $record['Total_Value_of_Books/Journals_Investment(international)'] ?? old('Total_Value_of_Books/Journals_Investment(international)') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
