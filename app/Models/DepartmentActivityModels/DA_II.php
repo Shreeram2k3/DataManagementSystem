@@ -12,7 +12,7 @@ class DA_II extends Model
     protected $table = 'DepartmentActivity_2';
     protected $fillable = [
         'Name_of_the_Faculty',
-        'Name_of_the_Equipment_failed/ Serviced',
+        'Name_of_the_Equipment_failed/_ Serviced',
         'Name_of_the_Lab',
         'Servicing_details',
         'Amount_Rs',

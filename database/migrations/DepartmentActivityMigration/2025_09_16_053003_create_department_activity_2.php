@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('DepartmentActivity_2', function (Blueprint $table) {
             $table->id('S_NO');
             $table->string('Name_of_the_Faculty');
-            $table->string('Name_of_the_Equipment_failed/ Serviced');
+            $table->string('Name_of_the_Equipment_failed/_ Serviced');
             $table->string('Name_of_the_Lab');
             $table->string('Servicing_details');
             $table->string('Amount_Rs');

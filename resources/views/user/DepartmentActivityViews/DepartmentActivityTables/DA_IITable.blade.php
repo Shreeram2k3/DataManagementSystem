@@ -24,7 +24,7 @@
                    
                     <td class="px-4 py-2 border">{{ $loop->iteration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty }}</td>
-                    <td class="px-4 py-2 border">{{ $item['Name_of_the_Equipment_failed/Serviced'] }}</td>
+                    <td class="px-4 py-2 border">{{ $item['Name_of_the_Equipment_failed/_ Serviced'] }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Lab }}</td>
                     <td class="px-4 py-2 border">{{ $item->Servicing_details }}</td>
                     <td class="px-4 py-2 border">{{ $item->Amount_Rs }}</td>

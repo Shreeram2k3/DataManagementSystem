@@ -38,13 +38,13 @@ class DA_IIController extends Controller
                 $validated['document'] = $file->storeAs('DA_Documents/DA_II', $filename, 'public');
             }
 
-        dd($validated); // For debugging purposes, remove in production
+        // dd($validated); // For debugging purposes, remove in production
            try{
 
             // left side column name in table, right side name attribute in form 
             DA_II::create([
                 'Name_of_the_Faculty' => $validated['name_of_the_faculty'],
-                'Name_of_the_Equipment_failed/Serviced' => $validated['name_of_the_equipment_failed'],
+                'Name_of_the_Equipment_failed/_ Serviced' => $validated['name_of_the_equipment_failed'],
                 'Name_of_the_Lab' => $validated['name_of_the_lab'],
                 'Servicing_details' => $validated['servicing_details'],
                 'Amount_Rs' => $validated['amount_Rs'],
@@ -88,7 +88,7 @@ class DA_IIController extends Controller
             ]);
 
             // Update fields
-            $record['Name_of_the_Equipment_failed/Serviced'] = $request->input('name_of_the_equipment_failed');
+            $record['Name_of_the_Equipment_failed/_Serviced'] = $request->input('name_of_the_equipment_failed');
             $record->Name_of_the_Lab = $request->input('name_of_the_lab');
             $record->Servicing_details = $request->input('servicing_details');
             $record->Amount_Rs = $request->input('amount_Rs');
