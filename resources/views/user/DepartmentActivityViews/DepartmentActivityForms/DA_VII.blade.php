@@ -22,7 +22,7 @@
 
         <label class="block">
             <span class="text-sm text-gray-600">Organizer/Event</span>
-            <input type="text" name="organizer_event" required
+            <input type="text" name="organizer/event" required
                 value="{{ $record['Organizer/Event'] ?? old('Organizer/Event') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>

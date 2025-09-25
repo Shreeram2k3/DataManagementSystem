@@ -42,13 +42,13 @@
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
                     <!-- Edit Button -->
-                    <a href="{{ route('Faculty_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" 
+                    <a href="{{ route('Department_activity_edit', ['type' => $type, 'id' => $item->S_NO]) }}" 
                     class="inline-flex items-center justify-center w-10 h-10 bg-stone-700 text-white hover:bg-stone-900 transition rounded-l-lg">
                         <i class="fa-solid fa-pen"></i>
                     </a>
 
                     <!-- Delete Button -->
-                    <form action="{{ route('Faculty_activity_delete', ['type' => $type, 'id' => $item->S_NO]) }}" 
+                    <form action="{{ route('Department_activity_delete', ['type' => $type, 'id' => $item->S_NO]) }}" 
                         method="POST" 
                         onsubmit="return confirm('Are you sure you want to delete this item?');">
                         @csrf
