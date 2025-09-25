@@ -6,6 +6,7 @@
                 <th class="px-4 py-3 border">Total Number of Books</th>
                 <th class="px-4 py-3 border">Total Number of Reference Books</th>
                 <th class="px-4 py-3 border">Total Number of Journals Subscribed_National</th>
+                <th class="px-4 py-3 border">Total Number of Journals Subscribed (International) </th>
                 <th class="px-4 py-3 border">Total Value of Books/Journals Investment(National)</th>
                 <th class="px-4 py-3 border">DeTotal Value of Books/Journals Investment(international)</th>
                 <th class="px-4 py-3 border">Document Link</th>
@@ -25,6 +26,8 @@
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Books }}</td>
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Reference_Books }}</td>
                     <td class="px-4 py-2 border">{{ $item->Total_Number_of_Journals_Subscribed_National }}</td>
+
+                    <td class="px-4 py-2 border">{{ $item->Total_Number_of_Journals_Subscribed_International }}</td>
                     <td class="px-4 py-2 border">{{ $item['Total_Value_of_Books/Journals_Investment(National)'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Total_Value_of_Books/Journals_Investment(international)'] }}</td>
                     <td class="px-4 py-2 border">
