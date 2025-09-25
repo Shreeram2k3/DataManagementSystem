@@ -1,7 +1,8 @@
 <?php
 namespace App\Exports;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -21,7 +22,28 @@ class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, Wit
 
     public function collection()
     {
-        return $this->modelClass::all();
+        $data = $this->modelClass::all();
+
+        // Replace user_id with username
+        $data->transform(function ($item) {
+            if (isset($item->user_id)) {
+                $user = DB::table('users')->where('id', $item->user_id)->first();
+                $item->user_id = $user ? $user->name : 'Unknown';
+            }
+            return $item;
+        });
+
+        return $data;
+    }
+
+    public function headings(): array
+    {
+        $table = (new $this->modelClass)->getTable();
+        $columns = Schema::getColumnListing($table);
+
+        return array_map(function ($col) {
+            return $col === 'user_id' ? 'Posted By' : ucwords(str_replace('_', ' ', $col));
+        }, $columns);
     }
 
     public function title(): string
@@ -29,69 +51,103 @@ class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, Wit
         return $this->sheetName;
     }
 
-    public function headings(): array
-    {
-        $firstRow = $this->modelClass::first();
-        if ($firstRow) {
-            // Make headings readable: replace underscores, capitalize words
-            return array_map(function($column){
-                return ucwords(str_replace('_', ' ', $column));
-            }, array_keys($firstRow->getAttributes()));
-        }
-        return [];
-    }
-
-    
     public function registerEvents(): array
-{
-    return [
-        AfterSheet::class => function(AfterSheet $event) {
+    {
+        return [
+            AfterSheet::class => function (AfterSheet $event) {
+                $sheet = $event->sheet;
+                $highestColumn = $sheet->getHighestColumn();
+                $lastRow = $sheet->getHighestRow();
 
-            // === 1. Insert table name at the top ===
-            $event->sheet->insertNewRowBefore(1, 1);
-            $event->sheet->setCellValue('A1', strtoupper($this->sheetName));
+                // === 1. Title row ===
+                $sheet->insertNewRowBefore(1, 1);
+                $sheet->setCellValue('A1', $this->sheetName);
+                $sheet->mergeCells("A1:{$highestColumn}1");
 
-            $highestColumn = $event->sheet->getHighestColumn();
-            $event->sheet->mergeCells("A1:{$highestColumn}1");
+                $sheet->getStyle('A1')->applyFromArray([
+                    'font' => [
+                        'bold' => true,
+                        'size' => 14,
+                        'color' => ['rgb' => '1A1A1A'],
+                        'name' => 'Calibri',
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical'   => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                    ],
+                ]);
+                $sheet->getRowDimension(1)->setRowHeight(25);
 
-            // Style table name
-            $event->sheet->getStyle('A1')->getFont()
-                ->setBold(true)
-                ->setSize(16)
-                ->setColor(new \PhpOffice\PhpSpreadsheet\Style\Color(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE));
-            $event->sheet->getStyle('A1')->getAlignment()
-                ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-                ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
-            $event->sheet->getStyle('A1')->getFill()
-                ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                ->getStartColor()->setRGB('4F81BD'); // dark blue background
+                // === 2. Header row (Crystal Gradient) ===
+                $sheet->getStyle("A2:{$highestColumn}2")->applyFromArray([
+                    'font' => [
+                        'bold' => true,
+                        'size' => 12,
+                        'color' => ['rgb' => 'FFFFFF'],
+                        'name' => 'Segoe UI',
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical'   => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                        'wrapText'   => true,
+                    ],
+                    'fill' => [
+                        'fillType'   => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_GRADIENT_LINEAR,
+                        'rotation'   => 45,
+                        'startColor' => ['rgb' => '4FACFE'],
+                        'endColor'   => ['rgb' => '00F2FE'],
+                    ],
+                ]);
+                $sheet->getRowDimension(2)->setRowHeight(20);
 
-            // === 2. Style header row ===
-            $event->sheet->getStyle('A2:' . $highestColumn . '2')->getFont()->setBold(true)->setColor(
-                new \PhpOffice\PhpSpreadsheet\Style\Color(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_WHITE)
-            );
+                // === 3. Freeze header row ===
+                $sheet->freezePane('A3');
 
-            $event->sheet->getStyle('A2:' . $highestColumn . '2')->getFill()
-                ->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-                ->getStartColor()->setRGB('1F4E78'); // darker blue
+                // === 4. Zebra striping ===
+                for ($row = 3; $row <= $lastRow; $row++) {
+                    if ($row % 2 === 0) {
+                        $sheet->getStyle("A{$row}:{$highestColumn}{$row}")
+                            ->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
+                            ->getStartColor()->setRGB('F9FCFF');
+                    }
+                }
 
-            $event->sheet->getStyle('A2:' . $highestColumn . '2')->getAlignment()
-                ->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER)
-                ->setVertical(\PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER);
+                // === 5. Borders (minimal, thin) ===
+                $sheet->getStyle("A2:{$highestColumn}{$lastRow}")->applyFromArray([
+                    'borders' => [
+                        'inside' => [
+                            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_HAIR,
+                            'color' => ['rgb' => 'DDDDDD'],
+                        ],
+                        'outline' => [
+                            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                            'color' => ['rgb' => 'AAAAAA'],
+                        ],
+                    ],
+                ]);
 
-            // === 3. Auto-size all columns for readability ===
-            foreach (range('A', $highestColumn) as $col) {
-                $event->sheet->getColumnDimension($col)->setAutoSize(true);
+                // === 6. Auto-size columns ===
+                foreach (range('A', $highestColumn) as $col) {
+                    $sheet->getColumnDimension($col)->setAutoSize(true);
+                }
+
+                // === 7. Footer row ===
+                $footerRow = $lastRow + 2;
+               $sheet->setCellValue("A{$footerRow}", "Generated by ESEC DMS • " . now()->setTimezone('Asia/Kolkata')->format('d M Y, H:i'));
+
+                $sheet->mergeCells("A{$footerRow}:{$highestColumn}{$footerRow}");
+                $sheet->getStyle("A{$footerRow}")->applyFromArray([
+                    'font' => [
+                        'italic' => true,
+                        'size' => 10,
+                        'color' => ['rgb' => '666666'],
+                        'name' => 'Calibri Light',
+                    ],
+                    'alignment' => [
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_RIGHT,
+                    ],
+                ]);
             }
-
-            // === 4. Add borders to all cells ===
-            $lastRow = $event->sheet->getHighestRow();
-            $event->sheet->getStyle("A1:{$highestColumn}{$lastRow}")->getBorders()->getAllBorders()
-                ->setBorderStyle(\PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN)
-                ->setColor(new \PhpOffice\PhpSpreadsheet\Style\Color(\PhpOffice\PhpSpreadsheet\Style\Color::COLOR_BLACK));
-        }
-    ];
-}
-
-    
+        ];
+    }
 }
