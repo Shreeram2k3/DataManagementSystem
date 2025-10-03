@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div class="bg-white shadow p-6 rounded-xl mt-10 ml-10 mr-10">
+<div class="bg-white shadow p-6 rounded-xl mt-10 ml-10 mr-10 mb-16">
     <h1 class="text-3xl font-bold text-gray-900 mb-10 mt-5">
        Manage Students Activities!
     </h1>
 
     <hr class="mb-10">
-   <div class="overflow-x-auto rounded-lg shadow-md">
+   <div class="overflow-x-auto rounded-lg shadow-md mb-10">
       <table class="min-w-full bg-white border border-gray-300 text-sm sm:text-base">
         <thead class="bg-gray-200 text-gray-700 uppercase text-center sticky top-0">
           <tr>
