@@ -22,7 +22,7 @@ class SA_IV extends Model
         'Document_Link',
         'Document'
     ];
-     public $timestamps=false;
+     
 
       protected static function boot()
     {

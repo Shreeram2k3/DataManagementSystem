@@ -68,9 +68,9 @@ class DA_XController extends Controller
 
             // Update fields
             $record['AY-SEM'] = $request->input('ay-sem');
-             $record['Dept'] = $request->input('dept');
-
+            
             $record->Document_Link = $request->input('document_link');
+            
             
 
             // If a new document is uploaded

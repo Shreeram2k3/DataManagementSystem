@@ -16,13 +16,12 @@ class FA_XII extends Model
         'Programme_of_study',
         'Name_of_Institute_&_University',
         'Date_of_Admission_Completed',
-        'Outcome',
         'Dept',
         'Document_Link',
         'Document',
         'user_id' // to store the user ID who created this record
     ];
-    public $timestamps = false;
+    // public $timestamps = false;
 
 
     protected static function boot()

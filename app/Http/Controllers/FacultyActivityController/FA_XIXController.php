@@ -12,7 +12,7 @@ class FA_XIXController extends Controller
     {
         $type='FA_XIX';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'name_of_the_staff'=>'required|string|max:255',
                 'faculty' => 'required|string|max:255',
                 'university' => 'required|string|max:255',
@@ -36,7 +36,7 @@ class FA_XIXController extends Controller
                 'Faculty' => $validated['faculty'],
                 'University' => $validated['university'],
                 'Date_of_Recognition' => $validated['date_of_recognition'],
-                'Reference_No' => $validate['reference_no'],
+                'Reference_No' => $validated['reference_no'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 

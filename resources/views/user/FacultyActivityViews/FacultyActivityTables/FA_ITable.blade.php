@@ -3,6 +3,7 @@
                                        
                 <th class="px-4 py-3 border">S.No</th>
                 <th class="px-4 py-3 border">Name of the Faculty</th>
+                <th class="px-4 py-3 border">ID</th>
                 <th class="px-4 py-3 border">Title of the Paper</th>
                 <th class="px-4 py-3 border">Name of the Journal Volume</th>
                 <th class="px-4 py-3 border">Page Nos Impact Factor value</th>
@@ -21,18 +22,19 @@
             <tbody class="bg-white">
                 <tr class="border-t hover:bg-gray-50">
                    
-                    <td class="px-4 py-2 border">{{ $item->S_NO }}</td>
+                    <td class="px-4 py-2 border">{{ $loop->iteration }}</td>
                     <td class="px-4 py-2 border">{{ $item->Name_of_the_Faculty }}</td>
+                    <td class="px-4 py-2 border">{{ $item->ID }}</td>
                     <td class="px-4 py-2 border">{{ $item->Title_of_the_Paper }}</td>
-                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Journal_Volume }}</td>
+                    <td class="px-4 py-2 border">{{ $item->Name_of_the_Journal_Volume }}</td>                     
                     <td class="px-4 py-2 border">{{ $item->Page_Nos_Impact_Factor_value }}</td>
                     <td class="px-4 py-2 border">{{ $item['National/International'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Scopus/SCI/others'] }}</td>
                     <td class="px-4 py-2 border">{{ $item['Dept'] }}</td>
                     <td class="px-4 py-2 border">
-                      @if(!empty($item->document_link))
+                      @if(!empty($item->Document_Link))
                           <a href="{{ $item->Document_Link }}">
-                              {{ $item->document_link }}
+                              {{ $item->Document_Link }}
                           </a>
                       @else
                           <span class="text-gray-400 italic">No Link</span>

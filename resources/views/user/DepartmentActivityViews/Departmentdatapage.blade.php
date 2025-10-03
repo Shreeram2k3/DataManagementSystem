@@ -134,7 +134,7 @@
                             @break
 
                             @case('DA_X')
-                            @include('user.DepartmentActivityViews.DepartmentActivityFormss.DA_X')
+                            @include('user.DepartmentActivityViews.DepartmentActivityForms.DA_X')
                             @break
 
                             @case("DA_XI")

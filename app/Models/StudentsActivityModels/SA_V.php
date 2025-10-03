@@ -23,7 +23,7 @@ class SA_V extends Model
         'user_id'
     ];
 
-    public $timestamps=false;
+    // public $timestamps=false;
 
      protected static function boot()
     {
