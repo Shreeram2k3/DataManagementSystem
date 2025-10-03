@@ -71,7 +71,7 @@ class DA_VController extends Controller
             ]);
 
             // Update fields
-            $record->Volumen = $request->input('volume');
+            $record->Volume = $request->input('volume');
             $record->Release = $request->input('release');
             $record->Date = $request->input('date');
             $record->Document_Link = $request->input('document_link');
