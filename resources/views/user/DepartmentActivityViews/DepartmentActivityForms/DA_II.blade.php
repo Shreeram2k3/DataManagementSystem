@@ -23,7 +23,7 @@
         <label class="block">
             <span class="text-sm text-gray-600">Name of the Equipment (Failed/Serviced)</span>
             <input type="text" name="name_of_the_equipment_failed" required
-                value="{{ $record['Name_of_the_Equipment_failed/_ Serviced'] ?? old('Name_of_the_Equipment_failed/_ Serviced') }}"
+                value="{{ $record['Name_of_the_Equipment_failed/_Serviced'] ?? old('Name_of_the_Equipment_failed/_Serviced') }}"
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
