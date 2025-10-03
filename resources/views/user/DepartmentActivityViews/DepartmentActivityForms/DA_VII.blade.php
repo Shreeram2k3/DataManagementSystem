@@ -34,12 +34,34 @@
                 class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
         </label>
 
-        <label class="block">
-            <span class="text-sm text-gray-600">Month</span>
-            <input type="text" name="month" required
-                value="{{ $record->Month ?? old('Month') }}"
-                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2">
-        </label>
+        <!-- Month -->
+            <label class="block">
+              <span class="text-sm text-gray-600">Month</span>
+
+              <select
+                name="month"
+                id="month"
+                class="w-full border-b border-pink-400 focus:outline-none focus:border-pink-600 py-2 bg-transparent"
+                required
+              >
+                <option value="" disabled {{ empty($record->Month ?? old('Month')) ? 'selected' : '' }}>
+                  Select Month
+                </option>
+
+                <option value="01" {{ ($record->Month ?? old('Month')) == '01' ? 'selected' : '' }}>January</option>
+                <option value="02" {{ ($record->Month ?? old('Month')) == '02' ? 'selected' : '' }}>February</option>
+                <option value="03" {{ ($record->Month ?? old('Month')) == '03' ? 'selected' : '' }}>March</option>
+                <option value="04" {{ ($record->Month ?? old('Month')) == '04' ? 'selected' : '' }}>April</option>
+                <option value="05" {{ ($record->Month ?? old('Month')) == '05' ? 'selected' : '' }}>May</option>
+                <option value="06" {{ ($record->Month ?? old('Month')) == '06' ? 'selected' : '' }}>June</option>
+                <option value="07" {{ ($record->Month ?? old('Month')) == '07' ? 'selected' : '' }}>July</option>
+                <option value="08" {{ ($record->Month ?? old('Month')) == '08' ? 'selected' : '' }}>August</option>
+                <option value="09" {{ ($record->Month ?? old('Month')) == '09' ? 'selected' : '' }}>September</option>
+                <option value="10" {{ ($record->Month ?? old('Month')) == '10' ? 'selected' : '' }}>October</option>
+                <option value="11" {{ ($record->Month ?? old('Month')) == '11' ? 'selected' : '' }}>November</option>
+                <option value="12" {{ ($record->Month ?? old('Month')) == '12' ? 'selected' : '' }}>December</option>
+              </select>
+            </label>
 
 
         <label class="block">
