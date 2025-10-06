@@ -21,20 +21,31 @@ class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, Wit
     }
 
     public function collection()
-    {
-        $data = $this->modelClass::all();
+        {
+            $table = (new $this->modelClass)->getTable();
+            $columns = Schema::getColumnListing($table);
 
-        // Replace user_id with username
-        $data->transform(function ($item) {
-            if (isset($item->user_id)) {
-                $user = DB::table('users')->where('id', $item->user_id)->first();
-                $item->user_id = $user ? $user->name : 'Unknown';
-            }
-            return $item;
-        });
+            $data = $this->modelClass::all();
 
-        return $data;
-    }
+            // Replace user_id with user name (Posted By) and make Document_Link clickable
+            $data->transform(function ($item) {
+                // Posted By
+                if (isset($item->user_id)) {
+                    $user = DB::table('users')->where('id', $item->user_id)->first();
+                    $item->user_id = $user ? $user->name : 'Unknown';
+                }
+
+                // Make Document_Link clickable
+                if (isset($item->Document_Link) && !empty($item->Document_Link)) {
+                    $item->Document_Link = '=HYPERLINK("' . $item->Document_Link . '","View")';
+                }
+
+                return $item;
+            });
+
+            return $data;
+        }
+
 
     public function headings(): array
     {
