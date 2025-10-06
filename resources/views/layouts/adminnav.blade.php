@@ -43,7 +43,7 @@
 
         <!-- Dropdown -->
         <div x-show="open" @click.away="open = false" x-transition
-             class="absolute right-0 top-full mt-3 w-64 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden">
+             class="absolute right-0 top-full mt-7 w-64 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden">
           <a href="{{ route('profile.edit') }}" class="flex items-center px-5 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
             <i class="fas fa-user text-indigo-500 mr-3"></i> Profile
           </a>
