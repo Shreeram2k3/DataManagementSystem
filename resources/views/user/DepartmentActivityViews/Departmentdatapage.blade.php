@@ -73,7 +73,7 @@
 
 
               
-     <div class="bg-white shadow p-6 rounded-xl mt-10 ml-12 mr-12">
+     <div class="bg-white shadow p-6 rounded-xl mt-10 ml-12 mr-12 mb-16">
         <h1 class="text-3xl font-bold text-gray-900 mb-10 mt-5">
             Manage, {{$title}} <span class="inline-block"></span>
         </h1>
