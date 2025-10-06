@@ -10,6 +10,7 @@ class ExcelExportController extends Controller
 {
     public function export(Request $request)
     {
+        try{
         $selectedTables = $request->input('tables'); // array of selected checkboxes
         $exports = []; // initialize empty array
 
@@ -52,5 +53,10 @@ class ExcelExportController extends Controller
 
         // Return Excel download with multiple sheets
         return Excel::download(new MultipleSheetsExport($exports), 'DMS.xlsx');
+    }
+    catch (\Exception $e) {
+           
+            return redirect()->back()->with(['error' => 'Choose a activity  ']);
+        }
     }
 }

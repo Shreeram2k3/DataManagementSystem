@@ -1,12 +1,34 @@
 @extends('layouts.adminnav')
 
 @section('content')
+ <div x-data="{ show: true, seconds: 3 }" 
+            x-init="let timer = setInterval(() => {
+                if (seconds > 0) seconds--;
+                else show = false;
+            }, 1000)" 
+            x-show="show"
+            class="flex justify-center mt-10">
+
+            @if (session('error'))
+            <div class="flex items-center space-x-4 bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded shadow-lg">
+                <!-- Success Message -->
+                <div class="text-base font-medium">
+                    {{ session('error') }}
+                </div>
+
+                <!-- Timer Circle -->
+                <div class="w-8 h-8 rounded-full bg-red-300 text-white flex items-center justify-center text-sm font-light animate-pulse shadow-md">
+                    <span x-text="seconds"></span>s
+                </div>
+            </div>
+            @endif
+    </div>
  <div class="">
   <!-- Activity Buttons -->
   <div class="flex flex-col sm:flex-row gap-6 justify-between items-stretch">
 
     <!-- Student Activity -->
-    <button class="flex-1 group relative rounded-2xl p-5 overflow-hidden bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-500 text-white shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
+    <button id="student-activity-btn" class=" flex-1 group relative rounded-2xl p-5 overflow-hidden bg-gradient-to-r from-indigo-500 via-blue-500 to-sky-500 text-white shadow-md transition transform hover:-translate-y-1 hover:shadow-xl">
       <div class="absolute inset-0 bg-gradient-to-r from-indigo-300/30 to-sky-200/30 opacity-0 group-hover:opacity-100 transition"></div>
       <div class="relative flex items-center gap-4">
         <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
@@ -64,8 +86,8 @@
 
 
 
-
-   <div class=" mt-8 overflow-x-auto rounded-lg shadow-md border border-gray-200">
+   <div id="student-activity-table" class="hidden mt-8 overflow-x-auto rounded-lg shadow-md border border-gray-200">
+  
       <table class="min-w-full bg-white border border-gray-300 text-sm sm:text-base ">
         <thead class="bg-gray-200 text-gray-700 uppercase text-center sticky top-0">
           <tr>
@@ -228,7 +250,25 @@
 
         </tbody>
       </table>
-    </div>
+  </div>
 
     </form>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('student-activity-btn');
+        const table = document.getElementById('student-activity-table');
+
+        btn.addEventListener('click', function() {
+            // Toggle visibility
+            table.classList.toggle('hidden');
+
+            // Optional: Scroll to the table
+            if (!table.classList.contains('hidden')) {
+                table.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+
 @endsection
