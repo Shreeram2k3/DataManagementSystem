@@ -12,6 +12,8 @@ class AdminController extends Controller
 
     public function index()
     {
+        $totalusers = User::count();
+        return view('admin.dashboard', compact('totalusers'));
         return view('admin.dashboard');
     }
 
