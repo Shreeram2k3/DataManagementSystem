@@ -12,12 +12,11 @@ class FA_XIIController extends Controller
     {
         $type='SA_XII';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'name_of_staff' => 'required|string|max:255',
                 'programme_of_study' => 'required|string|max:255',
                 'name_of_institute_&_university' => 'required|string|max:255',
                 'date_of_admission_completed' => 'required|date',
-                'outcome' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
@@ -34,11 +33,10 @@ class FA_XIIController extends Controller
             // left side column name in table, right side name attribute in form 
             FA_XII::create([
                 'Name_of_Staff' => $validated['name_of_staff'],
-                'Programme_of_study' => $validate['programme_of_study'],
-                'Name_of_Institute_&_University' => $validate['name_of_institute_&_university'],
-                'Date_of_Admission_Completed' => $validate['date_of_admission_completed'],
-                'Outcome' => $validate['outcome'],
-                'Dept' => $validate['dept'],
+                'Programme_of_study' => $validated['programme_of_study'],
+                'Name_of_Institute_&_University' => $validated['name_of_institute_&_university'],
+                'Date_of_Admission_Completed' => $validated['date_of_admission_completed'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 
@@ -72,7 +70,6 @@ class FA_XIIController extends Controller
                 'programme_of_study' => 'required|string|max:255',
                 'name_of_institute_&_university' => 'required|string|  max:255',
                 'date_of_admission_completed' => 'required|date',
-                'outcome' => 'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
                 'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
@@ -83,7 +80,6 @@ class FA_XIIController extends Controller
             $record->Programme_of_study = $request->input('programme_of_study');
             $record['Name_of_Institute_&_University'] = $request->input('name_of_institute_&_university');
             $record->Date_of_Admission_Completed = $request->input('date_of_admission_completed');
-            $record->Outcome = $request->input('outcome');
             $record->Dept = $request->input('dept');
             $record->document_link = $request->input('document_link');
             

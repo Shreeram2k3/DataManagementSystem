@@ -20,5 +20,5 @@ class SA_III extends Model
         'CAMPUS_Document_ID',
         'user_id'
     ];
-    public $timestamps=false; // Assuming timestamps are not used
+    // public $timestamps=false; // Assuming timestamps are not used
 }

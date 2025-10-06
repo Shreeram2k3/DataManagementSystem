@@ -12,8 +12,8 @@ class FA_XIController extends Controller
     {
         $type='FA_XI';
         try{
-            $validate=$request->validate([
-                'name_of_staff' => 'required|date',
+            $validated=$request->validate([
+                'name_of_staff' => 'required|string|max:255',
                 'name_of_the_programme' => 'required|string|max:255',
                 'BIT_Outside' => 'required|string|max:255',
                 'Duration' => 'required|string|max:255',
@@ -22,6 +22,8 @@ class FA_XIController extends Controller
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
             ]);
+
+            // dd($validate);
 
             $validated['user_id'] = auth()->id();
               if ($request->hasFile('document')) {
@@ -38,7 +40,7 @@ class FA_XIController extends Controller
                 'BIT/Outside' => $validated['BIT_Outside'],
                 'Duration' => $validated['Duration'],
                 'Outcome' => $validated['Outcome'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 
@@ -68,7 +70,7 @@ class FA_XIController extends Controller
 
             // Validate input
             $request->validate([
-                'name_of_staff' => 'required|date',
+                'name_of_staff' => 'required|string|max:255',
                 'name_of_the_programme' => 'required|string|max:255',
                 'BIT_Outside' => 'required|string|max:255',
                 'Duration' => 'required|string|max:255',

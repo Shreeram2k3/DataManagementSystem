@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('DepartmentActivity_2', function (Blueprint $table) {
             $table->id('S_NO');
             $table->string('Name_of_the_Faculty');
-            $table->string('Name_of_the_Equipment_failed/ Serviced');
+            $table->string('Name_of_the_Equipment_failed/_Serviced');
             $table->string('Name_of_the_Lab');
             $table->string('Servicing_details');
             $table->string('Amount_Rs');
@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
+            $table->timestamps();
         });
     }
 

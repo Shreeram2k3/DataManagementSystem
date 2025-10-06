@@ -12,7 +12,7 @@ class FA_XVIIIController extends Controller
     {
         $type='FA_XVIII';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
                 'name_of_the_faculty_member'=>'required|string|max:255',
                 'award_name' => 'required|string|max:255',
                 'applied_awarded' => 'required|string|max:255',
@@ -36,7 +36,7 @@ class FA_XVIIIController extends Controller
                 'Award_Name' => $validated['award_name'],
                 'Applied/Awarded' => $validated['applied_awarded'],
                 'Date' => $validated['date'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 

@@ -27,7 +27,7 @@ return new class extends Migration
             $table->string('Document_Link',2083)->nullable();
             $table->string('Document');
             $table->foreignId('user_id')->constrained('users');
-            
+             $table->timestamps();
         });
     }
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 
-class DA_VIController extends Controller
+class DA_IIController extends Controller
 {
    
     public function store(Request $request)
@@ -44,7 +44,7 @@ class DA_VIController extends Controller
             // left side column name in table, right side name attribute in form 
             DA_II::create([
                 'Name_of_the_Faculty' => $validated['name_of_the_faculty'],
-                'Name_of_the_Equipment_failed/Serviced' => $validated['name_of_the_equipment_failed'],
+                'Name_of_the_Equipment_failed/_Serviced' => $validated['name_of_the_equipment_failed'],
                 'Name_of_the_Lab' => $validated['name_of_the_lab'],
                 'Servicing_details' => $validated['servicing_details'],
                 'Amount_Rs' => $validated['amount_Rs'],
@@ -88,7 +88,8 @@ class DA_VIController extends Controller
             ]);
 
             // Update fields
-            $record['Name_of_the_Equipment_failed/Serviced'] = $request->input('name_of_the_equipment_failed');
+            $record['Name_of_the_Faculty']= $request->input('name_of_the_faculty');
+            $record['Name_of_the_Equipment_failed/_Serviced'] = $request->input('name_of_the_equipment_failed');
             $record->Name_of_the_Lab = $request->input('name_of_the_lab');
             $record->Servicing_details = $request->input('servicing_details');
             $record->Amount_Rs = $request->input('amount_Rs');

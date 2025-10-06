@@ -110,25 +110,43 @@
     </aside>
 
     <!-- Main content area -->
-    <main class="flex-1 ml-0 md:ml-72 p-8 bg-gray-50 dark:bg-gray-900 rounded-tl-3xl shadow-inner">
-      <!-- Page content goes here -->
-      <div>
-        <!-- Select a section from the sidebar to get started. -->
-         @yield('content')
-      </div>
-    </main>
+    <main class="flex-1 ml-0 md:ml-72 p-4 sm:p-6 md:p-8 
+             bg-gray-50 dark:bg-gray-900 
+             md:rounded-tl-3xl shadow-inner 
+             min-h-screen overflow-x-auto">
+  <!-- Page content goes here -->
+  <div class="w-full">
+    <!-- Select a section from the sidebar to get started. -->
+    @yield('content')
+  </div>
+</main>
+
   </div>
 
-  <!-- Footer -->
-  <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 py-4 text-sm text-gray-600 dark:text-gray-400 flex justify-between items-center px-6">
-    <div class="flex items-center space-x-2">
-      
-      <span></span>
-    </div>
-    <div>
-      By <a href="#" class="text-indigo-600 text-xs font-extralight hover:underline">Shreeram G & Sathish KU</a>
-    </div>
-  </footer>
+ <!-- Footer -->
+<footer class="fixed bottom-0 left-0 w-full 
+    bg-white 
+    border-t border-gray-200 
+    py-2 px-4 text-[10px] text-gray-600 
+    flex flex-col sm:flex-row justify-between items-center gap-1">
+  
+  <div class="flex items-center space-x-1">
+    <span></span>
+  </div>
+  
+  <div class="text-center sm:text-right">
+    By 
+    <a href="https://www.linkedin.com/in/shreeram2k3/" target="_blank" class="text-indigo-600 font-extralight hover:underline">
+      Shreeram G
+    </a>
+    &amp;
+    <a href="https://www.linkedin.com/in/sathish-k-u-419593336/" target="_blank" class="text-indigo-600 font-extralight hover:underline">
+      Sathish KU
+    </a>
+  </div>
+</footer>
+
+
 
 </body>
 </html>

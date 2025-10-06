@@ -10,11 +10,11 @@
    $title = '';
     
     if($type=='DA_I')
-           $title='F. A. I (a). Publication of Papers in the Journals';
+           $title='D. A. I. Details of New Equipment Purchased in the Department';
     elseif($type=='DA_II')
-           $title='F. A. I (b) Book / Chapter contribution in Publications'; 
+           $title='D. A. II. Equipment Failure/ Service Status in the Department '; 
     elseif($type=='DA_III')
-           $title='F. A. I (c) Patents Generated / Filed';
+           $title='D. A. III.  Departmental Library:';
     elseif($type=='DA_IV')
            $title='D. A. IV. VIPs  Visit / Inspection to the Department / Audit';
     elseif($type=='DA_V')
@@ -134,7 +134,7 @@
                             @break
 
                             @case('DA_X')
-                            @include('user.DepartmentActivityViews.DepartmentActivityFormss.DA_X')
+                            @include('user.DepartmentActivityViews.DepartmentActivityForms.DA_X')
                             @break
 
                             @case("DA_XI")

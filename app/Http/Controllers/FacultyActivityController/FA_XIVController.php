@@ -12,7 +12,8 @@ class FA_XIVController extends Controller
     {
         $type='FA_XIV';
         try{
-            $validate=$request->validate([
+            $validated=$request->validate([
+
                 'name_of_the_faculty_member'=>'required|string|max:255',
                 'title_of_the_project' => 'required|string|max:255',
                 'funding_agency' => 'required|string|max:255',
@@ -24,6 +25,8 @@ class FA_XIVController extends Controller
                 'document_link' => 'nullable|url',
                 'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
             ]);
+           
+
 
             $validated['user_id'] = auth()->id();
               if ($request->hasFile('document')) {
@@ -42,7 +45,7 @@ class FA_XIVController extends Controller
                 'Amount_(Rs_In_Lakhs)' => $validated['amount'],
                 'Date_of_submission_or_sanction'  => $validated ['date'],
                 'Sanctioned/Submitted'  => $validated ['sanctioned_submitted'],
-                'Dept' => $validate['dept'],
+                'Dept' => $validated['dept'],
                 'Document_Link' => $validated['document_link'],
                 'Document'=>$validated['document'],
                 
@@ -89,7 +92,7 @@ class FA_XIVController extends Controller
             $record->Title_of_the_Project = $request->input('title_of_the_project');
             $record->Funding_Agency= $request->input('funding_agency');
             $record->Duration = $request->input('duration');
-            $record['Amount_(Rs_In_Lakhs'] = $request->input('amount');
+            $record['Amount_(Rs_In_Lakhs)'] = $request->input('amount');
             $record->Date_of_submission_or_sanction= $request->input('date');
             $record['Sanctioned/Submitted']= $request->input('sanctioned_submitted');
             $record->Dept= $request->input('dept');

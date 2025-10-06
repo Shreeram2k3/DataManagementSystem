@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('Outcome');
             $table->string('CAMPUS_Document_ID');
             $table->foreignId('user_id')->constrained('users');
+            $table->timestamps();
         });
     }
 
