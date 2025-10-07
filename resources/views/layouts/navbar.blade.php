@@ -129,7 +129,7 @@
 
             <i class="fas fa-chevron-up text-xs text-gray-500" :class="{ 'rotate-180': mobileProfileOpen }"></i>
           </button>
-          <div x-show="mobileProfileOpen" @click.away="mobileProfileOpen = false" x-transition x-cloak class="absolute bottom-16 left-6 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+          <div x-show="mobileProfileOpen" @click.away="mobileProfileOpen = false" x-transition x-cloak class="absolute bottom-16 left-6 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50 mb-7">
             <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
             <form method="POST" action="{{ route('logout') }}">
               @csrf
@@ -142,7 +142,7 @@
       </div>
     </div>
 
-    <main class="pt-24">
+    <main class="pt-24 pb-16">
       @yield('content')
     </main>
   </div>
