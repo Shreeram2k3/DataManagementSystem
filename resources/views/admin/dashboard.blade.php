@@ -1,7 +1,7 @@
 @extends('layouts.adminnav')
 
 @section('content')
-<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-indigo-100 px-6 py-10 mb-6">
+<div class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-indigo-100 px-6 py-10 mb-6 flex flex-col items-center justify-center">
 
     <!-- Welcome Section -->
     <div class="text-center mb-10 animate-fadeIn">
@@ -12,25 +12,14 @@
     </div>
 
     <!-- Dashboard Summary Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 w-full max-w-5xl">
         <div class="backdrop-blur-lg bg-white/70 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
             <h2 class="text-gray-700 text-sm uppercase font-medium mb-2">Total Users</h2>
             <p class="text-3xl font-bold text-indigo-600">{{$totalusers}}</p>
         </div>
-
-        <!-- <div class="backdrop-blur-lg bg-white/70 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
-            <h2 class="text-gray-700 text-sm uppercase font-medium mb-2">Active Projects</h2>
-            <p class="text-3xl font-bold text-indigo-600">56</p>
-        </div>
-
-        <div class="backdrop-blur-lg bg-white/70 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition">
-            <h2 class="text-gray-700 text-sm uppercase font-medium mb-2">Pending Tasks</h2>
-            <p class="text-3xl font-bold text-indigo-600">23</p>
-        </div> -->
     </div>
 
-    
-</div>
+
 <!-- Fade-in Animation -->
 <style>
 @keyframes fadeIn {
