@@ -123,8 +123,18 @@ class ExcelExportController extends Controller
             'faculty_Activity_21' => 'F. A. XIX. Faculty Recruited. Relieved',
             'faculty_Activity_22' => 'F.A.XX STAFF ACTIVITIES - OTHERS',
 
-
-            
+            // Department Activity Excel Title 
+            'department_Activity_1'=> 'D. A. I. Details of New Equipment Purchased in the Department',
+            'department_Activity_2'=> 'D. A. II. Equipment Failure/ Service Status in the Department',
+            'department_Activity_3'=> 'D. A. III.  Departmental Library',
+            'department_Activity_4'=> 'D. A. IV. VIPs  Visit / Inspection to the Department / Audit',
+            'department_Activity_5'=> 'D. A. V. Newsletters Released (All)',
+            'department_Activity_6'=> 'D. A. VI. Activities for Competitive Examination / Higher Education / EDC',
+            'department_Activity_7'=> 'D. A. VII. Awards/ Prizes won by Students',
+            'department_Activity_8'=> 'D. A. VIII. Board of Studies Meeting / PAC / DAAC / GCM / AGM',
+            'department_Activity_9'=> 'D. A. IX. Department Activities Others',
+            'department_Activity_10'=> 'D. A. X. Department Time Table / subject allocation / faculty work load',
+            'department_Activity_11'=> 'D. A. XI. Result Analysis / Sample QP / Answer Sheet / Answer key / Remedial Class',
         ];
 
         $documentPaths = [];
