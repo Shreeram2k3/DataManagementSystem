@@ -26,10 +26,10 @@
     <!-- Right side -->
     <div class="flex items-center space-x-4">
       <!-- Dark mode toggle -->
-      <button @click="darkMode = !darkMode"
+      <!-- <button @click="darkMode = !darkMode"
               class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 hover:scale-105 transition">
         <i :class="darkMode ? 'fas fa-sun text-yellow-400' : 'fas fa-moon text-gray-600 dark:text-gray-300'" class="text-lg"></i>
-      </button>
+      </button> -->
 
       <!-- Profile -->
       <div x-data="{ open: false }" class="relative hidden md:flex items-center space-x-4">
@@ -112,7 +112,7 @@
     <!-- Main content area -->
     <main class="flex-1 ml-0 md:ml-72 p-4 sm:p-6 md:p-8 
              bg-gray-50 dark:bg-gray-900 
-             md:rounded-tl-3xl shadow-inner 
+             md:rounded-3xl shadow-inner 
              min-h-screen overflow-x-auto">
   <!-- Page content goes here -->
   <div class="w-full">
