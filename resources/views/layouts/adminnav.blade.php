@@ -26,10 +26,10 @@
     <!-- Right side -->
     <div class="flex items-center space-x-4">
       <!-- Dark mode toggle -->
-      <button @click="darkMode = !darkMode"
+      <!-- <button @click="darkMode = !darkMode"
               class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-700 hover:scale-105 transition">
         <i :class="darkMode ? 'fas fa-sun text-yellow-400' : 'fas fa-moon text-gray-600 dark:text-gray-300'" class="text-lg"></i>
-      </button>
+      </button> -->
 
       <!-- Profile -->
       <div x-data="{ open: false }" class="relative hidden md:flex items-center space-x-4">
@@ -43,7 +43,7 @@
 
         <!-- Dropdown -->
         <div x-show="open" @click.away="open = false" x-transition
-             class="absolute right-0 top-full mt-3 w-64 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden">
+             class="absolute right-0 top-full mt-7 w-64 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-2xl overflow-hidden">
           <a href="{{ route('profile.edit') }}" class="flex items-center px-5 py-3 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
             <i class="fas fa-user text-indigo-500 mr-3"></i> Profile
           </a>
@@ -112,7 +112,7 @@
     <!-- Main content area -->
     <main class="flex-1 ml-0 md:ml-72 p-4 sm:p-6 md:p-8 
              bg-gray-50 dark:bg-gray-900 
-             md:rounded-tl-3xl shadow-inner 
+             md:rounded-3xl shadow-inner 
              min-h-screen overflow-x-auto">
   <!-- Page content goes here -->
   <div class="w-full">
