@@ -23,14 +23,14 @@ class ExcelExportController extends Controller
             'student_Activity_1' => \App\Models\StudentsActivityModels\SA_I::class,
             'student_Activity_2' => \App\Models\StudentsActivityModels\SA_II::class,
             'student_Activity_3' => \App\Models\StudentsActivityModels\SA_III::class,
-            // ... all others
+            
         ];
 
         $tableLabelMap = [
             'student_Activity_1' => 'S.A.I. Department Association Activities',
             'student_Activity_2' => 'S.A.II. National Level Event',
             'student_Activity_3' => 'S.A.III. Conference / Workshop',
-            // ... all others
+            
         ];
 
         $documentPaths = [];
