@@ -32,19 +32,23 @@
           </div>
         </div>
 
-        <!--  Profile + Hamburger -->
+        <!--  Profile + menu -->
         <div class="flex items-center space-x-4">
           <!-- Profile (Desktop dropdown) -->
           <div class="relative hidden mr-10 md:block">
-            <button @click="dropdownOpen = !dropdownOpen" class="flex items-center space-x-1 focus:outline-none">
-              <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center  text-sm font-semibold text-gray-700">
+            <button @click="dropdownOpen = !dropdownOpen" class="flex items-center space-x-2 focus:outline-none ">
+              <div class="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center  text-sm font-semibold text-gray-700 shadow-md">
                 {{ Auth::user() ? strtoupper(substr(Auth::user()->name, 0, 1)) : '?' }}
               </div>
-              <i class="fas fa-chevron-down text-xs text-gray-500"></i>
+
+              <div class="text-sm">
+                {{Auth::user()->name}}
+              </div>
+              <i class="fas fa-chevron-down text-xs text-gray-500" :class="{ 'rotate-180': dropdownOpen }"></i>
             </button>
 
             <!-- Dropdown -->
-            <div x-show="dropdownOpen" @click.away="dropdownOpen = false" x-transition x-cloak class="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+            <div x-show="dropdownOpen" @click.away="dropdownOpen = false" x-transition x-cloak class="absolute right-0 mt-7 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
               <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
               <form method="POST" action="{{ route('logout') }}">
                 @csrf
@@ -125,7 +129,7 @@
 
             <i class="fas fa-chevron-up text-xs text-gray-500" :class="{ 'rotate-180': mobileProfileOpen }"></i>
           </button>
-          <div x-show="mobileProfileOpen" @click.away="mobileProfileOpen = false" x-transition x-cloak class="absolute bottom-16 left-6 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50">
+          <div x-show="mobileProfileOpen" @click.away="mobileProfileOpen = false" x-transition x-cloak class="absolute bottom-16 left-6 w-48 bg-white border border-gray-200 rounded-lg shadow-lg py-2 z-50 mb-7">
             <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Profile</a>
             <form method="POST" action="{{ route('logout') }}">
               @csrf
@@ -138,7 +142,7 @@
       </div>
     </div>
 
-    <main class="pt-24">
+    <main class="pt-24 pb-16">
       @yield('content')
     </main>
   </div>
