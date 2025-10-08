@@ -66,7 +66,7 @@
     </div>
 
     <!-- Export Form -->
-    <form action="{{ route('export.excel') }}" method="GET">
+    <form action="{{ route('export.excel') }}" method="GET" id="form">
         <div class="flex justify-end mt-3 mr-10">
             <!-- Export Excel button triggers AlpineJS date picker -->
             <button type="button" @click="show = !show"
@@ -659,6 +659,10 @@
                 }
             });
             
+        });
+
+            document.querySelector("#form").addEventListener("submit", function() {
+            setTimeout(() => location.reload(), 1000);
         });
     </script>
 </div>
