@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use ZipArchive;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schema;
 
 class ExcelExportController extends Controller
 {
@@ -139,21 +140,25 @@ class ExcelExportController extends Controller
 
         $documentPaths = [];
 
-        foreach ($selectedTables as $table) {
-            if (!isset($tableModelMap[$table])) continue;
+    foreach ($selectedTables as $table) {
+    if (!isset($tableModelMap[$table])) continue;
 
-            $modelClass = $tableModelMap[$table];
-            $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
-                               ->pluck('document')->toArray();
+    $modelClass = $tableModelMap[$table];
+    $modelInstance = new $modelClass;
 
-            foreach ($docs as $doc) {
-                if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
-                    // Store path with folder like SA_I, SA_II
-                    $folderName = strtoupper($table);
-                    $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
-                }
+    // check if the table has 'document' column
+    if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
+        $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
+                           ->pluck('document')->toArray();
+
+        foreach ($docs as $doc) {
+            if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
+                // Store path with folder like SA_I, SA_II
+                $folderName = strtoupper($table);
+                $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
             }
         }
+    }
 
         $zip = new ZipArchive();
         $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
@@ -177,4 +182,5 @@ class ExcelExportController extends Controller
 
         return response()->download($zipPath)->deleteFileAfterSend(true);
     }
+}
 }
