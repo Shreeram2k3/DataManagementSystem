@@ -11,18 +11,16 @@ use Illuminate\Support\Facades\Schema;
 
 class ExcelExportController extends Controller
 {
-    public function export(Request $request)
-    {
-        $selectedTables = $request->input('tables');
-        $fromDate = $request->input('from_date');
-        $toDate = $request->input('to_date');
+   public function export(Request $request)
+{
+    $selectedTables = $request->input('tables');
+    $fromDate = $request->input('from_date');
+    $toDate = $request->input('to_date');
 
-        if (empty($selectedTables)) return back()->with('error', 'Choose at least one activity');
-        if (!$fromDate || !$toDate) return back()->with('error', 'Please select both From and To dates');
-
+    if (empty($selectedTables)) return back()->with('error', 'Choose at least one activity');
+    if (!$fromDate || !$toDate) return back()->with('error', 'Please select both From and To dates');
         $tableModelMap = [
-
-            // Student Activities 
+      // Student Activities 
             'student_Activity_1' => \App\Models\StudentsActivityModels\SA_I::class,
             'student_Activity_2' => \App\Models\StudentsActivityModels\SA_II::class,
             'student_Activity_3' => \App\Models\StudentsActivityModels\SA_III::class,
@@ -138,49 +136,55 @@ class ExcelExportController extends Controller
             'department_Activity_11'=> 'D. A. XI. Result Analysis / Sample QP / Answer Sheet / Answer key / Remedial Class',
         ];
 
-        $documentPaths = [];
 
+    $documentPaths = [];
+
+    // 🔹 Loop only for collecting documents
     foreach ($selectedTables as $table) {
-    if (!isset($tableModelMap[$table])) continue;
+        if (!isset($tableModelMap[$table])) continue;
 
-    $modelClass = $tableModelMap[$table];
-    $modelInstance = new $modelClass;
+        $modelClass = $tableModelMap[$table];
+        $modelInstance = new $modelClass;
 
-    // check if the table has 'document' column
-    if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
-        $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
-                           ->pluck('document')->toArray();
+        // check if 'document' column exists
+        if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
+            $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
+                               ->pluck('document')->toArray();
 
-        foreach ($docs as $doc) {
-            if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
-                // Store path with folder like SA_I, SA_II
-                $folderName = strtoupper($table);
-                $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
+            foreach ($docs as $doc) {
+                if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
+                    // Use short clean folder name (ex: SA_I, DA_I)
+                    $folderName = strtoupper(class_basename($modelClass));
+                    $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
+                }
             }
         }
     }
 
-        $zip = new ZipArchive();
-        $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
-        $zipPath = storage_path('app/public/'.$zipFileName);
+    // 🔹 Now create ZIP only once
+    $zip = new ZipArchive();
+    $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
+    $zipPath = storage_path('app/public/'.$zipFileName);
 
-        if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
-            // Add Excel in-memory
-            $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
-            $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
-            $zip->addFromString('DMS.xlsx', $excelData);
+    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+        // Add Excel in-memory
+        $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
+        $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
+        $zip->addFromString('DMS.xlsx', $excelData);
 
-            // Add documents in folders per activity
-            foreach ($documentPaths as $folder => $files) {
-                foreach ($files as $file) {
-                    $zip->addFile($file, $folder.'/'.basename($file));
-                }
+        // Add documents in folders
+        foreach ($documentPaths as $folder => $files) {
+            foreach ($files as $file) {
+                $zip->addFile($file, $folder.'/'.basename($file));
             }
+        }
 
-            $zip->close();
-        } else return back()->with('error', 'Failed to create ZIP');
-
-        return response()->download($zipPath)->deleteFileAfterSend(true);
+        $zip->close();
+    } else {
+        return back()->with('error', 'Failed to create ZIP');
     }
+
+    return response()->download($zipPath)->deleteFileAfterSend(true);
 }
+
 }
