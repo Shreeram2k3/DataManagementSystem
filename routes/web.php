@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\manageUserController;
 use App\Http\Middleware\AdminMiddleware;
@@ -358,6 +359,8 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
         Route::get('/edit/{id}', [manageUserController::class,'edit'])->name('edit_user');
 
         Route::put('/users/update/{id}', [manageUserController::class, 'update'])->name('update_user');
+
+        Route::get('/export-excel', [ExcelExportController::class, 'export'])->name('export.excel');
 
 
 });
