@@ -139,7 +139,7 @@ class ExcelExportController extends Controller
 
     $documentPaths = [];
 
-    // 🔹 Loop only for collecting documents
+    // Loop only for collecting documents
     foreach ($selectedTables as $table) {
         if (!isset($tableModelMap[$table])) continue;
 
@@ -161,7 +161,7 @@ class ExcelExportController extends Controller
         }
     }
 
-    // 🔹 Now create ZIP only once
+    //Now create ZIP only once
     $zip = new ZipArchive();
     $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
     $zipPath = storage_path('app/public/'.$zipFileName);

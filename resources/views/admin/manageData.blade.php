@@ -661,9 +661,24 @@
             
         });
 
-            document.querySelector("#form").addEventListener("submit", function() {
-            setTimeout(() => location.reload(), 1000);
+           
+
+         document.querySelector("#form").addEventListener("submit", function() {
+   
+            setTimeout(() => {
+                document.querySelectorAll("input").forEach(chk => chk.checked = false);
+
+                document.querySelectorAll("tr").forEach(tr => {
+        
+                tr.classList.remove("bg-green-100"); 
+        
+             });
+
+            }, 1000);
         });
+
+        
+
     </script>
 </div>
 @endsection
