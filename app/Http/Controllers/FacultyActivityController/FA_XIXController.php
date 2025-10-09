@@ -19,7 +19,7 @@ class FA_XIXController extends Controller
                 'date_of_recognition' => 'required|date',
                 'reference_no' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
             ]);
 
             $validated['user_id'] = auth()->id();
@@ -72,7 +72,7 @@ class FA_XIXController extends Controller
                 'date_of_recognition' => 'required|date',
                 'reference_no' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
             ]);
 
             // Update fields

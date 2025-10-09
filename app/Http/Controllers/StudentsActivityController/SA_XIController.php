@@ -28,7 +28,7 @@ class SA_XIController extends Controller
                 'coordinator'=>'required|string',
                 'dept'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
 
 
             ]);

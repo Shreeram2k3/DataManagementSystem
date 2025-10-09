@@ -31,7 +31,7 @@ class SA_XController extends Controller
                 'duration'=>'required|string',
                 'assessment'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
 
 
             ]);
@@ -98,7 +98,7 @@ class SA_XController extends Controller
                 'duration'=>'required|string',
                 'assessment'=>'required|string',
                 'document_link'=>'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
 
                 ]);
 

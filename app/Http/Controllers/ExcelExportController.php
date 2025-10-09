@@ -9,6 +9,7 @@ use ZipArchive;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use setasign\Fpdi\Fpdi;
+use setasign\Fpdf\Fpdf; // make sure fpdf is installed
 
 class ExcelExportController extends Controller
 {
@@ -140,7 +141,7 @@ class ExcelExportController extends Controller
 
         $documentPaths = [];
 
-        // collect docs by table
+        // Collect documents
         foreach ($selectedTables as $table) {
             if (!isset($tableModelMap[$table])) continue;
 
@@ -149,36 +150,33 @@ class ExcelExportController extends Controller
 
             if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
                 $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
-                    ->pluck('document')->toArray();
+                                   ->pluck('document')->toArray();
 
                 foreach ($docs as $doc) {
                     if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
-                        // use table name instead of model class name (clearer)
-                        $folderName = strtoupper($table);
+                        $folderName = strtoupper(class_basename($modelClass));
                         $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
                     }
                 }
             }
         }
 
-        // create zip
         $zip = new ZipArchive();
         $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
         $zipPath = storage_path('app/public/'.$zipFileName);
 
         if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
-            // add excel (with date range in filename)
+            // Add Excel
             $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
             $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
-            $excelFileName = "DMS_{$fromDate}_to_{$toDate}.xlsx";
-            $zip->addFromString($excelFileName, $excelData);
+            $zip->addFromString('DMS.xlsx', $excelData);
 
-            // merge PDFs by folder
+            // Add merged PDFs per folder
             foreach ($documentPaths as $folder => $files) {
                 if (count($files) > 0) {
                     $mergedPdfPath = storage_path("app/temp_{$folder}.pdf");
-
                     $pdf = new Fpdi();
+
                     foreach ($files as $file) {
                         $pageCount = $pdf->setSourceFile($file);
                         for ($page = 1; $page <= $pageCount; $page++) {
@@ -188,13 +186,9 @@ class ExcelExportController extends Controller
                             $pdf->useTemplate($tplIdx);
                         }
                     }
+
                     $pdf->Output($mergedPdfPath, 'F');
-
-                    // add merged PDF into zip
-                    $zip->addFile($mergedPdfPath, $folder.'/'.$folder.'_merged.pdf');
-
-                    // cleanup temp file
-                    unlink($mergedPdfPath);
+                    $zip->addFile($mergedPdfPath, $folder.'/'.$folder.'_Doc_merged.pdf');
                 }
             }
 
