@@ -79,7 +79,7 @@
         </label>
 
         <label class="block">
-            <span class="text-sm text-gray-600">Document</span>
+            <span class="text-sm text-gray-600">Document (PDF only)</span>
             @if(isset($record) && $record->Document)
                 <p class="text-sm text-gray-500">
                     Current file:
