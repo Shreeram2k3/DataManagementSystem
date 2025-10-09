@@ -8,18 +8,20 @@ use Illuminate\Http\Request;
 use ZipArchive;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
+use setasign\Fpdi\Fpdi;
 
 class ExcelExportController extends Controller
 {
-   public function export(Request $request)
-{
-    $selectedTables = $request->input('tables');
-    $fromDate = $request->input('from_date');
-    $toDate = $request->input('to_date');
+    public function export(Request $request)
+    {
+        $selectedTables = $request->input('tables');
+        $fromDate = $request->input('from_date');
+        $toDate = $request->input('to_date');
 
-    if (empty($selectedTables)) return back()->with('error', 'Choose at least one activity');
-    if (!$fromDate || !$toDate) return back()->with('error', 'Please select both From and To dates');
-        $tableModelMap = [
+        if (empty($selectedTables)) return back()->with('error', 'Choose at least one activity');
+        if (!$fromDate || !$toDate) return back()->with('error', 'Please select both From and To dates');
+
+         $tableModelMap = [
       // Student Activities 
             'student_Activity_1' => \App\Models\StudentsActivityModels\SA_I::class,
             'student_Activity_2' => \App\Models\StudentsActivityModels\SA_II::class,
@@ -136,55 +138,71 @@ class ExcelExportController extends Controller
             'department_Activity_11'=> 'D. A. XI. Result Analysis / Sample QP / Answer Sheet / Answer key / Remedial Class',
         ];
 
+        $documentPaths = [];
 
-    $documentPaths = [];
+        // collect docs by table
+        foreach ($selectedTables as $table) {
+            if (!isset($tableModelMap[$table])) continue;
 
-    // Loop only for collecting documents
-    foreach ($selectedTables as $table) {
-        if (!isset($tableModelMap[$table])) continue;
+            $modelClass = $tableModelMap[$table];
+            $modelInstance = new $modelClass;
 
-        $modelClass = $tableModelMap[$table];
-        $modelInstance = new $modelClass;
+            if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
+                $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
+                    ->pluck('document')->toArray();
 
-        // check if 'document' column exists
-        if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
-            $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
-                               ->pluck('document')->toArray();
-
-            foreach ($docs as $doc) {
-                if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
-                    // Use short clean folder name (ex: SA_I, DA_I)
-                    $folderName = strtoupper(class_basename($modelClass));
-                    $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
+                foreach ($docs as $doc) {
+                    if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
+                        // use table name instead of model class name (clearer)
+                        $folderName = strtoupper($table);
+                        $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
+                    }
                 }
             }
         }
-    }
 
-    //Now create ZIP only once
-    $zip = new ZipArchive();
-    $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
-    $zipPath = storage_path('app/public/'.$zipFileName);
+        // create zip
+        $zip = new ZipArchive();
+        $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
+        $zipPath = storage_path('app/public/'.$zipFileName);
 
-    if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
-        // Add Excel in-memory
-        $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
-        $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
-        $zip->addFromString('DMS.xlsx', $excelData);
+        if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+            // add excel (with date range in filename)
+            $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
+            $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
+            $excelFileName = "DMS_{$fromDate}_to_{$toDate}.xlsx";
+            $zip->addFromString($excelFileName, $excelData);
 
-        // Add documents in folders
-        foreach ($documentPaths as $folder => $files) {
-            foreach ($files as $file) {
-                $zip->addFile($file, $folder.'/'.basename($file));
+            // merge PDFs by folder
+            foreach ($documentPaths as $folder => $files) {
+                if (count($files) > 0) {
+                    $mergedPdfPath = storage_path("app/temp_{$folder}.pdf");
+
+                    $pdf = new Fpdi();
+                    foreach ($files as $file) {
+                        $pageCount = $pdf->setSourceFile($file);
+                        for ($page = 1; $page <= $pageCount; $page++) {
+                            $tplIdx = $pdf->importPage($page);
+                            $size = $pdf->getTemplateSize($tplIdx);
+                            $pdf->AddPage($size['orientation'], [$size['width'], $size['height']]);
+                            $pdf->useTemplate($tplIdx);
+                        }
+                    }
+                    $pdf->Output($mergedPdfPath, 'F');
+
+                    // add merged PDF into zip
+                    $zip->addFile($mergedPdfPath, $folder.'/'.$folder.'_merged.pdf');
+
+                    // cleanup temp file
+                    unlink($mergedPdfPath);
+                }
             }
+
+            $zip->close();
+        } else {
+            return back()->with('error', 'Failed to create ZIP');
         }
 
-        $zip->close();
-    } else {
-        return back()->with('error', 'Failed to create ZIP');
+        return response()->download($zipPath)->deleteFileAfterSend(true);
     }
-
-    return response()->download($zipPath)->deleteFileAfterSend(true);
-}
-
 }
