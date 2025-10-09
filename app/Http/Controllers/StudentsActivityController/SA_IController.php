@@ -24,7 +24,7 @@ class SA_IController extends Controller
                 'outcome' => 'required|string|max:255',
                 'students_participated' => 'required|integer|min:0',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
                 
             ]);
             // Automatically set the user_id to the authenticated user's ID
@@ -60,7 +60,7 @@ class SA_IController extends Controller
                    dd($e->getMessage());
                 }
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            //dd($e->getMessage());
             return redirect()->back()->withErrors(['error' => 'Failed to create student activity: ' . $e->getMessage()]);
         }
     }
@@ -77,7 +77,7 @@ class SA_IController extends Controller
                 'outcome' => 'required|string|max:255',
                 'students_participated' => 'required|integer|min:0',
                 'document_link' => 'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
             ]);
 
             // Update fields

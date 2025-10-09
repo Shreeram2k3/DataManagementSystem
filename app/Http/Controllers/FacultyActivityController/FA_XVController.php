@@ -22,7 +22,7 @@ class FA_XVController extends Controller
                 'Amount' =>'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
             ]);
 
             $validated['user_id'] = auth()->id();
@@ -81,7 +81,7 @@ class FA_XVController extends Controller
                 'Amount' =>'required|string|max:255',
                 'dept' => 'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
             ]);
 
             // Update fields

@@ -27,7 +27,7 @@ class FA_VIIIController extends Controller
                 'to_date' => 'required|date',
                 'dept'=>'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
                 
             ]);
             // Automatically set the user_id to the authenticated user's ID
@@ -85,7 +85,7 @@ class FA_VIIIController extends Controller
                 'to_date' => 'required|date',
                 'dept'=>'required|string|max:255',
                 'document_link' => 'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
             ]);
 
             // Update fields

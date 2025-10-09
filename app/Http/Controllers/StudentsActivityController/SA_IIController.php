@@ -27,7 +27,7 @@ class SA_IIController extends Controller
                 'Prize/place' => 'required|string|max:255',
                 'Date' => 'required|date',
                 'Document_Link' => 'nullable|url',
-                'document' => 'required|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'required|file|mimes:pdf|max:5120'
             ]);
             // Automatically set the user_id to the authenticated user's ID
             $validated['user_id'] = auth()->id();
@@ -84,7 +84,7 @@ class SA_IIController extends Controller
                 'Prize/place' => 'required|string|max:255',
                 'Date' => 'required|date',
                 'Document_Link' => 'nullable|url',
-                'document' => 'nullable|file|mimes:pdf,doc,docx|max:5120'
+                'document' => 'nullable|file|mimes:pdf|max:5120'
             ]);
 
             // Update fields
