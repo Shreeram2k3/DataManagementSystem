@@ -76,7 +76,7 @@
             </label>
 
             <label class="block" for="document">
-                    <span class="text-sm text-gray-600">Document</span>
+                    <span class="text-sm text-gray-600"> (PDF only)</span>
 
                     {{-- Show existing document name or link if record exists --}}
                     @if(isset($record) && $record->Document)
