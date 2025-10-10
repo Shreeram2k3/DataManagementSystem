@@ -132,9 +132,9 @@
                         <input type="checkbox" id="remember" name="remember" class="h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500">
                         <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
                     </div>
-                    @if (Route::has('password.request'))
+                    <!-- @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}" class="text-sm text-blue-600 hover:text-blue-800 hover:underline">Forgot password?</a>
-                    @endif
+                    @endif -->
                 </div>
                 <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] shadow-md">
                     Sign In
