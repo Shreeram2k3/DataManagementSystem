@@ -119,12 +119,20 @@
                                     </select>
                                 </div>
 
+                                <!---Department-->
+                        @if(Auth::user()->role === 'super_admin')
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">DEPT</label>
                                     <input type="text" name="department" 
                                         value="{{ $record->department ?? '' }}" 
                                         class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
                               </div>
+                              
+                        @else
+                          <input type="hidden" name="department" value="{{Auth::user()->department}}">
+                        @endif
+
+                             
 
 
 

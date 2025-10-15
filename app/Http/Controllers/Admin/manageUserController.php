@@ -16,6 +16,7 @@ use Illuminate\Validation\ValidationException;
 
 class manageUserController extends Controller
 {
+    
 
     function store(Request $request)
     {
