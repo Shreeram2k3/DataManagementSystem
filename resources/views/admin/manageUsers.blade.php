@@ -96,7 +96,7 @@
                                     <label class="block text-sm font-medium text-gray-700">Name</label>
                                     <input type="text" name="name" 
                                         value="{{ $record->name ?? '' }}" 
-                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                        class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                 </div>
 
                                 <!-- Email -->
@@ -104,7 +104,7 @@
                                     <label class="block text-sm font-medium text-gray-700">Email</label>
                                     <input type="email" name="email" 
                                         value="{{ $record->email ?? '' }}" 
-                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                        class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                     @error('email')
                                         <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                     @enderror
@@ -113,33 +113,27 @@
                                 <!-- Role -->
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Role</label>
-                                    <select name="role" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                    <select name="role" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                         <option value="user"  {{ (isset($record) && $record->role == 'user') ? 'selected' : '' }}>User</option>
                                         <option value="admin" {{ (isset($record) && $record->role == 'admin') ? 'selected' : '' }}>Admin</option>
                                     </select>
                                 </div>
 
-                                <!---Department-->
-                        @if(Auth::user()->role === 'super_admin')
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">DEPT</label>
                                     <input type="text" name="department" 
                                         value="{{ $record->department ?? '' }}" 
                                         class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
                               </div>
-                              
-                        @else
-                          <input type="hidden" name="department" value="{{Auth::user()->department}}">
-                        @endif
 
-                             
+                              
 
 
 
                                 <!-- Password -->
                                 <div class="mb-8">
                                     <label class="block text-sm font-medium text-gray-700">Password</label>
-                                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
+                                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm">
                                     @if(isset($record))
                                         <p class="text-xs text-red-600 mt-1">Leave blank to keep current password.</p>
                                     @endif
@@ -153,7 +147,7 @@
                                                     @else
                                                         showForm = false
                                                     @endif
-    "class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
+                                        "class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
                                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">
                                         {{ isset($record) ? 'Update' : 'Save' }}
                                     </button>
