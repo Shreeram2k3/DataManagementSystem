@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -66,7 +66,7 @@ class manageUserController extends Controller
         }
         catch(\Exception $e)
         { 
-          dd($e);  
+        //   dd($e);  
             return back()->with('failed','Something went wrong!,Try Again');
         }
 
@@ -75,22 +75,43 @@ class manageUserController extends Controller
     function delete($id)
     {
         $record = user::findOrFail($id);
+        if($record->role === 'super_admin')
+        {
+             return back()->with('failed','Sorry you can\'t delete the admin');
+        }
+        elseif($record->id === Auth::user()->id){
+         return back()->with('failed','Sorry you can\'t delete because you are admin');
+     }
+        else{
+        $record = user::findOrFail($id);
                 $record->delete();
 
     
                 return redirect()->back()->with('delete', 'Record deleted successfully.');
+        }
     }
 
 
    // Show edit form
 public function edit($id)
 {
+     $record = user::findOrFail($id);
+     if($record->role === 'super_admin')
+     {
+         return back()->with('failed','Sorry you can\'t edit because you are super admin');
+     }
+     elseif($record->id === Auth::user()->id){
+         return back()->with('failed','Sorry you can\'t edit because you are admin');
+     }
+     
+     else{
     $record = User::findOrFail($id); // user to edit
     $users = User::paginate(25);     // still show table data
      $perPage = request()->get('per_page', 25);
   
 
     return view('admin.manageUsers', compact('record', 'users','perPage'));
+     }
 }
 
 // Update record
