@@ -119,12 +119,18 @@
                                     </select>
                                 </div>
 
+                                <!-- Department -->
+                              
                                 <div class="mb-4">
-                                    <label class="block text-sm font-medium text-gray-700">DEPT</label>
-                                    <input type="text" name="department" 
-                                        value="{{ $record->department ?? '' }}" 
-                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
-                              </div>
+                                    <label class="block text-sm font-medium text-gray-700">Department</label>
+                                    <select name="department" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
+                                         <option value="" disabled {{ !isset($record) ? 'selected' : '' }}>Select Department</option>
+                                        <option value="Agricultural"  {{ (isset($record) && $record->department == 'Agricultural') ? 'selected' : '' }}>Agricultural</option>
+                                        <option value="AI&amp;DS"  {{ (isset($record) && $record->department == 'AI&DS') ? 'selected' : '' }}>AI&amp;DS</option>
+                                        <option value="Bio Medical"  {{ (isset($record) && $record->department == 'Bio Medical') ? 'selected' : '' }}>Bio Medical</option>
+                                       
+                                    </select>
+                                </div>
 
                               
 
