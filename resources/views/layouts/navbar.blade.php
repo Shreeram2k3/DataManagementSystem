@@ -23,7 +23,7 @@
                   Dashboard
                 </a>
 
-             @if(auth()->check() && auth()->user()->role === 'admin')
+             @if(auth()->check() && (auth()->user()->role === 'admin' || auth()->user()->role === 'super_admin') )
 
                 <a href="{{ route('admin.dashboard') }}" class=" {{ Request::is('admin/dashboard') ? 'text-blue-700' :      'text-gray-700 hover:text-blue-600' }}">
                 Admin Dashboard
