@@ -26,7 +26,8 @@ class manageUserController extends Controller
                 'name' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
                 'role' =>'required|string',
-                'pass' => ['required',Rules\Password::defaults()]
+                'pass' => ['required',Rules\Password::defaults()],
+                'department' =>'required|string',
             ]);
         }
         catch(ValidationException $e)
@@ -57,6 +58,7 @@ class manageUserController extends Controller
                 'email' => $request->email,
                 'role' => $request->role,
                 'password' => Hash::make($request->pass),
+                'department' => $request->department,
                 
             ]);
             return back()->with('success','User Added Successfully');
@@ -97,12 +99,14 @@ public function update(Request $request, $id)
         'name'  => 'required|string|max:255',
         'email' => 'required|email|unique:users,email,' . $id,
         'role'  => 'required',
+        'department' => 'required|string',
     ]);
 
     $user = User::findOrFail($id);
     $user->name  = $request->name;
     $user->email = $request->email;
     $user->role  = $request->role;
+    $user->department = $request->department;
 
     if ($request->filled('pass')) {
         $user->password = bcrypt($request->pass);

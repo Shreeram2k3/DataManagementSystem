@@ -119,6 +119,15 @@
                                     </select>
                                 </div>
 
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700">DEPT</label>
+                                    <input type="text" name="department" 
+                                        value="{{ $record->department ?? '' }}" 
+                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                              </div>
+
+
+
                                 <!-- Password -->
                                 <div class="mb-8">
                                     <label class="block text-sm font-medium text-gray-700">Password</label>
@@ -181,6 +190,7 @@
                         <th class="px-4 py-3 border">Name</th>
                         <th class="px-4 py-3 border">Email</th>
                         <th class="px-4 py-3 border">Role</th>
+                        <th class="px-4 py-3 border">Department</th>
                         <th class="px-4 py-3 border">Action</th>
                     </tr>
                 </thead>
@@ -193,6 +203,7 @@
                             <td class="px-4 py-2 border">{{ $item->name}}</td>
                             <td class="px-4 py-2 border">{{ $item->email}}</td>
                             <td class="px-4 py-2 border">{{ $item->role}}</td>
+                            <td class="px-4 py-2 border">{{ $item->department}}</td>
                             <td class="px-4 py-2 border text-center">
                                 <div class="flex justify-center rounded-lg overflow-hidden">
                                     <!-- Edit Button -->
