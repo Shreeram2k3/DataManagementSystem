@@ -128,6 +128,27 @@
                                         <option value="Agricultural"  {{ (isset($record) && $record->department == 'Agricultural') ? 'selected' : '' }}>Agricultural</option>
                                         <option value="AI&amp;DS"  {{ (isset($record) && $record->department == 'AI&DS') ? 'selected' : '' }}>AI&amp;DS</option>
                                         <option value="Bio Medical"  {{ (isset($record) && $record->department == 'Bio Medical') ? 'selected' : '' }}>Bio Medical</option>
+                                        <option value="Civil"  {{ (isset($record) && $record->department == 'Civil') ? 'selected' : '' }}>Civil</option>
+                                        <option value="CSE"  {{ (isset($record) && $record->department == 'CSE') ? 'selected' : '' }}>CSE</option>
+                                        <option value="CSE (CYBER SECURITY)"  {{ (isset($record) && $record->department == 'CSE (CYBER SECURITY)') ? 'selected' : '' }}>CSE (CYBER SECURITY)</option>
+                                        <option value="CSE (AI&amp;ML)"  {{ (isset($record) && $record->department == 'CSE (AI&ML)') ? 'selected' : '' }}>CSE (AI&amp;ML)</option>
+                                        <option value="CSE (IoT)"  {{ (isset($record) && $record->department == 'CSE (IoT)') ? 'selected' : '' }}>CSE (IoT)</option>
+                                        <option value="CSD"  {{ (isset($record) && $record->department == 'CSD') ? 'selected' : '' }}>CSD</option>
+                                        <option value="ECE"  {{ (isset($record) && $record->department == 'ECE') ? 'selected' : '' }}>ECE</option>
+                                        <option value="EEE"  {{ (isset($record) && $record->department == 'EEE') ? 'selected' : '' }}>EEE</option>
+                                        <option value="EIE"  {{ (isset($record) && $record->department == 'EIE') ? 'selected' : '' }}>EIE</option>
+                                        <option value="Mechanical"  {{ (isset($record) && $record->department == 'Mechanical') ? 'selected' : '' }}>Mechanical</option>
+                                        <option value="R&amp;A"  {{ (isset($record) && $record->department == 'R&A') ? 'selected' : '' }}>R&amp;A</option>
+                                        <option value="Chemical"  {{ (isset($record) && $record->department == 'Chemical') ? 'selected' : '' }}>Chemical</option>
+                                        <option value="Biotechnology"  {{ (isset($record) && $record->department == 'Biotechnology') ? 'selected' : '' }}>Biotechnology</option>
+                                        <option value="IT"  {{ (isset($record) && $record->department == 'IT') ? 'selected' : '' }}>IT</option>
+                                        <option value="M.Tech (CSE)"  {{ (isset($record) && $record->department == 'M.Tech (CSE)') ? 'selected' : '' }}>M.Tech (CSE)</option>
+                                        <option value="Management Studies"  {{ (isset($record) && $record->department == 'Management Studies') ? 'selected' : '' }}>Management Studies</option>
+                                        <option value="Computer Applications"  {{ (isset($record) && $record->department == 'Computer Applications') ? 'selected' : '' }}>Computer Applications</option>
+                                        <option value="Science and Humanities"  {{ (isset($record) && $record->department == 'Science and Humanities') ? 'selected' : '' }}>Science and Humanities</option>
+                                        <option value="Science and Humanities"  {{ (isset($record) && $record->department == 'Science and Humanities') ? 'selected' : '' }}>Science and Humanities</option>
+                                        <option value="Physical Education"  {{ (isset($record) && $record->department == 'Physical Education') ? 'selected' : '' }}>Physical Education</option>
+
                                        
                                     </select>
                                 </div>
