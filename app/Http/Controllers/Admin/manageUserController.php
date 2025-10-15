@@ -77,7 +77,7 @@ class manageUserController extends Controller
         $record = user::findOrFail($id);
         if($record->role === 'super_admin')
         {
-             return back()->with('failed','Sorry you can\'t delete the admin');
+             return back()->with('failed','Sorry you can\'t delete the super admin');
         }
         elseif($record->id === Auth::user()->id){
          return back()->with('failed','Sorry you can\'t delete because you are admin');
