@@ -9,6 +9,8 @@ use Maatwebsite\Excel\Concerns\WithTitle;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithEvents;
 use Maatwebsite\Excel\Events\AfterSheet;
+use Illuminate\Support\Facades\Auth;
+
 
 class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, WithEvents
 {
@@ -16,13 +18,15 @@ class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, Wit
     protected $sheetName;
     protected $fromDate;
     protected $toDate;
+    protected $userDepartment;
 
-    public function __construct(string $modelClass, string $sheetName, string $fromDate, string $toDate)
+    public function __construct(string $modelClass, string $sheetName, string $fromDate, string $toDate,string $userDepartment)
     {
         $this->modelClass = $modelClass;
         $this->sheetName  = $sheetName;
         $this->fromDate   = $fromDate;
         $this->toDate     = $toDate;
+        $this->userDepartment = $userDepartment;
     }
 
     public function collection()
@@ -36,7 +40,10 @@ class DynamicTableExport implements FromCollection, WithTitle, WithHeadings, Wit
                 $this->toDate . ' 23:59:59'
             ]);
         }
-
+        
+        if (Schema::hasColumn((new $this->modelClass)->getTable(), 'department')) {
+        $query->where('department', $this->userDepartment);
+        }
         $data = $query->get();
 
         $removeColumns = ['S_NO', 'created_at', 'updated_at'];

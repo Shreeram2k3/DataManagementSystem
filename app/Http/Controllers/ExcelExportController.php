@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use App\Exports\MultipleSheetsExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use ZipArchive;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Schema;
 use setasign\Fpdi\Fpdi;
-use setasign\Fpdf\Fpdf; // make sure fpdf is installed
+use setasign\Fpdf\Fpdf;
 
 class ExcelExportController extends Controller
 {
@@ -22,8 +22,11 @@ class ExcelExportController extends Controller
         if (empty($selectedTables)) return back()->with('error', 'Choose at least one activity');
         if (!$fromDate || !$toDate) return back()->with('error', 'Please select both From and To dates');
 
-         $tableModelMap = [
-      // Student Activities 
+        $userDepartment = Auth::user()->department;
+
+
+        $tableModelMap = [
+            // Student Activities
             'student_Activity_1' => \App\Models\StudentsActivityModels\SA_I::class,
             'student_Activity_2' => \App\Models\StudentsActivityModels\SA_II::class,
             'student_Activity_3' => \App\Models\StudentsActivityModels\SA_III::class,
@@ -64,7 +67,7 @@ class ExcelExportController extends Controller
             'faculty_Activity_21' => \App\Models\FacultyActivityModels\FA_XXI::class,
             'faculty_Activity_22' => \App\Models\FacultyActivityModels\FA_XXII::class,
 
-            // Department Activity 
+            // Department Activities
             'department_Activity_1'=> \App\Models\DepartmentActivityModels\DA_I::class,
             'department_Activity_2'=> \App\Models\DepartmentActivityModels\DA_II::class,
             'department_Activity_3'=> \App\Models\DepartmentActivityModels\DA_III::class,
@@ -76,13 +79,9 @@ class ExcelExportController extends Controller
             'department_Activity_9'=> \App\Models\DepartmentActivityModels\DA_IX::class,
             'department_Activity_10'=> \App\Models\DepartmentActivityModels\DA_X::class,
             'department_Activity_11'=> \App\Models\DepartmentActivityModels\DA_XI::class,
-
-
-            
         ];
 
         $tableLabelMap = [
-
             // Student Activity Excel Title 
             'student_Activity_1' => 'S.A.I. Department Association Activities - CEO/ Leader of the Week / Conference / Symposium / Workshop / Seminar / GL',
             'student_Activity_2' => 'S.A.II. Details of Students who Participated / Presented (National Level Event)',
@@ -138,65 +137,80 @@ class ExcelExportController extends Controller
             'department_Activity_10'=> 'D. A. X. Department Time Table / subject allocation / faculty work load',
             'department_Activity_11'=> 'D. A. XI. Result Analysis / Sample QP / Answer Sheet / Answer key / Remedial Class',
         ];
+   
+$user = Auth::user();
 
-        $documentPaths = [];
+$documentPaths = [];
 
-        // Collect documents
-        foreach ($selectedTables as $table) {
-            if (!isset($tableModelMap[$table])) continue;
+// Collect documents filtered by user's department or all if super_admin
+foreach ($selectedTables as $table) {
+    if (!isset($tableModelMap[$table])) continue;
 
-            $modelClass = $tableModelMap[$table];
-            $modelInstance = new $modelClass;
+    $modelClass = $tableModelMap[$table];
+    $modelInstance = new $modelClass;
 
-            if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
-                $docs = $modelClass::whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59'])
-                                   ->pluck('document')->toArray();
+    if (Schema::hasColumn($modelInstance->getTable(), 'document')) {
 
-                foreach ($docs as $doc) {
-                    if (!empty($doc) && File::exists(storage_path('app/public/'.$doc))) {
-                        $folderName = strtoupper(class_basename($modelClass));
-                        $documentPaths[$folderName][] = storage_path('app/public/'.$doc);
-                    }
-                }
-            }
+        // Base query
+        $query = $modelClass::query()->whereNotNull('document')
+                                     ->whereBetween('created_at', [$fromDate.' 00:00:00', $toDate.' 23:59:59']);
+
+        // Apply department filter if not super_admin
+        if ($user->role !== 'super_admin' && Schema::hasColumn($modelInstance->getTable(), 'department')) {
+            $query->where('department', $user->department);
         }
 
-        $zip = new ZipArchive();
-        $zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
-        $zipPath = storage_path('app/public/'.$zipFileName);
+        $docs = $query->pluck('document')->filter()->toArray();
 
-        if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
-            // Add Excel
-            $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate);
-            $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
-            $zip->addFromString('DMS.xlsx', $excelData);
-
-            // Add merged PDFs per folder
-            foreach ($documentPaths as $folder => $files) {
-                if (count($files) > 0) {
-                    $mergedPdfPath = storage_path("app/temp_{$folder}.pdf");
-                    $pdf = new Fpdi();
-
-                    foreach ($files as $file) {
-                        $pageCount = $pdf->setSourceFile($file);
-                        for ($page = 1; $page <= $pageCount; $page++) {
-                            $tplIdx = $pdf->importPage($page);
-                            $size = $pdf->getTemplateSize($tplIdx);
-                            $pdf->AddPage($size['orientation'], [$size['width'], $size['height']]);
-                            $pdf->useTemplate($tplIdx);
-                        }
-                    }
-
-                    $pdf->Output($mergedPdfPath, 'F');
-                    $zip->addFile($mergedPdfPath, $folder.'/'.$folder.'_Doc_merged.pdf');
-                }
+        foreach ($docs as $doc) {
+            $fullPath = storage_path('app/public/' . $doc);
+            if (File::exists($fullPath)) {
+                $folderName = strtoupper(class_basename($modelClass));
+                $documentPaths[$folderName][] = $fullPath;
             }
-
-            $zip->close();
-        } else {
-            return back()->with('error', 'Failed to create ZIP');
         }
-
-        return response()->download($zipPath)->deleteFileAfterSend(true);
     }
+}
+
+
+$zip = new ZipArchive();
+$zipFileName = 'DMS_'.now()->format('Ymd_His').'.zip';
+$zipPath = storage_path('app/public/'.$zipFileName);
+
+if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+    // Add Excel
+    $multiSheetExport = new MultipleSheetsExport($selectedTables, $tableModelMap, $tableLabelMap, $fromDate, $toDate, $userDepartment);
+    $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
+    $zip->addFromString('DMS.xlsx', $excelData);
+
+    // Merge PDFs per folder
+    foreach ($documentPaths as $folder => $files) {
+        if (count($files) === 0) continue;
+
+        $mergedPdfPath = storage_path("app/temp_{$folder}.pdf");
+        $pdf = new Fpdi();
+
+        foreach ($files as $file) {
+            $pageCount = $pdf->setSourceFile($file);
+            for ($page = 1; $page <= $pageCount; $page++) {
+                $tplIdx = $pdf->importPage($page);
+                $size = $pdf->getTemplateSize($tplIdx);
+                $pdf->AddPage($size['orientation'], [$size['width'], $size['height']]);
+                $pdf->useTemplate($tplIdx);
+            }
+        }
+
+        $pdf->Output($mergedPdfPath, 'F');
+        // Add merged PDF to ZIP
+        $zip->addFile($mergedPdfPath, $folder.'/Merged'.$folder.'_Docs_'.now()->format('Ymd_His').'.pdf');
+    }
+
+    $zip->close();
+} else {
+    return back()->with('error', 'Failed to create ZIP');
+}
+
+return response()->download($zipPath)->deleteFileAfterSend(true);
+
+}      
 }

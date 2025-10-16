@@ -11,14 +11,16 @@ class MultipleSheetsExport implements WithMultipleSheets
     protected $tableLabelMap;
     protected $fromDate;
     protected $toDate;
+    protected $userDepartment;
 
-    public function __construct(array $tables, array $tableModelMap, array $tableLabelMap, string $fromDate, string $toDate)
+    public function __construct(array $tables, array $tableModelMap, array $tableLabelMap, string $fromDate, string $toDate,string $userDepartment)
     {
         $this->tables = $tables;
         $this->tableModelMap = $tableModelMap;
         $this->tableLabelMap = $tableLabelMap;
         $this->fromDate = $fromDate;
         $this->toDate = $toDate;
+        $this->userDepartment = $userDepartment;
     }
 
     public function sheets(): array
@@ -30,7 +32,7 @@ class MultipleSheetsExport implements WithMultipleSheets
                 $modelClass = $this->tableModelMap[$table];
                 $sheetName = $this->tableLabelMap[$table] ?? $table;
 
-                $sheets[] = new DynamicTableExport($modelClass, $sheetName, $this->fromDate, $this->toDate);
+                $sheets[] = new DynamicTableExport($modelClass, $sheetName, $this->fromDate, $this->toDate,$this->userDepartment);
             }
         }
 
