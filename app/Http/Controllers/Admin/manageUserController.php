@@ -77,10 +77,10 @@ class manageUserController extends Controller
         $record = user::findOrFail($id);
         if($record->role === 'super_admin')
         {
-             return back()->with('failed','Sorry you can\'t delete the super admin');
+             return back()->with('failed','Sorry you can\'t delete yourself, You\'re the super admin');
         }
         elseif($record->id === Auth::user()->id){
-         return back()->with('failed','Sorry you can\'t delete because you are admin');
+         return back()->with('failed','Sorry you can\'t delete yourself, because you\'re the admin');
      }
         else{
         $record = user::findOrFail($id);
@@ -98,10 +98,10 @@ public function edit($id)
      $record = user::findOrFail($id);
      if($record->role === 'super_admin')
      {
-         return back()->with('failed','Sorry you can\'t edit because you are super admin');
+         return back()->with('failed','Sorry you can\'t edit yourself, because you\'re the superadmin');
      }
      elseif($record->id === Auth::user()->id){
-         return back()->with('failed','Sorry you can\'t edit because you are admin');
+         return back()->with('failed','Sorry you can\'t edit yourself, because you\'re the admin');
      }
      
      else{
