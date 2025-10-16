@@ -100,7 +100,7 @@
                     <tr>
                         <th class="py-3 px-4 border">Sno</th>
                         <th class="py-3 px-4 border">Student Activities</th>
-                        <th class="py-3 px-4 border">select</th>
+                        <th class="py-3 px-4 border">Select</th>
                         <th class="py-3 px-4 border">View</th>
                     </tr>
                 </thead>
@@ -118,7 +118,7 @@
                         </td>
 
                          <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_I'])}}"
                     class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                         hover:bg-cyan-700 shadow transition">
                                View
@@ -139,7 +139,7 @@
                         </td>
 
                          <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_II'])}}"
                     class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                         hover:bg-cyan-700 shadow transition">
                                View
@@ -160,7 +160,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_III'])}}"
                     class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                         hover:bg-cyan-700 shadow transition">
                                View
@@ -181,7 +181,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_IV'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -202,7 +202,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_V'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -222,7 +222,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_VI'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -244,7 +244,7 @@
                         </td>
 
                          <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_VII'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -265,7 +265,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_VIII'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -286,7 +286,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_IX'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -306,7 +306,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_X'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -329,7 +329,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_XI'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -350,7 +350,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_XII'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -373,7 +373,7 @@
                         </td>
 
                          <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_XIII'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -393,7 +393,7 @@
                             </label>
                         </td>
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_XIV'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -412,7 +412,7 @@
                         </td>
 
                         <td class="py-3 px-4 border text-center">
-                            <a href="#"
+                            <a href="{{route('viewDatapage',['type'=>'SA_XV'])}}"
                               class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
                                 hover:bg-cyan-700 shadow transition">
                                     View
@@ -433,7 +433,8 @@
                     <tr>
                         <th class="py-3 px-4 border">Sno</th>
                         <th class="py-3 px-4 border">Faculty Activities</th>
-                        <th class="py-3 px-4 border">Action</th>
+                        <th class="py-3 px-4 border">Select</th>
+                        <th class="py-3 px-4 border">View</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -445,6 +446,17 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_1" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_I'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
+
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -455,6 +467,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_2" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_II'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -465,6 +486,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_3" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_III'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -475,6 +505,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_4" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_IV'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -485,6 +524,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_5" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_V'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -495,6 +543,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_6" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_VI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -505,6 +562,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_7" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_VII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -515,6 +581,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_8" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_VIII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -525,6 +600,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_9" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_IX'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -535,6 +619,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_10" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_X'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -545,6 +638,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_11" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -555,6 +657,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_12" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -564,6 +675,13 @@
                             <label class="inline-flex items-center cursor-pointer">
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_13" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
+                        </td>
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XIII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
                         </td>
                     </tr>
 
@@ -575,6 +693,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_14" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XIV'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -585,6 +712,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_15" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XV'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -595,6 +731,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_16" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XVI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -605,6 +750,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_17" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XVII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -615,6 +769,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_18" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XVIII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -625,6 +788,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_19" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XIX'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -635,6 +807,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_20" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XX'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -645,6 +826,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_21" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XXI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -655,6 +845,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_22" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'FA_XXII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                 </tbody>
@@ -668,7 +867,8 @@
                     <tr>
                         <th class="py-3 px-4 border">Sno</th>
                         <th class="py-3 px-4 border">Department Activities</th>
-                        <th class="py-3 px-4 border">Action</th>
+                        <th class="py-3 px-4 border">Select</th>
+                        <th class="py-3 px-4 border">View</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -680,6 +880,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_1" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                         <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_I'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -690,6 +899,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_2" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                         <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_II'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -700,6 +918,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_3" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                         <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_I'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -710,6 +937,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_4" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_IV'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -720,6 +956,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_5" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_V'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -730,6 +975,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_6" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_VI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -740,6 +994,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_7" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_VII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -750,6 +1013,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_8" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_VIII'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -760,6 +1032,15 @@
                                 <input type="checkbox" name="tables[]" value="department_Activity_9" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_IX'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -770,6 +1051,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_10" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_X'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     <tr x-data="{ checked: false }" :class="checked ? 'bg-green-100' : ''">
@@ -780,6 +1070,15 @@
                                 <input type="checkbox" name="tables[]" value="faculty_Activity_11" x-model="checked" class="w-5 h-5 rounded-lg">
                             </label>
                         </td>
+
+                        <td class="py-3 px-4 border text-center">
+                            <a href="{{route('viewDatapage',['type'=>'DA_XI'])}}"
+                                class="px-5 py-2 bg-cyan-600 text-white text-sm font-medium rounded-lg 
+                                    hover:bg-cyan-700 shadow transition">
+                                        View
+                            </a>
+                        </td>
+
                     </tr>
 
                     
