@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ExcelExportController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\manageUserController;
+use App\Http\Controllers\Admin\viewDataController;
+
 use App\Http\Middleware\AdminMiddleware;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentsActivityController\SA_IController;
@@ -359,11 +361,14 @@ Route::middleware(['auth',AdminMiddleware::class])->group(function(){
         Route::get('/edit/{id}', [manageUserController::class,'edit'])->name('edit_user');
 
         Route::put('/users/update/{id}', [manageUserController::class, 'update'])->name('update_user');
+
     // manaData page routes 
 
         // export data route 
         Route::get('/export-excel', [ExcelExportController::class, 'export'])->name('export.excel');
 
+        // viewData route 
+        Route::get('/viewData/{type}',[viewDataController::class,'viewDatapage'])->name('viewDatapage');
        
 
 

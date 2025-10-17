@@ -8,7 +8,9 @@
         <th class="px-4 py-3 border">Dept</th>
         <th class="px-4 py-3 border">Outcome</th>
         <th class="px-4 py-3 border">Campus Document ID</th>
+        @if($showActions)
         <th class="px-4 py-3 border">Action</th>
+        @endif 
 </thead>
         
 <tbody class="bg-white">
@@ -24,6 +26,7 @@
                             <td class="px-4 py-2 border">{{ $item->Outcome}}</td>
                             <td class="px-4 py-2 border">{{ $item->CAMPUS_Document_ID}}</td>
 
+                            @if($showActions)
                             <td class="px-4 py-2 border text-center">
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
@@ -46,6 +49,7 @@
                     </form>
                 </div>
                 </td>
+                @endif
             </tr>
             @empty
                 <tr>
