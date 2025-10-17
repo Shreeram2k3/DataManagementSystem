@@ -4,6 +4,7 @@ namespace App\Models\StudentsActivityModels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use App\Models\User;
 
 
 class SA_V extends Model
@@ -23,6 +24,12 @@ class SA_V extends Model
         'user_id'
     ];
 
+    // This defines the relationship with the users table
+     public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    
     // public $timestamps=false;
 
      protected static function boot()
