@@ -228,6 +228,118 @@ elseif($type=='DA_I')
                                         @case("SA_XV")
                                             @include('user.StudentActivityViews.StudentActivityTables.SA_XVTable')
                                             @break
+
+                                        @case('FA_I')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_ITable') 
+                                            @break
+                                        @case('FA_II')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IITable') 
+                                            @break
+                                        @case('FA_III')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IIITable') 
+                                            @break
+                                        @case('FA_IV')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IVTable') 
+                                            @break
+                                        @case('FA_V')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VTable') 
+                                            @break
+                                        @case('FA_VI')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VITable') 
+                                            @break
+                                        @case('FA_VII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIITable') 
+                                            @break
+                                        @case('FA_VIII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIIITable') 
+                                            @break
+                                        @case('FA_IX')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IXTable') 
+                                            @break
+                                        @case('FA_X')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XTable') 
+                                            @break
+                                        @case('FA_XI')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XITable') 
+                                            @break
+                                        @case('FA_XII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIITable') 
+                                            @break
+                                        @case('FA_XIII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIIITable') 
+                                            @break
+                                        @case('FA_XIV')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIVTable') 
+                                            @break
+                                        @case('FA_XV')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVTable') 
+                                            @break
+                                        @case('FA_XVI')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVITable') 
+                                            @break
+                                        @case('FA_XVII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIITable') 
+                                            @break
+                                        @case('FA_XVIII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIIITable') 
+                                            @break
+                                        @case('FA_XIX')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIXTable') 
+                                            @break
+                                        @case('FA_XX')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXTable') 
+                                            @break
+                                        @case('FA_XXI')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXITable') 
+                                            @break
+                                        @case('FA_XXII')
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXIITable') 
+                                            @break
+
+                                         @case('DA_I')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_ITable')
+                                            @break
+
+                                        @case('DA_II')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IITable')
+                                            @break
+
+                                        @case('DA_III')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable')
+                                            @break
+
+                                        @case('DA_IV')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable')
+                                            @break
+
+                                        @case('DA_V')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable')
+                                            @break
+
+                                        @case('DA_VI')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable')
+                                            @break
+
+                                        @case('DA_VII')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable')
+                                            @break
+                                        
+                                        @case('DA_VIII')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable')
+                                            @break
+
+                                        @case('DA_IX')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable')
+                                            @break
+
+                                        @case('DA_X')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable')
+                                            @break
+
+                                        @case("DA_XI")
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable')
+                                            @break
+
                                         
 
                                       @default
