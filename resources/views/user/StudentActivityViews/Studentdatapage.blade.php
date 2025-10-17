@@ -8,6 +8,7 @@
 @section('content')
 @php
    $title = '';
+    $showActions = true; 
     
     if($type=='SA_I')
            $title='S.A.I. Department Association Activities-CEO/ Leader of the Week / Conference  / Symposium  / Workshop / Seminar/GL';
@@ -179,7 +180,7 @@
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                       @switch($type)
                                         @case('SA_I')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_ITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_ITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_II')
