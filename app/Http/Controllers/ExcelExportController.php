@@ -34,13 +34,11 @@ class ExcelExportController extends Controller
         $tableModelMap = [
             'student_Activity_1' => \App\Models\StudentsActivityModels\SA_I::class,
             'student_Activity_2' => \App\Models\StudentsActivityModels\SA_II::class,
-            // Add other tables here
         ];
 
         $tableLabelMap = [
             'student_Activity_1' => 'S.A.I. Department Association Activities',
             'student_Activity_2' => 'S.A.II. Details of Students who Participated',
-            // Add other table labels here
         ];
 
         $documentPaths = [];
@@ -58,7 +56,6 @@ class ExcelExportController extends Controller
                     ->whereNotNull('document')
                     ->whereBetween('created_at', [$fromDate . ' 00:00:00', $toDate . ' 23:59:59']);
 
-                // Admin filter by user department
                 if (!$isSuperAdmin) {
                     $query->whereHas('user', function ($q) use ($userDepartment) {
                         $q->whereRaw('LOWER(department) = ?', [strtolower($userDepartment)]);
@@ -78,52 +75,83 @@ class ExcelExportController extends Controller
         }
 
         // === CREATE ZIP ===
-        $zip = new ZipArchive();
+        $zipFolder = storage_path('app/public');
+        if (!File::exists($zipFolder)) {
+            File::makeDirectory($zipFolder, 0777, true);
+        }
+
         $zipFileName = 'DMS_' . now()->format('Ymd_His') . '.zip';
-        $zipPath = storage_path('app/public/' . $zipFileName);
+        $zipPath = $zipFolder . DIRECTORY_SEPARATOR . $zipFileName;
 
-        if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
+        $zip = new ZipArchive();
+        if ($zip->open($zipPath, ZipArchive::CREATE | ZipArchive::OVERWRITE) !== TRUE) {
+            return back()->with('error', 'Failed to create ZIP file. Check folder permissions.');
+        }
 
-            // Excel Export
-            $multiSheetExport = new MultipleSheetsExport(
-                $selectedTables,
-                $tableModelMap,
-                $tableLabelMap,
-                $fromDate,
-                $toDate,
-                $userDepartment
-            );
+        // === ADD EXCEL TO ZIP ===
+        $multiSheetExport = new MultipleSheetsExport(
+            $selectedTables,
+            $tableModelMap,
+            $tableLabelMap,
+            $fromDate,
+            $toDate,
+            $userDepartment
+        );
 
-            $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
-            $zip->addFromString('DMS.xlsx', $excelData);
+        $excelData = Excel::raw($multiSheetExport, \Maatwebsite\Excel\Excel::XLSX);
+        $zip->addFromString('DMS.xlsx', $excelData);
 
-            // Merge PDFs
-            foreach ($documentPaths as $folder => $files) {
-                if (count($files) === 0) continue;
+        $tempFiles = []; // track temporary PDF files
 
-                $mergedPdfPath = storage_path("app/temp_{$folder}.pdf");
-                $pdf = new Fpdi();
+        // === MERGE PDFs ===
+        foreach ($documentPaths as $folder => $files) {
+            if (count($files) === 0) continue;
 
-                foreach ($files as $file) {
-                    $pageCount = $pdf->setSourceFile($file);
-                    for ($page = 1; $page <= $pageCount; $page++) {
-                        $tplIdx = $pdf->importPage($page);
-                        $size = $pdf->getTemplateSize($tplIdx);
-                        $pdf->AddPage($size['orientation'], [$size['width'], $size['height']]);
-                        $pdf->useTemplate($tplIdx);
-                    }
+            $mergedPdfPath = storage_path("app/temp_{$folder}_" . uniqid() . ".pdf");
+            $pdf = new Fpdi();
+
+            foreach ($files as $file) {
+                $compatiblePdf = storage_path("app/temp_compatible_" . uniqid() . "_" . basename($file));
+
+                // Convert PDF using Ghostscript
+                $gsCommand = sprintf(
+                    'gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/prepress -dNOPAUSE -dBATCH -sOutputFile=%s %s',
+                    escapeshellarg($compatiblePdf),
+                    escapeshellarg($file)
+                );
+                exec($gsCommand, $output, $returnVar);
+
+                if ($returnVar !== 0 || !File::exists($compatiblePdf)) {
+                    continue; // skip this file if conversion fails
                 }
 
-                $pdf->Output($mergedPdfPath, 'F');
-                $zip->addFile(
-                    $mergedPdfPath,
-                    $folder . '/Merged_' . $folder . '_Docs_' . now()->format('Ymd_His') . '.pdf'
-                );
+                $tempFiles[] = $compatiblePdf;
+
+                $pageCount = $pdf->setSourceFile($compatiblePdf);
+                for ($page = 1; $page <= $pageCount; $page++) {
+                    $tplIdx = $pdf->importPage($page);
+                    $size = $pdf->getTemplateSize($tplIdx);
+                    $pdf->AddPage($size['orientation'], [$size['width'], $size['height']]);
+                    $pdf->useTemplate($tplIdx);
+                }
             }
 
-            $zip->close();
-        } else {
-            return back()->with('error', 'Failed to create ZIP');
+            $pdf->Output($mergedPdfPath, 'F');
+            $zip->addFile(
+                $mergedPdfPath,
+                $folder . '/Merged_' . $folder . '_Docs_' . now()->format('Ymd_His') . '.pdf'
+            );
+
+            $tempFiles[] = $mergedPdfPath;
+        }
+
+        $zip->close();
+
+        // === CLEAN UP TEMP FILES ===
+        foreach ($tempFiles as $tempFile) {
+            if (File::exists($tempFile)) {
+                File::delete($tempFile);
+            }
         }
 
         return response()->download($zipPath)->deleteFileAfterSend(true);

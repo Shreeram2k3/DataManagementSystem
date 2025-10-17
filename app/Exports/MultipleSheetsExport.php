@@ -3,6 +3,7 @@
 namespace App\Exports;
 
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
+use App\Exports\DynamicTableExport;
 
 class MultipleSheetsExport implements WithMultipleSheets
 {
