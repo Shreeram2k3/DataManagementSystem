@@ -5,7 +5,9 @@
                 <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link </th>
                 <th class="px-4 py-3 border">Document</th>
+                @if($showActions)
                 <th class="px-4 py-3 border">Action</th>
+                @endif
     </tr>
 </thead>
 
@@ -30,7 +32,8 @@
                       </a>
                   </td>
 
-<td class="px-4 py-2 border text-center">
+                  @if($showActions)
+                <td class="px-4 py-2 border text-center">
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
                     <!-- Edit Button -->
@@ -52,6 +55,7 @@
                     </form>
                 </div>
                 </td>
+                @endif
             </tr>
             @empty
                 <tr>
