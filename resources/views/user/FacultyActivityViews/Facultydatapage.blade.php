@@ -6,7 +6,7 @@
 @section('content')
 @php
     $title = '';
-
+    $showActions = true; 
     if ($type == 'FA_I')
         $title = 'F. A. I (a). Publication of Papers in the Journals';
     elseif($type=='FA_II')
@@ -201,70 +201,70 @@
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                     @switch($type)
                                         @case('FA_I')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_ITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_ITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_II')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_III')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_IV')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IVTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IVTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_V')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_VI')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_VII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_VIII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_VIIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_IX')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IXTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_IXTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_X')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XI')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XIII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XIV')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIVTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIVTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XV')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XVI')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XVII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XVIII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XVIIITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XIX')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIXTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XIXTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XX')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXTable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXTable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XXI')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXITable',['showActions' => $showActions]) 
                                             @break
                                         @case('FA_XXII')
-                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXIITable') 
+                                            @include('user.FacultyActivityViews.FacultyActivityTables.FA_XXIITable',['showActions' => $showActions]) 
                                             @break
                                     
                                     @endswitch
