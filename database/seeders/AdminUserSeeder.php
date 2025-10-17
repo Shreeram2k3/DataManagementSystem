@@ -15,7 +15,8 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => env('ADMIN_NAME', 'Admin'),
                 'password' => Hash::make(env('ADMIN_PASSWORD', 'password123')),
-                'role' => 'admin',
+                'role' => 'super_admin',
+                'department' =>env('ADMIN_DEPARTMENT', 'CSE'),
             ]
         );
     }

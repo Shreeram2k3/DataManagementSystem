@@ -96,7 +96,7 @@
                                     <label class="block text-sm font-medium text-gray-700">Name</label>
                                     <input type="text" name="name" 
                                         value="{{ $record->name ?? '' }}" 
-                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                        class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                 </div>
 
                                 <!-- Email -->
@@ -104,7 +104,7 @@
                                     <label class="block text-sm font-medium text-gray-700">Email</label>
                                     <input type="email" name="email" 
                                         value="{{ $record->email ?? '' }}" 
-                                        class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                        class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                     @error('email')
                                         <p class="text-sm text-red-600 mt-2">{{ $message }}</p>
                                     @enderror
@@ -113,16 +113,56 @@
                                 <!-- Role -->
                                 <div class="mb-4">
                                     <label class="block text-sm font-medium text-gray-700">Role</label>
-                                    <select name="role" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300" required>
+                                    <select name="role" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
                                         <option value="user"  {{ (isset($record) && $record->role == 'user') ? 'selected' : '' }}>User</option>
                                         <option value="admin" {{ (isset($record) && $record->role == 'admin') ? 'selected' : '' }}>Admin</option>
                                     </select>
                                 </div>
 
+                                <!-- Department -->
+                              @if(Auth::user()->role === 'super_admin')
+                                <div class="mb-4">
+                                    <label class="block text-sm font-medium text-gray-700">Department</label>
+                                    <select name="department" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm" required>
+                                         <option value="" disabled {{ !isset($record) ? 'selected' : '' }}>Select Department</option>
+                                        <option value="Agricultural"  {{ (isset($record) && $record->department == 'Agricultural') ? 'selected' : '' }}>Agricultural</option>
+                                        <option value="AI&amp;DS"  {{ (isset($record) && $record->department == 'AI&DS') ? 'selected' : '' }}>AI&amp;DS</option>
+                                        <option value="Bio Medical"  {{ (isset($record) && $record->department == 'Bio Medical') ? 'selected' : '' }}>Bio Medical</option>
+                                        <option value="Civil"  {{ (isset($record) && $record->department == 'Civil') ? 'selected' : '' }}>Civil</option>
+                                        <option value="CSE"  {{ (isset($record) && $record->department == 'CSE') ? 'selected' : '' }}>CSE</option>
+                                        <option value="CSE (CYBER SECURITY)"  {{ (isset($record) && $record->department == 'CSE (CYBER SECURITY)') ? 'selected' : '' }}>CSE (CYBER SECURITY)</option>
+                                        <option value="CSE (AI&amp;ML)"  {{ (isset($record) && $record->department == 'CSE (AI&ML)') ? 'selected' : '' }}>CSE (AI&amp;ML)</option>
+                                        <option value="CSE (IoT)"  {{ (isset($record) && $record->department == 'CSE (IoT)') ? 'selected' : '' }}>CSE (IoT)</option>
+                                        <option value="CSD"  {{ (isset($record) && $record->department == 'CSD') ? 'selected' : '' }}>CSD</option>
+                                        <option value="ECE"  {{ (isset($record) && $record->department == 'ECE') ? 'selected' : '' }}>ECE</option>
+                                        <option value="EEE"  {{ (isset($record) && $record->department == 'EEE') ? 'selected' : '' }}>EEE</option>
+                                        <option value="EIE"  {{ (isset($record) && $record->department == 'EIE') ? 'selected' : '' }}>EIE</option>
+                                        <option value="Mechanical"  {{ (isset($record) && $record->department == 'Mechanical') ? 'selected' : '' }}>Mechanical</option>
+                                        <option value="R&amp;A"  {{ (isset($record) && $record->department == 'R&A') ? 'selected' : '' }}>R&amp;A</option>
+                                        <option value="Chemical"  {{ (isset($record) && $record->department == 'Chemical') ? 'selected' : '' }}>Chemical</option>
+                                        <option value="Biotechnology"  {{ (isset($record) && $record->department == 'Biotechnology') ? 'selected' : '' }}>Biotechnology</option>
+                                        <option value="IT"  {{ (isset($record) && $record->department == 'IT') ? 'selected' : '' }}>IT</option>
+                                        <option value="M.Tech (CSE)"  {{ (isset($record) && $record->department == 'M.Tech (CSE)') ? 'selected' : '' }}>M.Tech (CSE)</option>
+                                        <option value="Management Studies"  {{ (isset($record) && $record->department == 'Management Studies') ? 'selected' : '' }}>Management Studies</option>
+                                        <option value="Computer Applications"  {{ (isset($record) && $record->department == 'Computer Applications') ? 'selected' : '' }}>Computer Applications</option>
+                                        <option value="Science and Humanities"  {{ (isset($record) && $record->department == 'Science and Humanities') ? 'selected' : '' }}>Science and Humanities</option>
+                                        <option value="Science and Humanities"  {{ (isset($record) && $record->department == 'Science and Humanities') ? 'selected' : '' }}>Science and Humanities</option>
+                                        <option value="Physical Education"  {{ (isset($record) && $record->department == 'Physical Education') ? 'selected' : '' }}>Physical Education</option>
+
+                                       
+                                    </select>
+                                </div>
+                                @else
+                                   <input type="hidden" name="department"  value="{{Auth::user()->department}}">
+
+                              @endif
+
+
+
                                 <!-- Password -->
                                 <div class="mb-8">
                                     <label class="block text-sm font-medium text-gray-700">Password</label>
-                                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:ring focus:ring-blue-300">
+                                    <input type="password" name="pass" class="mt-1 p-2 w-full border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm">
                                     @if(isset($record))
                                         <p class="text-xs text-red-600 mt-1">Leave blank to keep current password.</p>
                                     @endif
@@ -136,7 +176,7 @@
                                                     @else
                                                         showForm = false
                                                     @endif
-    "class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
+                                        "class="px-4 py-2 bg-gray-500 text-white rounded-lg">Cancel</button>
                                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg">
                                         {{ isset($record) ? 'Update' : 'Save' }}
                                     </button>
@@ -181,6 +221,7 @@
                         <th class="px-4 py-3 border">Name</th>
                         <th class="px-4 py-3 border">Email</th>
                         <th class="px-4 py-3 border">Role</th>
+                        <th class="px-4 py-3 border">Department</th>
                         <th class="px-4 py-3 border">Action</th>
                     </tr>
                 </thead>
@@ -193,6 +234,7 @@
                             <td class="px-4 py-2 border">{{ $item->name}}</td>
                             <td class="px-4 py-2 border">{{ $item->email}}</td>
                             <td class="px-4 py-2 border">{{ $item->role}}</td>
+                            <td class="px-4 py-2 border">{{ $item->department}}</td>
                             <td class="px-4 py-2 border text-center">
                                 <div class="flex justify-center rounded-lg overflow-hidden">
                                     <!-- Edit Button -->
