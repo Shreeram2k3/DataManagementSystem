@@ -305,39 +305,39 @@ elseif($type=='DA_I')
                                             @break
 
                                         @case('DA_III')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_IV')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_V')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_VI')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_VII')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable',['showActions' => $showActions])
                                             @break
                                         
                                         @case('DA_VIII')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_IX')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_X')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable',['showActions' => $showActions])
                                             @break
 
                                         @case("DA_XI")
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable,['showActions' => $showActions]')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable',['showActions' => $showActions])
                                             @break
 
                                         
