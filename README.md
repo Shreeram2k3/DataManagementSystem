@@ -166,7 +166,11 @@ Connect with me:
 ---
  Sathish K.U
  Pre-final year CSE student,
- GitHub: github.com/Sathish21-cse
+ Connect with me: 
+
+ [<img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="18" height="18"/> sathish21](https://github.com/Sathish21-cse)
+
+[<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="18" height="18"/> Sathish21](www.linkedin.com/in/sathish2k6)
 
  ---
 Shailesh Kumar
