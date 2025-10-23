@@ -9,7 +9,9 @@
                 <th class="px-4 py-3 border">Status(Further enchancement / Final stage)</th>
                 <th class="px-4 py-3 border">Document Link </th>
                 <th class="px-4 py-3 border">Document</th>
+                @if($showActions)
                 <th class="px-4 py-3 border">Action</th>
+                @endif
     </tr>
 </thead>
 
@@ -37,6 +39,7 @@
                     {{  basename($item->Document) }}
                 </a></td>
 
+                @if($showActions)
                     <td class="px-4 py-2 border text-center">
                     <div class="flex justify-center rounded-lg overflow-hidden">
         
@@ -59,6 +62,7 @@
                     </form>
                 </div>
                 </td>
+                @endif
             </tr>
             @empty
                 <tr>

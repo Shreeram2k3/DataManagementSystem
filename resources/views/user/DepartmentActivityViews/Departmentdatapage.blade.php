@@ -8,7 +8,7 @@
 @section('content')
 @php
    $title = '';
-    
+    $showActions = true; 
     if($type=='DA_I')
            $title='D. A. I. Details of New Equipment Purchased in the Department';
     elseif($type=='DA_II')
@@ -158,47 +158,47 @@
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                       @switch($type)
                                         @case('DA_I')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_ITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_ITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_II')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_III')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_IV')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IVTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_V')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_VI')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_VII')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIITable',['showActions' => $showActions])
                                             @break
                                         
                                         @case('DA_VIII')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_VIIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_IX')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_IXTable',['showActions' => $showActions])
                                             @break
 
                                         @case('DA_X')
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XTable',['showActions' => $showActions])
                                             @break
 
                                         @case("DA_XI")
-                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable')
+                                            @include('user.DepartmentActivityViews.DepartmentActivityTables.DA_XITable',['showActions' => $showActions])
                                             @break
 
                                       @default

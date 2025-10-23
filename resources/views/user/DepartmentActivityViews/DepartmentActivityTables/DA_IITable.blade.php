@@ -12,7 +12,9 @@
                 <th class="px-4 py-3 border">Dept</th>
                 <th class="px-4 py-3 border">Document Link</th>
                 <th class="px-4 py-3 border">Document</th>
+                @if($showActions)
                 <th class="px-4 py-3 border">Action</th>
+                @endif
 
             </tr>
 </thead>

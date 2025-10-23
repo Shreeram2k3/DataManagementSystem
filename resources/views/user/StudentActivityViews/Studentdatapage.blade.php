@@ -8,6 +8,7 @@
 @section('content')
 @php
    $title = '';
+    $showActions = true; 
     
     if($type=='SA_I')
            $title='S.A.I. Department Association Activities-CEO/ Leader of the Week / Conference  / Symposium  / Workshop / Seminar/GL';
@@ -179,63 +180,63 @@
                                 <table class="min-w-full text-sm text-left text-gray-700 border border-gray-200">
                                       @switch($type)
                                         @case('SA_I')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_ITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_ITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_II')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_III')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IIITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_IV')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IVTable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_V')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VTable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_VI')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_VII')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIITable',['showActions' => $showActions])
                                             @break
                                         
                                         @case('SA_VIII')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIIITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_VIIITable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_IX')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IXTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_IXTable',['showActions' => $showActions])
                                             @break
 
                                         @case('SA_X')
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XTable',['showActions' => $showActions])
                                             @break
 
                                         @case("SA_XI")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XITable',['showActions' => $showActions])
                                             @break
 
                                         @case("SA_XII")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIITable',['showActions' => $showActions])
                                             @break
                                         
                                         @case("SA_XIII")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIIITable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIIITable',['showActions' => $showActions])
                                             @break
 
                                          @case("SA_XIV")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIVTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XIVTable',['showActions' => $showActions])
                                             @break
 
                                         @case("SA_XV")
-                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XVTable')
+                                            @include('user.StudentActivityViews.StudentActivityTables.SA_XVTable',['showActions' => $showActions])
                                             @break
                                         
 
